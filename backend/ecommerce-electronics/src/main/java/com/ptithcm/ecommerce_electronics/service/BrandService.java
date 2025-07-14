@@ -12,8 +12,8 @@ public interface BrandService extends BaseService<Integer, BrandRequestDTO, Bran
 //    BrandDTO getBrandById(Integer id);
 //    List<BrandDTO> getAllBrands();
 //    PageResponse<BrandDTO> getPageBrands(PaginationRequest pageRequest);
-    PageResponse<BrandDTO> getBrandsByCategoryId(Integer categoryId, PaginationRequest pageRequest);
-
+        PageResponse<BrandDTO> getBrandsByCategoryId(Integer categoryId, PaginationRequest pageRequest);
+        List<BrandDTO> getAll();
 //    BrandDTO add(BrandRequestDTO brandRequest);
 //    BrandDTO update(Integer id, BrandRequestDTO brandQuest);
 //    void changeStatus(Integer id, String status);//enum

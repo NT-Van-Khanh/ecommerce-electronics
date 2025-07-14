@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SlideServiceImpl implements SlideService {
 
@@ -68,5 +70,12 @@ public class SlideServiceImpl implements SlideService {
         slide.setStatus(newStatus);
         slideRepository.save(slide);
         return true;
+    }
+
+    @Override
+    public List<SlideDTO> getAll() {
+        return slideRepository.findAll().stream()
+                .map(SlideMapper::toDTO)
+                .toList();
     }
 }

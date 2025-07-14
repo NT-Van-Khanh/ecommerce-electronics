@@ -13,9 +13,10 @@ import com.ptithcm.ecommerce_electronics.service.OrderItemService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 // - func getAll
+@Service
 public class OrderItemServiceImpl implements OrderItemService {
 
     @Autowired

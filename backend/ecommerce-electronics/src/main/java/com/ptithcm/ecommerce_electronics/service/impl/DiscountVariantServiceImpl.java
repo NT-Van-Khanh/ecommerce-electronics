@@ -10,9 +10,11 @@ import com.ptithcm.ecommerce_electronics.model.DiscountVariant;
 import com.ptithcm.ecommerce_electronics.repository.DiscountVariantRepository;
 import com.ptithcm.ecommerce_electronics.service.DiscountVariantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 //6 func - pv
+@Service
 public class DiscountVariantServiceImpl implements DiscountVariantService {
 
     @Autowired

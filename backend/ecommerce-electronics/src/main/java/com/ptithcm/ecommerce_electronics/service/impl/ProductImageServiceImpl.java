@@ -6,17 +6,16 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
-import com.ptithcm.ecommerce_electronics.mapper.PaymentMapper;
 import com.ptithcm.ecommerce_electronics.mapper.ProductImageMapper;
-import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.model.ProductImage;
 import com.ptithcm.ecommerce_electronics.repository.ProductImageRepository;
 import com.ptithcm.ecommerce_electronics.service.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 
+@Service
 public class ProductImageServiceImpl implements ProductImageService {
 
     @Autowired

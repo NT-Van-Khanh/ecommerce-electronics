@@ -9,6 +9,7 @@ import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductMapper;
+import com.ptithcm.ecommerce_electronics.model.Employee;
 import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
@@ -74,7 +75,7 @@ public class ProductServiceImpl implements ProductService {
         return ProductMapper.toDTO(p);
     }
 
-
+    @Override
     public List<ProductDTO> getAll() {
         List<Product> products = productRepository.findAll();
         return products.stream()
@@ -99,6 +100,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO add(ProductCreateDTO request) {
         Product p = ProductMapper.toEntity(request);
+        p.setCreatedBy(Employee.builder().id(1).build());
         return ProductMapper.toDTO(productRepository.save(p));
     }
 

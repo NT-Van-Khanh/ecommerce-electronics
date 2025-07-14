@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SupplierServiceImpl implements SupplierService {
 
@@ -69,5 +71,12 @@ public class SupplierServiceImpl implements SupplierService {
         supplier.setStatus(newStatus);
         supplierRepository.save(supplier);
         return true;
+    }
+
+    @Override
+    public List<SupplierDTO> getAll() {
+        return supplierRepository.findAll().stream()
+                .map(SupplierMapper::toDTO)
+                .toList();
     }
 }

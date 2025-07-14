@@ -13,7 +13,7 @@ public interface ProductService extends BaseService<Integer, ProductCreateDTO, P
    PageResponse<ProductDTO> getDiscountedProducts(PaginationRequest pageRequest);
    List<ProductDTO> getBestSellingProducts(int limit);//ACTIVE
    List<ProductDTO> getNewestProducts(int limit);//ACTIVE
-
+   List<ProductDTO> getAll();
    PageResponse<ProductDTO> getRelatedProducts(Integer id, PaginationRequest pageRequest);
    PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest);
    PageResponse<ProductDTO> semanticFilterProducts(ProductFilterRequest request, PaginationRequest pageRequest);//Search nâng cao
