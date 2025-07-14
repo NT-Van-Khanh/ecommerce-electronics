@@ -1,5 +1,7 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.enums.InventoryPolicy;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,8 +43,9 @@ public class ProductVariant {
     @Column(name = "model", nullable = false)
     private String model;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "inventory_policy", length = 15, nullable = false)
-    private String inventoryPolicy;//CHECK (inventory_policy IN ('DENY', 'CONTINUE', 'BACKORDER')),
+    private InventoryPolicy inventoryPolicy;//CHECK (inventory_policy IN ('DENY', 'CONTINUE', 'BACKORDER')),
 
     @Column(name = "warranty")
     private Integer warranty;
@@ -72,8 +75,9 @@ public class ProductVariant {
     @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
+    private BaseStatus status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)

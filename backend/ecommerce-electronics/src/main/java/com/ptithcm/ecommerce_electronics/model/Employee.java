@@ -1,5 +1,7 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.AccountStatus;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,8 +55,9 @@ public class Employee {
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;//DEFAULT 'PENDING', CHECK (status IN ('PENDING', 'ACTIVE', 'BLOCKED', 'DELETED')),
+    private AccountStatus status;//DEFAULT 'PENDING', CHECK (status IN ('PENDING', 'ACTIVE', 'BLOCKED', 'DELETED')),
 
     @ManyToOne
     @JoinColumn( name = "role_id", nullable = false)

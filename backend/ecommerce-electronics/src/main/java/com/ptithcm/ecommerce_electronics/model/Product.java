@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -41,14 +43,13 @@ public class Product {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
+    private BaseStatus status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
-
-
 
     @UpdateTimestamp
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP")
@@ -65,4 +66,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
+
+    @OneToMany( mappedBy = "product")
+    private List<ProductVariant> productVariants;
 }

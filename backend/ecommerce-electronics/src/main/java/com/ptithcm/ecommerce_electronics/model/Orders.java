@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -64,8 +65,9 @@ public class Orders {
     @Column(name = "delivered_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime deliveredAt;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;
+    private OrderStatus status;
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)

@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,7 @@ public class Role {
     private String name;
 
 //    @Enumerated(EnumType.STRING)  ACTIVE', 'DELETED
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;
+    private BaseStatus status;
 }

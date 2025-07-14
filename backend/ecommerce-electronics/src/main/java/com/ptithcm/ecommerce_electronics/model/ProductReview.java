@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,8 +36,9 @@ public class ProductReview {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;//CHECK (status IN ('PENDING', 'ACTIVE', 'DELETED')),
+    private ProductStatus status;//CHECK (status IN ('PENDING', 'ACTIVE', 'DELETED')),
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)

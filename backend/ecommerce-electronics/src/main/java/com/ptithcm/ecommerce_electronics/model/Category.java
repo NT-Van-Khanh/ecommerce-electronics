@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,8 +35,9 @@ public class Category {
     @JoinColumn(name = "parent_id")
     private Category category;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private String status;//CHECK (status IN ('ACTIVE', 'DELETED')),
+    private BaseStatus status;//CHECK (status IN ('ACTIVE', 'DELETED')),
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)

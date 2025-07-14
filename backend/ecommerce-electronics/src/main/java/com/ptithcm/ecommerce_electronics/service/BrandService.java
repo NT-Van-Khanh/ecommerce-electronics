@@ -4,6 +4,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandRequestDTO;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface BrandService extends BaseService<Integer, BrandRequestDTO, Bran
 //    BrandDTO getBrandById(Integer id);
 //    List<BrandDTO> getAllBrands();
 //    PageResponse<BrandDTO> getPageBrands(PaginationRequest pageRequest);
-    List<BrandDTO> getBrandsByCategoryId(Integer categoryId);
+    PageResponse<BrandDTO> getBrandsByCategoryId(Integer categoryId, PaginationRequest pageRequest);
 
 //    BrandDTO add(BrandRequestDTO brandRequest);
 //    BrandDTO update(Integer id, BrandRequestDTO brandQuest);

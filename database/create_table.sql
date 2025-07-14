@@ -197,6 +197,20 @@ CREATE TABLE product_category(
 	CONSTRAINT FK_pc_category FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
+DROP TABLE IF EXISTS product_tag CASCADE;
+CREATE TABLE product_tag(
+	id SERIAL PRIMARY KEY,
+	product_id INTEGER NOT NULL,
+	tag_key VARCHAR(255) NOT NULL,
+	tag_value VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
+	
+	CHECK (status IN ('ACTIVE', 'DELETED')),
+	CONSTRAINT UQ_pt_product_tag UNIQUE (product_id, tag_key),
+	CONSTRAINT FK_pt_product FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
 DROP TABLE IF EXISTS slide CASCADE;
 CREATE TABLE slide(
 	id SERIAL PRIMARY KEY,
