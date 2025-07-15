@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.discount.DiscountRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.model.Discount;
+import com.ptithcm.ecommerce_electronics.model.Employee;
 import com.ptithcm.ecommerce_electronics.repository.DiscountRepository;
 import com.ptithcm.ecommerce_electronics.service.DiscountService;
 import com.ptithcm.ecommerce_electronics.mapper.DiscountMapper;
@@ -31,6 +32,7 @@ public class DiscountServiceImpl implements DiscountService {
         return DiscountMapper.toDTO(d);
     }
 
+    @Override
     public List<DiscountDTO> getAll() {
         return discountRepository.findAll().stream()
                 .map(DiscountMapper::toDTO)
@@ -54,6 +56,7 @@ public class DiscountServiceImpl implements DiscountService {
     @Override
     public DiscountDTO add(DiscountRequestDTO request) {
         Discount d = DiscountMapper.toEntity(request);
+        d.setCreatedBy(Employee.builder().id(2).build());
         return DiscountMapper.toDTO(discountRepository.save(d));
     }
 

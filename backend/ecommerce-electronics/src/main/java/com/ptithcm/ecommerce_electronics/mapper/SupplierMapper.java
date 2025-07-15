@@ -13,6 +13,7 @@ public class SupplierMapper {
                 .address(supplier.getAddress())
                 .phone(supplier.getPhone())
                 .email(supplier.getEmail())
+                .description(supplier.getDescription())
                 .createdAt(supplier.getCreatedAt())
                 .status(supplier.getStatus().name())
                 .build();

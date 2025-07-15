@@ -58,7 +58,8 @@ public class SlideServiceImpl implements SlideService {
             throw new ResourceNotFoundException("Slide not found with id = " + id);
         }
         Slide slide = SlideMapper.toEntity(request);
-        return SlideMapper.toDTO(slide);
+        slide.setId(id);
+        return SlideMapper.toDTO(slideRepository.save(slide));
     }
 
     @Override

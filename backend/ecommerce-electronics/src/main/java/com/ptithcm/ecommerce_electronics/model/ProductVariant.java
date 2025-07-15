@@ -13,6 +13,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -94,4 +95,7 @@ public class ProductVariant {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
+
+    @OneToMany(mappedBy = "productVariant", cascade = CascadeType.PERSIST)
+    private List<ProductImage> productImages;
 }

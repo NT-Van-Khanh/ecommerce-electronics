@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierDTO;
 import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierRequestDTO;
 import com.ptithcm.ecommerce_electronics.service.SupplierService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class SupplierController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<SupplierDTO>> getSupplierById(@PathVariable("id") Integer id){
+    public ResponseEntity<ApiResponse<SupplierDTO>> getSupplierById(@PathVariable("id") @PositiveOrZero Integer id){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,  supplierService.getById(id)));
     }
 
@@ -49,12 +50,12 @@ public class SupplierController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<SupplierDTO>> updateSupplier(@PathVariable("id") Integer id, @RequestBody @Valid SupplierRequestDTO supplierRequest){
+    public ResponseEntity<ApiResponse<SupplierDTO>> updateSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid SupplierRequestDTO supplierRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.update(id, supplierRequest)));
     }
 
     @PatchMapping("/change-status/{id}")
-    public  ResponseEntity<ApiResponse<String>> changeStatusSupplier(@PathVariable("id") Integer id, @RequestParam String status){
+    public  ResponseEntity<ApiResponse<String>> changeStatusSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
         boolean check = supplierService.changeStatus(id, status);
         if(check){
             return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));

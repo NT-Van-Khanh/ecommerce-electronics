@@ -25,7 +25,7 @@ public class BrandRequestDTO {
     @Schema(description = "Logo url of brand", example = "https://cdn1.viettelstore.vn/Images/Product/ProductImage/541542004.jpeg")
     private String logoUrl;
 
-    @NotNull
+    @NotNull(message = "Status can not be null")
     @Schema(description = "Status of brand", example = "ACTIVE")
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;

@@ -34,16 +34,44 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public PageResponse<CategoryDTO> getNonChildCategories(PaginationRequest pageRequest) {
+        Pageable pageable = pageRequest.toPageable();
+        Page<Category> page = categoryRepository.findAllNonChildCategories(pageable);
+        return new PageResponse<>(page.map(CategoryMapper::toDTO));
+    }
+
+    @Override
     public CategoryDTO getById(Integer id) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with id = "+ id));
         return CategoryMapper.toDTO(category);
     }
 
+    @Override
     public List<CategoryDTO> getAll() {
         List<Category> categories = categoryRepository.findAll();
         return categories.stream()
                 .map(CategoryMapper::toDTO)
+                .toList();
+    }
+
+    @Override
+    public PageResponse<CategoryDTO> getActiveNonChildCategories(PaginationRequest pageRequest) {
+        Page<Category> page =categoryRepository.findActiveNonChildCategories(pageRequest.toPageable());
+        return new PageResponse<>(page.map(CategoryMapper::toDTO));
+    }
+
+    @Override
+    public List<CategoryDTO> getActiveNonChildCategories() {
+        return categoryRepository.findActiveNonChildCategories()
+                .stream().map(CategoryMapper::toDTO)
+                .toList();
+    }
+
+    @Override
+    public List<CategoryDTO> getNonChildCategories() {
+        return categoryRepository.findAllNonChildCategories()
+                .stream().map(CategoryMapper::toDTO)
                 .toList();
     }
 

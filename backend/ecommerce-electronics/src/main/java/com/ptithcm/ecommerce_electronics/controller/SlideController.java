@@ -51,13 +51,13 @@ public class SlideController {
     }
 
     @PutMapping("/update/{id}")
-    public  ResponseEntity<ApiResponse<SlideDTO>> updateSlide(@PathVariable("id") Integer id ,@RequestBody @Valid SlideRequestDTO slideRequest){
+    public  ResponseEntity<ApiResponse<SlideDTO>> updateSlide(@PathVariable("id") @PositiveOrZero Integer id ,@RequestBody @Valid SlideRequestDTO slideRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.update(id, slideRequest)));
     }
 
 
     @PatchMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") Integer id, @RequestParam String status){
+    public ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
         boolean check = slideService.changeStatus(id, status);
         if(check){
             return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));

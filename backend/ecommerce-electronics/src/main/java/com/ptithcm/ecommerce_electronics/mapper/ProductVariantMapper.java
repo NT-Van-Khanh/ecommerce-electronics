@@ -1,16 +1,41 @@
 package com.ptithcm.ecommerce_electronics.mapper;
 
+import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.model.ProductImage;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.model.Supplier;
 
+import java.util.List;
+
 public class ProductVariantMapper {
-    public static ProductVariantDTO toDTO(ProductVariant productVariant) {
-        return  new ProductVariantDTO();
+    public static ProductVariantDTO toDTO(ProductVariant pv) {
+        List<ProductImageDTO> productImages = pv.getProductImages().stream()
+                .map(ProductImageMapper::toDTO).toList();
+        return  ProductVariantDTO.builder()
+                .id(pv.getId())
+                .barcode(pv.getBarcode())
+                .description(pv.getDescription())
+                .imageUrl(pv.getImageUrl())
+                .inventoryPolicy(pv.getInventoryPolicy())
+                .model(pv.getModel())
+                .price(pv.getPrice())
+                .priceSale(pv.getPriceSale())
+                .quantity(pv.getQuantity())
+                .release_at(pv.getRelease_at())
+                .specifications(pv.getSpecifications())
+                .sku(pv.getSku())
+                .warranty(pv.getWarranty())
+                .productImages(productImages)
+                .build();
     }
 
     public static ProductVariant toEntity(ProductVariantRequestDTO request) {
+        List<ProductImage> productImages = request.getProductImages().stream()
+                .map(ProductImageMapper::toEntity).toList();
+
         return ProductVariant.builder()
                 .barcode(request.getBarcode())
                 .price(request.getPrice())
@@ -25,6 +50,7 @@ public class ProductVariantMapper {
                 .specifications(request.getSpecifications())
                 .warranty(request.getWarranty())
                 .supplier(Supplier.builder().id(request.getSupplierId()).build())
+                .status(BaseStatus.valueOf(request.getStatus()))
                 .build();
     }
 }

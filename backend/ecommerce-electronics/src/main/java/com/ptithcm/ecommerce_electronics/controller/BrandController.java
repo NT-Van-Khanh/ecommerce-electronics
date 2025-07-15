@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandRequestDTO;
 import com.ptithcm.ecommerce_electronics.service.BrandService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,12 @@ public class BrandController {
     private BrandService brandService;
 
     @GetMapping("/by-category/{id}")
-    public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getBrandByCategoryId(@PathVariable("id") Integer categoryId, PaginationRequest pageRequest){
+    public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getBrandByCategoryId(@PathVariable("id") @PositiveOrZero Integer categoryId, PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getBrandsByCategoryId(categoryId, pageRequest)));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<BrandDTO>> getBrandById(@PathVariable("id") Integer id){
+    public ResponseEntity<ApiResponse<BrandDTO>> getBrandById(@PathVariable("id") @PositiveOrZero Integer id){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getById(id)));
     }
 
@@ -53,12 +54,12 @@ public class BrandController {
     }
 
     @PutMapping("/update/{id}")
-    public  ResponseEntity<ApiResponse<BrandDTO>> updateBrand(@PathVariable("id") Integer id, @Valid @RequestBody BrandRequestDTO brandRequest){
+    public  ResponseEntity<ApiResponse<BrandDTO>> updateBrand(@PathVariable("id") @PositiveOrZero Integer id, @Valid @RequestBody BrandRequestDTO brandRequest){
         return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK, brandService.update(id, brandRequest)));
     }
 
     @PatchMapping("/change-status")
-    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") Integer id, @RequestParam String status){
+    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
         boolean check = brandService.changeStatus(id, status);
         if(check){
             return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));

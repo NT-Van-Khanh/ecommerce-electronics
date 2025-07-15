@@ -11,6 +11,7 @@ import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductMapper;
 import com.ptithcm.ecommerce_electronics.model.Employee;
 import com.ptithcm.ecommerce_electronics.model.Product;
+import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
@@ -22,10 +23,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 //Con 4 function
 @Service
 public class ProductServiceImpl implements ProductService {
+
     @Autowired
     private ProductRepository productRepository;
 
@@ -48,8 +51,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> getNewestProducts(int limit) {
         Pageable pageable = PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "createdAt" ));
         Page<Product> page = productRepository.findAll(pageable);
-        return  page
-                .map(ProductMapper::toDTO)
+        return  page.map(ProductMapper::toDTO)
                 .toList();
     }
 
@@ -60,7 +62,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest) {
-        return null;
+        Page<Product> page =  productRepository.findAll(pageRequest.toPageable());
+        return new PageResponse<>(page.map(ProductMapper::toDTO));
     }
 
     @Override
@@ -98,10 +101,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductDTO add(ProductCreateDTO request) {
         Product p = ProductMapper.toEntity(request);
-        p.setCreatedBy(Employee.builder().id(1).build());
-        return ProductMapper.toDTO(productRepository.save(p));
+        p.setCreatedBy(Employee.builder().id(2).build());
+        Product newProduct = productRepository.save(p);
+        List<ProductVariant> productVariants = new ArrayList<>();
+        for(ProductVariant pv : p.getProductVariants()){
+            pv.setProduct(Product.builder().id(newProduct.getId()).build());
+            ProductVariant newPv =productVariantRepository.save(pv);
+            productVariants.add(pv);
+        }
+        newProduct.setProductVariants(productVariants);
+        return ProductMapper.toDTO(newProduct);
     }
 
     @Override

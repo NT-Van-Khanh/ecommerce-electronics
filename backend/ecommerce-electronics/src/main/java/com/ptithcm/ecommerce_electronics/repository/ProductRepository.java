@@ -18,6 +18,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>, JpaS
             WHERE EXISTS(
                 SELECT v FROM ProductVariant v
                 WHERE v.product = p AND v.priceSale < v.price
+                AND p.status ='ACTIVE' AND v.status = 'ACTIVE'
             )
             """)
     Page<Product> findProductsHavingDiscountVariants(Pageable pageable);

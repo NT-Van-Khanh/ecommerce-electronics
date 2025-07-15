@@ -52,7 +52,7 @@ public class OptionServiceImpl implements OptionService {
     @Override
     public OptionDTO add(OptionRequestDTO request) {
         Option o = OptionMapper.toEntity(request);
-        return OptionMapper.toDTO(o);
+        return OptionMapper.toDTO(optionRepository.save(o));
     }
 
     @Override

@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 
@@ -79,4 +80,6 @@ public class ProductVariantRequestDTO {
     @Schema(description = "Status of product", example = "ACTIVE")
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;
+
+    private List<ProductImageRequestDTO> productImages;
 }
