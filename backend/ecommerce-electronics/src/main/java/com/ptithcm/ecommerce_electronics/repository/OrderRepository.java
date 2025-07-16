@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Orders, Integer> {
-    Page<Orders> findByCustomerId(String customerId, Pageable pageable);
+    Page<Orders> findByCustomerId(Integer customerId, Pageable pageable);
 
     @Query("""
             SELECT o

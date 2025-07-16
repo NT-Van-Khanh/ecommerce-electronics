@@ -89,7 +89,7 @@ public class ProductVariant {
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", updatable = false, nullable = false)
+    @JoinColumn(name = "created_by", updatable = false)
     private Employee createdBy;
 
     @ManyToOne

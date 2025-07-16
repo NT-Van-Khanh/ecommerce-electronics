@@ -12,7 +12,10 @@ import java.util.List;
 
 public class ProductVariantMapper {
     public static ProductVariantDTO toDTO(ProductVariant pv) {
-        List<ProductImageDTO> productImages = pv.getProductImages().stream()
+
+        List<ProductImageDTO> productImages = null;
+        if(pv.getProductImages()!=null)
+            productImages= pv.getProductImages().stream()
                 .map(ProductImageMapper::toDTO).toList();
         return  ProductVariantDTO.builder()
                 .id(pv.getId())
@@ -33,8 +36,11 @@ public class ProductVariantMapper {
     }
 
     public static ProductVariant toEntity(ProductVariantRequestDTO request) {
-        List<ProductImage> productImages = request.getProductImages().stream()
-                .map(ProductImageMapper::toEntity).toList();
+        List<ProductImage> productImages = null;
+        if(request.getProductImages()!=null){
+            productImages = request.getProductImages().stream()
+                    .map(ProductImageMapper::toEntity).toList();
+        }
 
         return ProductVariant.builder()
                 .barcode(request.getBarcode())
@@ -49,6 +55,7 @@ public class ProductVariantMapper {
                 .release_at(request.getRelease_at())
                 .specifications(request.getSpecifications())
                 .warranty(request.getWarranty())
+                .productImages(productImages)
                 .supplier(Supplier.builder().id(request.getSupplierId()).build())
                 .status(BaseStatus.valueOf(request.getStatus()))
                 .build();

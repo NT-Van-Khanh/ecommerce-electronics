@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -78,11 +79,13 @@ public class Orders {
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", updatable = false, nullable = false)
+    @JoinColumn(name = "created_by", updatable = false)
     private Employee createdBy;
 
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
 
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems;
 }

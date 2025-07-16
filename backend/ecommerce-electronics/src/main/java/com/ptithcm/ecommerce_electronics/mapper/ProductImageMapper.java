@@ -9,6 +9,7 @@ import org.springframework.security.core.parameters.P;
 
 public class ProductImageMapper {
     public static ProductImageDTO toDTO(ProductImage productImage) {
+        if(productImage == null) return null;
         return ProductImageDTO.builder()
                 .name(productImage.getName())
                 .imageUrl(productImage.getImageUrl())
@@ -19,6 +20,7 @@ public class ProductImageMapper {
     }
 
     public static ProductImage toEntity(ProductImageRequestDTO request) {
+        if(request == null) return null;
         return ProductImage.builder()
                 .name(request.getName())
                 .imageUrl(request.getImageUrl())

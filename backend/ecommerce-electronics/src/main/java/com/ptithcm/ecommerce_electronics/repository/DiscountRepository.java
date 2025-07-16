@@ -7,7 +7,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface DiscountRepository extends JpaRepository<Discount, Integer> {
     Page<Discount> findByStatus(BaseStatus baseStatus, Pageable pageable);
+
+    Optional<Discount> findByCode(String discountCode);
 }
