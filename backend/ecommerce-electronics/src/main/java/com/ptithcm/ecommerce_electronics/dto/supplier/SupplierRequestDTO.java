@@ -2,9 +2,7 @@ package com.ptithcm.ecommerce_electronics.dto.supplier;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,10 +18,13 @@ public class SupplierRequestDTO {
     @Schema(description = "Name of supplier", example = "Công ty TNHH Advantech Việt Nam Technology")
     private String name;
 
+    @Schema(description = "Phone of supplier", example = "0912345678", pattern = "^(0|\\+84)[0-9]{9,10}$")
+    @Pattern(regexp = "^(0|\\+84)[0-9]{9,10}$", message = "Invalid phone number format")
     @NotBlank(message = "Phone of supplier can not be null.")
     private String phone;
 
     @NotBlank(message = "Email of supplier can not be null.")
+    @Email(message = "Invalid email format")
     @Schema(description = "Email of supplier", example = "advantechsupplier@advantech.com")
     private String email;
 

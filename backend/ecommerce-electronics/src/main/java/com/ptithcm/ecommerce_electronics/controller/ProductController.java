@@ -7,7 +7,9 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -60,8 +62,8 @@ public class ProductController {
     }
 
     @PatchMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatusProduct(@PathVariable("id") @PositiveOrZero Integer id, @NotBlank String status){
-        boolean changeSuccess = productService.changeStatus(id, status);
+    public ResponseEntity<ApiResponse<String>> changeStatusProduct(@PathVariable("id") @PositiveOrZero Integer id, @NotBlank @RequestParam BaseStatus status){
+        boolean changeSuccess = productService.changeStatus(id, status.name());
         if(changeSuccess)
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,"Change status successfully." ));
         else
@@ -74,7 +76,7 @@ public class ProductController {
     }
 
     @GetMapping("/newest")
-    public ResponseEntity<ApiResponse<List<ProductDTO>>> getNewestProducts(@NotNull @PositiveOrZero Integer limit){
+    public ResponseEntity<ApiResponse<List<ProductDTO>>> getNewestProducts(@NotNull @PositiveOrZero @Schema(example ="5") Integer limit){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getNewestProducts(limit)));
     }
 

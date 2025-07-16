@@ -1,15 +1,13 @@
 package com.ptithcm.ecommerce_electronics.dto.product;
 
-import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.model.Brand;
+import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.mail.MailException;
 
 import java.util.List;
 import java.util.Map;
@@ -43,6 +41,8 @@ public class ProductCreateDTO {
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;
 
+    @PositiveOrZero
+    @ExistsInDatabase(entity = Brand.class, message = "Brand id not found")
     @NotNull(message = "Brand id can not be null.")
     @Schema(description = "Brand id of product", example = "123")
     private Integer brandId;

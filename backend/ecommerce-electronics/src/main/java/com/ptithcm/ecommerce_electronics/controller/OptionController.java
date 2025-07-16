@@ -5,14 +5,14 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.option.OptionRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.OptionService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/options")
@@ -22,7 +22,7 @@ public class OptionController {
     private OptionService optionService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<OptionDTO>> getOptionById(@PathVariable("id") Integer id){
+    public ResponseEntity<ApiResponse<OptionDTO>> getOptionById(@PathVariable("id") @PositiveOrZero Integer id){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, optionService.getById(id)));
     }
 
@@ -37,13 +37,13 @@ public class OptionController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<OptionDTO>> updateOption(@PathVariable("id") Integer id, @RequestBody @Valid OptionRequestDTO optionRequest){
+    public ResponseEntity<ApiResponse<OptionDTO>> updateOption(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid OptionRequestDTO optionRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, optionService.update(id, optionRequest)));
     }
 
     @PatchMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatusOption(@PathVariable("id") Integer id, @RequestParam String status){
-        boolean changeSuccess = optionService.changeStatus(id, status);
+    public ResponseEntity<ApiResponse<String>> changeStatusOption(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
+        boolean changeSuccess = optionService.changeStatus(id, status.name());
         if(changeSuccess)
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Change status successfully"));
         else

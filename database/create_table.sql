@@ -62,13 +62,13 @@ DROP TABLE IF EXISTS supplier CASCADE;
 CREATE TABLE supplier(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
-	email VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
 	phone VARCHAR(15) NOT NULL,
 	address VARCHAR(255),
 	description TEXT,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
-
+	
 	CHECK (status IN ('ACTIVE', 'DELETED'))
 );
 
@@ -165,7 +165,7 @@ CREATE TABLE product_image(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 	
-	CHECK (status IN ('ACTIVE', 'DELETED')),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 	CONSTRAINT FK_product_image FOREIGN KEY (product_variant_id) REFERENCES product_variant(id) ON DELETE CASCADE 
 );
 
@@ -179,7 +179,7 @@ CREATE TABLE category(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 
-	CHECK (status IN ('ACTIVE', 'DELETED')),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 	CONSTRAINT FK_c_category FOREIGN KEY (parent_id) REFERENCES category(id)
 );
 
@@ -191,7 +191,7 @@ CREATE TABLE product_category(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 
-	CHECK (status IN ('ACTIVE', 'DELETED')),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 	CONSTRAINT UQ_pc_product_category UNIQUE (product_id, category_id),
 	CONSTRAINT FK_pc_product FOREIGN KEY (product_id) REFERENCES product(id),
 	CONSTRAINT FK_pc_category FOREIGN KEY (category_id) REFERENCES category(id)
@@ -206,7 +206,7 @@ CREATE TABLE product_tag(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 	
-	CHECK (status IN ('ACTIVE', 'DELETED')),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 	CONSTRAINT UQ_pt_product_tag UNIQUE (product_id, tag_key),
 	CONSTRAINT FK_pt_product FOREIGN KEY (product_id) REFERENCES product(id)
 );
@@ -221,7 +221,7 @@ CREATE TABLE slide(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 	
-	CHECK (status IN ('ACTIVE', 'DELETED'))
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 );
 
 DROP TABLE IF EXISTS product_review CASCADE;
@@ -334,7 +334,7 @@ CREATE TABLE order_item(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 
-	CHECK (status IN ('ACTIVE', 'INACTIVE')),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 	CONSTRAINT UQ_ot_order_pv UNIQUE (order_id, product_variant_id),
 	CONSTRAINT FK_ot_orders FOREIGN KEY (order_id) REFERENCES orders(id),
 	CONSTRAINT FK_ot_discount FOREIGN KEY (discount_id) REFERENCES discount(id),

@@ -114,7 +114,12 @@
 			<artifactId>jjwt-jackson</artifactId>
 			<version>0.11.5</version>
 			<scope>runtime</scope>
+		</dependency><dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -141,6 +146,22 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<to>
+						<image>ntvk137/ecommerce-electronics-backend:latest</image>
+					</to>
+					<container>
+						<ports>
+							<port>8088</port>
+						</ports>
+						<mainClass>com.ptithcm.ecommerce_electronics.EcommerceElectronicsApplication</mainClass>
+					</container>
 				</configuration>
 			</plugin>
 		</plugins>

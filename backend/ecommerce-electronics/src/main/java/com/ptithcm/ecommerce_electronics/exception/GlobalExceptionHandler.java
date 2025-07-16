@@ -10,9 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.mail.MailSendException;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.HandlerMethodValidationException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +44,24 @@ public class GlobalExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(error ->
                 errors.put(error.getField(), error.getDefaultMessage()));
 
+        ApiResponse<Map<String, String>> res = ApiResponse.<Map<String, String>>builder()
+                .statusCode(HttpStatus.BAD_REQUEST.value())
+                .message("Validation failed")
+                .data(errors)
+                .build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+    }
+
+    @ExceptionHandler(HandlerMethodValidationException.class)
+    public ResponseEntity<ApiResponse<Map<String, String>>> handleHandlerMethodValidation(HandlerMethodValidationException ex){
+        Map<String, String> errors = new HashMap<>();
+        ex.getAllErrors().forEach( err ->{
+            if(err instanceof FieldError fe){
+                errors.put(fe.getField(), fe.getDefaultMessage());
+            }else {
+                errors.put("param", err.getDefaultMessage());
+            }
+        });
         ApiResponse<Map<String, String>> res = ApiResponse.<Map<String, String>>builder()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .message("Validation failed")

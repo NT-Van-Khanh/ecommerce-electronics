@@ -1,5 +1,7 @@
 package com.ptithcm.ecommerce_electronics.dto.option;
 
+import com.ptithcm.ecommerce_electronics.model.Option;
+import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueComposite;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -15,6 +17,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@UniqueComposite(entity = Option.class, fields = {"type", "value"}, message = "Duplicate entry {type, value}")
 public class OptionRequestDTO {
 
     @NotBlank(message = "Type of option can not be blank")

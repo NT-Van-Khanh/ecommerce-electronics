@@ -6,6 +6,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.ProductImageService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -33,18 +34,18 @@ public class ProductImageController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse<ProductImageDTO>> addProductImage(@RequestBody ProductImageRequestDTO request){
+    public ResponseEntity<ApiResponse<ProductImageDTO>> addProductImage(@RequestBody @Valid ProductImageRequestDTO request){
         return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, productImageService.add(request)));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<ProductImageDTO>> updateProductImage(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody ProductImageRequestDTO request){
+    public ResponseEntity<ApiResponse<ProductImageDTO>> updateProductImage(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid ProductImageRequestDTO request){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productImageService.update(id, request)));
     }
 
     @PatchMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatusProduct(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
-        boolean changeSuccess =productImageService.changeStatus(id, status);
+    public ResponseEntity<ApiResponse<String>> changeStatusProduct(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
+        boolean changeSuccess =productImageService.changeStatus(id, status.name());
         if(changeSuccess)
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Change status successfully"));
         else

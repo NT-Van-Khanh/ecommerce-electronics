@@ -2,6 +2,8 @@ package com.ptithcm.ecommerce_electronics.dto.discount;
 
 
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.model.Discount;
+import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ import java.util.Map;
 @Data
 @Builder
 public class DiscountRequestDTO {
+    @UniqueField(entity = Discount.class, fieldName = "code", message = "This code already exists")
     @NotBlank(message = "Code of the discount can not be blank")
     @Schema(description = "Code of the coupon", example = "COUPON_2025")
     private String code;

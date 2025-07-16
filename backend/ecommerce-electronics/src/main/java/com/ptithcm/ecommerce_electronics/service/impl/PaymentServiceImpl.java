@@ -6,7 +6,6 @@ import com.ptithcm.ecommerce_electronics.dto.payment.PaymentDTO;
 import com.ptithcm.ecommerce_electronics.dto.payment.PaymentRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
-import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.PaymentMapper;
 import com.ptithcm.ecommerce_electronics.model.Payment;

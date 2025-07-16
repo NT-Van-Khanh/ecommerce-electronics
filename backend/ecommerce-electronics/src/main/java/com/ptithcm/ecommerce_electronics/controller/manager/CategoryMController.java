@@ -8,6 +8,7 @@ import com.ptithcm.ecommerce_electronics.dto.category.CategoryRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.CategoryService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class CategoryMController {
     private CategoryService categoryService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<CategoryDTO>> getCategoryById(@PathVariable("id") Integer id){
+    public ResponseEntity<ApiResponse<CategoryDTO>> getCategoryById(@PathVariable("id") @PositiveOrZero Integer id){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getById(id)));
     }
 
@@ -45,12 +46,12 @@ public class CategoryMController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<CategoryDTO>> updateCategory(@PathVariable("id") Integer id, @Valid @RequestBody CategoryRequestDTO categoryRequest){
+    public ResponseEntity<ApiResponse<CategoryDTO>> updateCategory(@PathVariable("id") @PositiveOrZero Integer id, @Valid @RequestBody CategoryRequestDTO categoryRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.update(id, categoryRequest)));
     }
 
     @PatchMapping("/change-status/{id}")
-    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") Integer id, @RequestParam BaseStatus status){
+    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
         boolean changeSuccess = categoryService.changeStatus(id, status.name());
         if(changeSuccess)
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,"Change status successfully"));

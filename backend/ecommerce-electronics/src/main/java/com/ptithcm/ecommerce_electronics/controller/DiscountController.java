@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountDTO;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.DiscountService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -33,7 +34,6 @@ public class DiscountController {
     }
 
 
-
     @GetMapping("/page")
     public ResponseEntity<ApiResponse<PageResponse<DiscountDTO>>> getPageDiscounts(@Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, discountService.getPage(pageRequest)));
@@ -51,13 +51,13 @@ public class DiscountController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<DiscountDTO>> updateDiscount(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody DiscountRequestDTO discountRequest){
+    public ResponseEntity<ApiResponse<DiscountDTO>> updateDiscount(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid DiscountRequestDTO discountRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, discountService.update(id, discountRequest)));
     }
 
-    @PatchMapping("/change-status")
-    public ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
-        boolean changeSuccess =discountService.changeStatus(id, status);
+    @PatchMapping("/change-status/{id}")
+    public ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
+        boolean changeSuccess =discountService.changeStatus(id, status.name());
         if(changeSuccess)
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Change status successfully"));
         else

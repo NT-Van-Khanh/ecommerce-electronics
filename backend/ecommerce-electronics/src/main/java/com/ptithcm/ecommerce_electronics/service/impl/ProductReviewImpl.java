@@ -5,7 +5,6 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewDTO;
 import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductImageMapper;
 import com.ptithcm.ecommerce_electronics.mapper.ProductReviewMapper;
@@ -65,7 +64,7 @@ public class ProductReviewImpl implements ProductReviewService {
     public boolean changeStatus(Integer id, String status) {
         ProductReview productReview = pReviewRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product review not found with id = " + id));
-        ProductStatus newStatus = ProductStatus.valueOf(status);
+        BaseStatus newStatus = BaseStatus.valueOf(status);
         if(newStatus.equals(productReview.getStatus())) return false;
         productReview.setStatus(newStatus);
         pReviewRepository.save(productReview);

@@ -6,7 +6,6 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductMapper;
 import com.ptithcm.ecommerce_electronics.model.Employee;
@@ -96,7 +95,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public PageResponse<ProductDTO> getPageActive(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Product> page = productRepository.findByStatus(ProductStatus.ACTIVE, pageable);
+        Page<Product> page = productRepository.findByStatus(BaseStatus.ACTIVE, pageable);
         return new PageResponse<>(page.map(ProductMapper::toDTO));
     }
 

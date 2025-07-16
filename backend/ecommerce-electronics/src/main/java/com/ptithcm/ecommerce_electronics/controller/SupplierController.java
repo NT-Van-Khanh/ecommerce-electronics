@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierDTO;
 import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.SupplierService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -55,8 +56,8 @@ public class SupplierController {
     }
 
     @PatchMapping("/change-status/{id}")
-    public  ResponseEntity<ApiResponse<String>> changeStatusSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
-        boolean check = supplierService.changeStatus(id, status);
+    public  ResponseEntity<ApiResponse<String>> changeStatusSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
+        boolean check = supplierService.changeStatus(id, status.name());
         if(check){
             return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));
         }else {

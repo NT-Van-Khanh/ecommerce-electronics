@@ -2,6 +2,7 @@ package com.ptithcm.ecommerce_electronics.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ public class PaginationRequest {
 
     @NotNull(message = "Size không được phép null")
     @Min(value = 1, message = "size >= 1")
+    @Max(value = 1000, message = "size <= 1000")
     @Schema(description = "Số lượng phần tử - Bắt đầu từ 1", example = "20", minimum = "1")
     private int size = 20;
 

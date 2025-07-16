@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.BrandService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -59,8 +60,8 @@ public class BrandController {
     }
 
     @PatchMapping("/change-status")
-    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam String status){
-        boolean check = brandService.changeStatus(id, status);
+    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
+        boolean check = brandService.changeStatus(id, status.name());
         if(check){
             return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));
         }else {

@@ -1,6 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
-import com.ptithcm.ecommerce_electronics.enums.ProductStatus;
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +38,7 @@ public class ProductReview {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private ProductStatus status;//CHECK (status IN ('PENDING', 'ACTIVE', 'DELETED')),
+    private BaseStatus status;//CHECK (status IN ('PENDING', 'ACTIVE', 'DELETED')),
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
