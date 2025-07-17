@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ProductVariantMapper {
     public static ProductVariantDTO toDTO(ProductVariant pv) {
-
+        if(pv == null ) return null;
         List<ProductImageDTO> productImages = null;
         if(pv.getProductImages()!=null)
             productImages= pv.getProductImages().stream()
@@ -36,6 +36,7 @@ public class ProductVariantMapper {
     }
 
     public static ProductVariant toEntity(ProductVariantRequestDTO request) {
+        if(request == null ) return null;
         List<ProductImage> productImages = null;
         if(request.getProductImages()!=null){
             productImages = request.getProductImages().stream()

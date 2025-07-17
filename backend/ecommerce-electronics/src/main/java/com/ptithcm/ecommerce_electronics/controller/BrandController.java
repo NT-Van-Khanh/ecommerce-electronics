@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/brands")
+@RequestMapping("${api.v1.prefix}/brands")
 public class BrandController {
 
     @Autowired
@@ -39,33 +39,9 @@ public class BrandController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getPageBrands(@Valid PaginationRequest pageRequest){
-        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getPage(pageRequest)));
-    }
-
-
-    @GetMapping("/active/page")
     public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getPageActiveBrands(@Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getPageActive(pageRequest)));
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<ApiResponse<BrandDTO>> addBrand(@RequestBody @Valid BrandRequestDTO brandRequest){
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, brandService.add(brandRequest)));
-    }
 
-    @PutMapping("/update/{id}")
-    public  ResponseEntity<ApiResponse<BrandDTO>> updateBrand(@PathVariable("id") @PositiveOrZero Integer id, @Valid @RequestBody BrandRequestDTO brandRequest){
-        return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK, brandService.update(id, brandRequest)));
-    }
-
-    @PatchMapping("/change-status")
-    public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
-        boolean check = brandService.changeStatus(id, status.name());
-        if(check){
-            return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));
-        }else {
-            return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK ,"Status can not change."));
-        }
-    }
 }

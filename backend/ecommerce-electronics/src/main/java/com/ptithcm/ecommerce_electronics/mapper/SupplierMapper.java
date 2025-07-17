@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.model.Supplier;
 
 public class SupplierMapper {
     public static SupplierDTO toDTO(Supplier supplier) {
+        if(supplier == null ) return null;
         return SupplierDTO.builder()
                 .id(supplier.getId())
                 .name(supplier.getName())
@@ -20,6 +21,7 @@ public class SupplierMapper {
     }
 
     public static Supplier toEntity(SupplierRequestDTO request) {
+        if(request == null ) return null;
         return Supplier.builder()
                 .name(request.getName())
                 .phone(request.getPhone())

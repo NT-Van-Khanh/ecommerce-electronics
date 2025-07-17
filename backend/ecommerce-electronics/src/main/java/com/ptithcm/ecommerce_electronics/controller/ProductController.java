@@ -24,7 +24,7 @@ import java.util.List;
 
 @Valid
 @RestController
-@RequestMapping("/products")
+@RequestMapping("${api.v1.prefix}/products")
 public class ProductController {
 
     @Autowired

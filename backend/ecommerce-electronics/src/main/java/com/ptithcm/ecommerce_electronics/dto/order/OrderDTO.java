@@ -2,6 +2,7 @@ package com.ptithcm.ecommerce_electronics.dto.order;
 
 
 import com.ptithcm.ecommerce_electronics.dto.customer.CustomerDTO;
+import com.ptithcm.ecommerce_electronics.dto.payment.PaymentDTO;
 import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +33,6 @@ public class OrderDTO {
     private String recipientPhone;
     private LocalDateTime deliveredAt;
     private OrderStatus status;
+    private PaymentDTO payment;
     private String createdByEmployeeId;//id employee
 }

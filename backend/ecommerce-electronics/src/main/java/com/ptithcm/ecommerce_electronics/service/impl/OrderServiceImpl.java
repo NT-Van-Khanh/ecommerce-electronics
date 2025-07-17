@@ -10,6 +10,7 @@ import com.ptithcm.ecommerce_electronics.dto.order.OrderItemRequestDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
+import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
 import com.ptithcm.ecommerce_electronics.exception.ForbiddenException;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.OrderItemMapper;
@@ -67,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Integer getTotalTaxOfOrder(List<OrderItemDTO> orderItemList) {
+    public Integer getTotalTaxOfOrder(OrderRequestDTO order) {
         return 5000;
     }
 
@@ -77,7 +78,6 @@ public class OrderServiceImpl implements OrderService {
         if(token == null) throw new ForbiddenException("Please login or auth email before take order");
         Orders order = setElementForOrder(orderRequest);
         Orders newOrder = orderRepository.save(order);
-
         List<OrderItemDTO> orderItems = new ArrayList<>();
         for(OrderItem item : order.getOrderItems()){
             item.setTaxRate(0);
@@ -87,9 +87,11 @@ public class OrderServiceImpl implements OrderService {
             System.err.println(productVariantId);
             ProductVariant productVariant = productVariantRepository.findById(productVariantId)
                     .orElseThrow(()-> new ResourceNotFoundException("Product variant not found with id = " + productVariantId));
+            item.setProductVariant(productVariant);
             item.setUnitAmount(productVariant.getPriceSale());
             item.setOrder(Orders.builder().id(newOrder.getId()).build());
-            OrderItemDTO orderResponse = OrderItemMapper.toDTO(orderItemRepository.save(item));
+            OrderItemDTO orderResponse = OrderItemMapper.toDTO( orderItemRepository.save(item));
+
             orderItems.add(orderResponse);
         }
         OrderDTO orderResponse = OrderMapper.toDTO(newOrder);
@@ -112,6 +114,8 @@ public class OrderServiceImpl implements OrderService {
         order.setShipAmount(getShippingFeeCharged(null));
         order.setTotalAmount(200000);
         order.setStatus(OrderStatus.PENDING);
+        order.getPayment().setOrder(order);
+        order.getPayment().setStatus(PaymentStatus.PENDING);
         return order;
     }
 

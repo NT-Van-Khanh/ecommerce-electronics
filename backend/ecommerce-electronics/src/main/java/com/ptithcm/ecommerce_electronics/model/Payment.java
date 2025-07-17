@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.model;
 
+import com.ptithcm.ecommerce_electronics.enums.PaymentMethod;
 import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,12 +24,13 @@ public class Payment {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Orders order;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "method", length = 100, nullable = false)
-    private String method;
+    private PaymentMethod method;
 
     @Column(name = "paid_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime paidAt;

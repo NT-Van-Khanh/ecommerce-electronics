@@ -18,12 +18,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("${api.v1.prefix}/supplier")
 public class SupplierController {
 
     @Autowired
     private SupplierService supplierService;
-
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<SupplierDTO>> getSupplierById(@PathVariable("id") @PositiveOrZero Integer id){
@@ -36,33 +35,7 @@ public class SupplierController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<SupplierDTO>>> getPageSuppliers(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getPage(pageRequest)));
-    }
-
-    @GetMapping("/active/page")
     public ResponseEntity<ApiResponse<PageResponse<SupplierDTO>>> getPageActiveSuppliers(@Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getPageActive(pageRequest)));
     }
-
-    @PostMapping("/add")
-    public ResponseEntity<ApiResponse<SupplierDTO>> addSupplier(@RequestBody @Valid SupplierRequestDTO supplierRequest){
-        return  ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, supplierService.add(supplierRequest)));
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<SupplierDTO>> updateSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid SupplierRequestDTO supplierRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.update(id, supplierRequest)));
-    }
-
-    @PatchMapping("/change-status/{id}")
-    public  ResponseEntity<ApiResponse<String>> changeStatusSupplier(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
-        boolean check = supplierService.changeStatus(id, status.name());
-        if(check){
-            return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));
-        }else {
-            return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK ,"Status can not change."));
-        }
-    }
-
 }

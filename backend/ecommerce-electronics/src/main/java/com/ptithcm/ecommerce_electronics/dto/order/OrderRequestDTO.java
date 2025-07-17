@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.order;
 
+import com.ptithcm.ecommerce_electronics.dto.payment.PaymentRequestDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -20,12 +21,12 @@ public class OrderRequestDTO {
 //    @Schema(defaultValue = "customer id", )
 //    private Integer customerId;
 
-    @Schema(description = "coupon code", example = "Discount1")
-    private String discountCode;
-
     @NotNull(message = "List item can not be null")
     @Schema(description = "List item of order")
     private List<OrderItemRequestDTO> items;
+
+    @Schema(description = "coupon code", example = "Discount1")
+    private String discountCode;
 
     @NotNull(message = "order item can not be null")
     @Schema(description = "time order", example = "2025-07-18T08:20:20")
@@ -44,4 +45,6 @@ public class OrderRequestDTO {
     @Schema(description = "Phone of receiver, default: customer phone", example = "0233444323", pattern = "^(0|\\+84)[0-9]{9,10}$")
     private String recipientPhone;
 
+    @NotNull(message = "Payment can not be null")
+    private PaymentRequestDTO payment;
 }

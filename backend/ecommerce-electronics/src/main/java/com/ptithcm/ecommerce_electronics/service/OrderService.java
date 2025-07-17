@@ -18,7 +18,7 @@ public interface OrderService extends BaseService<Integer, OrderRequestDTO, Orde
 
     Integer getShippingFeeCharged(String address);
 
-    Integer getTotalTaxOfOrder(List<OrderItemDTO> orderItemList);
+    Integer getTotalTaxOfOrder(OrderRequestDTO order);
 
     OrderDTO add(OrderRequestDTO orderRequest, String jwt);
 }

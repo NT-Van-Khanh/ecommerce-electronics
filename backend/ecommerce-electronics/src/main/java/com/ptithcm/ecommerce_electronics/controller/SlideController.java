@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/slides")
+@RequestMapping("${api.v1.prefix}/slides")
 public class SlideController {
 
     @Autowired
@@ -35,35 +35,9 @@ public class SlideController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<SlideDTO>>> getPageSlides(@Valid PaginationRequest pageRequest){
-        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.getPage(pageRequest)));
-    }
-
-
-    @GetMapping("/active/page")
     public ResponseEntity<ApiResponse<PageResponse<SlideDTO>>> getPageActiveSlides(@Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.getPageActive(pageRequest)));
     }
 
 
-    @PostMapping("/add")
-    public ResponseEntity<ApiResponse<SlideDTO>> addSlide(@RequestBody @Valid SlideRequestDTO slideRequest){
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, slideService.add(slideRequest)));
-    }
-
-    @PutMapping("/update/{id}")
-    public  ResponseEntity<ApiResponse<SlideDTO>> updateSlide(@PathVariable("id") @PositiveOrZero Integer id ,@RequestBody @Valid SlideRequestDTO slideRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.update(id, slideRequest)));
-    }
-
-
-    @PatchMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
-        boolean check = slideService.changeStatus(id, status.name());
-        if(check){
-            return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK,"Status change successfully"));
-        }else {
-            return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK ,"Status can not change."));
-        }
-    }
 }

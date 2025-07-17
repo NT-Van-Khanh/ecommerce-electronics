@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ProductMapper {
     public static ProductDTO toDTO(Product product) {
+        if(product == null ) return null;
         List<ProductVariantDTO> productVariants = product.getProductVariants()
                 .stream().map(ProductVariantMapper::toDTO)
                 .toList();
@@ -32,6 +33,7 @@ public class ProductMapper {
     }
 
     public static Product toEntity(ProductCreateDTO request) {
+        if(request == null ) return null;
         List<ProductVariant> productVariant = request.getProductVariants()
                 .stream().map(ProductVariantMapper::toEntity).toList();
         return Product.builder()

@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.model.Slide;
 
 public class SlideMapper {
     public static SlideDTO toDTO(Slide slide) {
+        if(slide == null ) return null;
         return  SlideDTO.builder()
                 .id(slide.getId())
                 .name(slide.getName())
@@ -19,6 +20,7 @@ public class SlideMapper {
     }
 
     public static Slide toEntity(SlideRequestDTO request) {
+        if(request == null ) return null;
         return Slide.builder()
                 .name(request.getName())
                 .link(request.getLink())

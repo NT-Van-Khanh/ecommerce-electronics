@@ -7,6 +7,7 @@ import com.ptithcm.ecommerce_electronics.model.Brand;
 
 public class BrandMapper {
     public static BrandDTO toDTO(Brand brand) {
+        if(brand == null ) return null;
         return BrandDTO.builder()
                 .id(brand.getId())
                 .name(brand.getName())
@@ -16,6 +17,7 @@ public class BrandMapper {
     }
 
     public static Brand toEntity(BrandRequestDTO request) {
+        if(request == null ) return null;
         return Brand.builder()
                 .name(request.getName())
                 .description(request.getDescription())

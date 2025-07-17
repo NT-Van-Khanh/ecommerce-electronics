@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("${api.v1.prefix}/orders")
 public class OrderController {
 
     @Autowired
@@ -56,12 +56,12 @@ public class OrderController {
 //        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK, orderService.update(id, orderRequest)));
 //    }
 
-    @GetMapping("/get-tax")
-    public ResponseEntity<ApiResponse<Integer>> getTotalTaxOfOrder(@RequestBody @Valid List<OrderItemDTO> orderItemList){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getTotalTaxOfOrder(orderItemList)));
+    @PostMapping("/get-tax")
+    public ResponseEntity<ApiResponse<Integer>> getTotalTaxOfOrder(@RequestBody @Valid OrderRequestDTO order){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getTotalTaxOfOrder(order)));
     }
 
-    @GetMapping("/get-ship")
+    @PostMapping("/get-ship-fee")
     public ResponseEntity<ApiResponse<Integer>> getShipAmountByAddress(@RequestParam String address){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getShippingFeeCharged(address)));
     }

@@ -98,4 +98,31 @@ public class ProductVariant {
 
     @OneToMany(mappedBy = "productVariant", cascade = CascadeType.PERSIST)
     private List<ProductImage> productImages;
+
+    @Override
+    public String toString() {
+        return "ProductVariant{" +
+                "id=" + id +
+                ", price=" + price +
+                ", priceSale=" + priceSale +
+                ", quantity=" + quantity +
+                ", sku='" + sku + '\'' +
+                ", model='" + model + '\'' +
+                ", inventoryPolicy=" + inventoryPolicy +
+                ", warranty=" + warranty +
+                ", barcode='" + barcode + '\'' +
+                ", release_at=" + release_at +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", specifications=" + specifications +
+                ", description='" + description + '\'' +
+                ", product=" + product +
+                ", supplier=" + supplier +
+                ", status=" + status +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", createdBy=" + createdBy +
+                ", updatedBy=" + updatedBy +
+                ", productImages=" + productImages +
+                '}';
+    }
 }
