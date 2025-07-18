@@ -107,7 +107,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     throw new RuntimeException("Không xác định loại người dùng.");
                 }
 //                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                if( jwtUtil.validateToken(jwt, userDetails)){
+                if( jwtUtil.validateAccessToken(jwt, userDetails)){
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails,

@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.config;
 
+import com.ptithcm.ecommerce_electronics.enums.TokenPurpose;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -24,7 +25,7 @@ public class JwtTokenUtil {
     @Value("${jwt.expiration.otp.minutes}")
     private Long EXPIRATION_OTP;
 
-    public  String generateToken(UserDetails userDetails){
+    public  String generateAccessToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", userDetails.getAuthorities());
         Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
@@ -38,7 +39,7 @@ public class JwtTokenUtil {
                 .compact();
     }
 
-    public boolean validateToken(String token, UserDetails userDetails){
+    public boolean validateAccessToken(String token, UserDetails userDetails){
         String username = extractUsername(token);
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
@@ -71,4 +72,25 @@ public class JwtTokenUtil {
     public String extractUsername(String token) {
         return extractClaims(token).getSubject();
     }
+
+    public String generateActionToken(String role, String email, TokenPurpose purpose){
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", role);
+        claims.put("email", email);
+        claims.put("purpose", purpose.name());
+        Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+        long expiration  = EXPIRATION_OTP *1000L *60;
+        return Jwts.builder()
+                .setSubject(email)
+                .setClaims(claims)
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .setIssuedAt(new Date())
+                .signWith(key)
+                .compact();
+    }
+
+    public boolean validateActionToken(String token){
+        return true;
+    }
+
 }

@@ -51,7 +51,7 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
         );
         System.out.println("b");
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String authToken = jwtUtil.generateToken(userDetails);
+        String authToken = jwtUtil.generateAccessToken(userDetails);
         System.out.println("c");
 
         AuthResponseDTO authResponse = new AuthResponseDTO();
