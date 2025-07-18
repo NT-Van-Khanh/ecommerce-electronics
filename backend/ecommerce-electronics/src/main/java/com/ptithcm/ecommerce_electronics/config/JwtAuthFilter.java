@@ -74,12 +74,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         String path = request.getRequestURI();
         boolean requiresToken = PROTECTED_URL.stream().anyMatch(path::startsWith);
-
+        System.err.println("1");
         if(!requiresToken){
             filterChain.doFilter(request, response);
             return;
         }
-
+        System.err.println("2");
         final String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -87,27 +87,32 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             response.getWriter().write(new ObjectMapper().writeValueAsString(
                     new ApiResponse<>(HttpStatus.UNAUTHORIZED, "Missing or invalid Authorization header")
             ));
+            return;
         }
+        System.err.println("3");
         String username = null;
         String jwt = null;
         try{
-            if( authHeader != null && authHeader.startsWith("Bearer ")){
+            if(authHeader.startsWith("Bearer ")){
                 jwt = authHeader.substring(7);
                 username = jwtUtil.extractUsername(jwt);
             }
-
+            System.err.println("4");
             if(username!=null && SecurityContextHolder.getContext().getAuthentication() == null){
                 UserDetails userDetails;
-
+                System.err.println("5");
                 if (path.startsWith("/api/v1/m")) {
                     userDetails = employeeDetailsService.loadUserByUsername(username);
+                    System.err.println("6");
                 } else if (path.startsWith("/api/v1/c")) {
                     userDetails = customerDetailsService.loadUserByUsername(username);
+                    System.err.println("7");
                 } else {
                     throw new RuntimeException("Không xác định loại người dùng.");
                 }
 //                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
                 if( jwtUtil.validateAccessToken(jwt, userDetails)){
+                    System.err.println("8");
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails,
@@ -118,8 +123,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
+            filterChain.doFilter(request, response);
         }catch ( Exception ex){
-            handlerExceptionResolver.resolveException(request, response, null, ex);
+            System.err.println("9");
+//            handlerExceptionResolver.resolveException(request, response, null, ex);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json;charset=UTF-8");
             response.getWriter().write("{\"error\": \"Unauthorized: " + ex.getMessage() + "\"}");

@@ -1,6 +1,8 @@
 package com.ptithcm.ecommerce_electronics.config;
 
-import com.ptithcm.ecommerce_electronics.enums.TokenPurpose;
+import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
+import com.ptithcm.ecommerce_electronics.enums.RoleAuth;
+import com.ptithcm.ecommerce_electronics.exception.UnauthorizedException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -73,7 +75,7 @@ public class JwtTokenUtil {
         return extractClaims(token).getSubject();
     }
 
-    public String generateActionToken(String role, String email, TokenPurpose purpose){
+    public String generateActionToken(RoleAuth role, String email, ActionPurpose purpose){
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", role);
         claims.put("email", email);
@@ -89,8 +91,28 @@ public class JwtTokenUtil {
                 .compact();
     }
 
-    public boolean validateActionToken(String token){
-        return true;
+    public String validateActionToken(RoleAuth role, String token, ActionPurpose purpose){
+
+        try {
+            Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+
+            String claimPurpose = claims.get("purpose", String.class);
+            String claimRole = claims.get("role", String.class);
+            if(!claimRole.equals(role.name())|| !claimPurpose.equals(purpose.name()) ){
+                throw new UnsupportedJwtException("Invalid token");
+            }
+            return claims.getSubject();
+
+        } catch (ExpiredJwtException e) {
+            throw new UnauthorizedException("Token has expired");
+        } catch (JwtException e) {
+            throw new UnauthorizedException("Invalid token");
+        }
     }
 
 }

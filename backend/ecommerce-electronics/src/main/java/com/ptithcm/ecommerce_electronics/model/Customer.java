@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -55,11 +56,12 @@ public class Customer {
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @UpdateTimestamp
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime updatedAt;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private AccountStatus status;//CHECK (status IN ('PENDING', 'ACTIVE', 'BLOCKED', 'DELETED'))
+    private AccountStatus status= AccountStatus.PENDING;;//CHECK (status IN ('PENDING', 'ACTIVE', 'BLOCKED', 'DELETED'))
 
 }

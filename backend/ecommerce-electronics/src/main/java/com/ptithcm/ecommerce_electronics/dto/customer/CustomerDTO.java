@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -13,10 +15,13 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerDTO {
     private String token;
-    private String id;
+    private Integer id;
     private String username;
     private String fullName;
     private String email;
     private String phone;
+    private String address;
     private String role;
+    private LocalDate birthday;
+    private String gender;
 }

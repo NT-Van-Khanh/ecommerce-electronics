@@ -1,6 +1,8 @@
 package com.ptithcm.ecommerce_electronics.controller;
 
 import com.ptithcm.ecommerce_electronics.dto.*;
+import com.ptithcm.ecommerce_electronics.dto.customer.CustomerRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
 import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,29 +23,46 @@ public class AuthCustomerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse<AuthResponseDTO>> login(@RequestBody @Valid LoginRequestDTO account){
+    public ResponseEntity<ApiResponse<AuthResponseDTO>> login(@RequestBody @Valid AuthRequestDTO account){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,authCustomerService.login(account.getUsername(), account.getPassword())));
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<ApiResponse<String>> logout(@RequestBody String token){
-        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.logout()));
+//    @PostMapping("/logout")
+//    public ResponseEntity<ApiResponse<String>> logout(@RequestBody String token){
+//        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.logout()));
+//    }
+
+    @PostMapping("/register")
+    public ResponseEntity<ApiResponse<String>> register(@RequestBody @Valid CustomerRequestDTO request, @RequestParam String otp){
+        authCustomerService.register(request, otp);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, "Register successfully. Please login to continue."));
     }
 
-    @PostMapping("/send-otp-email")
-    public  ResponseEntity<ApiResponse<String>> sendOtpToEmail(@RequestParam String email){
-        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.sendOtpToEmail(email)));
+    @PostMapping("/register/send-otp/email")
+    public  ResponseEntity<ApiResponse<String>> sendOtpRegister(@RequestBody @Valid CustomerRequestDTO register){
+        authCustomerService.sendOtpToNewEmail(register, ActionPurpose.REGISTER_ACCOUNT);
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP."));
     }
 
-    @PostMapping("/verify/email")
+    @PostMapping("/reset-password/send-otp/email")
+    public  ResponseEntity<ApiResponse<String>> sendOtpResetPassword(@RequestParam String email){
+        authCustomerService.sendOtpToExistingEmail(email, ActionPurpose.RESET_PASSWORD);
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP."));
+    }
+
+    @PostMapping("/resetPassword/verify/email")
     public ResponseEntity<ApiResponse<String>> verifyEmail(@RequestBody @Valid VerifyEmailRequest verifyEmail){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.verifyEmail(verifyEmail.getEmail(), verifyEmail.getOtp())));
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.verifyEmail(
+                verifyEmail.getEmail(),
+                ActionPurpose.RESET_PASSWORD,
+                verifyEmail.getOtp())));
     }
 
 
     @PostMapping("/resetPassword")
     public ResponseEntity<ApiResponse<String>> resetPassword(@RequestBody @Valid ResetPasswordRequest resetPassword){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.resetPassword(resetPassword.getEmail(),
-                resetPassword.getToken(), resetPassword.getNewPassword())));
+        authCustomerService.resetPassword(resetPassword.getEmail(),
+                resetPassword.getToken(), resetPassword.getNewPassword());
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Reset password successfully. Please login to continue."));
     }
 }

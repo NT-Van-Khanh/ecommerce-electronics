@@ -12,6 +12,12 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Page<Customer> findByStatus(BaseStatus baseStatus, Pageable pageable);
-
+    boolean existsByEmail(String email);
     Optional<Customer> findByUsername(String username);
+
+    boolean existsByPhone(String phone);
+
+    Optional<Customer> findByEmail(String email);
+
+    Optional<Customer> findByEmailAndPassword(String username, String currentPassword);
 }

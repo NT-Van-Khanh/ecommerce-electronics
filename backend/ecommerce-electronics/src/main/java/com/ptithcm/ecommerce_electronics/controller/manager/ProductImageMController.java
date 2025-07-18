@@ -1,4 +1,4 @@
-package com.ptithcm.ecommerce_electronics.controller;
+package com.ptithcm.ecommerce_electronics.controller.manager;
 
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
@@ -16,8 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("${api.v1.prefix}/product-images")
-public class ProductImageController {
+@RequestMapping("${api.v1.prefix}/m/product-images")
+public class ProductImageMController {
 
     @Autowired
     private ProductImageService productImageService;

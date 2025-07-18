@@ -28,23 +28,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<OrderDTO>> getOrderById(@PathVariable("id") Integer id){
-        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getById(id)));
-    }
-
-    @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrders(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getPage(pageRequest)));
-    }
-
-    @GetMapping("/customer/{customerId}/page")
-    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrderByCustomerId(@PathVariable("customerId") @PositiveOrZero Integer customerId, @Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getByCustomerId(customerId, pageRequest)));
-    }
-
-
     @PostMapping("/add")
     public ResponseEntity<ApiResponse<OrderDTO>> addOrder(@RequestBody @Valid OrderRequestDTO orderRequest, @RequestHeader("Authentication") String authHeader){
         String token = authHeader.substring(7);
@@ -67,11 +50,11 @@ public class OrderController {
     }
 
 
-    @PatchMapping("/change-status/{id}")
-    public  ResponseEntity<ApiResponse<String >> changeStatusOrder(@PathVariable("id") Integer id, @RequestParam OrderStatus status){
-        boolean changeSuccess = orderService.changeStatus(id, status.name());
-        if(changeSuccess) return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,"Change status successfully"));
-        else
-            return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK, "This status already exists"));
-    }
+//    @PatchMapping("/change-status/{id}")
+//    public  ResponseEntity<ApiResponse<String >> changeStatusOrder(@PathVariable("id") Integer id, @RequestParam OrderStatus status){
+//        boolean changeSuccess = orderService.changeStatus(id, status.name());
+//        if(changeSuccess) return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,"Change status successfully"));
+//        else
+//            return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK, "This status already exists"));
+//    }
 }
