@@ -23,19 +23,19 @@ public class SupplierController {
 
     @Autowired
     private SupplierService supplierService;
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<SupplierDTO>> getSupplierById(@PathVariable("id") @PositiveOrZero Integer id){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,  supplierService.getById(id)));
-    }
-
-    @GetMapping("/all")
-    public ResponseEntity<ApiResponse<List<SupplierDTO>>> getAllSuppliers(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getAll()));
-    }
-
-    @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<SupplierDTO>>> getPageActiveSuppliers(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getPageActive(pageRequest)));
-    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<ApiResponse<SupplierDTO>> getSupplierById(@PathVariable("id") @PositiveOrZero Integer id){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,  supplierService.getById(id)));
+//    }
+//
+//    @GetMapping("/all")
+//    public ResponseEntity<ApiResponse<List<SupplierDTO>>> getAllSuppliers(){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getAll()));
+//    }
+//
+//    @GetMapping("/page")
+//    public ResponseEntity<ApiResponse<PageResponse<SupplierDTO>>> getPageActiveSuppliers(@Valid PaginationRequest pageRequest){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, supplierService.getPageActive(pageRequest)));
+//    }
 }

@@ -6,7 +6,6 @@ import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewDTO;
 import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
-import com.ptithcm.ecommerce_electronics.mapper.ProductImageMapper;
 import com.ptithcm.ecommerce_electronics.mapper.ProductReviewMapper;
 import com.ptithcm.ecommerce_electronics.model.ProductReview;
 import com.ptithcm.ecommerce_electronics.repository.ProductReviewRepository;
@@ -17,7 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductReviewImpl implements ProductReviewService {
+public class ProductReviewServiceImpl implements ProductReviewService {
 
     @Autowired
     private ProductReviewRepository pReviewRepository;

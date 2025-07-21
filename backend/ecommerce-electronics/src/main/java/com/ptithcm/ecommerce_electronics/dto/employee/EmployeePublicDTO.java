@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.employee;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class EmployeePublicDTO {
     private Integer id;
     private String fullName;

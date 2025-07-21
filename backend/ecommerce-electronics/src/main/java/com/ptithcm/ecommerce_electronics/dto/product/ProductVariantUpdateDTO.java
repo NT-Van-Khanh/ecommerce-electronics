@@ -1,11 +1,8 @@
 package com.ptithcm.ecommerce_electronics.dto.product;
 
-import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
-import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,18 +13,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductVariantRequestDTO {
-
-
-    @ExistsInDatabase(entity = Product.class)
-    @NotNull(message = "Product variant id not null.")
-    @Schema(description = "Product variant id of image", example = "1")
-    private Integer productId;
+public class ProductVariantUpdateDTO {
 
     @NotNull(message = "Price can not be null.")
     @Schema(description = "Price of product variant", example = "12000000")
@@ -66,7 +56,6 @@ public class ProductVariantRequestDTO {
     @Schema(description = "Warranty of product variant (month)", example = "2")
     private Integer warranty;
 
-    @UniqueField(entity = ProductVariant.class, fieldName = "sku", message = "Barcode is already exists")
     @Schema(description = "Barcode of product variant", example = "MAN-ACER-KG240Y-X1")
     private String barcode;
 
@@ -84,7 +73,7 @@ public class ProductVariantRequestDTO {
     private String description;
 
     @NotNull(message = "Supplier id can not be null.")
-    @Schema(description = "Supplier id of product variant", example = "1")
+    @Schema(description = "Supplier id of product variant", example = "123")
     private Integer supplierId;
 
     @NotNull(message = "Status can not be null.")
@@ -92,8 +81,5 @@ public class ProductVariantRequestDTO {
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;
 
-    @Valid
-    @Schema(description = "Option of product", example = "[1,12]")
-    private List<Integer> optionValueId;
-//    private List<ProductImageRequestPDTO> productImages;
+    private List<ProductImageRequestPDTO> productImages;
 }

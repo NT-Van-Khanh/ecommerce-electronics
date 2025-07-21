@@ -1,7 +1,5 @@
 package com.ptithcm.ecommerce_electronics.dto.discount;
 
-
-import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Discount;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -12,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 
 
 @AllArgsConstructor

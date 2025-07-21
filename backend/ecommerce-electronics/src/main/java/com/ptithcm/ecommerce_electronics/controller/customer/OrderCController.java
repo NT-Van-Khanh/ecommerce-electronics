@@ -25,7 +25,7 @@ public class OrderCController {
 
 
     @GetMapping("/history/{id}")
-    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrderByCustomerId(@PathVariable("customerId") @PositiveOrZero Integer customerId, @Valid PaginationRequest pageRequest){
+    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrderByCustomerId(@PathVariable("id") @PositiveOrZero Integer customerId, @Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getByCustomerId(customerId, pageRequest)));
     }
 }

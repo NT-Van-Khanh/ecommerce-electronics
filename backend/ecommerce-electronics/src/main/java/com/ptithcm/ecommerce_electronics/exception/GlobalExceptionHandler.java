@@ -11,6 +11,8 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.mail.MailSendException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.parameters.P;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -93,21 +95,34 @@ public class GlobalExceptionHandler {
         return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
     }
 
+    //400 Bad Request
+    @ExceptionHandler(BindException.class)
+    public ResponseEntity<ApiResponse<String>> handleBind(BindException ex){
+        ApiResponse<String> res = new ApiResponse<>(HttpStatus.BAD_REQUEST, ex.getMessage());
+        return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+    }
+
     //401 Unauthorized - Xử lý lỗi không xác thực
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<ApiResponse<String>> handleUnauthorized(UnauthorizedException ex){
         ApiResponse<String> res = new ApiResponse<>(HttpStatus.UNAUTHORIZED, ex.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(res);
+        return new ResponseEntity<>(res, HttpStatus.UNAUTHORIZED);
+
     }
 
     //401 Unauthorized - Sai tài khoản/ mật khẩu
     @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ApiResponse<String>> handleBadCredentials(BadCredentialsException ex){
-        ApiResponse<String> res = new ApiResponse<>(HttpStatus.UNAUTHORIZED, ex.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(res);
+    public ResponseEntity<ApiResponse<String>> handleBadCredentials(BadCredentialsException ex) {
+        ApiResponse<String> response = new ApiResponse<>(HttpStatus.UNAUTHORIZED, "Username or password is incorrect");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
-
+    //401 Unauthorized - Sai tài khoản
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<ApiResponse<String>> handleUsernameNotFound(UsernameNotFoundException ex) {
+        ApiResponse<String> response = new ApiResponse<>(HttpStatus.UNAUTHORIZED, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
 //    @ExceptionHandler(AccessDeniedException.class)
 //    public  ResponseEntity<ApiResponse<String>> handleAccessDenied(AccessDeniedException ex){
 //        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ApiResponse<>(HttpStatus.FORBIDDEN, ex.getMessage()));

@@ -19,7 +19,7 @@ public class EmployeeDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println(username);
         Employee employee = employeeRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with username = "+ username));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         String roleName = employee.getRole().getName();
 
         switch(roleName){

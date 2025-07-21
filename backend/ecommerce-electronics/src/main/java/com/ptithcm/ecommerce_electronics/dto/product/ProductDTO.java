@@ -1,8 +1,10 @@
 package com.ptithcm.ecommerce_electronics.dto.product;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
 import com.ptithcm.ecommerce_electronics.dto.employee.EmployeeDTO;
 import com.ptithcm.ecommerce_electronics.dto.employee.EmployeePublicDTO;
+import com.ptithcm.ecommerce_electronics.dto.option.ProductOptionDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Brand;
 import com.ptithcm.ecommerce_electronics.model.Employee;
@@ -21,6 +23,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ProductDTO {
     private Integer id;
     private String name;
@@ -35,4 +38,5 @@ public class ProductDTO {
     private EmployeePublicDTO createdBy;
     private Employee updatedBy;
     private List<ProductVariantDTO> productVariants;
+    private List<ProductOptionDTO> options;
 }

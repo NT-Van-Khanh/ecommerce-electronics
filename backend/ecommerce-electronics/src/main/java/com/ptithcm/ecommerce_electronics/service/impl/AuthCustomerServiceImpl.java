@@ -16,6 +16,7 @@ import com.ptithcm.ecommerce_electronics.model.Customer;
 import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
 import com.ptithcm.ecommerce_electronics.repository.CustomerRepository;
 import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
+import com.ptithcm.ecommerce_electronics.service.CustomerService;
 import com.ptithcm.ecommerce_electronics.service.RedisService;
 import com.ptithcm.ecommerce_electronics.service.SendMailService;
 import io.jsonwebtoken.Claims;
@@ -25,6 +26,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -136,6 +138,20 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
         }
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.save(customer);
+    }
+
+    @Override
+    public CustomerDTO getCustomer() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+        String username = authentication.getName();
+
+        Customer customer = customerRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found"));
+        return CustomerMapper.toDTO(customer);
     }
 
 

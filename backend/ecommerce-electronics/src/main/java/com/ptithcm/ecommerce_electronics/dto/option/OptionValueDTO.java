@@ -1,4 +1,5 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.option;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
@@ -7,19 +8,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProductImageDTO {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class OptionValueDTO {
     private Integer id;
-    private String name;
-    private String imageUrl;
-    private ProductVariantDTO productVariant;
-    private Boolean isMain;
+    private String value;
+    private String localValue;
+    private OptionDTO option;
     private BaseStatus status;
+
 }

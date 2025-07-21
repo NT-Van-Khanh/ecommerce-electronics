@@ -20,17 +20,17 @@ import java.util.Map;
 @UniqueComposite(entity = Option.class, fields = {"type", "value"}, message = "Duplicate entry {type, value}")
 public class OptionRequestDTO {
 
-    @NotBlank(message = "Type of option can not be blank")
+    @NotBlank(message = "Name of option can not be blank")
     @Schema(description = "Type of option", example = "color")
-    private String type;
+    private String name;
 
     @NotBlank(message = "Name of option can not be blank")
     @Schema(description = "Name of option", example = "Màu sắc")
-    private String name;
+    private String localName;
 
-    @NotBlank(message = "Value of option can not be blank")
-    @Schema(description = "Value of option", example = "Blue")
-    private String value;
+//    @NotBlank(message = "Value of option can not be blank")
+//    @Schema(description = "Value of option", example = "Blue")
+//    private String value;
 
     @NotNull(message = "Status can not be null")
     @Schema(description = "Status of brand", example = "ACTIVE")

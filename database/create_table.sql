@@ -101,7 +101,7 @@ CREATE TABLE product_variant(
 	price INTEGER NOT NULL,
 	price_sale INTEGER NOT NULL,
 	quantity INTEGER NOT NULL DEFAULT 0,
-	sku VARCHAR(255) NOT NULL,
+	sku VARCHAR(255) NOT NULL UNIQUE,
 
 	model VARCHAR(255) NOT NULL,--classify product by model and color
 	inventory_policy VARCHAR(15) NOT NULL DEFAULT 'DENY',
@@ -109,7 +109,7 @@ CREATE TABLE product_variant(
 	specifications JSONB, -- SPECIFACTION IN JSON (becaue the specifications are different for each device)
 	description TEXT,
 	warranty INTEGER,
-	barcode VARCHAR(100),
+	barcode VARCHAR(100)UNIQUE,
 	image_url VARCHAR(255),
 	release_at TIMESTAMP,
 	
@@ -122,6 +122,8 @@ CREATE TABLE product_variant(
 	CHECK (quantity >=0),
 	CHECK (inventory_policy IN ('DENY', 'CONTINUE', 'BACKORDER')),
 	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
+	
+	CONSTRAINT UQ_pv_product_model UNIQUE (product_id, model),
 	CONSTRAINT FK_pv_product FOREIGN KEY (product_id) REFERENCES product(id),
 	CONSTRAINT FK_pv_supplier FOREIGN KEY (supplier_id) REFERENCES supplier(id),
 	CONSTRAINT FK_pv_employee_created FOREIGN KEY (created_by) REFERENCES employee(id),
@@ -131,28 +133,55 @@ CREATE TABLE product_variant(
 DROP TABLE IF EXISTS option CASCADE;
 CREATE TABLE option(
 	id SERIAL PRIMARY KEY,
-	type VARCHAR(100) NOT NULL,
-	name VARCHAR(255) NOT NULL,
-	value VARCHAR(255) NOT NULL,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	local_name VARCHAR(255) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 	
-	CONSTRAINT UQ_option UNIQUE (type, value),
 	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED'))
 );
+
+DROP TABLE IF EXISTS option_value CASCADE;
+CREATE TABLE option_value(
+	id SERIAL PRIMARY KEY,
+	option_id INTEGER NOT NULL,
+	value VARCHAR(255) NOT NULL,
+	local_value VARCHAR(255),
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
+	
+	CONSTRAINT UQ_option UNIQUE (option_id, value),
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
+	CONSTRAINT FK_ov_option FOREIGN KEY (option_id) REFERENCES option(id)
+);
+
+DROP TABLE IF EXISTS product_option CASCADE;
+CREATE TABLE product_option(
+	id SERIAL PRIMARY KEY,
+	product_id INTEGER NOT NULL,
+	option_id INTEGER NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
+
+	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
+	CONSTRAINT UQ_po_product_option UNIQUE (product_id, option_id),
+	CONSTRAINT FK_po_product FOREIGN KEY (product_id) REFERENCES product(id),
+	CONSTRAINT FK_po_option FOREIGN KEY (option_id) REFERENCES option(id)
+);
+
 
 DROP TABLE IF EXISTS variant_option CASCADE;
 CREATE TABLE variant_option(
 	id SERIAL PRIMARY KEY,
 	product_variant_id INTEGER NOT NULL,
-	option_id INTEGER NOT NULL,
+	option_value_id INTEGER NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 	
 	CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
-	CONSTRAINT UQ_va_variant_option UNIQUE(product_variant_id, option_id),
+	CONSTRAINT UQ_va_variant_option UNIQUE(product_variant_id, option_value_id),
 	CONSTRAINT FK_va_product_variant FOREIGN KEY (product_variant_id) REFERENCES product_variant(id),
-	CONSTRAINT FK_va_option FOREIGN KEY (option_id) REFERENCES option(id)
+	CONSTRAINT FK_va_option_value FOREIGN KEY (option_value_id) REFERENCES option_value(id)
 );
 
 DROP TABLE IF EXISTS product_image CASCADE;

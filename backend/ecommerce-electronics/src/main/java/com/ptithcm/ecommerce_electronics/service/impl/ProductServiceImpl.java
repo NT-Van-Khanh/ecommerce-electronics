@@ -8,9 +8,9 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductMapper;
-import com.ptithcm.ecommerce_electronics.model.Employee;
-import com.ptithcm.ecommerce_electronics.model.Product;
-import com.ptithcm.ecommerce_electronics.model.ProductVariant;
+import com.ptithcm.ecommerce_electronics.model.*;
+import com.ptithcm.ecommerce_electronics.repository.OptionRepository;
+import com.ptithcm.ecommerce_electronics.repository.ProductOptionRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
@@ -33,6 +33,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductVariantRepository productVariantRepository;
+
+    @Autowired
+    private ProductOptionRepository productOptionRepository;
+
+    @Autowired
+    private OptionRepository optionRepository;
 
     @Override
     public PageResponse<ProductDTO> getDiscountedProducts(PaginationRequest pageRequest) {
@@ -104,16 +110,42 @@ public class ProductServiceImpl implements ProductService {
     public ProductDTO add(ProductCreateDTO request) {
         Product p = ProductMapper.toEntity(request);
         p.setCreatedBy(Employee.builder().id(2).build());
+
         Product newProduct = productRepository.save(p);
-        List<ProductVariant> productVariants = new ArrayList<>();
-        for(ProductVariant pv : p.getProductVariants()){
-            pv.setProduct(Product.builder().id(newProduct.getId()).build());
-            ProductVariant newPv =productVariantRepository.save(pv);
-            productVariants.add(pv);
+
+        List<ProductOption> options = new ArrayList<>();
+        for(Integer optionId :request.getOptionIds()){
+            ProductOption po = ProductOption.builder()
+                    .option(optionRepository.findById(optionId)
+                            .orElseThrow(()-> new ResourceNotFoundException("Option not found with ID = " +optionId)))
+                    .product(newProduct)
+                    .status(BaseStatus.ACTIVE)
+                    .build();
+            ProductOption newPo =productOptionRepository.save(po);
+
+            options.add(newPo);
         }
-        newProduct.setProductVariants(productVariants);
+        newProduct.setOptions(options);
         return ProductMapper.toDTO(newProduct);
     }
+//    @Override
+//    @Transactional
+//    public ProductDTO add(ProductCreateDTO request) {
+//        Product p = ProductMapper.toEntity(request);
+//        p.setCreatedBy(Employee.builder().id(2).build());
+//        Product newProduct = productRepository.save(p);
+//        List<ProductVariant> productVariants = new ArrayList<>();
+//        for(ProductVariant pv : p.getProductVariants()){
+//            pv.setProduct(Product.builder().id(newProduct.getId()).build());
+//            for(ProductImage pImage: pv.getProductImages()){
+//                pImage.setProductVariant(pv);
+//            }
+//            ProductVariant newPv =productVariantRepository.save(pv);
+//            productVariants.add(pv);
+//        }
+//        newProduct.setProductVariants(productVariants);
+//        return ProductMapper.toDTO(newProduct);
+//    }
 
     @Override
     @Transactional

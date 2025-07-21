@@ -45,8 +45,8 @@ public class SecurityConfig {
     @Order(1)
     SecurityFilterChain customerSecurityFilterChain(HttpSecurity http, JwtAuthFilter jwtAuthFilter) throws Exception{
         return  http
-                .securityMatcher(API_V1_PREFIX + "/c/**")
                 .csrf(AbstractHttpConfigurer::disable)
+                .securityMatcher(API_V1_PREFIX + "/c/**")
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth .anyRequest().hasRole("CUSTOMER")
                 )
@@ -59,10 +59,11 @@ public class SecurityConfig {
     @Order(2)
     SecurityFilterChain employeeSecurityFilterChain(HttpSecurity http, JwtAuthFilter jwtAuthFilter) throws Exception{
         return  http
-                .securityMatcher(API_V1_PREFIX + "/m/**")
                 .csrf(AbstractHttpConfigurer::disable)
+                .securityMatcher(API_V1_PREFIX + "/m/**")
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth.anyRequest().hasRole("MANAGER")
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().hasRole("MANAGER")
                 )
                 .authenticationProvider(employeeAuthenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

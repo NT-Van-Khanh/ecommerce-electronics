@@ -4,7 +4,10 @@ import com.ptithcm.ecommerce_electronics.model.Brand;
 import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +20,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductCreateDTO {
+public class ProductUpdateDTO {
     @NotNull(message = "Name can not be null.")
     @Size(min = 1, max = 255 , message = "Min = 1, max = 255")
     private String name;
@@ -44,15 +47,11 @@ public class ProductCreateDTO {
 
     @PositiveOrZero
     @ExistsInDatabase(entity = Brand.class, message = "Brand id not found")
-    @NotNull(message = "Brand ID can not be null.")
-    @Schema(description = "Brand id of product", example = "1")
+    @NotNull(message = "Brand id can not be null.")
+    @Schema(description = "Brand id of product", example = "123")
     private Integer brandId;
 
-
-    @Schema(description = "List of Option IDs", example = "[1, 2]")
-    @NotEmpty(message = "Option IDs cannot be empty")
-    private List<@NotNull(message = "Option ID can not be null") Integer> optionIds;
-//    @Valid
-//    @Schema(description = "Variants of product")
-//    private List<ProductVariantRequestDTO> productVariants;
+    @Valid
+    @Schema(description = "Variants of product")
+    private List<ProductVariantUpdateDTO> productVariants;
 }

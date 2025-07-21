@@ -9,7 +9,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(
-        info = @Info(title = "", version = "v1"),
+        info =  @Info(
+                title = "E-Commerce API",
+                version = "v1",
+                description = "API documentation for the e-commerce system"
+        ),
         security = @SecurityRequirement(name ="bearerAuth"))
 @SecurityScheme(
         name = "bearerAuth",

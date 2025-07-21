@@ -5,7 +5,6 @@ import com.ptithcm.ecommerce_electronics.enums.RoleAuth;
 import com.ptithcm.ecommerce_electronics.exception.UnauthorizedException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;

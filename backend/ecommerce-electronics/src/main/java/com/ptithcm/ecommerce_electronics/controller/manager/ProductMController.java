@@ -1,32 +1,26 @@
-package com.ptithcm.ecommerce_electronics.controller;
-
+package com.ptithcm.ecommerce_electronics.controller.manager;
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Valid
 @RestController
-@RequestMapping("${api.v1.prefix}/products")
-public class ProductController {
-
+@RequestMapping("${api.v1.prefix}/n/products")
+public class ProductMController {
     @Autowired
     private ProductService productService;
 
@@ -36,19 +30,33 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,product));
     }
 
+    @GetMapping("/all")
+    public  ResponseEntity<ApiResponse<List<ProductDTO>>> getAllProducts(){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getAll()));
+    }
+
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageActiveProducts(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPageActive(pageRequest)));
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageProducts(@Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPage(pageRequest)));
     }
 
-    @GetMapping("/discount/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageDiscountProducts(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getDiscountedProducts(pageRequest)));
+    @PostMapping("/add")
+    public ResponseEntity<ApiResponse<ProductDTO>> addProduct(@RequestBody @Valid ProductCreateDTO productRequest){
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, productService.add(productRequest)));
     }
 
-    @GetMapping("/newest")
-    public ResponseEntity<ApiResponse<List<ProductDTO>>> getNewestProducts(@NotNull @PositiveOrZero @Schema(example ="5") Integer limit){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getNewestProducts(limit)));
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ApiResponse<ProductDTO>> updateProduct(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid ProductCreateDTO productRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.update(id, productRequest)));
+    }
+
+    @PatchMapping("/change-status/{id}")
+    public ResponseEntity<ApiResponse<String>> changeStatusProduct(@PathVariable("id") @PositiveOrZero Integer id, @NotNull @RequestParam BaseStatus status) {
+        boolean changeSuccess = productService.changeStatus(id, status.name());
+        if (changeSuccess)
+            return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Change status successfully."));
+        else
+            return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Status already exists."));
     }
 
 
@@ -67,10 +75,5 @@ public class ProductController {
 //    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> searchProducts(@Valid ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.filterProducts(filterRequest, pageRequest)));
 //    }
-//
-//
-//    @GetMapping("/search-semantic")
-//    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> searchSemanticProducts(@Valid ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){
-//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.semanticFilterProducts(filterRequest, pageRequest)));
-//    }
+
 }

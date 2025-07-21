@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "variant_option",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"product_variant_id", "option_id"}))
+        uniqueConstraints = @UniqueConstraint(columnNames = {"product_variant_id", "option_value_id"}))
 public class VariantOption {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -28,8 +28,8 @@ public class VariantOption {
     private ProductVariant productVariant;
 
     @ManyToOne
-    @JoinColumn(name = "option_id", nullable = false)
-    private Option option;
+    @JoinColumn(name = "option_value_id", nullable = false)
+    private OptionValue option;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)

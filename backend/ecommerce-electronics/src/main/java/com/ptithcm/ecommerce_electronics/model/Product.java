@@ -67,6 +67,9 @@ public class Product {
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
 
+    @OneToMany(mappedBy = "product")
+    private List<ProductOption> options;
+
     @OneToMany( mappedBy = "product")
     private List<ProductVariant> productVariants;
 }

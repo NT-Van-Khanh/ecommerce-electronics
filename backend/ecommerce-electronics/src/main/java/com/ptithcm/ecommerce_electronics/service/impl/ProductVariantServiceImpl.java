@@ -6,9 +6,10 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
-import com.ptithcm.ecommerce_electronics.mapper.ProductReviewMapper;
 import com.ptithcm.ecommerce_electronics.mapper.ProductVariantMapper;
+import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
+import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
 import com.ptithcm.ecommerce_electronics.service.ProductVariantService;
 import jakarta.transaction.Transactional;
@@ -23,6 +24,9 @@ public class ProductVariantServiceImpl implements ProductVariantService {
 
     @Autowired
     private ProductVariantRepository pvRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public List<ProductVariantDTO> getAvailableByProductId(String productId) {
@@ -74,9 +78,15 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     }
 
     @Override
+    @Transactional
     public ProductVariantDTO add(ProductVariantRequestDTO request) {
+        Product p = productRepository.findById(request.getProductId())
+                .orElseThrow(()-> new ResourceNotFoundException("Product not found with ID = "+request.getProductId()));
+        p.setProductVariants(null);
         ProductVariant productVariant = ProductVariantMapper.toEntity(request);
+        productVariant.setProduct(p);
         return ProductVariantMapper.toDTO(pvRepository.save(productVariant));
+
     }
 
     @Override
@@ -100,7 +110,6 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         pvRepository.save(pv);
         return true;
     }
-
 
     private ProductVariant findById(Integer id){
         return pvRepository.findById(id)

@@ -17,9 +17,9 @@ VALUES
 
 INSERT INTO customer(full_name, email, phone, username, password, gender, birthday, address, status)
 VALUES 
-('Nguyen Van Admin', 'ntvk137@gmail.com', '0123456789', 'customer1', '$2a$10$J68SUjIsMKZXF49pxW9LYenL25fqFkM1PcMXSKPNvItnMO0VV5oDC', 'Nam', '2003-01-01', 'Thu Duc, Ho Chi Minh, Vietnam', 'ACTIVE'), 
-('Pham Minh Hoang', 'hoang.pham@example.com', '0901122334', 'customer2', '$2a$10$J68SUjIsMKZXF49pxW9LYenL25fqFkM1PcMXSKPNvItnMO0VV5oDC', 'Nam', '2001-03-14', 'Thu Duc, Ho Chi Minh', 'ACTIVE'),
-('Nguyen Thi Lan', 'lan.nguyen@example.com', '0933445566', 'customer3', '$2a$10$J68SUjIsMKZXF49pxW9LYenL25fqFkM1PcMXSKPNvItnMO0VV5oDC', 'Nữ', '2002-09-30', 'Go Vap, Ho Chi Minh', 'ACTIVE');
+('Nguyen Van Admin', 'ntvk137@gmail.com', '0123456789', 'customer1', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 'Nam', '2003-01-01', 'Thu Duc, Ho Chi Minh, Vietnam', 'ACTIVE'), 
+('Pham Minh Hoang', 'hoang.pham@example.com', '0901122334', 'customer2', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 'Nam', '2001-03-14', 'Thu Duc, Ho Chi Minh', 'ACTIVE'),
+('Nguyen Thi Lan', 'lan.nguyen@example.com', '0933445566', 'customer3', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 'Nữ', '2002-09-30', 'Go Vap, Ho Chi Minh', 'ACTIVE');
 
 INSERT INTO brand(name, description, logo_url)
 VALUES 
@@ -101,4 +101,88 @@ VALUES
 ('SAVE7', 'Giảm 7% toàn bộ đơn hàng > 2 triệu', 'PERCENT', 7, '2025-07-01 00:00:00', '2025-08-01 23:59:59', 
  'ALL', 2000000, 'Giảm 7% cho đơn hàng có giá trị từ 2 triệu trở lên.',  1);
 
+INSERT INTO option("name", local_name)
+VALUES 
+('ram', 'RAM'),
+('color', 'Màu sắc'),
+('storage', 'Dung lượng'),
+('chip', 'Chip xử lý'),
+('screen', 'Màn hình'),
+('cpu', 'Bộ xử lý'),
+('gpu', 'Card đồ họa'),
+('screen_size', 'Kích thước màn hình'),
+('layout', 'Bố cục phím'),
+('switch', 'Switch'),
+('led', 'Đèn LED'),
+('connection', 'Kết nối'),
+('power', 'Công suất'),
+('port_count', 'Số cổng sạc'),
+('charging_standard', 'Chuẩn sạc');
+
+INSERT INTO option_value(option_id,"value", local_value)
+VALUES
+(1, '4GB', '4GB'),
+(1, '6GB', '6GB'),
+(1, '8GB', '8GB'),
+(1, '12GB', '12GB'),
+(1, '16GB', '16GB'),
+
+(2, 'Black', 'Đen'),
+(2, 'White', 'Trắng'),
+(2, 'Blue', 'Xanh'),
+(2, 'Red', 'Đỏ'),
+(2, 'Green', 'Xanh lá'),
+
+(3, '64GB', '64GB'),
+(3, '128GB', '128GB'),
+(3, '256GB', '256GB'),
+(3, '512GB', '512GB'),
+(3, '1TB', '1TB'),
+
+(4, 'Snapdragon 8 Gen 1', 'Snapdragon 8 Gen 1'),
+(4, 'Apple A16 Bionic', 'Apple A16 Bionic'),
+(4, 'Exynos 2100', 'Exynos 2100'),
+(4, 'MediaTek Dimensity 9200', 'MediaTek Dimensity 9200'),
+
+(5, 'AMOLED', 'AMOLED'),
+(5, 'IPS LCD', 'IPS LCD'),
+(5, 'OLED', 'OLED'),
+(5, 'Super Retina', 'Super Retina'),
+
+(6, 'Intel i5', 'Intel i5'),
+(6, 'Intel i7', 'Intel i7'),
+(6, 'Intel i9', 'Intel i9'),
+(6, 'Ryzen 5', 'Ryzen 5'),
+(6, 'Ryzen 7', 'Ryzen 7'),
+
+(7, 'RTX 3060', 'RTX 3060'),
+(7, 'RTX 3070', 'RTX 3070'),
+(7, 'RTX 3080', 'RTX 3080'),
+(7, 'Intel Iris Xe', 'Intel Iris Xe'),
+(7, 'AMD Radeon 680M', 'AMD Radeon 680M'),
+
+(8, '13.3 inch', '13.3 inch'),
+(8, '14 inch', '14 inch'),
+(8, '15.6 inch', '15.6 inch'),
+(8, '16 inch', '16 inch'),
+(8, '17 inch', '17 inch'),
+
+(12, 'Bluetooth', 'Bluetooth'),
+(12, '2.4GHz Wireless', 'Không dây 2.4GHz'),
+(12, 'Wired USB', 'USB có dây'),
+(12, 'Bluetooth 5.0', 'Bluetooth 5.0'),
+(12, 'Bluetooth 5.2', 'Bluetooth 5.2'),
+(12, 'Wired', 'Có dây'),
+(12, 'Wireless', 'Không dây'),
+
+(13, '18W', '18W'),
+(13, '20W', '20W'),
+(13, '33W', '33W'),
+(13, '65W', '65W'),
+(13, '100W', '100W'),
+
+(14, '1 port', '1 cổng'),
+(14, '2 ports', '2 cổng'),
+(14, '3 ports', '3 cổng'),
+(14, '4 ports', '4 cổng');
 

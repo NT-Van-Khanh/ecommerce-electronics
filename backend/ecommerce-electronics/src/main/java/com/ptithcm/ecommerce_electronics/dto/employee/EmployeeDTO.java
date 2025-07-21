@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.employee;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ptithcm.ecommerce_electronics.enums.AccountStatus;
 import com.ptithcm.ecommerce_electronics.model.Role;
 import lombok.AllArgsConstructor;

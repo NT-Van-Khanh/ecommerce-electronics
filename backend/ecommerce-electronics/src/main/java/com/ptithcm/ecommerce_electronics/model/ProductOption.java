@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Builder
@@ -17,26 +16,25 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "option")
-public class Option {
+@Table(name = "product_option", uniqueConstraints =  @UniqueConstraint(columnNames = {"product_id, option_id"}))
+public class ProductOption {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name",length = 255, nullable = false, unique = true)
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
-    @Column(name = "local_name", nullable = false)
-    private String localName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "option_id", nullable = false)
+    private Option option;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)
-    private BaseStatus status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED'))
+    private BaseStatus status;
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
-//    @OneToMany(mappedBy = "option", fetch = FetchType.LAZY)
-//    private List<OptionValue> optionValues;
 }

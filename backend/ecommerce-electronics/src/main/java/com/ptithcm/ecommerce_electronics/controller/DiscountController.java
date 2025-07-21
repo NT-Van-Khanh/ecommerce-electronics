@@ -4,8 +4,6 @@ import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountDTO;
-import com.ptithcm.ecommerce_electronics.dto.discount.DiscountRequestDTO;
-import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.DiscountService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -13,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
 @RestController
 @RequestMapping("${api.v1.prefix}/discounts")
 public class DiscountController {

@@ -14,7 +14,6 @@ import com.ptithcm.ecommerce_electronics.repository.EmployeeRepository;
 import com.ptithcm.ecommerce_electronics.service.AuthEmployeeService;
 import com.ptithcm.ecommerce_electronics.service.RedisService;
 import com.ptithcm.ecommerce_electronics.service.SendMailService;
-import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,8 +22,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.prefs.BackingStoreException;
 
 @Service
 public class AuthEmployeeServiceImpl implements AuthEmployeeService {

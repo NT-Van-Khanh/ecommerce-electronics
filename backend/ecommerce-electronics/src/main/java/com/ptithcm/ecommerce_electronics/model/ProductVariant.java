@@ -38,7 +38,7 @@ public class ProductVariant {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "sku", nullable = false)
+    @Column(name = "sku", nullable = false, unique = true)
     private String sku;
 
     @Column(name = "model", nullable = false)
@@ -68,7 +68,7 @@ public class ProductVariant {
     private String description;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
@@ -88,15 +88,15 @@ public class ProductVariant {
     @Column(name = "updated_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by", updatable = false)
     private Employee createdBy;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
 
-    @OneToMany(mappedBy = "productVariant", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "productVariant")
     private List<ProductImage> productImages;
 
     @Override

@@ -21,16 +21,16 @@ import org.springframework.data.domain.Sort;
 @NoArgsConstructor
 public class PaginationRequest {
 
-    @NotNull(message = "Page không được phép null")
+    @NotNull(message = "Page can not be null")
     @Min(value = 0, message = "page >= 0")
     @Schema(description = "Vị trí trang - Bắt đầu từ 0", example = "0", minimum = "0")
-    private int page = 0;
+    private Integer page = 0;
 
-    @NotNull(message = "Size không được phép null")
+    @NotNull(message = "Size can not be null")
     @Min(value = 1, message = "size >= 1")
     @Max(value = 1000, message = "size <= 1000")
     @Schema(description = "Số lượng phần tử - Bắt đầu từ 1", example = "20", minimum = "1")
-    private int size = 20;
+    private Integer size = 20;
 
     @Schema(description = "Thuộc tính dùng để sắp xếp", example = "id")
     private String sortBy = "createdAt";
