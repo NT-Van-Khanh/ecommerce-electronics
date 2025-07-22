@@ -1,22 +1,23 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.variant;
 
-import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierDTO;
+import com.ptithcm.ecommerce_electronics.dto.option.BaseVariantOptionDTO;
+import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.InventoryPolicy;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductVariantDTO {
+public class BaseProductVariantDTO {
     private Integer id;
     private Integer price;
     private Integer priceSale;
@@ -30,8 +31,7 @@ public class ProductVariantDTO {
     private String imageUrl;
     private Map<String, Object> specifications;
     private String description;
-    private ProductDTO product;
-    private SupplierDTO supplier;
     private BaseStatus status;
+    private List<BaseVariantOptionDTO> options;
     private List<ProductImageDTO> productImages;
 }

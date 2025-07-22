@@ -2,8 +2,8 @@ package com.ptithcm.ecommerce_electronics.dto.product;
 
 import com.ptithcm.ecommerce_electronics.model.Brand;
 import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
+import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueElements;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,8 +50,9 @@ public class ProductCreateDTO {
 
 
     @Schema(description = "List of Option IDs", example = "[1, 2]")
-    @NotEmpty(message = "Option IDs cannot be empty")
-    private List<@NotNull(message = "Option ID can not be null") Integer> optionIds;
+//    @NotEmpty(message = "Option IDs cannot be empty")
+    @UniqueElements(message = "option ID of list must be unique")
+    private List<@NotNull(message = "Option ID can not be null") @Min(value = 1, message = "ID >=1") Integer> optionIds;
 //    @Valid
 //    @Schema(description = "Variants of product")
 //    private List<ProductVariantRequestDTO> productVariants;

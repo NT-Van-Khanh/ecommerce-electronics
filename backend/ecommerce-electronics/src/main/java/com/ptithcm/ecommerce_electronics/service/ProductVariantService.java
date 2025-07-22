@@ -1,8 +1,7 @@
 package com.ptithcm.ecommerce_electronics.service;
 
-import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantRequestDTO;
-import com.ptithcm.ecommerce_electronics.model.Option;
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantRequestDTO;
 
 import java.util.List;
 

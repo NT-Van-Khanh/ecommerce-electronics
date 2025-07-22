@@ -37,6 +37,6 @@ public class Option {
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-//    @OneToMany(mappedBy = "option", fetch = FetchType.LAZY)
-//    private List<OptionValue> optionValues;
+    @OneToMany(mappedBy = "option", fetch = FetchType.LAZY)
+    private List<OptionValue> optionValues;
 }

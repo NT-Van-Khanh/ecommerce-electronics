@@ -1,5 +1,6 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.variant;
 
+import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestPDTO;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;

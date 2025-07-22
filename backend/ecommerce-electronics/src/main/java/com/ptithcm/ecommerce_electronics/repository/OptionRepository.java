@@ -1,19 +1,16 @@
 package com.ptithcm.ecommerce_electronics.repository;
 
+import com.ptithcm.ecommerce_electronics.dto.option.BaseOptionDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Option;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface OptionRepository extends JpaRepository<Option, Integer> {
     Page<Option> findByStatus(BaseStatus baseStatus, Pageable pageable);
 
-    Option findMinimalById(@Param("id") Integer id);
+//    BaseOptionDTO findOptionById(Integer id);
 }

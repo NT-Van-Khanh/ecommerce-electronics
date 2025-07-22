@@ -29,7 +29,7 @@ public class VariantOption {
 
     @ManyToOne
     @JoinColumn(name = "option_value_id", nullable = false)
-    private OptionValue option;
+    private OptionValue optionValue;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", length = 15)

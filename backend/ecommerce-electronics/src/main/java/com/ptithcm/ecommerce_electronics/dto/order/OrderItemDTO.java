@@ -1,11 +1,8 @@
 package com.ptithcm.ecommerce_electronics.dto.order;
 
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantDTO;
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.model.Discount;
-import com.ptithcm.ecommerce_electronics.model.Orders;
-import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

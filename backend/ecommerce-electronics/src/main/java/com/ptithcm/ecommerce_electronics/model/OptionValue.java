@@ -22,7 +22,7 @@ public class OptionValue {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "option_id", nullable = false)
     private Option option;
 

@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.option.OptionRequestDTO;
 import com.ptithcm.ecommerce_electronics.dto.option.OptionValueDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Option;
+import com.ptithcm.ecommerce_electronics.model.OptionValue;
 
 import java.util.List;
 
@@ -30,6 +31,19 @@ public class OptionMapper {
                 .name(o.getName())
                 .localName(o.getLocalName())
                 .status(o.getStatus())
+                .build();
+    }
+
+    public static OptionDTO toDetailDTO(Option o, List<OptionValue> optionValues) {
+        if(o == null) return null;
+        System.err.println("11113");
+        List<OptionValueDTO> value = optionValues == null? null : optionValues.stream().map(OptionValueMapper::toBaseDTO).toList();
+        return OptionDTO.builder()
+                .id(o.getId())
+                .name(o.getName())
+                .localName(o.getLocalName())
+                .status(o.getStatus())
+                .optionValues(value)
                 .build();
     }
 

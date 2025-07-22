@@ -2,6 +2,7 @@ package com.ptithcm.ecommerce_electronics.service;
 
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
+import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
@@ -18,7 +19,7 @@ public interface ProductService extends BaseService<Integer, ProductCreateDTO, P
    PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest);
    PageResponse<ProductDTO> semanticFilterProducts(ProductFilterRequest request, PaginationRequest pageRequest);//Search nâng cao
 
-
+   List<OptionDTO> getOptionsByProductId(Integer id);
 //   ProductDTO getProductById(Integer id);
 //   PageResponse<ProductDTO> getPageProducts(PaginationRequest pageRequest);
 //   ProductDTO add(ProductCreateDTO productRequest);

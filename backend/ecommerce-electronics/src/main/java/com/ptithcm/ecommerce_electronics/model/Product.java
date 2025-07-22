@@ -47,7 +47,7 @@ public class Product {
     @Column(name = "status", length = 15)
     private BaseStatus status;//CHECK (status IN ('ACTIVE', 'INACTIVE', 'DELETED')),
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
@@ -59,11 +59,11 @@ public class Product {
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by", updatable = false, nullable = false)
     private Employee createdBy;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
 

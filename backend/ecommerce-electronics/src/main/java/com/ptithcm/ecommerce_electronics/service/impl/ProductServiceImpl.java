@@ -2,17 +2,16 @@ package com.ptithcm.ecommerce_electronics.service.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
+import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
+import com.ptithcm.ecommerce_electronics.mapper.OptionMapper;
 import com.ptithcm.ecommerce_electronics.mapper.ProductMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
-import com.ptithcm.ecommerce_electronics.repository.OptionRepository;
-import com.ptithcm.ecommerce_electronics.repository.ProductOptionRepository;
-import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
-import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
+import com.ptithcm.ecommerce_electronics.repository.*;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,13 @@ public class ProductServiceImpl implements ProductService {
     private ProductOptionRepository productOptionRepository;
 
     @Autowired
+    private OptionValueRepository optionValueRepository;
+
+    @Autowired
     private OptionRepository optionRepository;
+
+    @Autowired
+    private BrandRepository brandRepository;
 
     @Override
     public PageResponse<ProductDTO> getDiscountedProducts(PaginationRequest pageRequest) {
@@ -77,6 +82,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<OptionDTO> getOptionsByProductId(Integer id) {
+        List<Option> options = productOptionRepository.findOptionsByProductIdAndStatus(id, BaseStatus.ACTIVE);
+        return options.stream().map(OptionMapper::toDTO).toList();
+    }
+
+    @Override
     public ProductDTO getById(Integer id) {
         Product p = productRepository.findById(id)
                 .orElseThrow( () -> new ResourceNotFoundException("Product not found with id = "+id));
@@ -108,25 +119,31 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public ProductDTO add(ProductCreateDTO request) {
+        Brand brand = brandRepository.findById(request.getBrandId())
+                .orElseThrow(() -> new ResourceNotFoundException("Brand not found with ID = " + request.getBrandId()));
+
         Product p = ProductMapper.toEntity(request);
+        p.setBrand(brand);
         p.setCreatedBy(Employee.builder().id(2).build());
+        Product productResponse = productRepository.save(p);
+        List<ProductOption> options = addOptions(request.getOptionIds(), productResponse);
+        productResponse.setOptions(options);
+        return ProductMapper.toDTO(productResponse);
+    }
 
-        Product newProduct = productRepository.save(p);
-
+    private List<ProductOption> addOptions(List<Integer> optionIds, Product productResponse) {
+        if(optionIds == null) return null;
         List<ProductOption> options = new ArrayList<>();
-        for(Integer optionId :request.getOptionIds()){
+        for(Integer optionId :optionIds){
             ProductOption po = ProductOption.builder()
                     .option(optionRepository.findById(optionId)
                             .orElseThrow(()-> new ResourceNotFoundException("Option not found with ID = " +optionId)))
-                    .product(newProduct)
+                    .product(productResponse)
                     .status(BaseStatus.ACTIVE)
                     .build();
-            ProductOption newPo =productOptionRepository.save(po);
-
-            options.add(newPo);
+            options.add(po);
         }
-        newProduct.setOptions(options);
-        return ProductMapper.toDTO(newProduct);
+        return productOptionRepository.saveAll(options);
     }
 //    @Override
 //    @Transactional

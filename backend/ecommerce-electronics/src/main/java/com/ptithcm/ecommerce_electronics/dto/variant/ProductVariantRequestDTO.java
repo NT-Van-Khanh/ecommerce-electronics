@@ -1,8 +1,9 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.variant;
 
 import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
+import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueElements;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
@@ -92,8 +93,9 @@ public class ProductVariantRequestDTO {
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;
 
-    @Valid
+
     @Schema(description = "Option of product", example = "[1,12]")
-    private List<Integer> optionValueId;
+    @UniqueElements(message = "Option value id must be unique")
+    private List<Integer> optionValueIds;
 //    private List<ProductImageRequestPDTO> productImages;
 }

@@ -99,6 +99,9 @@ public class ProductVariant {
     @OneToMany(mappedBy = "productVariant")
     private List<ProductImage> productImages;
 
+    @OneToMany(mappedBy = "productVariant")
+    private List<VariantOption> variantOptions;
+
     @Override
     public String toString() {
         return "ProductVariant{" +

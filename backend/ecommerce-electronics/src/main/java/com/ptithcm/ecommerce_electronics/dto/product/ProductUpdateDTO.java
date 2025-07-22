@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.product;
 
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantUpdateDTO;
 import com.ptithcm.ecommerce_electronics.model.Brand;
 import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import io.swagger.v3.oas.annotations.media.Schema;

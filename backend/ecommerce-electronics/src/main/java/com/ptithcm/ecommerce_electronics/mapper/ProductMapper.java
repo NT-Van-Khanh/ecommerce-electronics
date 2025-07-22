@@ -1,35 +1,49 @@
 package com.ptithcm.ecommerce_electronics.mapper;
 
 import com.ptithcm.ecommerce_electronics.dto.option.ProductOptionDTO;
+import com.ptithcm.ecommerce_electronics.dto.product.BaseProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductVariantRequestDTO;
+import com.ptithcm.ecommerce_electronics.dto.variant.BaseProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.model.Brand;
 import com.ptithcm.ecommerce_electronics.model.Product;
-import com.ptithcm.ecommerce_electronics.model.ProductOption;
-import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 
 import java.util.List;
 
 public class ProductMapper {
-    public static ProductDTO toDTO(Product product) {
-        System.err.println("1116");
+
+    public static BaseProductDTO toBaseDTO(Product product) {
         if(product == null ) return null;
-        System.err.println("1117");
-        List<ProductVariantDTO> productVariants = null;
-        if(product.getProductVariants() !=null){
-            productVariants = product.getProductVariants()
-                    .stream().map(ProductVariantMapper::toDTO)
-                    .toList();
-        }
-        System.err.println("1118");
+
         List<ProductOptionDTO> options = null;
         if(product.getOptions() != null){
             options = product.getOptions().stream().map(ProductOptionMapper::toDTO).toList();
         }
-        System.err.println("1119");
+        return BaseProductDTO.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .seoName(product.getSeoName())
+                .brand(BrandMapper.toDTO(product.getBrand()))
+                .options(options)
+                .specifications(product.getSpecifications())
+                .description(product.getDescription())
+                .imageUrl(product.getImageUrl())
+                .build();
+    }
+
+
+    public static ProductDTO toDTO(Product product) {
+        if(product == null ) return null;
+        List<BaseProductVariantDTO> productVariants = null;
+        if(product.getProductVariants() !=null){
+            productVariants = product.getProductVariants()
+                    .stream().map(ProductVariantMapper::toBaseDTO)
+                    .toList();
+        }
+        List<ProductOptionDTO> options = null;
+        if(product.getOptions() != null){
+            options = product.getOptions().stream().map(ProductOptionMapper::toDTO).toList();
+        }
         return ProductDTO.builder()
                 .id(product.getId())
                 .name(product.getName())
@@ -48,12 +62,12 @@ public class ProductMapper {
 
     public static Product toEntity(ProductCreateDTO request) {
         if(request == null ) return null;
-        List<ProductOption> productOptions = request.getOptionIds()
-                .stream().map(ProductOptionMapper::toEntity).toList();
+
+//        List<ProductOption> options = request.getOptionIds() == null? null:
+//                request.getOptionIds().stream().map(ProductOptionMapper::toEntity).toList();
         return Product.builder()
                 .name(request.getName())
                 .seoName(request.getSeoName())
-                .brand(Brand.builder().id(request.getBrandId()).build())
                 .status(BaseStatus.valueOf(request.getStatus()))
                 .description(request.getDescription())
                 .specifications(request.getSpecifications())
