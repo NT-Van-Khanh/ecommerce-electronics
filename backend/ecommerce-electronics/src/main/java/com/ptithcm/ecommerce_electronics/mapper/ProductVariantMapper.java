@@ -9,6 +9,7 @@ import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.InventoryPolicy;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.model.Supplier;
+import com.ptithcm.ecommerce_electronics.model.VariantOption;
 
 import java.util.List;
 
@@ -41,6 +42,8 @@ public class ProductVariantMapper {
         List<ProductImageDTO> productImages = null;
         if(pv.getProductImages()!=null)
             productImages= pv.getProductImages().stream() .map(ProductImageMapper::toDTO).toList();
+        List<BaseVariantOptionDTO> variantOptions= pv.getVariantOptions() == null ? null :
+                pv.getVariantOptions().stream().map(VariantOptionMapper::toBaseDTO).toList();
         return  ProductVariantDTO.builder()
                 .id(pv.getId())
                 .barcode(pv.getBarcode())
@@ -48,6 +51,7 @@ public class ProductVariantMapper {
                 .imageUrl(pv.getImageUrl())
                 .inventoryPolicy(pv.getInventoryPolicy())
                 .model(pv.getModel())
+                .options(variantOptions)
                 .price(pv.getPrice())
                 .priceSale(pv.getPriceSale())
                 .product(ProductMapper.toBaseDTO(pv.getProduct()))

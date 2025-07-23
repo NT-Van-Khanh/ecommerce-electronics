@@ -91,4 +91,8 @@ public class Orders {
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
+
+    public Integer getFinalAmount(){
+        return totalAmount  + totalTax + shipAmount - discountAmount;
+    }
 }

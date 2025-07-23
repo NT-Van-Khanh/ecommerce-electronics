@@ -50,6 +50,11 @@ public class DiscountRequestDTO {
     @Pattern(regexp = "^(ALL|PRODUCT_VARIANT|CATEGORY|ORDER)$", message = "Scope shoud be in ALL, PRODUCT_VARIANT, CATEGORY, ORDER")
     private String scope;
 
+    @Min(value = 0, message = "Min of usage limit should be >=0")
+    @NotNull(message = "Usage limit of discount can not be null")
+    @Schema(description = "Usage limit of discount", example = "10")
+    private Integer usageLimit =0;
+
     @NotNull(message = "Min order amount can not be null")
     @Schema(description = "Min oder amount of discount", example = "1000")
     @PositiveOrZero
@@ -61,5 +66,5 @@ public class DiscountRequestDTO {
     @NotNull(message = "Status can not be null.")
     @Schema(description = "Status of product", example = "ACTIVE")
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
-    private String status;
+    private String status = "ACTIVE";
 }

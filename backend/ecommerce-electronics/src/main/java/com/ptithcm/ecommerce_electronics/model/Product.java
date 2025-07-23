@@ -72,4 +72,22 @@ public class Product {
 
     @OneToMany( mappedBy = "product")
     private List<ProductVariant> productVariants;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", seoName='" + seoName + '\'' +
+                ", specifications=" + specifications +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", status=" + status +
+                ", updatedAt=" + updatedAt +
+                ", createdAt=" + createdAt +
+                ", createdBy=" + createdBy +
+                ", updatedBy=" + updatedBy +
+                ", productVariants=" + productVariants +
+                '}';
+    }
 }

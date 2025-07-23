@@ -12,11 +12,11 @@ import com.ptithcm.ecommerce_electronics.repository.OptionValueRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
 import com.ptithcm.ecommerce_electronics.repository.VariantOptionRepository;
+import com.ptithcm.ecommerce_electronics.service.ProductService;
 import com.ptithcm.ecommerce_electronics.service.ProductVariantService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -29,8 +29,7 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     private ProductVariantRepository pvRepository;
 
     @Autowired
-    private ProductRepository productRepository;
-
+    private ProductService productService;
 
     @Autowired
     private VariantOptionRepository variantOptionRepository;
@@ -63,11 +62,16 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     }
 
     @Override
-    public Integer updateStock(Integer id, Integer quantityChange) {
+    @Transactional
+    public ProductVariantDTO addStock(Integer id, Integer quantityChange) {
         ProductVariant pv = findById(id);
-        Integer newQuantity = pv.getQuantity() - quantityChange;
+        int newQuantity = pv.getQuantity() + quantityChange;
+        if(newQuantity < 0){
+                throw new IllegalArgumentException( "Insufficient stock for product variant ID " + id
+                        + ". Available: " + pv.getQuantity() + ", requested: " + quantityChange);
+        }
         pv.setQuantity(newQuantity);
-        return newQuantity;
+        return ProductVariantMapper.toDTO(pvRepository.save(pv));
     }
 
     @Override
@@ -90,12 +94,10 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     @Override
     @Transactional
     public ProductVariantDTO add(ProductVariantRequestDTO request) {
-        Product p = productRepository.findById(request.getProductId())
-                .orElseThrow(()-> new ResourceNotFoundException("Product not found with ID = "+request.getProductId()));
+        Product p = productService.findById(request.getProductId());
         ProductVariant productVariant = ProductVariantMapper.toEntity(request);
         productVariant.setProduct(p);
         productVariant = pvRepository.save(productVariant);
-
         List<VariantOption> variantOptions =addVariantOption(p, productVariant, request.getOptionValueIds());
         productVariant.setVariantOptions(variantOptionRepository.saveAll(variantOptions));
         return ProductVariantMapper.toDTO(productVariant);
@@ -113,14 +115,13 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         if (optionValueIds.size() != options.size()) {
             throw new ResourceNotFoundException("Some OptionValues could not be found with the provided IDs.");
         }
-//        for(ProductVariant productVariant : p.getProductVariants()){
-//            List<OptionValue> existingOptionValues = productVariant.getVariantOptions().stream()
-//                    .map(VariantOption::getOptionValue)
-//                    .toList();
-//            if (new HashSet<>(existingOptionValues).equals(new HashSet<>(selectedValues))) {
-//                throw new IllegalArgumentException("A variant with the same option values already exists.");
-//            }
-//        }
+        for(ProductVariant productVariant : p.getProductVariants()){
+            List<Integer> existingOptionValues = variantOptionRepository.getByOptionValue_Id(productVariant.getId()).stream()
+                    .map( variantOption-> variantOption.getOptionValue().getId()).toList();
+            if (new HashSet<>(existingOptionValues).equals(new HashSet<>(optionValueIds))) {
+                throw new IllegalArgumentException("A variant with the same option values already exists.");
+            }
+        }
         List<VariantOption> variantOptions= new ArrayList<>();
         Set<Option> seenOptions = new HashSet<>();
         for(Integer id : optionValueIds){
@@ -166,8 +167,23 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         return true;
     }
 
-    private ProductVariant findById(Integer id){
+    @Override
+    public ProductVariant findById(Integer id){
         return pvRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product variant not found with id = id" +id));
+    }
+
+    @Override
+    @Transactional
+    public ProductVariant updateStockWithCheck(Integer productVariantId, Integer quantityChange) {
+        ProductVariant pv = pvRepository.lockVariantForStockUpdate(productVariantId)
+                .orElseThrow(() -> new ResourceNotFoundException("Product variant not found with id = id" +productVariantId));
+        int newQuantity = pv.getQuantity() - quantityChange;
+        if(newQuantity < 0){
+            throw new IllegalArgumentException( "Insufficient stock for product variant ID " + productVariantId
+                    + ". Available: " + pv.getQuantity() + ", requested: " + quantityChange);
+        }
+        pv.setQuantity(newQuantity);
+        return pvRepository.save(pv);
     }
 }

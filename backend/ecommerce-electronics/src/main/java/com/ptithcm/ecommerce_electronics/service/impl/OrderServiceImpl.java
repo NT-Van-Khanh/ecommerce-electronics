@@ -16,12 +16,8 @@ import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.OrderItemMapper;
 import com.ptithcm.ecommerce_electronics.mapper.OrderMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
-import com.ptithcm.ecommerce_electronics.repository.DiscountRepository;
-import com.ptithcm.ecommerce_electronics.repository.OrderItemRepository;
-import com.ptithcm.ecommerce_electronics.repository.OrderRepository;
-import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
-import com.ptithcm.ecommerce_electronics.service.OrderItemService;
-import com.ptithcm.ecommerce_electronics.service.OrderService;
+import com.ptithcm.ecommerce_electronics.repository.*;
+import com.ptithcm.ecommerce_electronics.service.*;
 import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +38,16 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Autowired
-    private DiscountRepository discountRepository;
+    private DiscountService discountService;
 
     @Autowired
     private OrderItemRepository orderItemRepository;
 
     @Autowired
-    private ProductVariantRepository productVariantRepository;
+    private DiscountVariantService discountVariantService;
+
+    @Autowired
+    private ProductVariantService productVariantService;
 
     @Override
     public PageResponse<OrderDTO> getByCustomerId(Integer customerId, PaginationRequest pageRequest) {
@@ -76,47 +75,73 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public OrderDTO add(OrderRequestDTO orderRequest, String token ) {
         if(token == null) throw new ForbiddenException("Please login or auth email before take order");
-        Orders order = setElementForOrder(orderRequest);
-        Orders newOrder = orderRepository.save(order);
-        List<OrderItemDTO> orderItems = new ArrayList<>();
-        for(OrderItem item : order.getOrderItems()){
+
+        return setElementForOrder(orderRequest);
+    }
+
+    private List<OrderItem> setElementForOrderItems(Orders order, List<OrderItemRequestDTO> items) {
+        List<OrderItem> orderItems = new ArrayList<>();
+        int totalPrice = 0;
+        for(OrderItemRequestDTO itemRequest : items){
+
+            Integer productVariantId = itemRequest.getProductVariantId();
+            ProductVariant productVariant = productVariantService.updateStockWithCheck(productVariantId, itemRequest.getQuantity());
+            OrderItem item = OrderItemMapper.toEntity(itemRequest);
+
+            if(itemRequest.getDiscountCode()!= null){
+                DiscountVariant discountVariant = discountVariantService.findByVariantAndDiscountCode(productVariantId, itemRequest.getDiscountCode());
+                Discount discount = discountVariant.getDiscount();
+                discount = discountService.updateStockWithCheck(discount.getCode(), 1);
+                item.setDiscount(discount);
+                item.setDiscountAmount(discount.getFinalValue(productVariant.getPriceSale()));
+            }
             item.setTaxRate(0);
             item.setTaxable(true);
             item.setTaxAmount(0);
-            Integer productVariantId =item.getProductVariant().getId();
-            System.err.println(productVariantId);
-            ProductVariant productVariant = productVariantRepository.findById(productVariantId)
-                    .orElseThrow(()-> new ResourceNotFoundException("Product variant not found with id = " + productVariantId));
             item.setProductVariant(productVariant);
             item.setUnitAmount(productVariant.getPriceSale());
-            item.setOrder(Orders.builder().id(newOrder.getId()).build());
-            OrderItemDTO orderResponse = OrderItemMapper.toDTO( orderItemRepository.save(item));
+            totalPrice = totalPrice + item.getQuantity()*item.getUnitAmount() - item.getTaxAmount();
 
-            orderItems.add(orderResponse);
+            orderItems.add(item);
         }
-        OrderDTO orderResponse = OrderMapper.toDTO(newOrder);
-        orderResponse.setOrderItems(orderItems);
-        return orderResponse;
+        order.setTotalAmount(totalPrice);
+        return orderItems;
     }
 
-    private Orders setElementForOrder(OrderRequestDTO orderRequest) {
+//            int stock = productVariant.getQuantity();
+//            if(itemRequest.getQuantity()> stock){
+//                throw new IllegalArgumentException( "Insufficient stock for product variant ID " + productVariantId
+//                        + ". Available: " + stock + ", requested: " + itemRequest.getQuantity());
+//            }
+
+    private OrderDTO setElementForOrder(OrderRequestDTO orderRequest) {
         Orders order = OrderMapper.toEntity(orderRequest);
-        if(orderRequest.getDiscountCode()!= null) {
-            Discount discount = discountRepository.findByCode(orderRequest.getDiscountCode())
-                    .orElseThrow(() -> new ResourceNotFoundException("Discount not found withd code"+ orderRequest.getDiscountCode()));
-            order.setDiscount(discount);
-            order.setDiscountAmount(discount.getValue());
-        }
+
         order.setTaxesIncluded(true);
-        //        Claims claims = jwtTokenUtil.extractClaims(token);
         order.setCustomer(Customer.builder().id(1).build());
-        order.setTotalTax(getTotalTaxOfOrder(null));
-        order.setShipAmount(getShippingFeeCharged(null));
-        order.setTotalAmount(200000);
+        order.setTotalTax(getTotalTaxOfOrder(orderRequest));
+        order.setShipAmount(getShippingFeeCharged(orderRequest.getDeliveryAddress()));
         order.setStatus(OrderStatus.PENDING);
         order.getPayment().setOrder(order);
         order.getPayment().setStatus(PaymentStatus.PENDING);
-        return order;
+        List<OrderItem> orderItems = setElementForOrderItems(order, orderRequest.getItems());
+        if(orderRequest.getDiscountCode()!= null) {
+            Discount discount = discountService.updateStockWithCheck(orderRequest.getDiscountCode(),1);
+            order.setDiscount(discount);
+            order.setDiscountAmount(discount.getFinalValue(order.getTotalAmount()));
+        }else{
+            order.setDiscountAmount(0);
+        }
+        Orders newOrder = orderRepository.save(order);
+        List<OrderItemDTO> orderItemsResponse = new ArrayList<>();
+        for(OrderItem item: orderItems){
+            item.setOrder(newOrder);
+            orderItemsResponse.add(OrderItemMapper.toDTO(orderItemRepository.save(item)));
+        }
+
+        OrderDTO orderResponse = OrderMapper.toDTO(newOrder);
+        orderResponse.setOrderItems(orderItemsResponse);
+        return  orderResponse;
     }
 
 

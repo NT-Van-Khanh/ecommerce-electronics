@@ -6,6 +6,7 @@ import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
+import com.ptithcm.ecommerce_electronics.model.Product;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
@@ -14,7 +15,10 @@ public interface ProductService extends BaseService<Integer, ProductCreateDTO, P
    PageResponse<ProductDTO> getDiscountedProducts(PaginationRequest pageRequest);
    List<ProductDTO> getBestSellingProducts(int limit);//ACTIVE
    List<ProductDTO> getNewestProducts(int limit);//ACTIVE
-   List<ProductDTO> getAll();
+
+    Product findById(Integer id);
+
+    List<ProductDTO> getAll();
    PageResponse<ProductDTO> getRelatedProducts(Integer id, PaginationRequest pageRequest);
    PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest);
    PageResponse<ProductDTO> semanticFilterProducts(ProductFilterRequest request, PaginationRequest pageRequest);//Search nâng cao

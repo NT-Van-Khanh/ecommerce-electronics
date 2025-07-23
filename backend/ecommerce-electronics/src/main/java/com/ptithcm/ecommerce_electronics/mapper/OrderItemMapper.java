@@ -26,16 +26,18 @@ public class OrderItemMapper {
 
     public static OrderItem toEntity(OrderItemRequestDTO request) {
         if(request == null) return null;
-        String discountCode = request.getDiscountCode();
-        Discount d= null;
-        if(discountCode != null)
-            d =Discount.builder().code(request.getDiscountCode()).build();
-
+        Discount d = request.getDiscountCode() == null ? null :
+                        Discount.builder().code(request.getDiscountCode()).build();
         return OrderItem.builder()
-                .productVariant(ProductVariant.builder().id(request.getProductVariantId()).build())
                 .quantity(request.getQuantity())
                 .discount(d)
                 .status(BaseStatus.ACTIVE)
                 .build();
+//        return OrderItem.builder()
+//                .productVariant(ProductVariant.builder().id(request.getProductVariantId()).build())
+//                .quantity(request.getQuantity())
+//                .discount(d)
+//                .status(BaseStatus.ACTIVE)
+//                .build();
     }
 }

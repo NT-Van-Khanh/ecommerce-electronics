@@ -6,7 +6,6 @@ import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueElements;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -67,7 +66,7 @@ public class ProductVariantRequestDTO {
     @Schema(description = "Warranty of product variant (month)", example = "2")
     private Integer warranty;
 
-    @UniqueField(entity = ProductVariant.class, fieldName = "sku", message = "Barcode is already exists")
+    @UniqueField(entity = ProductVariant.class, fieldName = "barcode", message = "Barcode is already exists")
     @Schema(description = "Barcode of product variant", example = "MAN-ACER-KG240Y-X1")
     private String barcode;
 

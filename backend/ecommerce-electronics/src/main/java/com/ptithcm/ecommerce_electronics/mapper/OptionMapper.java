@@ -36,7 +36,6 @@ public class OptionMapper {
 
     public static OptionDTO toDetailDTO(Option o, List<OptionValue> optionValues) {
         if(o == null) return null;
-        System.err.println("11113");
         List<OptionValueDTO> value = optionValues == null? null : optionValues.stream().map(OptionValueMapper::toBaseDTO).toList();
         return OptionDTO.builder()
                 .id(o.getId())

@@ -23,17 +23,25 @@ VALUES
 
 INSERT INTO brand(name, description, logo_url)
 VALUES 
+('Anker', 'Thương hiệu phụ kiện công nghệ với sạc nhanh, cáp USB, loa bluetooth và pin dự phòng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Apple', 'Apple Inc. là một tập đoàn công nghệ đa quốc gia nổi tiếng với iPhone, MacBook và các sản phẩm công nghệ cao.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Asus', 'Asus là thương hiệu Đài Loan chuyên về laptop, linh kiện máy tính và thiết bị chơi game.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Akko', 'Akko cung cấp các mẫu bàn phím cơ với thiết kế bắt mắt và giá cả hợp lý.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Corsair', 'Corsair cung cấp bàn phím cơ gaming chất lượng cao với phần mềm tùy chỉnh mạnh mẽ.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Dell', 'Dell là công ty công nghệ Mỹ cung cấp máy tính cá nhân, máy chủ và dịch vụ đám mây.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
+('Ducky', 'Ducky nổi bật với thiết kế bàn phím chất lượng cao, nổi tiếng với dòng One 2 Mini.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Huawei', 'Huawei chuyên về điện thoại, thiết bị mạng và hạ tầng viễn thông.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('HP', 'HP (Hewlett-Packard) chuyên sản xuất máy tính cá nhân, máy in và giải pháp IT.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Keychron', 'Thương hiệu bàn phím cơ nổi tiếng với thiết kế tối giản, hỗ trợ cả Mac và Windows.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Leopold', 'Leopold là thương hiệu đến từ Hàn Quốc với chất lượng build chắc chắn và switch ổn định.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('LG', 'LG là thương hiệu Hàn Quốc nổi tiếng với TV, tủ lạnh, máy lạnh và các sản phẩm điện tử gia dụng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Logitech', 'Hãng phụ kiện nổi tiếng với chuột, bàn phím, webcam và tai nghe không dây.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Panasonic', 'Panasonic cung cấp các sản phẩm điện tử, thiết bị nhà bếp và giải pháp công nghệ công nghiệp.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Razer', 'Thương hiệu gaming nổi tiếng với các bàn phím cơ RGB và switch độc quyền.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Samsung', 'Samsung là một tập đoàn đa ngành đến từ Hàn Quốc, nổi tiếng với điện thoại, TV và thiết bị gia dụng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Sony', 'Sony là tập đoàn điện tử hàng đầu Nhật Bản, chuyên về TV, máy ảnh, và thiết bị giải trí.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('LG', 'LG là thương hiệu Hàn Quốc nổi tiếng với TV, tủ lạnh, máy lạnh và các sản phẩm điện tử gia dụng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Panasonic', 'Panasonic cung cấp các sản phẩm điện tử, thiết bị nhà bếp và giải pháp công nghệ công nghiệp.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('SteelSeries', 'SteelSeries nổi tiếng với thiết kế bàn phím tối giản, độ bền cao và switch chất lượng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
 ('Xiaomi', 'Xiaomi là hãng công nghệ Trung Quốc nổi tiếng với điện thoại thông minh, thiết bị đeo và nhà thông minh.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Huawei', 'Huawei chuyên về điện thoại, thiết bị mạng và hạ tầng viễn thông.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Asus', 'Asus là thương hiệu Đài Loan chuyên về laptop, linh kiện máy tính và thiết bị chơi game.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('HP', 'HP (Hewlett-Packard) chuyên sản xuất máy tính cá nhân, máy in và giải pháp IT.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Dell', 'Dell là công ty công nghệ Mỹ cung cấp máy tính cá nhân, máy chủ và dịch vụ đám mây.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
-
 INSERT INTO supplier(name, email, phone, address, description)
 VALUES 
 ('Công ty TNHH Advantech Việt Nam Technology', 'advantechsupplier@advantech.com', '0912345678',
@@ -84,21 +92,21 @@ VALUES
 ('Loa, Micro, Webcam', 'loa-micro-webcam', 5),
 ('Handheld, Console', 'handheld-console', 5);
 
-INSERT INTO discount(code, title, type, value, start_at, end_at, scope, min_order_amount, description, created_by)
+INSERT INTO discount(code, title, type, value, start_at, end_at, usage_limit, scope, min_order_amount, description, created_by)
 VALUES 
-('SALE10ALL', 'Giảm 10% toàn bộ đơn hàng', 'PERCENT', 10, '2025-07-01 00:00:00', '2025-07-31 23:59:59', 
+('SALE10ALL', 'Giảm 10% toàn bộ đơn hàng', 'PERCENT', 10, '2025-07-01 00:00:00', '2025-07-31 23:59:59', 100, 
  'ALL', 0, 'Mã giảm 10% cho toàn bộ sản phẩm, không yêu cầu giá trị đơn hàng tối thiểu.',1),
 
-('GIAM100K', 'Giảm 100,000 cho đơn hàng từ 1 triệu', 'FIXED', 100000, '2025-07-10 00:00:00', '2025-08-10 23:59:59', 
+('GIAM100K', 'Giảm 100,000 cho đơn hàng từ 1 triệu', 'FIXED', 100000, '2025-07-10 00:00:00', '2025-08-10 23:59:59', 100, 
  'ORDER', 1000000,  'Áp dụng cho đơn hàng từ 1 triệu trở lên.', 1),
 
-('LAPTOP5', 'Giảm 5% khi mua Laptop', 'PERCENT', 5, '2025-07-05 00:00:00', '2025-08-05 23:59:59',  
+('LAPTOP5', 'Giảm 5% khi mua Laptop', 'PERCENT', 5, '2025-07-05 00:00:00', '2025-08-05 23:59:59',  100, 
  'CATEGORY', 0,  'Khuyến mãi 5% áp dụng cho các sản phẩm trong danh mục Laptop.', 1),
 
-('IPHONE15SALE', 'Giảm 1 triệu cho iPhone 15', 'FIXED', 1000000, '2025-07-15 00:00:00', '2025-08-15 23:59:59', 
+('IPHONE15SALE', 'Giảm 1 triệu cho iPhone 15', 'FIXED', 1000000, '2025-07-15 00:00:00', '2025-08-15 23:59:59', 100, 
  'PRODUCT_VARIANT', 0, 'Chỉ áp dụng cho các sản phẩm iPhone 15 chính hãng.',  1),
 
-('SAVE7', 'Giảm 7% toàn bộ đơn hàng > 2 triệu', 'PERCENT', 7, '2025-07-01 00:00:00', '2025-08-01 23:59:59', 
+('SAVE7', 'Giảm 7% toàn bộ đơn hàng > 2 triệu', 'PERCENT', 7, '2025-07-01 00:00:00', '2025-08-01 23:59:59', 100, 
  'ALL', 2000000, 'Giảm 7% cho đơn hàng có giá trị từ 2 triệu trở lên.',  1);
 
 INSERT INTO option("name", local_name)

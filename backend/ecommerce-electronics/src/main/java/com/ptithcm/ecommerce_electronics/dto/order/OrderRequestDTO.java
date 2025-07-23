@@ -25,7 +25,7 @@ public class OrderRequestDTO {
     @Schema(description = "List item of order")
     private List<OrderItemRequestDTO> items;
 
-    @Schema(description = "coupon code", example = "Discount1")
+    @Schema(description = "coupon code", example = "SALE10ALL")
     private String discountCode;
 
     @NotNull(message = "order item can not be null")

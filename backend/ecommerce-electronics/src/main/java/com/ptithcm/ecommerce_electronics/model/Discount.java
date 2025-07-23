@@ -1,6 +1,8 @@
 package com.ptithcm.ecommerce_electronics.model;
 
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.enums.DiscountScope;
+import com.ptithcm.ecommerce_electronics.enums.DiscountType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,8 +31,9 @@ public class Discount {
     @Column(name = "title", length = 100)
     private String title;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
-    private String type; //--(FIXED/ PERCENT)
+    private DiscountType type; //--(FIXED/ PERCENT)
 
     @Column(name = "value", nullable = false)
     private Integer value;
@@ -41,8 +44,15 @@ public class Discount {
     @Column(name = "end_at",nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime endAt;
 
+    @Column(name = "usage_limit", nullable = false )
+    private Integer usageLimit;
+
+    @Column(name = "used_count", nullable = false)
+    private Integer usedCount;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "scope", nullable = false)
-    private String scope;//CHECK (scope IN ('ALL', 'PRODUCT_VARIANT', 'CATEGORY', 'ORDER')),
+    private DiscountScope scope;//CHECK (scope IN ('ALL', 'PRODUCT_VARIANT', 'CATEGORY', 'ORDER')),
 
     @Column(name = "min_order_amount", nullable = false)
     private Integer minOrderAmount;
@@ -70,4 +80,12 @@ public class Discount {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private Employee updatedBy;
+
+    public Integer getFinalValue(Integer productVariantAmount) {
+        return switch (type) {
+            case FIXED -> value;
+            case PERCENT -> productVariantAmount * value / 100;
+            default -> 0;
+        };
+    }
 }

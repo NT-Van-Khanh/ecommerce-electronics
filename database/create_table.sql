@@ -277,6 +277,8 @@ CREATE TABLE discount(
 	value INTEGER NOT NULL,
 	start_at TIMESTAMP NOT NULL,
 	end_at TIMESTAMP NOT NULL,
+	usage_limit INTEGER NOT NULL DEFAULT 0,
+	used_count INTEGER NOT NULL DEFAULT 0,
 	scope VARCHAR(20) NOT NULL DEFAULT 'ALL',  -- (ALL/PRODUCT_VARIANT/CATEGORY/ORDER)
 	min_order_amount INTEGER NOT NULL DEFAULT 0,
 	description TEXT,
@@ -290,6 +292,8 @@ CREATE TABLE discount(
 	CHECK (value >= 0),
 	CHECK (min_order_amount >=0),
 	CHECK (end_at > start_at),
+	CHECK (usage_limit >= 0),
+	CHECK (used_count >= 0 AND used_count <= usage_limit),
 	CHECK (type IN ('FIXED', 'PERCENT')),
 	CHECK (scope IN ('ALL', 'PRODUCT_VARIANT', 'CATEGORY', 'ORDER')),
 	CHECK (status IN ('ACTIVE', 'EXPIRED', 'DISABLED', 'DELETED')),

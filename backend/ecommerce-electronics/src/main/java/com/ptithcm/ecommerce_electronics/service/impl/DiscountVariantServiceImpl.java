@@ -55,4 +55,10 @@ public class DiscountVariantServiceImpl implements DiscountVariantService {
     public boolean changeStatus(Integer id, String status) {
         return false;
     }
+
+    @Override
+    public DiscountVariant findByVariantAndDiscountCode(Integer variantId, String code) {
+        return dvRepository.findByProductVariant_IdAndDiscount_Code(variantId, code)
+                .orElseThrow(() -> new ResourceNotFoundException("No discount found for product variant ID = " + variantId + " and code = " + code));
+    }
 }

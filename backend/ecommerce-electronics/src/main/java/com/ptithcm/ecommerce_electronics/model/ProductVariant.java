@@ -118,14 +118,10 @@ public class ProductVariant {
                 ", imageUrl='" + imageUrl + '\'' +
                 ", specifications=" + specifications +
                 ", description='" + description + '\'' +
-                ", product=" + product +
                 ", supplier=" + supplier +
                 ", status=" + status +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", createdBy=" + createdBy +
-                ", updatedBy=" + updatedBy +
                 ", productImages=" + productImages +
+                ", variantOptions=" + variantOptions +
                 '}';
     }
 }

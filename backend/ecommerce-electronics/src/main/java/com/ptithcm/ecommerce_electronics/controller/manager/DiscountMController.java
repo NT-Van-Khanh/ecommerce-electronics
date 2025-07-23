@@ -5,7 +5,10 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountDTO;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountRequestDTO;
+import com.ptithcm.ecommerce_electronics.dto.discount.DiscountVariantDTO;
+import com.ptithcm.ecommerce_electronics.dto.discount.DiscountVariantRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
+import com.ptithcm.ecommerce_electronics.model.DiscountVariant;
 import com.ptithcm.ecommerce_electronics.service.DiscountService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -56,5 +59,10 @@ public class DiscountMController {
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Change status successfully"));
         else
             return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,"This status is available"));
+    }
+
+    @PostMapping("/add-discount-variant")
+    public ResponseEntity<ApiResponse<DiscountVariantDTO>> addDiscountVariant(@Valid @RequestBody DiscountVariantRequestDTO request){
+        return ResponseEntity.status(HttpStatus.CREATED).body( new ApiResponse<>(HttpStatus.CREATED, discountService.addDiscountVariant(request)));
     }
 }
