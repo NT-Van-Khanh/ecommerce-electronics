@@ -45,8 +45,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @PostConstruct//tat ca do API_V1_PREFIX nen moi dung cai nay
     public void init() {
         this.PROTECTED_URL = List.of(
-                API_V1_PREFIX + "/m",
-                API_V1_PREFIX + "/c"
+                API_V1_PREFIX + "/m/",
+                API_V1_PREFIX + "/c/"
         );
     }
 
@@ -122,9 +122,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     private UserDetails getUserDetailsByPath(String path, String username) {
-        if (path.startsWith("/api/v1/m")) {
+        if (path.startsWith("/api/v1/m/")) {
             return employeeDetailsService.loadUserByUsername(username);
-        } else if (path.startsWith("/api/v1/c")) {
+        } else if (path.startsWith("/api/v1/c/")) {
             return customerDetailsService.loadUserByUsername(username);
         }
         throw new IllegalArgumentException("Invalid path, cannot determine user role.");
