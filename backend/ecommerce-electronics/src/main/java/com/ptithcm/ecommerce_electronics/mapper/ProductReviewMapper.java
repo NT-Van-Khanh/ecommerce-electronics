@@ -6,7 +6,15 @@ import com.ptithcm.ecommerce_electronics.model.ProductReview;
 
 public class ProductReviewMapper {
     public static ProductReviewDTO toDTO(ProductReview productReview) {
-        return new ProductReviewDTO();
+        return ProductReviewDTO.builder()
+                .id(productReview.getId())
+                .productId(productReview.getProduct().getId())
+                .status(productReview.getStatus())
+                .comment(productReview.getComment())
+                .rating(productReview.getRating())
+                .username(productReview.getCustomer().getUsername())
+                .fullName(productReview.getCustomer().getFullName())
+                .build();
     }
 
     public static ProductReview toEntity(ProductReviewRequestDTO request) {
