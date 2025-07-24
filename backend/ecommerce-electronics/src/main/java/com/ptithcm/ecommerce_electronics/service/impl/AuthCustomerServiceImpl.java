@@ -7,10 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.customer.CustomerDTO;
 import com.ptithcm.ecommerce_electronics.enums.AccountStatus;
 import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
 import com.ptithcm.ecommerce_electronics.enums.RoleAuth;
-import com.ptithcm.ecommerce_electronics.exception.AccountLockedException;
-import com.ptithcm.ecommerce_electronics.exception.ResourceAlreadyExistsException;
-import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
-import com.ptithcm.ecommerce_electronics.exception.UnauthorizedException;
+import com.ptithcm.ecommerce_electronics.exception.*;
 import com.ptithcm.ecommerce_electronics.mapper.CustomerMapper;
 import com.ptithcm.ecommerce_electronics.model.Customer;
 import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
@@ -84,8 +81,7 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
 
     @Override
     public void changePassword(String username, String currentPassword, String newPassword) {
-        Customer customer = customerRepository.findByUsername(username)
-                .orElseThrow(() -> new BadCredentialsException("Invalid username"));
+        Customer customer = findByUsername(username);
         if(!passwordEncoder.matches(currentPassword, customer.getPassword())){
             throw new BadCredentialsException("Invalid password");
         }
@@ -154,6 +150,23 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
         return CustomerMapper.toDTO(customer);
     }
 
+    @Override
+    public Customer getAuthenticatedCustomer() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+
+        boolean isCustomer = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER"));
+        if (!isCustomer) {
+            throw new ForbiddenException("Only customers can perform this action");
+        }
+
+        String username = authentication.getName();
+        return findByUsername(username);
+    }
+
 
     @Override
     public String verifyEmail(String email,ActionPurpose purpose, String otp) {
@@ -187,5 +200,12 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
         Customer customer = customerRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found with email"+ email));
         customer.setPassword( passwordEncoder.encode(newPassword));
+    }
+
+
+    @Override
+    public Customer findByUsername(String username) {
+        return customerRepository.findByUsername(username)
+                .orElseThrow(() -> new BadCredentialsException("Invalid username"));
     }
 }

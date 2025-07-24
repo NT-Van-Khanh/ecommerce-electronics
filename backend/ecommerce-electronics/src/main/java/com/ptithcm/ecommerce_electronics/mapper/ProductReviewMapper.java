@@ -10,6 +10,9 @@ public class ProductReviewMapper {
     }
 
     public static ProductReview toEntity(ProductReviewRequestDTO request) {
-        return new ProductReview();
+        return ProductReview.builder()
+                .comment(request.getComment())
+                .rating(request.getRating())
+                .build();
     }
 }

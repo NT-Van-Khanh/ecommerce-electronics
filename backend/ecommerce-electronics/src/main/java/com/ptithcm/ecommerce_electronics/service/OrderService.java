@@ -14,11 +14,15 @@ import java.util.List;
 
 public interface OrderService extends BaseService<Integer, OrderRequestDTO, OrderDTO> {
     PageResponse<OrderDTO> getByCustomerId(Integer id, PaginationRequest pageRequest);
-    PageResponse<OrderDTO> findNewestByCustomerId(String customerId, PaginationRequest pageRequest);;
+    PageResponse<OrderDTO> findNewestByCustomerId(Integer customerId, PaginationRequest pageRequest);;
 
     Integer getShippingFeeCharged(String address);
 
     Integer getTotalTaxOfOrder(OrderRequestDTO order);
 
     OrderDTO add(OrderRequestDTO orderRequest, String jwt);
+
+    OrderDTO cancelOrder(Integer orderId);
+
+    PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest);
 }

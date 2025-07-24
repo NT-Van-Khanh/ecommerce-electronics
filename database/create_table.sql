@@ -378,7 +378,7 @@ CREATE TABLE order_item(
 DROP TABLE IF EXISTS payment CASCADE;
 CREATE TABLE payment(
 	id SERIAL PRIMARY KEY,
-	order_id INTEGER NOT NULL,
+	order_id INTEGER NOT NULL UNIQUE,
 	method VARCHAR(100) NOT NULL,
 	paid_at TIMESTAMP,
 	transaction_code VARCHAR(255),

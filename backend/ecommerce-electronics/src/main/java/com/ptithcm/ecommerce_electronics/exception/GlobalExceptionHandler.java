@@ -2,15 +2,13 @@ package com.ptithcm.ecommerce_electronics.exception;
 
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import jakarta.validation.ValidationException;
-import org.apache.coyote.BadRequestException;
+    import jakarta.validation.ValidationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.mail.MailSendException;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -123,10 +121,12 @@ public class GlobalExceptionHandler {
         ApiResponse<String> response = new ApiResponse<>(HttpStatus.UNAUTHORIZED, ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
-//    @ExceptionHandler(AccessDeniedException.class)
-//    public  ResponseEntity<ApiResponse<String>> handleAccessDenied(AccessDeniedException ex){
-//        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ApiResponse<>(HttpStatus.FORBIDDEN, ex.getMessage()));
-//    }
+
+    //403 Forbidden - Xử lý lỗi quyền truy cập bị từ chối, không có quyền truy cập cua Spring
+    @ExceptionHandler(AccessDeniedException.class)
+    public  ResponseEntity<ApiResponse<String>> handleAccessDenied(AccessDeniedException ex){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ApiResponse<>(HttpStatus.FORBIDDEN, ex.getMessage()));
+    }
 
     //403 Forbidden - Xử lý lỗi quyền truy cập bị từ chối, không có quyền truy cập
     @ExceptionHandler(ForbiddenException.class)

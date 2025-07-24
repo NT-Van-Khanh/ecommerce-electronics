@@ -1,7 +1,6 @@
 package com.ptithcm.ecommerce_electronics.service.impl;
 
 import com.ptithcm.ecommerce_electronics.config.JwtTokenUtil;
-import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
@@ -11,8 +10,10 @@ import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
 import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
+import com.ptithcm.ecommerce_electronics.exception.BadRequestException;
 import com.ptithcm.ecommerce_electronics.exception.ForbiddenException;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
+import com.ptithcm.ecommerce_electronics.exception.UnauthorizedException;
 import com.ptithcm.ecommerce_electronics.mapper.OrderItemMapper;
 import com.ptithcm.ecommerce_electronics.mapper.OrderMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
@@ -22,10 +23,12 @@ import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -49,6 +52,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ProductVariantService productVariantService;
 
+    @Autowired
+    private AuthCustomerService customerService;
+
     @Override
     public PageResponse<OrderDTO> getByCustomerId(Integer customerId, PaginationRequest pageRequest) {
         Page<Orders> page = orderRepository.findByCustomerId(customerId, pageRequest.toPageable());
@@ -56,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public PageResponse<OrderDTO> findNewestByCustomerId(String customerId, PaginationRequest pageRequest) {
+    public PageResponse<OrderDTO> findNewestByCustomerId(Integer customerId, PaginationRequest pageRequest) {
         Page<Orders> page = orderRepository.findNewestByCustomerId(customerId, pageRequest.toPageable());
         return new PageResponse<>(page.map(OrderMapper::toDTO));
     }
@@ -77,6 +83,61 @@ public class OrderServiceImpl implements OrderService {
         if(token == null) throw new ForbiddenException("Please login or auth email before take order");
 
         return setElementForOrder(orderRequest);
+    }
+
+    @Override
+    public OrderDTO cancelOrder(Integer orderId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+        boolean isCustomer = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
+        if (!isCustomer) {
+            throw new ForbiddenException("Only customers can cancel orders");
+        }
+        String username = authentication.getName();
+        Orders order = orderRepository.findByIdAndCustomer_Username(orderId, username)
+                .orElseThrow(()-> new ResourceNotFoundException("Order not found for customer"));
+        switch (order.getStatus()) {
+            case PENDING, CONFIRMED:  break;
+            case SHIPPING:
+                throw new BadRequestException("The order is currently being delivered and cannot be canceled.");
+            case COMPLETED:
+                throw new BadRequestException("The order has been completed and cannot be canceled.");
+            case CANCELLED:
+                throw new BadRequestException("The order has already been canceled.");
+            case DELETED:
+                throw new BadRequestException("The order has been deleted and cannot be canceled.");
+            default:
+                throw new BadRequestException("The order status is invalid for cancellation.");
+        }
+        switch (order.getPayment().getStatus()) {
+            case PAID:
+                throw new BadRequestException("The order has already been paid. Please contact support to request cancellation.");
+            case FAILED, PENDING:  break;
+            default:
+                throw new BadRequestException("The payment status is invalid for cancellation.");
+        }
+        order.setStatus(OrderStatus.CANCELLED);
+        order = orderRepository.save(order);
+        return OrderMapper.toDTO(order);
+    }
+
+    @Override
+    public PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+        boolean isCustomer = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
+        if (!isCustomer) {
+            throw new ForbiddenException("Only customers can cancel orders");
+        }
+        String username = authentication.getName();
+        Page<Orders> page = orderRepository.findByCustomer_Username(username, pageRequest.toPageable());
+        return new PageResponse<>(page.map(OrderMapper::toDTO));
     }
 
     private List<OrderItem> setElementForOrderItems(Orders order, List<OrderItemRequestDTO> items) {

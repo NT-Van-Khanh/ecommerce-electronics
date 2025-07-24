@@ -27,9 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO getById(Integer id) {
-        Customer c =  customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id = " +id));
-        return CustomerMapper.toDTO(c);
+        return CustomerMapper.toDTO(findById(id));
     }
 
     public List<CustomerDTO> getAll() {
@@ -72,13 +70,18 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional
     public boolean changeStatus(Integer id, String status) {
-        Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id = " + id));
+        Customer customer = findById(id);
         AccountStatus newStatus = AccountStatus.valueOf(status);
         if(newStatus.equals(customer.getStatus())) return false;
         customer.setStatus(newStatus);
         customerRepository.save(customer);
 
         return true;
+    }
+
+    @Override
+    public Customer findById(Integer id) {
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id = " +id));
     }
 }

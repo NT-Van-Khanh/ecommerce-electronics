@@ -24,8 +24,8 @@ public class Payment {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false, unique = true)
     private Orders order;
 
     @Enumerated(EnumType.STRING)

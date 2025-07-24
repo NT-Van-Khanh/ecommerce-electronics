@@ -11,10 +11,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("${api.v1.prefix}/c/orders")
@@ -23,9 +20,13 @@ public class OrderCController {
     @Autowired
     private OrderService orderService;
 
+    @GetMapping("/history")
+    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrderByCustomerId(@Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getCustomerOrderHistory(pageRequest)));
+    }
 
-    @GetMapping("/history/{id}")
-    public ResponseEntity<ApiResponse<PageResponse<OrderDTO>>> getPageOrderByCustomerId(@PathVariable("id") @PositiveOrZero Integer customerId, @Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.getByCustomerId(customerId, pageRequest)));
+    @PostMapping("cancel/{id}")
+    public ResponseEntity<ApiResponse<OrderDTO>> cancelOrder(@PathVariable("id") @PositiveOrZero Integer orderId){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.cancelOrder(orderId)));
     }
 }
