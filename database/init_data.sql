@@ -28,7 +28,7 @@ VALUES
 ('Asus', 'Asus là thương hiệu Đài Loan chuyên về laptop, linh kiện máy tính và thiết bị chơi game.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Akko', 'Akko cung cấp các mẫu bàn phím cơ với thiết kế bắt mắt và giá cả hợp lý.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Corsair', 'Corsair cung cấp bàn phím cơ gaming chất lượng cao với phần mềm tùy chỉnh mạnh mẽ.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Dell', 'Dell là công ty công nghệ Mỹ cung cấp máy tính cá nhân, máy chủ và dịch vụ đám mây.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
+('Dell', 'Dell là công ty công nghệ Mỹ cung cấp máy tính cá nhân, máy chủ và dịch vụ đám mây.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Ducky', 'Ducky nổi bật với thiết kế bàn phím chất lượng cao, nổi tiếng với dòng One 2 Mini.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Huawei', 'Huawei chuyên về điện thoại, thiết bị mạng và hạ tầng viễn thông.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('HP', 'HP (Hewlett-Packard) chuyên sản xuất máy tính cá nhân, máy in và giải pháp IT.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
@@ -40,8 +40,9 @@ VALUES
 ('Razer', 'Thương hiệu gaming nổi tiếng với các bàn phím cơ RGB và switch độc quyền.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Samsung', 'Samsung là một tập đoàn đa ngành đến từ Hàn Quốc, nổi tiếng với điện thoại, TV và thiết bị gia dụng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Sony', 'Sony là tập đoàn điện tử hàng đầu Nhật Bản, chuyên về TV, máy ảnh, và thiết bị giải trí.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('SteelSeries', 'SteelSeries nổi tiếng với thiết kế bàn phím tối giản, độ bền cao và switch chất lượng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
-('Xiaomi', 'Xiaomi là hãng công nghệ Trung Quốc nổi tiếng với điện thoại thông minh, thiết bị đeo và nhà thông minh.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('SteelSeries', 'SteelSeries nổi tiếng với thiết kế bàn phím tối giản, độ bền cao và switch chất lượng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Xiaomi', 'Xiaomi là hãng công nghệ Trung Quốc nổi tiếng với điện thoại thông minh, thiết bị đeo và nhà thông minh.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png');
+
 INSERT INTO supplier(name, email, phone, address, description)
 VALUES 
 ('Công ty TNHH Advantech Việt Nam Technology', 'advantechsupplier@advantech.com', '0912345678',
@@ -127,6 +128,8 @@ VALUES
 ('port_count', 'Số cổng sạc'),
 ('charging_standard', 'Chuẩn sạc');
 
+
+
 INSERT INTO option_value(option_id,"value", local_value)
 VALUES
 (1, '4GB', '4GB'),
@@ -145,52 +148,6 @@ VALUES
 (3, '128GB', '128GB'),
 (3, '256GB', '256GB'),
 (3, '512GB', '512GB'),
-(3, '1TB', '1TB'),
+(3, '1TB', '1TB');
 
-(4, 'Snapdragon 8 Gen 1', 'Snapdragon 8 Gen 1'),
-(4, 'Apple A16 Bionic', 'Apple A16 Bionic'),
-(4, 'Exynos 2100', 'Exynos 2100'),
-(4, 'MediaTek Dimensity 9200', 'MediaTek Dimensity 9200'),
-
-(5, 'AMOLED', 'AMOLED'),
-(5, 'IPS LCD', 'IPS LCD'),
-(5, 'OLED', 'OLED'),
-(5, 'Super Retina', 'Super Retina'),
-
-(6, 'Intel i5', 'Intel i5'),
-(6, 'Intel i7', 'Intel i7'),
-(6, 'Intel i9', 'Intel i9'),
-(6, 'Ryzen 5', 'Ryzen 5'),
-(6, 'Ryzen 7', 'Ryzen 7'),
-
-(7, 'RTX 3060', 'RTX 3060'),
-(7, 'RTX 3070', 'RTX 3070'),
-(7, 'RTX 3080', 'RTX 3080'),
-(7, 'Intel Iris Xe', 'Intel Iris Xe'),
-(7, 'AMD Radeon 680M', 'AMD Radeon 680M'),
-
-(8, '13.3 inch', '13.3 inch'),
-(8, '14 inch', '14 inch'),
-(8, '15.6 inch', '15.6 inch'),
-(8, '16 inch', '16 inch'),
-(8, '17 inch', '17 inch'),
-
-(12, 'Bluetooth', 'Bluetooth'),
-(12, '2.4GHz Wireless', 'Không dây 2.4GHz'),
-(12, 'Wired USB', 'USB có dây'),
-(12, 'Bluetooth 5.0', 'Bluetooth 5.0'),
-(12, 'Bluetooth 5.2', 'Bluetooth 5.2'),
-(12, 'Wired', 'Có dây'),
-(12, 'Wireless', 'Không dây'),
-
-(13, '18W', '18W'),
-(13, '20W', '20W'),
-(13, '33W', '33W'),
-(13, '65W', '65W'),
-(13, '100W', '100W'),
-
-(14, '1 port', '1 cổng'),
-(14, '2 ports', '2 cổng'),
-(14, '3 ports', '3 cổng'),
-(14, '4 ports', '4 cổng');
 

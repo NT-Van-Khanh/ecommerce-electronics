@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer> {
     @Query("""
-            SELECT DISTINCT pc.product.brand
+            SELECT pc.product.brand
             FROM ProductCategory pc
             WHERE pc.category.id = :categoryId
             """)

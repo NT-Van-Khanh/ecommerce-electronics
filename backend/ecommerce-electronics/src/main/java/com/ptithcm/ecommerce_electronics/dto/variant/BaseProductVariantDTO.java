@@ -19,6 +19,8 @@ import java.util.Map;
 @NoArgsConstructor
 public class BaseProductVariantDTO {
     private Integer id;
+    private String name;
+    private String seoName;
     private Integer price;
     private Integer priceSale;
     private Integer quantity;

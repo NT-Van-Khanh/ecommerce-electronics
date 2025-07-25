@@ -19,7 +19,6 @@ import com.ptithcm.ecommerce_electronics.mapper.OrderMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
 import com.ptithcm.ecommerce_electronics.repository.*;
 import com.ptithcm.ecommerce_electronics.service.*;
-import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,7 +27,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -79,67 +77,23 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderDTO add(OrderRequestDTO orderRequest, String token ) {
-        if(token == null) throw new ForbiddenException("Please login or auth email before take order");
-
+    public OrderDTO add(OrderRequestDTO orderRequest) {
+//        if(token == null) throw new ForbiddenException("Please login or auth email before take order");
+        checkAuthUser();
         return setElementForOrder(orderRequest);
     }
 
-    @Override
-    public OrderDTO cancelOrder(Integer orderId) {
+    private void checkAuthUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
             throw new UnauthorizedException("User not authenticated");
         }
-        boolean isCustomer = authentication.getAuthorities().stream()
+        boolean isAuth = authentication.getAuthorities().stream()
                 .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
-        if (!isCustomer) {
-            throw new ForbiddenException("Only customers can cancel orders");
+        if (!isAuth) {
+            throw new ForbiddenException("Please login or auth email before take order");
         }
-        String username = authentication.getName();
-        Orders order = orderRepository.findByIdAndCustomer_Username(orderId, username)
-                .orElseThrow(()-> new ResourceNotFoundException("Order not found for customer"));
-        switch (order.getStatus()) {
-            case PENDING, CONFIRMED:  break;
-            case SHIPPING:
-                throw new BadRequestException("The order is currently being delivered and cannot be canceled.");
-            case COMPLETED:
-                throw new BadRequestException("The order has been completed and cannot be canceled.");
-            case CANCELLED:
-                throw new BadRequestException("The order has already been canceled.");
-            case DELETED:
-                throw new BadRequestException("The order has been deleted and cannot be canceled.");
-            default:
-                throw new BadRequestException("The order status is invalid for cancellation.");
-        }
-        switch (order.getPayment().getStatus()) {
-            case PAID:
-                throw new BadRequestException("The order has already been paid. Please contact support to request cancellation.");
-            case FAILED, PENDING:  break;
-            default:
-                throw new BadRequestException("The payment status is invalid for cancellation.");
-        }
-        order.setStatus(OrderStatus.CANCELLED);
-        order = orderRepository.save(order);
-        return OrderMapper.toDTO(order);
     }
-
-    @Override
-    public PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || !authentication.isAuthenticated()) {
-            throw new UnauthorizedException("User not authenticated");
-        }
-        boolean isCustomer = authentication.getAuthorities().stream()
-                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
-        if (!isCustomer) {
-            throw new ForbiddenException("Only customers can cancel orders");
-        }
-        String username = authentication.getName();
-        Page<Orders> page = orderRepository.findByCustomer_Username(username, pageRequest.toPageable());
-        return new PageResponse<>(page.map(OrderMapper::toDTO));
-    }
-
     private List<OrderItem> setElementForOrderItems(Orders order, List<OrderItemRequestDTO> items) {
         List<OrderItem> orderItems = new ArrayList<>();
         int totalPrice = 0;
@@ -204,6 +158,60 @@ public class OrderServiceImpl implements OrderService {
         orderResponse.setOrderItems(orderItemsResponse);
         return  orderResponse;
     }
+    @Override
+    public OrderDTO cancelOrder(Integer orderId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+        boolean isCustomer = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER"));
+        if (!isCustomer) {
+            throw new ForbiddenException("Only customers can cancel orders");
+        }
+        String username = authentication.getName();
+        Orders order = orderRepository.findByIdAndCustomer_Username(orderId, username)
+                .orElseThrow(()-> new ResourceNotFoundException("Order not found for customer"));
+        switch (order.getStatus()) {
+            case PENDING, CONFIRMED:  break;
+            case SHIPPING:
+                throw new BadRequestException("The order is currently being delivered and cannot be canceled.");
+            case COMPLETED:
+                throw new BadRequestException("The order has been completed and cannot be canceled.");
+            case CANCELLED:
+                throw new BadRequestException("The order has already been canceled.");
+            case DELETED:
+                throw new BadRequestException("The order has been deleted and cannot be canceled.");
+            default:
+                throw new BadRequestException("The order status is invalid for cancellation.");
+        }
+        switch (order.getPayment().getStatus()) {
+            case PAID:
+                throw new BadRequestException("The order has already been paid. Please contact support to request cancellation.");
+            case FAILED, PENDING:  break;
+            default:
+                throw new BadRequestException("The payment status is invalid for cancellation.");
+        }
+        order.setStatus(OrderStatus.CANCELLED);
+        order = orderRepository.save(order);
+        return OrderMapper.toDTO(order);
+    }
+
+    @Override
+    public PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UnauthorizedException("User not authenticated");
+        }
+        boolean isCustomer = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
+        if (!isCustomer) {
+            throw new ForbiddenException("Only customers can cancel orders");
+        }
+        String username = authentication.getName();
+        Page<Orders> page = orderRepository.findByCustomer_Username(username, pageRequest.toPageable());
+        return new PageResponse<>(page.map(OrderMapper::toDTO));
+    }
 
 
     @Override
@@ -232,11 +240,11 @@ public class OrderServiceImpl implements OrderService {
         return new PageResponse<>(page.map(OrderMapper::toDTO));
     }
 
-    @Override
-    public OrderDTO add(OrderRequestDTO request) {
-        Orders order = OrderMapper.toEntity(request);
-        return OrderMapper.toDTO(orderRepository.save(order));
-    }
+//    @Override
+//    public OrderDTO add(OrderRequestDTO request) {
+//        Orders order = OrderMapper.toEntity(request);
+//        return OrderMapper.toDTO(orderRepository.save(order));
+//    }
 
     @Override
     @Transactional

@@ -46,6 +46,10 @@ public class ProductReviewServiceImpl implements ProductReviewService {
 
     @Autowired
     private AuthCustomerService authCustomerService;
+
+    @Autowired
+    private CustomerService customerService;
+
     @Override
     public ProductReviewDTO getById(Integer id) {
         ProductReview productReview = pReviewRepository.findById(id)
@@ -132,6 +136,19 @@ public class ProductReviewServiceImpl implements ProductReviewService {
     public PageResponse<ProductReviewDTO> getPageByCustomer(PaginationRequest pageRequest) {
         Customer customer =  authCustomerService.getAuthenticatedCustomer();
         Page<ProductReview> page = pReviewRepository.findByCustomerId(customer.getId(),  pageRequest.toPageable());
+        return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
+    }
+
+    @Override
+    public PageResponse<ProductReviewDTO> getPageByCustomerId(Integer customerId, PaginationRequest pageRequest) {
+        Customer customer =  customerService.findById(customerId);
+        Page<ProductReview> page = pReviewRepository.findByCustomerId(customer.getId(),  pageRequest.toPageable());
+        return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
+    }
+
+    @Override
+    public PageResponse<ProductReviewDTO> getPageByStatus(BaseStatus status, PaginationRequest pageRequest) {
+        Page<ProductReview> page = pReviewRepository.findByStatus(status, pageRequest.toPageable());
         return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
     }
 }

@@ -33,7 +33,7 @@ public class BrandMController {
         return ResponseEntity.ok(new ApiResponse<>( HttpStatus.OK, brandService.update(id, brandRequest)));
     }
 
-    @PatchMapping("/change-status")
+    @PatchMapping("/change-status/{id}")
     public  ResponseEntity<ApiResponse<String>> changeStatus(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
         boolean check = brandService.changeStatus(id, status.name());
         if(check){

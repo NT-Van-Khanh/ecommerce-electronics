@@ -98,6 +98,8 @@ CREATE TABLE product_variant(
     id SERIAL PRIMARY KEY,
     product_id INTEGER NOT NULL,
 	supplier_id INTEGER NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	seo_name VARCHAR(255),
 	price INTEGER NOT NULL,
 	price_sale INTEGER NOT NULL,
 	quantity INTEGER NOT NULL DEFAULT 0,

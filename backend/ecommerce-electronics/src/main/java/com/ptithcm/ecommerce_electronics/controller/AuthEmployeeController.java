@@ -7,7 +7,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,14 +27,14 @@ public class AuthEmployeeController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,"Reset password successfully"));
     }
 
-    @PostMapping("/reset-password/send-otp/email")
+    @PostMapping("/reset-password/email/send-otp")
     public ResponseEntity<ApiResponse<String>> sendOtpToEmail(@RequestParam String email){
         authEmployeeService.sendOtpToExistingEmail(email, ActionPurpose.RESET_PASSWORD);
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP."));
     }
 
 
-    @PostMapping("/reset-password/verify-email")
+    @PostMapping("/reset-password/email/verify")
     public ResponseEntity<ApiResponse<String>> verifyEmail(@RequestBody @Valid VerifyEmailRequest verifyEmail){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,authEmployeeService.verifyEmail(verifyEmail.getEmail(),
                 ActionPurpose.RESET_PASSWORD,

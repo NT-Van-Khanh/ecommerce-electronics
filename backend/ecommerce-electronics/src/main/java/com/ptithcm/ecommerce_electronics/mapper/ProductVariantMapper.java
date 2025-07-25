@@ -46,6 +46,8 @@ public class ProductVariantMapper {
                 pv.getVariantOptions().stream().map(VariantOptionMapper::toBaseDTO).toList();
         return  ProductVariantDTO.builder()
                 .id(pv.getId())
+                .name(pv.getName())
+                .seoName(pv.getSeoName())
                 .barcode(pv.getBarcode())
                 .description(pv.getDescription())
                 .imageUrl(pv.getImageUrl())
@@ -72,6 +74,8 @@ public class ProductVariantMapper {
                 pv.getVariantOptions().stream().map(VariantOptionMapper::toBaseDTO).toList();
         return  BaseProductVariantDTO.builder()
                 .id(pv.getId())
+                .name(pv.getName())
+                .seoName(pv.getSeoName())
                 .barcode(pv.getBarcode())
                 .description(pv.getDescription())
                 .imageUrl(pv.getImageUrl())
@@ -93,6 +97,8 @@ public class ProductVariantMapper {
         if(request == null ) return null;
         return ProductVariant.builder()
                 .barcode(request.getBarcode())
+                .name(request.getName())
+                .seoName(request.getSeoName())
                 .price(request.getPrice())
                 .priceSale(request.getPriceSale())
                 .sku(request.getSku())

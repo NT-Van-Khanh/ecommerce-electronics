@@ -4,13 +4,17 @@ package com.ptithcm.ecommerce_electronics.controller;
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
+import com.ptithcm.ecommerce_electronics.dto.VerifyEmailRequest;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
 import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
+import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
 import com.ptithcm.ecommerce_electronics.service.OrderItemService;
 import com.ptithcm.ecommerce_electronics.service.OrderService;
 import io.jsonwebtoken.Jwt;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +32,24 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private AuthCustomerService authCustomerService;
+
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse<OrderDTO>> addOrder(@RequestBody @Valid OrderRequestDTO orderRequest, @RequestHeader("Authentication") String authHeader){
-        String token = authHeader.substring(7);
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.OK, orderService.add(orderRequest, token)));
+    public ResponseEntity<ApiResponse<OrderDTO>> addOrder(@RequestBody @Valid OrderRequestDTO orderRequest){
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.OK, orderService.add(orderRequest)));
     }
 
+    @PostMapping("/guest/email/send-otp")
+    public ResponseEntity<ApiResponse<String>> sendOtpEmailToTakeOrder(@RequestParam @Schema(example = "ntvk137@gmail.com") String email){
+        authCustomerService.sendOtpEmailToTakeOrder(email);
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP for take order."));
+    }
+    @PostMapping("/guest/email/auth")
+    public ResponseEntity<ApiResponse<String>> verifyEmailToTakeOrder(@RequestBody @Valid VerifyEmailRequest verifyEmail){
+        String token =authCustomerService.verifyEmail(verifyEmail.getEmail(), ActionPurpose.REGISTER_ACCOUNT, verifyEmail.getOtp());
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, token));
+    }
 //    @PutMapping("/update/{id}")
 //    public ResponseEntity<ApiResponse<OrderDTO>> updateOrder(@PathVariable("id") Integer id, @RequestBody @Valid OrderRequestDTO orderRequest){
 //        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK, orderService.update(id, orderRequest)));

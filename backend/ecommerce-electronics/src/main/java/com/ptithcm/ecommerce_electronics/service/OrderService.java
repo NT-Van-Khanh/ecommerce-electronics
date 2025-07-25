@@ -20,7 +20,7 @@ public interface OrderService extends BaseService<Integer, OrderRequestDTO, Orde
 
     Integer getTotalTaxOfOrder(OrderRequestDTO order);
 
-    OrderDTO add(OrderRequestDTO orderRequest, String jwt);
+//    OrderDTO add(OrderRequestDTO orderRequest, String jwt);
 
     OrderDTO cancelOrder(Integer orderId);
 

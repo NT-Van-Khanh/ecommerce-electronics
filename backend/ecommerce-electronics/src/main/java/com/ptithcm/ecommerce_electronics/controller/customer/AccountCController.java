@@ -15,7 +15,7 @@ public class AccountCController {
     private AuthCustomerService authCustomerService;
 
     @GetMapping("/info")
-    public ResponseEntity<ApiResponse<CustomerDTO>> getCustomerDTO(){
+    public ResponseEntity<ApiResponse<CustomerDTO>> getCustomer(){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.getCustomer()));
     }
 

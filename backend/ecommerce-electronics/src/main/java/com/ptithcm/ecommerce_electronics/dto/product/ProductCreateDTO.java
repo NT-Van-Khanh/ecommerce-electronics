@@ -20,10 +20,12 @@ import java.util.Map;
 public class ProductCreateDTO {
     @NotNull(message = "Name can not be null.")
     @Size(min = 1, max = 255 , message = "Min = 1, max = 255")
+    @Schema(description = "Name of product", example = "Tai nghe Redmi Buds 6 Pro")
     private String name;
 
     @NotNull(message = "seo name can not be null.")
     @Size(min = 1, max = 255, message = "Min = 1, max = 255")
+    @Schema(description = "SEO name of product", example = "Tai_nghe_Redmi_Buds_6_Pro")
     private String seoName;
 
     @NotNull(message = "Specifications can not be null. example: {\"color\" : \"blue\"")

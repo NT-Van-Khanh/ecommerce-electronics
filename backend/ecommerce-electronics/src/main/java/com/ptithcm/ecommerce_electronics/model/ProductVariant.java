@@ -29,6 +29,13 @@ public class ProductVariant {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "seoName", nullable = false)
+    private String seoName;
+
     @Column(name = "price", nullable = false)
     private Integer price;
 

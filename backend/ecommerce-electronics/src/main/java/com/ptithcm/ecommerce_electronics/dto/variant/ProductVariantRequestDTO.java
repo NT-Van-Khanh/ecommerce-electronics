@@ -6,6 +6,7 @@ import com.ptithcm.ecommerce_electronics.validator.anotation.ExistsInDatabase;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueElements;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,9 +26,17 @@ public class ProductVariantRequestDTO {
 
 
     @ExistsInDatabase(entity = Product.class)
-    @NotNull(message = "Product variant id not null.")
-    @Schema(description = "Product variant id of image", example = "1")
+    @NotBlank(message = "Product ID not null.")
+    @Schema(description = "Product ID of image", example = "1")
     private Integer productId;
+
+    @NotBlank(message = "Product variant name can not null.")
+    @Schema(description = "Product variant name", example = "Tai nghe Redmi Buds 6 Pro - Trắng")
+    private String name;
+
+    @NotBlank(message = "Product variant name can not null.")
+    @Schema(description = "Product variant name", example = "Tai_nghe_Redmi_Buds_6_Pro_Trang")
+    private String seoName;
 
     @NotNull(message = "Price can not be null.")
     @Schema(description = "Price of product variant", example = "12000000")

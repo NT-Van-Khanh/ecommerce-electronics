@@ -38,19 +38,19 @@ public class AuthCustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, "Register successfully. Please login to continue."));
     }
 
-    @PostMapping("/register/send-otp/email")
+    @PostMapping("/register/email/send-otp")
     public  ResponseEntity<ApiResponse<String>> sendOtpRegister(@RequestBody @Valid CustomerRequestDTO register){
-        authCustomerService.sendOtpToNewEmail(register, ActionPurpose.REGISTER_ACCOUNT);
+        authCustomerService.sendOtpEmailToRegister(register);
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP."));
     }
 
-    @PostMapping("/reset-password/send-otp/email")
+    @PostMapping("/reset-password/email/send-otp")
     public  ResponseEntity<ApiResponse<String>> sendOtpResetPassword(@RequestParam String email){
         authCustomerService.sendOtpToExistingEmail(email, ActionPurpose.RESET_PASSWORD);
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP."));
     }
 
-    @PostMapping("/resetPassword/verify/email")
+    @PostMapping("/resetPassword/email/verify")
     public ResponseEntity<ApiResponse<String>> verifyEmail(@RequestBody @Valid VerifyEmailRequest verifyEmail){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, authCustomerService.verifyEmail(
                 verifyEmail.getEmail(),
