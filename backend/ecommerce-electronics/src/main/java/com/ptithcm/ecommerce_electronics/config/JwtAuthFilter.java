@@ -40,13 +40,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Autowired
     private EmployeeDetailsService employeeDetailsService;
 
+
+
     private List<String> PROTECTED_URL;
 
     @PostConstruct//tat ca do API_V1_PREFIX nen moi dung cai nay
     public void init() {
         this.PROTECTED_URL = List.of(
                 API_V1_PREFIX + "/m/",
-                API_V1_PREFIX + "/c/"
+                API_V1_PREFIX + "/c/",
+                API_V1_PREFIX + "/orders/add"
         );
     }
 
@@ -85,6 +88,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 System.err.println("4");
                 jwt = authHeader.substring(7);
                 username = jwtUtil.extractUsername(jwt);
+                System.err.println(username);
             }else{
                 throw new IllegalArgumentException("JWT Token is empty or null");
             }
@@ -107,7 +111,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             System.err.println("10");
         }catch ( Exception ex){
-//            throw new RuntimeException("Unauthorized: " + ex.getMessage(), ex);
             ApiResponse<String> errorResponse = new ApiResponse<>(HttpStatus.UNAUTHORIZED, "Unauthorized: " + ex.getMessage());
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json;charset=UTF-8");
@@ -115,17 +118,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writeValueAsString(errorResponse);
             response.getWriter().write(json);
-//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//            response.setContentType("application/json;charset=UTF-8");
-//            response.getWriter().write("{\"error\": \"Unauthorized: " + ex.getMessage() + "\"}");
         }
     }
 
     private UserDetails getUserDetailsByPath(String path, String username) {
-        if (path.startsWith("/api/v1/m/")) {
+        if (path.startsWith(API_V1_PREFIX + "/m/")) {
             return employeeDetailsService.loadUserByUsername(username);
-        } else if (path.startsWith("/api/v1/c/")) {
+        } else if (path.startsWith(API_V1_PREFIX + "/c/")) {
             return customerDetailsService.loadUserByUsername(username);
+        }else if(path.startsWith(API_V1_PREFIX + "/orders/add")){
+            return customerDetailsService.loadGuestByUsername(username);
         }
         throw new IllegalArgumentException("Invalid path, cannot determine user role.");
     }
@@ -145,3 +147,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 //                jwt = authHeader.substring(7);
 //                username = jwtUtil.extractUsername(jwt);
 //            }
+
+//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//            response.setContentType("application/json;charset=UTF-8");
+//            response.getWriter().write("{\"error\": \"Unauthorized: " + ex.getMessage() + "\"}");
+
+//            throw new RuntimeException("Unauthorized: " + ex.getMessage(), ex);

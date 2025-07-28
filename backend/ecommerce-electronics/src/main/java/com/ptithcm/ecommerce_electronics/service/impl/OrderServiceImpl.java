@@ -7,9 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemRequestDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
-import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
-import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
+import com.ptithcm.ecommerce_electronics.enums.*;
 import com.ptithcm.ecommerce_electronics.exception.BadRequestException;
 import com.ptithcm.ecommerce_electronics.exception.ForbiddenException;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
@@ -89,7 +87,7 @@ public class OrderServiceImpl implements OrderService {
             throw new UnauthorizedException("User not authenticated");
         }
         boolean isAuth = authentication.getAuthorities().stream()
-                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
+                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")||auth.getAuthority().equals("ROLE_GUEST"));
         if (!isAuth) {
             throw new ForbiddenException("Please login or auth email before take order");
         }
@@ -206,7 +204,7 @@ public class OrderServiceImpl implements OrderService {
         boolean isCustomer = authentication.getAuthorities().stream()
                 .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")|| auth.getAuthority().equals("ROLE_GUEST"));
         if (!isCustomer) {
-            throw new ForbiddenException("Only customers can cancel orders");
+            throw new ForbiddenException("Only customers can check history");
         }
         String username = authentication.getName();
         Page<Orders> page = orderRepository.findByCustomer_Username(username, pageRequest.toPageable());

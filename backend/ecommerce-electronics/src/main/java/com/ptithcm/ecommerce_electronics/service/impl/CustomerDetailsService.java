@@ -2,6 +2,7 @@ package com.ptithcm.ecommerce_electronics.service.impl;
 
 import com.ptithcm.ecommerce_electronics.model.Customer;
 import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
+import com.ptithcm.ecommerce_electronics.model.detail.GuestDetails;
 import com.ptithcm.ecommerce_electronics.repository.CustomerRepository;
 import com.ptithcm.ecommerce_electronics.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,12 @@ public class CustomerDetailsService implements UserDetailsService {
         Customer customer = customerRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new CustomerDetails(customer);
+    }
+
+    public UserDetails loadGuestByUsername(String username) {
+        Customer customer = customerRepository.findByUsername(username)
+                .orElse(null);
+        if(customer!=null) return new CustomerDetails(customer);
+        return new GuestDetails(username);
     }
 }

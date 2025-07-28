@@ -2,28 +2,19 @@ package com.ptithcm.ecommerce_electronics.controller;
 
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import com.ptithcm.ecommerce_electronics.dto.PageResponse;
-import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.VerifyEmailRequest;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
-import com.ptithcm.ecommerce_electronics.dto.order.OrderItemDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
-import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
 import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
-import com.ptithcm.ecommerce_electronics.service.OrderItemService;
 import com.ptithcm.ecommerce_electronics.service.OrderService;
-import io.jsonwebtoken.Jwt;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("${api.v1.prefix}/orders")
@@ -45,9 +36,10 @@ public class OrderController {
         authCustomerService.sendOtpEmailToTakeOrder(email);
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Please check your email to get OTP for take order."));
     }
+
     @PostMapping("/guest/email/auth")
     public ResponseEntity<ApiResponse<String>> verifyEmailToTakeOrder(@RequestBody @Valid VerifyEmailRequest verifyEmail){
-        String token =authCustomerService.verifyEmail(verifyEmail.getEmail(), ActionPurpose.REGISTER_ACCOUNT, verifyEmail.getOtp());
+        String token =authCustomerService.verifyEmail(verifyEmail.getEmail(), ActionPurpose.ORDER_CONFIRM, verifyEmail.getOtp());
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, token));
     }
 //    @PutMapping("/update/{id}")

@@ -1,8 +1,5 @@
 package com.ptithcm.ecommerce_electronics.model.detail;
 
-import com.ptithcm.ecommerce_electronics.enums.AccountStatus;
-import com.ptithcm.ecommerce_electronics.model.Customer;
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,32 +7,27 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomerDetails implements UserDetails {
+public class GuestDetails implements UserDetails {
+    private  final String email;
 
-    private final Customer customer;
-
-    public CustomerDetails(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Customer getCustomer() {
-        return customer;
+    public GuestDetails(String email) {
+        this.email = email;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_GUEST"));
     }
 
 
     @Override
     public String getPassword() {
-        return customer.getPassword();
+        return "";
     }
 
     @Override
     public String getUsername() {
-        return customer.getUsername();
+        return email;
     }
 
     @Override
@@ -55,6 +47,6 @@ public class CustomerDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return AccountStatus.ACTIVE == customer.getStatus();
+        return true;
     }
 }

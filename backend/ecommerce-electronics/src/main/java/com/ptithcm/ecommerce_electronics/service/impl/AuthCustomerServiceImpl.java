@@ -11,6 +11,7 @@ import com.ptithcm.ecommerce_electronics.exception.*;
 import com.ptithcm.ecommerce_electronics.mapper.CustomerMapper;
 import com.ptithcm.ecommerce_electronics.model.Customer;
 import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
+import com.ptithcm.ecommerce_electronics.model.detail.GuestDetails;
 import com.ptithcm.ecommerce_electronics.repository.CustomerRepository;
 import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
 import com.ptithcm.ecommerce_electronics.service.RedisService;
@@ -119,14 +120,14 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
     @Override
     @Transactional
     public void sendOtpEmailToTakeOrder(String email){
-        if(customerRepository.existsByEmail(email)){
-            throw new IllegalArgumentException("Email is already exist.");
-        }
-        if(!redisService.canSaveOtp(RoleAuth.CUSTOMER, email, ActionPurpose.ORDER_CONFIRM.name()))
+//        if(customerRepository.existsByEmail(email)){
+//            throw new IllegalArgumentException("Email is already exist.");
+//        }
+        if(!redisService.canSaveOtp(RoleAuth.GUEST, email, ActionPurpose.ORDER_CONFIRM.name()))
             throw new RuntimeException("Vui lòng gửi OTP sau 60 giây.");
 
         String otp  = sendMailService.sendOtpToEmail(email, ActionPurpose.ORDER_CONFIRM);
-        redisService.saveOtp(RoleAuth.CUSTOMER, email, ActionPurpose.ORDER_CONFIRM, otp);
+        redisService.saveOtp(RoleAuth.GUEST, email, ActionPurpose.ORDER_CONFIRM, otp);
     }
 
     @Override
@@ -183,14 +184,24 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
     public String verifyEmail(String email,ActionPurpose purpose, String otp) {
         switch (purpose){
             case RESET_PASSWORD:
-
-            case ORDER_CONFIRM:
-                return getToken(email, purpose, otp);
-            case REGISTER_ACCOUNT:
                 if (!customerRepository.existsByEmail(email)) {
                     throw new BadCredentialsException("Email not found");
                 }
-                return getToken(email, purpose, otp);
+                return getToken(RoleAuth.CUSTOMER,email, purpose, otp);
+
+            case ORDER_CONFIRM:
+                String currentOtp = redisService.getOtp(RoleAuth.GUEST, email, purpose);
+                if(!currentOtp.equals(otp)){
+                    throw new IllegalArgumentException("Invalid OTP. Please try again.");
+                }
+                redisService.deleteOtp(RoleAuth.GUEST, email, purpose);
+                return jwtUtil.generateAccessToken(new GuestDetails(email));
+
+            case REGISTER_ACCOUNT:
+                if (customerRepository.existsByEmail(email)) {
+                    throw new BadCredentialsException("Email already exists");
+                }
+                return getToken(RoleAuth.CUSTOMER, email, purpose, otp);
             default:
                 throw new BadCredentialsException("Email not found");
         }
@@ -203,12 +214,13 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
 //        return jwtUtil.generateActionToken(RoleAuth.CUSTOMER, email, purpose);
 //    }
 
-    private String getToken(String email,ActionPurpose purpose, String otp){
-        String currentOtp = redisService.getOtp(RoleAuth.CUSTOMER, email, purpose);
+    private String getToken(RoleAuth roleAuth, String email, ActionPurpose purpose, String otp){
+        String currentOtp = redisService.getOtp(roleAuth, email, purpose);
         if(!currentOtp.equals(otp)){
             throw new IllegalArgumentException("Invalid OTP. Please try again.");
         }
-        return jwtUtil.generateActionToken(RoleAuth.CUSTOMER, email, purpose);
+        redisService.deleteOtp(roleAuth, email, purpose);
+        return jwtUtil.generateActionToken(roleAuth, email, purpose);
     }
 
     @Override
