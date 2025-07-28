@@ -4,7 +4,6 @@ import com.ptithcm.ecommerce_electronics.model.Customer;
 import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
 import com.ptithcm.ecommerce_electronics.model.detail.GuestDetails;
 import com.ptithcm.ecommerce_electronics.repository.CustomerRepository;
-import com.ptithcm.ecommerce_electronics.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

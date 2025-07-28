@@ -57,6 +57,7 @@ VALUES
 ('Cooler Master', 'Cooler Master chuyên sản xuất linh kiện và phụ kiện máy tính như tản nhiệt, case và nguồn với chất lượng vượt trội.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Western Digital', 'Western Digital là thương hiệu nổi tiếng chuyên về thiết bị lưu trữ như ổ cứng HDD và SSD, với hiệu năng và độ bền cao.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Seagate', 'Seagate chuyên sản xuất các thiết bị lưu trữ như ổ cứng HDD và SSD, nổi bật với dung lượng lớn và độ tin cậy.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Lenovo', 'Lenovo là tập đoàn công nghệ đa quốc gia có trụ sở tại Trung Quốc, nổi tiếng với các sản phẩm như laptop ThinkPad, IdeaPad, máy tính để bàn, màn hình và thiết bị di động.', 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Lenovo_logo_2015.svg'),
 ('Acer', 'Acer là thương hiệu toàn cầu chuyên sản xuất laptop, màn hình, và các thiết bị điện tử với thiết kế hiện đại và hiệu suất ổn định.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Sounarc', 'Sounarc mang đến các sản phẩm âm thanh chất lượng với thiết kế hiện đại, phù hợp cho nhu cầu nghe nhạc và giải trí cá nhân.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Klipsch', 'Klipsch là thương hiệu âm thanh nổi tiếng đến từ Mỹ, chuyên cung cấp loa và tai nghe với âm thanh mạnh mẽ, chân thực.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
@@ -80,9 +81,9 @@ VALUES
 ('ViewSonic', 'ViewSonic là nhà cung cấp toàn cầu các giải pháp hình ảnh bao gồm màn hình, máy chiếu và bảng tương tác, nổi tiếng với chất lượng cao và độ tin cậy.', 'https://upload.wikimedia.org/wikipedia/vi/1/1e/ViewSonic_logo.svg'),
 ('Philips', 'Philips là thương hiệu điện tử và công nghệ tiêu dùng toàn cầu, cung cấp các sản phẩm như màn hình, thiết bị chiếu sáng và đồ gia dụng.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Philips_logo_new.svg/2560px-Philips_logo_new.svg.png'),
 ('Dahua', 'Dahua là thương hiệu hàng đầu Trung Quốc trong lĩnh vực camera an ninh và giám sát, nổi bật với các giải pháp AI và IoT.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/Dahua_Technology_logo.svg'),
-('HKC', 'HKC là thương hiệu đến từ Trung Quốc chuyên cung cấp màn hình máy tính, TV và thiết bị điện tử với mức giá cạnh tranh.', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/HKC_Logo.png');
-
-
+('HKC', 'HKC là thương hiệu đến từ Trung Quốc chuyên cung cấp màn hình máy tính, TV và thiết bị điện tử với mức giá cạnh tranh.', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/HKC_Logo.png'),
+('Havit', 'Havit là thương hiệu thiết bị ngoại vi và phụ kiện máy tính đến từ Trung Quốc, nổi bật với các sản phẩm như tai nghe, bàn phím, chuột và loa với mức giá hợp lý.', 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Havit_Logo.png'),
+('SoundPEATS', 'SoundPEATS là thương hiệu âm thanh đến từ Trung Quốc, chuyên sản xuất tai nghe không dây true wireless, nổi bật với thiết kế hiện đại và chất lượng âm thanh cao trong tầm giá.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/SoundPEATS_logo.svg');
 
 INSERT INTO supplier(name, email, phone, address, description)
 VALUES 
@@ -217,7 +218,9 @@ VALUES
 ('Máy scan', 'may-scan', 10),
 ('Máy chiếu', 'may-chieu', 10),--58
 
-('Tivi', 'tivi', 11);--59
+('Tivi', 'tivi', 11),--59
+('Tai nghe Audio', 'tai-nghe-audio',20),
+('Phụ kiện apple','phu-kien-apple',37);--61
 -- ('Main, CPU, VGA', 'main-cpu-vga', 5),
 -- ('Case, Nguồn, Tản', 'case-nguon-tan', 5),
 -- ('Ổ cứng, RAM, Thẻ nhớ', 'o-cung-ram-the-nho', 5),
