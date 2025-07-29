@@ -59,4 +59,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer>, JpaS
                                  @Param("status") BaseStatus status, Pageable pageable);
 
 
+    @Query("""
+        SELECT pc.product
+        FROM ProductCategory pc
+        WHERE pc.category.id = :categoryId
+    """)
+    Page<Product> getByCategoryId(Integer categoryId, Pageable pageable);
 }

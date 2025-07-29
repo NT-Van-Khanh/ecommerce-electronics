@@ -70,6 +70,13 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
+    @Override
+    public PageResponse<ProductDTO> getProductsByCategoryId(Integer categoryId, PaginationRequest pageRequest) {
+        Pageable pageable = pageRequest.toPageable();
+        Page<Product> page = productRepository.getByCategoryId(categoryId , pageable);
+        return new PageResponse<>(page.map(ProductMapper::toDTO));
+    }
+
 //    @Override
 //    public PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest) {
 //        Page<Product> page =  productRepository.findAll(pageRequest.toPageable());

@@ -23,6 +23,8 @@ public interface ProductService extends   BaseService<Integer, ProductCreateDTO,
    PageResponse<ProductDTO> semanticFilterProducts(ProductFilterRequest request, PaginationRequest pageRequest);//Search nâng cao
    PageResponse<ProductDTO> getRelatedProducts(Integer id, PaginationRequest pageRequest);
 
+   PageResponse<ProductDTO> getProductsByCategoryId(Integer categoryId, PaginationRequest pageRequest);
+
 //    List<ProductDTO> getAll();
 //   PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest);
 //

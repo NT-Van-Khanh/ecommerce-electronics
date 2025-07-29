@@ -60,6 +60,10 @@ public class ProductController {
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getBestSellingProducts(limit)));
     }
 
+    @GetMapping("/by-category/{categoryId}/page")
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getProductsByCategoryId(@PathVariable("categoryId") Integer categoryId, @Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getProductsByCategoryId(categoryId, pageRequest)));
+    }
 
 //    @GetMapping("/relate/{id}/page")
 //    public  ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageRelatedProducts(@PathVariable("id") Integer id, @Valid PaginationRequest pageRequest){
