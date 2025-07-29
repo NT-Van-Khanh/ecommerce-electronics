@@ -85,11 +85,11 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         return new PageResponse<>(page.map(ProductVariantMapper::toDTO));
     }
 
-    @Override
-    public PageResponse<ProductVariantDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<ProductVariant> page = pvRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
-        return new PageResponse<>(page.map(ProductVariantMapper::toDTO));
-    }
+//    @Override
+//    public PageResponse<ProductVariantDTO> getPageActive(PaginationRequest pageRequest) {
+//        Page<ProductVariant> page = pvRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
+//        return new PageResponse<>(page.map(ProductVariantMapper::toDTO));
+//    }
 
     @Override
     @Transactional

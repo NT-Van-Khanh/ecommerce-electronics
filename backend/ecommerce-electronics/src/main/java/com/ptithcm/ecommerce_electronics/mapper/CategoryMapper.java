@@ -5,6 +5,8 @@ import com.ptithcm.ecommerce_electronics.dto.category.CategoryRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Category;
 
+import java.util.List;
+
 public class CategoryMapper {
     public static CategoryDTO toDTO(Category category) {
         if(category == null) return null;
@@ -12,7 +14,19 @@ public class CategoryMapper {
                 .id(category.getId())
                 .name(category.getName())
                 .seoName(category.getSeoName())
-                .category(toDTO(category.getCategory()))
+                .category(toDTO(category.getParent()))
+                .build();
+    }
+
+    public static CategoryDTO toParentDTO(Category category) {
+        if(category == null) return null;
+        List<CategoryDTO> categories = category.getChildren() == null ? null :
+                category.getChildren().stream().map(CategoryMapper::toParentDTO).toList();
+        return CategoryDTO.builder()
+                .id(category.getId())
+                .name(category.getName())
+                .seoName(category.getSeoName())
+                .children(categories)
                 .build();
     }
 
@@ -22,7 +36,7 @@ public class CategoryMapper {
         return Category.builder()
                 .name(request.getName())
                 .seoName(request.getSeoName())
-                .category(category)
+                .parent(category)
                 .status(BaseStatus.valueOf(request.getStatus()))
                 .build();
     }

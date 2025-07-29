@@ -27,10 +27,10 @@ public class CategoryMController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getById(id)));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<ApiResponse<List<CategoryDTO>>> getAllCategories(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getNonChildCategories()));
-    }
+//    @GetMapping("/all")
+//    public ResponseEntity<ApiResponse<List<CategoryDTO>>> getAllCategories(){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getNonChildCategories()));
+//    }
 //    @GetMapping("/page")
 //    public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getPageCategories(@Valid PaginationRequest pageRequest){
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getPage(pageRequest)));

@@ -42,13 +42,13 @@ public class BrandServiceImpl implements BrandService {
         return BrandMapper.toDTO(b);
     }
 
-    @Override
-    public List<BrandDTO> getAll() {
-        List<Brand> brands =  brandRepository.findAll();
-        return brands.stream()
-                .map(BrandMapper::toDTO)
-                .toList();
-    }
+//    @Override
+//    public List<BrandDTO> getAll() {
+//        List<Brand> brands =  brandRepository.findAll();
+//        return brands.stream()
+//                .map(BrandMapper::toDTO)
+//                .toList();
+//    }
 
     @Override
     public PageResponse<BrandDTO> getPage(PaginationRequest pageRequest) {

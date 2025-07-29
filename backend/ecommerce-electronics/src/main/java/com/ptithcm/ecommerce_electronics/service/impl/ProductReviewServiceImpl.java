@@ -64,11 +64,11 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
     }
 
-    @Override
-    public PageResponse<ProductReviewDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<ProductReview> page = pReviewRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
-        return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
-    }
+//    @Override
+//    public PageResponse<ProductReviewDTO> getPageActive(PaginationRequest pageRequest) {
+//        Page<ProductReview> page = pReviewRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
+//        return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
+//    }
 
     @Override
     @Transactional

@@ -29,18 +29,13 @@ public class CategoryController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getById(id)));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<ApiResponse<List<CategoryDTO>>> getAllActiveCategories(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveNonChildCategories()));
+    @GetMapping("/page")
+    public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getAllActiveCategories(@Valid  PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveNonChildCategories(pageRequest)));
     }
 
 //    @GetMapping("/page")
-//    public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getPageActiveCategories(@Valid PaginationRequest pageRequest){
-//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getPageActive(pageRequest)));
+//    public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getPageActiveNonChildCategories(@Valid PaginationRequest paginationRequest){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveNonChildCategories(paginationRequest)));
 //    }
-
-    @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getPageActiveNonChildCategories(@Valid PaginationRequest paginationRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveNonChildCategories(paginationRequest)));
-    }
 }

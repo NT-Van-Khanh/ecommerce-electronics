@@ -40,12 +40,6 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public PageResponse<SupplierDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<Supplier> page = supplierRepository.findByStatus(BaseStatus.ACTIVE,pageRequest.toPageable());
-        return new PageResponse<>(page.map(SupplierMapper::toDTO));
-    }
-
-    @Override
     public SupplierDTO add(SupplierRequestDTO request) {
         Supplier supplier = SupplierMapper.toEntity(request);
         return SupplierMapper.toDTO(supplierRepository.save(supplier));

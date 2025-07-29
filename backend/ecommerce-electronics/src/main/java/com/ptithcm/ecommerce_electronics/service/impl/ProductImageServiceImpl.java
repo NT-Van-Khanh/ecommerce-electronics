@@ -34,11 +34,11 @@ public class ProductImageServiceImpl implements ProductImageService {
         return new PageResponse<>(page.map(ProductImageMapper::toDTO));
     }
 
-    @Override
-    public PageResponse<ProductImageDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<ProductImage> page = productImageRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
-        return new PageResponse<>(page.map(ProductImageMapper::toDTO));
-    }
+//    @Override
+//    public PageResponse<ProductImageDTO> getPageActive(PaginationRequest pageRequest) {
+//        Page<ProductImage> page = productImageRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
+//        return new PageResponse<>(page.map(ProductImageMapper::toDTO));
+//    }
 
     @Override
     public ProductImageDTO add(ProductImageRequestDTO request) {

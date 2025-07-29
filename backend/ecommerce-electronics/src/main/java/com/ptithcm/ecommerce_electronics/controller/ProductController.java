@@ -6,9 +6,11 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
+import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +40,8 @@ public class ProductController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageActiveProducts(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPageActive(pageRequest)));
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageActiveProducts(@ModelAttribute ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPageActive(filterRequest, pageRequest)));
     }
 
     @GetMapping("/discount/page")
@@ -53,10 +55,10 @@ public class ProductController {
     }
 
 
-//    @GetMapping("/best-selling")
-//    public ResponseEntity<ApiResponse<List<ProductDTO>>> getBestSellingProducts(@NotNull Integer limit){
-//        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getBestSellingProducts(limit)));
-//    }
+    @GetMapping("/best-selling")
+    public ResponseEntity<ApiResponse<List<ProductDTO>>> getBestSellingProducts(@NotNull @Min(value = 1) Integer limit){
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getBestSellingProducts(limit)));
+    }
 
 
 //    @GetMapping("/relate/{id}/page")

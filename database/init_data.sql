@@ -260,7 +260,8 @@ VALUES
 ('connection', 'Kết nối'),
 ('power', 'Công suất'),
 ('port_count', 'Số cổng sạc'),
-('charging_standard', 'Chuẩn sạc');
+('charging_standard', 'Chuẩn sạc'),
+('switch-keycap', 'Switch - Keycap');--16
 
 
 

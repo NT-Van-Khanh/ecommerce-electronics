@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
+import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.ProductService;
 import jakarta.validation.Valid;
@@ -29,14 +30,9 @@ public class ProductMController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,product));
     }
 
-    @GetMapping("/all")
-    public  ResponseEntity<ApiResponse<List<ProductDTO>>> getAllProducts(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getAll()));
-    }
-
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageProducts(@Valid PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPage(pageRequest)));
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageProducts(@ModelAttribute ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPage(filterRequest, pageRequest)));
     }
 
     @PostMapping("/add")
@@ -75,4 +71,8 @@ public class ProductMController {
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.filterProducts(filterRequest, pageRequest)));
 //    }
 
+//    @GetMapping("/all")
+//    public  ResponseEntity<ApiResponse<List<ProductDTO>>> getAllProducts(){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getAll()));
+//    }
 }

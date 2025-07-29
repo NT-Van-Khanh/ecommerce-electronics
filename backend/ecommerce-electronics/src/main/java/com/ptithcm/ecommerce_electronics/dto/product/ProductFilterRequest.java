@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.product;
 
+import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
@@ -38,4 +39,6 @@ public class ProductFilterRequest {
     @PositiveOrZero
     private Integer maxPrice;
 
+    @Schema(description = "Status", example = "ACTIVE")
+    private BaseStatus status;
 }

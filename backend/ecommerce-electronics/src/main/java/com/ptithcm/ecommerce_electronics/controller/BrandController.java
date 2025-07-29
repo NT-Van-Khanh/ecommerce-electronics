@@ -33,11 +33,6 @@ public class BrandController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getById(id)));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<ApiResponse<List<BrandDTO>>> getAllBrands(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getAll()));
-    }
-
     @GetMapping("/page")
     public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getPageActiveBrands(@Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getPageActive(pageRequest)));

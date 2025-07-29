@@ -70,11 +70,11 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    @Override
-    public PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest) {
-        Page<Product> page =  productRepository.findAll(pageRequest.toPageable());
-        return new PageResponse<>(page.map(ProductMapper::toDTO));
-    }
+//    @Override
+//    public PageResponse<ProductDTO> filterProducts(ProductFilterRequest request, PaginationRequest pageRequest) {
+//        Page<Product> page =  productRepository.findAll(pageRequest.toPageable());
+//        return new PageResponse<>(page.map(ProductMapper::toDTO));
+//    }
 
     @Override
     public PageResponse<ProductDTO> semanticFilterProducts(ProductFilterRequest request, PaginationRequest pageRequest) {
@@ -98,25 +98,31 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow( () -> new ResourceNotFoundException("Product not found with id = "+id));
     }
 
-    @Override
-    public List<ProductDTO> getAll() {
-        List<Product> products = productRepository.findAll();
-        return products.stream()
-                .map(ProductMapper::toDTO)
-                .toList();
-    }
+//    @Override
+//    public List<ProductDTO> getAll() {
+//        List<Product> products = productRepository.findAll();
+//        return products.stream()
+//                .map(ProductMapper::toDTO)
+//                .toList();
+//    }
 
     @Override
-    public PageResponse<ProductDTO> getPage(PaginationRequest pageRequest) {
+    public PageResponse<ProductDTO> getPage(ProductFilterRequest filterRequest, PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Product> page = productRepository.findAll(pageable);
+        Page<Product> page = productRepository.filterProducts(filterRequest.getKeyword(),
+                filterRequest.getBrandId(), filterRequest.getCategoryId(),
+                filterRequest.getMinPrice(), filterRequest.getMaxPrice(),
+                filterRequest.getStatus() , pageable);
         return new PageResponse<>(page.map(ProductMapper::toDTO));
     }
 
     @Override
-    public PageResponse<ProductDTO> getPageActive(PaginationRequest pageRequest) {
+    public PageResponse<ProductDTO> getPageActive(ProductFilterRequest filterRequest, PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Product> page = productRepository.findByStatus(BaseStatus.ACTIVE, pageable);
+        Page<Product> page = productRepository.filterProducts(filterRequest.getKeyword(),
+                filterRequest.getBrandId(), filterRequest.getCategoryId(),
+                filterRequest.getMinPrice(), filterRequest.getMaxPrice(),
+                BaseStatus.ACTIVE, pageable);
         return new PageResponse<>(page.map(ProductMapper::toDTO));
     }
 

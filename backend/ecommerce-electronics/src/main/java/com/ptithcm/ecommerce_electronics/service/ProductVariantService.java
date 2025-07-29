@@ -1,19 +1,18 @@
 package com.ptithcm.ecommerce_electronics.service;
 
+import com.ptithcm.ecommerce_electronics.dto.PageResponse;
+import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantRequestDTO;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
-import jakarta.persistence.LockModeType;
-import org.springframework.data.jpa.repository.Lock;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import com.ptithcm.ecommerce_electronics.service.base.BaseService;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface ProductVariantService extends BaseService<Integer, ProductVariantRequestDTO, ProductVariantDTO>{
+public interface ProductVariantService extends BaseService<Integer, ProductVariantRequestDTO, ProductVariantDTO> {
     List<ProductVariantDTO> getAvailableByProductId(String productId);
     List<ProductVariantDTO> getByAttributes(String productId, List<String> optionId);
+    PageResponse<ProductVariantDTO> getPage(PaginationRequest pageRequest);
 
     Integer getStock(Integer id);
     boolean isOutOfStock(Integer id);

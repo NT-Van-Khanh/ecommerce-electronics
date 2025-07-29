@@ -18,40 +18,37 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findByStatus(BaseStatus status);
 
     @Query("""
-            SELECT c
-            FROM Category c
-            WHERE c.status = 'ACTIVE' 
-            AND c.id NOT IN (SELECT c2.category.id
-                            FROM Category c2 
-                            WHERE c2.category.id IS NOT NULL)
-            """)
-    Page<Category> findActiveNonChildCategories(Pageable pageable);
+        SELECT DISTINCT c
+        FROM Category c
+        LEFT JOIN FETCH c.children
+        WHERE c.status = 'ACTIVE' AND c.parent IS NULL
+    """)
+    Page<Category> findActiveParentCategories(Pageable pageable);
+
+//    @Query("""
+//            SELECT c
+//            FROM Category c
+//            WHERE c.status = 'ACTIVE'
+//            AND c.id NOT IN (SELECT c2.category.id
+//                            FROM Category c2
+//                            WHERE c2.category.id IS NOT NULL)
+//            """)
+//    List<Category> findActiveNonChildCategories();
 
     @Query("""
-            SELECT c
-            FROM Category c
-            WHERE c.status = 'ACTIVE' 
-            AND c.id NOT IN (SELECT c2.category.id
-                            FROM Category c2 
-                            WHERE c2.category.id IS NOT NULL)
-            """)
-    List<Category> findActiveNonChildCategories();
-
-    @Query("""
-            SELECT c
-            FROM Category c
-            WHERE c.id NOT IN (SELECT c2.category.id
-                                FROM Category c2 
-                                WHERE c2.category.id IS NOT NULL)
-            """)
+        SELECT DISTINCT c
+        FROM Category c
+        LEFT JOIN FETCH c.children
+        WHERE c.status = 'ACTIVE' AND c.parent IS NULL
+    """)
     Page<Category> findAllNonChildCategories(Pageable pageable);
 
-    @Query("""
-            SELECT c
-            FROM Category c
-            WHERE c.id NOT IN (SELECT c2.category.id
-                                FROM Category c2 
-                                WHERE c2.category.id IS NOT NULL)
-            """)
-    List<Category> findAllNonChildCategories();
+//    @Query("""
+//            SELECT c
+//            FROM Category c
+//            WHERE c.id NOT IN (SELECT c2.category.id
+//                                FROM Category c2
+//                                WHERE c2.category.id IS NOT NULL)
+//            """)
+//    List<Category> findAllNonChildCategories();
 }
