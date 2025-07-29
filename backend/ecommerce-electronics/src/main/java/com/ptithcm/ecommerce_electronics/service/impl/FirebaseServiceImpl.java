@@ -8,6 +8,7 @@ import com.google.firebase.cloud.StorageClient;
 import com.ptithcm.ecommerce_electronics.service.FirebaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
@@ -17,7 +18,7 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
-
+@Service
 public class FirebaseServiceImpl implements FirebaseService {
     @Value("${firebase.storage.bucket-name}")
     private String firebaseStorageBucketName;
