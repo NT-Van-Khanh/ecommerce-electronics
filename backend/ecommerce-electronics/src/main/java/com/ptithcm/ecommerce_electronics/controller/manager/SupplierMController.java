@@ -6,7 +6,7 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierDTO;
 import com.ptithcm.ecommerce_electronics.dto.supplier.SupplierRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.service.SupplierService;
+import com.ptithcm.ecommerce_electronics.service.core.SupplierService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;

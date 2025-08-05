@@ -7,7 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.option.OptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
-import com.ptithcm.ecommerce_electronics.service.ProductService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductService;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;

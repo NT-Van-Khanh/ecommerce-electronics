@@ -2,8 +2,8 @@ package com.ptithcm.ecommerce_electronics.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import com.ptithcm.ecommerce_electronics.service.impl.CustomerDetailsService;
-import com.ptithcm.ecommerce_electronics.service.impl.EmployeeDetailsService;
+import com.ptithcm.ecommerce_electronics.service.auth.impl.CustomerDetailsService;
+import com.ptithcm.ecommerce_electronics.service.auth.impl.EmployeeDetailsService;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -18,10 +18,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 

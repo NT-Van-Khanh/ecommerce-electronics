@@ -6,16 +6,13 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.service.BrandService;
-import com.ptithcm.ecommerce_electronics.service.CategoryService;
+import com.ptithcm.ecommerce_electronics.service.core.BrandService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("${api.v1.prefix}/m/brands")

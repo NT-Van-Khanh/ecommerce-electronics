@@ -1,7 +1,7 @@
 package com.ptithcm.ecommerce_electronics.config;
 
-import com.ptithcm.ecommerce_electronics.service.impl.CustomerDetailsService;
-import com.ptithcm.ecommerce_electronics.service.impl.EmployeeDetailsService;
+import com.ptithcm.ecommerce_electronics.service.auth.impl.CustomerDetailsService;
+import com.ptithcm.ecommerce_electronics.service.auth.impl.EmployeeDetailsService;
 import com.ptithcm.ecommerce_electronics.util.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -72,7 +72,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers(API_V1_PREFIX + "/auth/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .authenticationProvider(customerAuthenticationProvider()) // hoặc chọn theo đối tượng phù hợp

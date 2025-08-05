@@ -4,7 +4,7 @@ import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.discount.DiscountDTO;
-import com.ptithcm.ecommerce_electronics.service.DiscountService;
+import com.ptithcm.ecommerce_electronics.service.core.DiscountService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;

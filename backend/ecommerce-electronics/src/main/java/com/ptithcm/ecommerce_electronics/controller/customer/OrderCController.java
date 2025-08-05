@@ -5,7 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
-import com.ptithcm.ecommerce_electronics.service.OrderService;
+import com.ptithcm.ecommerce_electronics.service.core.OrderService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;

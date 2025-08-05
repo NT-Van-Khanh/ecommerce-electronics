@@ -34,3 +34,4 @@ build/
 
 src/main/resources/application.properties
 src/main/resources/firebase/firebase-key.json
+src/main/resources/firebase/gemini-key.json

@@ -1,0 +1,23 @@
+===== Cấu hình Redis =======
+docker run -d --name redis -p 6379:6379 redis:latest
+docker exec -it redis redis-cli
+CONFIG SET notify-keyspace-events Ex
+
+
+====== Cấu hình QDrant =======
+docker run -d --name qdrant -p 6333:6333 -p 6334:6334 qdrant/qdrant:V1.14.1
+
+
+===== Cấu hình Chroma ========
+mkdir -p ~/chroma-data
+
+docker run -d --name chroma -p 8000:8000 -v ~/chroma-data:/chroma/.chroma/index ghcr.io/chroma-core/chroma:latest
+
+
+====================TEMP==============
+docker run -d   --name qdrant  -p 6333:6333   -v qdrant_data:/qdrant/storage  qdrant/qdrant
+docker run -d --name chroma -p 8000:8000 -v C:\Users\ADMIN\chroma-data:/chroma/.chroma/index  -e CHROMA_SERVER_ENABLE_MULTI_TENANCY=true ghcr.io/chroma-core/chroma:0.6.3
+
+curl.exe -X POST http://localhost:8000/api/v2/collections  -H "Content-Type: application/json"   -d "{\"name\": \"product_embeddings\"}"
+
+

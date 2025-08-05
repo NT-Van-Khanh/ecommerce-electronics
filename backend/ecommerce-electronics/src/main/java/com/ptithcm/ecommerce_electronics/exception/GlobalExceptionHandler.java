@@ -2,7 +2,8 @@ package com.ptithcm.ecommerce_electronics.exception;
 
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-    import jakarta.validation.ValidationException;
+import com.stripe.exception.StripeException;
+import jakarta.validation.ValidationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -167,12 +168,16 @@ public class GlobalExceptionHandler {
         ApiResponse<String> res = new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
     }
-
+    //500 Internal Server Error
     @ExceptionHandler(MailSendException.class)
     public ResponseEntity<ApiResponse<String>> handleMailSend(MailSendException ex){
         ApiResponse<String> res = new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
     }
-
-
+    //500 Internal Server Error
+    @ExceptionHandler(StripeException.class)
+    public ResponseEntity<ApiResponse<String>> handleStripe(StripeException ex){
+        ApiResponse<String> res = new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
+    }
 }

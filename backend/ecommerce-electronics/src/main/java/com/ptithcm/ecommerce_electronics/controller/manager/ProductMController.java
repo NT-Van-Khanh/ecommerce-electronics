@@ -7,7 +7,7 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.service.ProductService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -15,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("${api.v1.prefix}/m/products")

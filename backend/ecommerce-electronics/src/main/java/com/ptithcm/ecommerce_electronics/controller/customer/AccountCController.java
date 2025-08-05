@@ -2,7 +2,7 @@ package com.ptithcm.ecommerce_electronics.controller.customer;
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.customer.CustomerDTO;
-import com.ptithcm.ecommerce_electronics.service.AuthCustomerService;
+import com.ptithcm.ecommerce_electronics.service.auth.AuthCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

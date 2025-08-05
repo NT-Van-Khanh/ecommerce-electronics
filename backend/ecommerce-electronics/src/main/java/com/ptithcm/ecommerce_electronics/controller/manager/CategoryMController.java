@@ -6,15 +6,13 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.category.CategoryDTO;
 import com.ptithcm.ecommerce_electronics.dto.category.CategoryRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.service.CategoryService;
+import com.ptithcm.ecommerce_electronics.service.core.CategoryService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("${api.v1.prefix}/m/categories")

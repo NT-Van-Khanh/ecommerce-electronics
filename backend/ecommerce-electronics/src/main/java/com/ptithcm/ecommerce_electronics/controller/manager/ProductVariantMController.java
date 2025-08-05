@@ -6,7 +6,7 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
-import com.ptithcm.ecommerce_electronics.service.ProductVariantService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

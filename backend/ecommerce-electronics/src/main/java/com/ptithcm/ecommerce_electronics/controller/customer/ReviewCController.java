@@ -5,7 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewDTO;
 import com.ptithcm.ecommerce_electronics.dto.review.ProductReviewRequestDTO;
-import com.ptithcm.ecommerce_electronics.service.ProductReviewService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductReviewService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,7 @@ package com.ptithcm.ecommerce_electronics.controller;
 
 import com.ptithcm.ecommerce_electronics.dto.*;
 import com.ptithcm.ecommerce_electronics.enums.ActionPurpose;
-import com.ptithcm.ecommerce_electronics.service.AuthEmployeeService;
+import com.ptithcm.ecommerce_electronics.service.auth.AuthEmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
