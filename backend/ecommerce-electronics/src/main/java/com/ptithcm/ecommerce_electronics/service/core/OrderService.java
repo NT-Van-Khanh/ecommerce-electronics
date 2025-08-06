@@ -20,7 +20,8 @@ public interface OrderService extends BaseService<Integer, OrderRequestDTO, Orde
 
 //    OrderDTO add(OrderRequestDTO orderRequest, String jwt);
 
-    OrderDTO cancelOrder(Integer orderId);
+    OrderDTO customerCancelOrder(Integer orderId);
+    OrderDTO cancelOrder(Orders order);
 
     PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest);
 }

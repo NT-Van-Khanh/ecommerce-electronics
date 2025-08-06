@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.payment;
 
+import com.ptithcm.ecommerce_electronics.dto.PaymentIntentResponse;
 import com.ptithcm.ecommerce_electronics.enums.PaymentMethod;
 import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
@@ -19,4 +20,5 @@ public class PaymentDTO {
     private PaymentStatus status;
     private LocalDateTime createdAt;
     private String transactionCode;
+    private PaymentIntentResponse paymentIntent;
 }

@@ -3,9 +3,10 @@ package com.ptithcm.ecommerce_electronics.service.external.impl;
 import com.ptithcm.ecommerce_electronics.service.external.RedisHandleOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
 
 import java.time.Duration;
-
+@Service
 public class RedisHandleOrderServiceImpl implements RedisHandleOrderService {
 
     private static final String PREFIX = "order:pending:";
@@ -14,7 +15,7 @@ public class RedisHandleOrderServiceImpl implements RedisHandleOrderService {
     private StringRedisTemplate redisTemplate;
 
     private String buildKey(Integer orderId) {
-        return String.format("%s:%d",PREFIX, orderId);
+        return String.format("%s%d",PREFIX, orderId);
     }
 
     @Override

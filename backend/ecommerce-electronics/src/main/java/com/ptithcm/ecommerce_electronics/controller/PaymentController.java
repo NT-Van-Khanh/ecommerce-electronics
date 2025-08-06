@@ -19,8 +19,8 @@ public class PaymentController {
     private StripeService stripeService;
 
 
-    @PostMapping("/{orderId}")
-    public ResponseEntity<ApiResponse<PaymentIntentResponse>> createPaymentIntent(@PathVariable("orderId") Integer id){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, stripeService.createPaymentIntent(id)));
-    }
+//    @PostMapping("/{orderId}")
+//    public ResponseEntity<ApiResponse<PaymentIntentResponse>> createPaymentIntent(@PathVariable("orderId") Integer id){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, stripeService.createPaymentIntent(id)));
+//    }
 }
