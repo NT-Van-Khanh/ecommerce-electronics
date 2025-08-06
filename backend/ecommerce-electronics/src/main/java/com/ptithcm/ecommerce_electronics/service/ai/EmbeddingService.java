@@ -13,6 +13,12 @@ public interface EmbeddingService {
         void embeddingProducts();
         void embeddingProducts(PaginationRequest pageRequest);
         List<Document> searchSimilar(String query);
+
+        void embeddingProductVariant(Integer productVariantId);
+        void embeddingProductVariants(PaginationRequest pageRequest);
+
+
+
 //    void embeddingProduct(ProductDTO productDTO);
 //
 //    float[] generateEmbedding(String text);

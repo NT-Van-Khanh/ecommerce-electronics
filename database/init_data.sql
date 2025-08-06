@@ -216,11 +216,11 @@ VALUES
 
 ('Máy in', 'may-in', 10),
 ('Máy scan', 'may-scan', 10),
-('Máy chiếu', 'may-chieu', 10),--58
+('Máy chiếu', 'may-chieu', 10),--57
 
-('Tivi', 'tivi', 11),--59
+('Tivi', 'tivi', 11),--58
 ('Tai nghe Audio', 'tai-nghe-audio',20),
-('Phụ kiện apple','phu-kien-apple',37);--61
+('Phụ kiện apple','phu-kien-apple',37);--60
 -- ('Main, CPU, VGA', 'main-cpu-vga', 5),
 -- ('Case, Nguồn, Tản', 'case-nguon-tan', 5),
 -- ('Ổ cứng, RAM, Thẻ nhớ', 'o-cung-ram-the-nho', 5),

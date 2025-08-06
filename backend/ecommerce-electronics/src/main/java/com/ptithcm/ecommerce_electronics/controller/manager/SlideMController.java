@@ -27,10 +27,10 @@ public class SlideMController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.getById(id)));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<ApiResponse<List<SlideDTO>>> getAllSlides(){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.getAll()));
-    }
+//    @GetMapping("/all")
+//    public ResponseEntity<ApiResponse<List<SlideDTO>>> getAllSlides(){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, slideService.getAll()));
+//    }
 
     @GetMapping("/page")
     public ResponseEntity<ApiResponse<PageResponse<SlideDTO>>> getPageSlides(@Valid PaginationRequest pageRequest){

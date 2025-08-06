@@ -35,26 +35,38 @@ public class CompareProductController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, embeddingService.searchSimilar(query)));
     }
 
-    @PostMapping("/add-product-vector/{product-id}")
-    private ResponseEntity<ApiResponse<String>> addProductVector(@PathVariable("product-id") @PositiveOrZero Integer id){
-        embeddingService.embeddingProduct(id);
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-    }
-    @PostMapping("/add-product-vector/page")
-    private ResponseEntity<ApiResponse<String>> addPageProductVectors(@Valid PaginationRequest pageRequest){
-        embeddingService.embeddingProducts(pageRequest);
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-    }
-    @PostMapping("/add-product-vector/all")
-    private ResponseEntity<ApiResponse<String>>addProductVector(){
-        embeddingService.embeddingProducts();
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-    }
-
     @GetMapping("/chat-ai")
     private ResponseEntity<ApiResponse<AIResponse>> chatAi(@RequestParam String query){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.answer(query)));
     }
+
+    @PostMapping("/add-product-vector/{product-id}")
+    private ResponseEntity<ApiResponse<String>> addProductVariantVector(@PathVariable("product-id") @PositiveOrZero Integer id){
+        embeddingService.embeddingProductVariant(id);
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+    }
+    @PostMapping("/add-product-vector/page")
+    private ResponseEntity<ApiResponse<String>> addPageProductVariantVectors(@Valid PaginationRequest pageRequest){
+        embeddingService.embeddingProductVariants(pageRequest);
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+    }
+
+//    @PostMapping("/add-product-vector/{product-id}")
+//    private ResponseEntity<ApiResponse<String>> addProductVector(@PathVariable("product-id") @PositiveOrZero Integer id){
+//        embeddingService.embeddingProduct(id);
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+//    }
+//    @PostMapping("/add-product-vector/page")
+//    private ResponseEntity<ApiResponse<String>> addPageProductVectors(@Valid PaginationRequest pageRequest){
+//        embeddingService.embeddingProducts(pageRequest);
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+//    }
+//    @PostMapping("/add-product-vector/all")
+//    private ResponseEntity<ApiResponse<String>>addProductVector(){
+//        embeddingService.embeddingProducts();
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+//    }
+
 //    @GetMapping
 //    public ResponseEntity<ApiResponse<?>> compareProduct(@RequestParam Integer productId1, @RequestParam Integer productId2){
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, chatToolService.compareProducts(productId1, productId2)));

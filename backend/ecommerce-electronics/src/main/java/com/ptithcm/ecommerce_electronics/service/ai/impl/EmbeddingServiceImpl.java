@@ -4,9 +4,11 @@ import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductFilterRequest;
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.service.ai.VectorStoreService;
 import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
 import com.ptithcm.ecommerce_electronics.service.core.ProductService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
 import org.springframework.ai.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class EmbeddingServiceImpl implements EmbeddingService {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ProductVariantService productVariantService;
 
     @Override
     public void embeddingProduct(Integer productId) {
@@ -46,6 +51,19 @@ public class EmbeddingServiceImpl implements EmbeddingService {
         List<Document> docs = vectorStoreService.search(query,5);
         System.err.println(docs);
         return docs;
+    }
+
+    @Override
+    public void embeddingProductVariant(Integer productVariantId) {
+        ProductVariantDTO variant = productVariantService.getById(productVariantId);
+        vectorStoreService.addVariant(variant);
+    }
+
+    @Override
+    public void embeddingProductVariants(PaginationRequest pageRequest) {
+        PageResponse<ProductVariantDTO> variants = productVariantService.getPage(pageRequest);
+        System.err.println("Variants size: "+ variants.getData().size());
+        vectorStoreService.addVariants(variants.getData());
     }
 
 
