@@ -4,6 +4,7 @@ import com.ptithcm.ecommerce_electronics.dto.employee.EmployeeDTO;
 import com.ptithcm.ecommerce_electronics.dto.employee.EmployeePublicDTO;
 import com.ptithcm.ecommerce_electronics.dto.employee.EmployeeRequestDTO;
 import com.ptithcm.ecommerce_electronics.model.Employee;
+import com.ptithcm.ecommerce_electronics.model.Role;
 
 public class EmployeeMapper {
 
@@ -38,7 +39,6 @@ public class EmployeeMapper {
 
     public static Employee toEntity(EmployeeRequestDTO e) {
         return Employee.builder()
-                .id(e.getId())
                 .fullName(e.getFullName())
                 .gender(e.getGender())
                 .birthday(e.getBirthday())
@@ -46,10 +46,7 @@ public class EmployeeMapper {
                 .phone(e.getPhone())
                 .email(e.getEmail())
                 .address(e.getAddress())
-                .status(e.getStatus())
-                .createdAt(e.getCreatedAt())
-                .lastLogin(e.getLastLogin())
-                .role(e.getRole())
+                .role(Role.builder().id(e.getRoleId()).build())
                 .build();
     }
 }

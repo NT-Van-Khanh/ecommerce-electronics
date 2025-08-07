@@ -6,14 +6,13 @@
 INSERT INTO role(name, status)
 VALUES 
 ('MANAGER', 'ACTIVE'),
-('CUSTOMER', 'ACTIVE'),
 ('EMPLOYEE', 'ACTIVE');
 
 INSERT INTO employee(full_name, email, phone, username, password, role_id, gender, birthday, address, status)
 VALUES 
 ('Nguyen Van Admin', 'ntvk137@gmail.com', '0123456789', 'manager1', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 1, 'Nam', '2003-01-01', 'Thu Duc, Ho Chi Minh, Vietnam', 'ACTIVE'), 
-('Tran Thi Bich', 'bich.tran@example.com', '0912345678', 'manager2', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 2, 'Nữ', '1995-05-20', 'Quan 1, Ho Chi Minh', 'ACTIVE'),
-('Le Van Tuan', 'tuan.le@example.com', '0987654321', 'employee2', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 2, 'Nam', '1990-12-10', 'Quan 3, Ho Chi Minh', 'ACTIVE');
+('Tran Thi Bich', 'bich.tran@example.com', '0912345678', 'manager2', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 1, 'Nữ', '1995-05-20', 'Quan 1, Ho Chi Minh', 'ACTIVE'),
+('Le Van Tuan', 'tuan.le@example.com', '0987654321', 'employee2', '$2a$10$5ccGC8BnPNV4ZC0fC0tD.e7AM6zg0UAcOe5Z18KOpqIUX2imMjwLm', 1, 'Nam', '1990-12-10', 'Quan 3, Ho Chi Minh', 'ACTIVE');
 
 INSERT INTO customer(full_name, email, phone, username, password, gender, birthday, address, status)
 VALUES 

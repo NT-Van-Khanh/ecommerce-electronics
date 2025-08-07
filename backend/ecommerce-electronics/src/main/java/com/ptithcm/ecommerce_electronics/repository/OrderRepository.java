@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,4 +52,35 @@ public interface OrderRepository extends JpaRepository<Orders, Integer> {
     """)
     Page<Orders> findByCustomerAndProductAndStatus(@Param("customerId") Integer customerId, @Param("productId") Integer productId,
                                                        @Param("status") OrderStatus status, Pageable pageable  );
+
+    @Query("""
+        SELECT SUM(o.totalAmount)
+        FROM Orders o
+        JOIN o.payment p
+        WHERE p.status = 'PAID'
+        AND (:from IS NULL OR o.orderTime >= :from)
+        AND (:to IS NULL OR o.orderTime <= :to)
+    """)
+    Long getTotalRevenue(LocalDateTime fromDateTime, LocalDateTime toDateTime);
+
+    @Query("""
+        SELECT COUNT(o)
+        FROM Orders o
+        JOIN o.payment p
+        WHERE p.status = 'PAID'
+        AND (:from IS NULL OR o.orderTime >= :from)
+        AND (:to IS NULL OR o.orderTime <= :to)
+    """)
+    Long getOrderCount(LocalDateTime fromDateTime, LocalDateTime toDateTime);
+
+    @Query("""
+        SELECT COUNT(o)
+        FROM Orders o
+        WHERE o.status = 'CANCELLED'
+        AND (:from IS NULL OR o.orderTime >= :from)
+        AND (:to IS NULL OR o.orderTime <= :to)
+    """)
+    Long getCancelledOrderCount(LocalDateTime fromDateTime, LocalDateTime toDateTime);
+//
+//    Object getTotalProfit(LocalDateTime fromDateTime, LocalDateTime toDateTime);
 }

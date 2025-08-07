@@ -27,10 +27,10 @@ public class Employee {
     @Column(name = "full_name", length = 100, nullable = false)
     private String fullName;
 
-    @Column(name = "email", length = 100, nullable = false)
+    @Column(name = "email", length = 100, nullable = false, unique = true)
     private String email;
 
-    @Column(name = "phone", length = 15, nullable = false)
+    @Column(name = "phone", length = 15, nullable = false, unique = true)
     private String phone;
 
     @Column(name = "username", length = 100, nullable = false)

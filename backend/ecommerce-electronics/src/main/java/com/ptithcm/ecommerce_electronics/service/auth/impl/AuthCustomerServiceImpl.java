@@ -145,6 +145,7 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
             throw new IllegalArgumentException("Invalid OTP. Please try again.");
         }
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customer.setStatus(AccountStatus.ACTIVE);
         customerRepository.save(customer);
     }
 

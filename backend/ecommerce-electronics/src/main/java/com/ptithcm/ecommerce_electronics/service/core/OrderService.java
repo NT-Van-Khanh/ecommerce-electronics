@@ -2,11 +2,14 @@ package com.ptithcm.ecommerce_electronics.service.core;
 
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
+import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
 import com.ptithcm.ecommerce_electronics.model.Orders;
 import com.ptithcm.ecommerce_electronics.service.base.BaseService;
 import com.ptithcm.ecommerce_electronics.service.base.PageableService;
+
+import java.time.LocalDate;
 
 public interface OrderService extends BaseService<Integer, OrderRequestDTO, OrderDTO>, PageableService<OrderDTO> {
 
@@ -24,4 +27,6 @@ public interface OrderService extends BaseService<Integer, OrderRequestDTO, Orde
     OrderDTO cancelOrder(Orders order);
 
     PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest);
+
+    RevenueDTO getRevenueSummary(LocalDate from, LocalDate to);
 }

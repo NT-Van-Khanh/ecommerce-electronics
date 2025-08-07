@@ -7,4 +7,5 @@ import com.ptithcm.ecommerce_electronics.service.base.PageableService;
 
 public interface EmployeeService extends BaseService<Integer, EmployeeRequestDTO, EmployeeDTO>,
         PageableService<EmployeeDTO> {
+    boolean changeStatusIfNotSelf(Integer id, String status);
 }

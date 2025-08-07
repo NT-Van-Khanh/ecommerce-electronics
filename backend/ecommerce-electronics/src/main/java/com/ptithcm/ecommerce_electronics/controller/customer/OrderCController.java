@@ -27,6 +27,6 @@ public class OrderCController {
 
     @PostMapping("cancel/{id}")
     public ResponseEntity<ApiResponse<OrderDTO>> cancelOrder(@PathVariable("id") @PositiveOrZero Integer orderId){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService. customerCancelOrder(orderId)));
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, orderService.customerCancelOrder(orderId)));
     }
 }

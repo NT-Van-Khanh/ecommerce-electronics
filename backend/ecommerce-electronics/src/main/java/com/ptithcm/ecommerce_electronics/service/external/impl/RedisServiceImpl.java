@@ -22,7 +22,7 @@ public class RedisServiceImpl implements RedisOtpService {
 
     private String buildKey(RoleAuth role, String email, String purpose) {
         System.err.println("OTP:" + role.name() + ":" + purpose + ":" + email);
-        return "OTP:" + purpose + ":" + email;
+        return "OTP:" + role.name() + ":" + purpose + ":" + email;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class RedisServiceImpl implements RedisOtpService {
     public String getOtp(RoleAuth role, String email, ActionPurpose purpose) {
         String key =buildKey(role, email, purpose.name());
         String otp =redisTemplate.opsForValue().get(key);
-        if(otp == null) throw new ResourceNotFoundException("OTP has expired.");
+        if(otp == null) throw new ResourceNotFoundException("The OTP has expired or does not exist.");
         return otp;
     }
 

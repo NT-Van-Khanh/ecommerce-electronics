@@ -4,6 +4,7 @@ import com.ptithcm.ecommerce_electronics.config.JwtTokenUtil;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.PaymentIntentResponse;
+import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemRequestDTO;
@@ -31,8 +32,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -260,6 +265,23 @@ public class OrderServiceImpl implements OrderService {
         String username = authentication.getName();
         Page<Orders> page = orderRepository.findByCustomer_Username(username, pageRequest.toPageable());
         return new PageResponse<>(page.map(OrderMapper::toDTO));
+    }
+
+    @Override
+    public RevenueDTO getRevenueSummary(LocalDate from, LocalDate to) {
+        LocalDateTime fromDateTime = from != null ? from.atStartOfDay() : null;
+        LocalDateTime toDateTime = to != null ? to.atTime(LocalTime.MAX) : null;
+
+        Long totalRevenue = Optional.ofNullable(orderRepository.getTotalRevenue(fromDateTime, toDateTime)).orElse(0L);
+        Long orderCount = Optional.ofNullable(orderRepository.getOrderCount(fromDateTime, toDateTime)).orElse(0L);
+        Long cancelledCount = Optional.ofNullable(orderRepository.getCancelledOrderCount(fromDateTime, toDateTime)).orElse(0L);
+//        Long totalProfit = Optional.ofNullable(orderRepository.getTotalProfit(fromDateTime, toDateTime)).orElse(0L);
+
+        return RevenueDTO.builder()
+                .totalRevenue(totalRevenue)
+                .orderCount(orderCount)
+                .cancelledOrderCount(cancelledCount)
+                .build();
     }
 
 

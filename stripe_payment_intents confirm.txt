@@ -1,3 +1,13 @@
-stripe payment_intents confirm pi_xxxxxxxxxxxxxxxx --payment-method pm_card_visa
+CHẠY LỆNH NÀY ĐỂ LOGIN:
+	stripe login
+
+CHẠY LỆNH NÀY ĐỂ LẮN NGHE API:
+ 	stripe listen --forward-to localhost:8088/api/v1/webhook/stripe_webhook
+
+
+CHẠY LỆNH NÀY ĐỂ TEST THANH TOÁN:
+- THÀNH CÔNG:
+	stripe payment_intents confirm pi_xxxxxxxxxxxxxxxx --payment-method pm_card_visa
  
-stripe payment_intents confirm pi_xxxxxxxxxxxxxxxx --payment-method pm_card_chargeDeclined
+- THẤT BẠI:
+	stripe payment_intents confirm pi_xxxxxxxxxxxxxxxx --payment-method pm_card_chargeDeclined
