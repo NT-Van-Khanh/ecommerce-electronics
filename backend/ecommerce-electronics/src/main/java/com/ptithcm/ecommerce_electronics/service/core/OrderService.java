@@ -5,6 +5,7 @@ import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
 import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
+import com.ptithcm.ecommerce_electronics.enums.TimeUnit;
 import com.ptithcm.ecommerce_electronics.model.Orders;
 import com.ptithcm.ecommerce_electronics.service.base.BaseService;
 import com.ptithcm.ecommerce_electronics.service.base.PageableService;
@@ -28,5 +29,9 @@ public interface OrderService extends BaseService<Integer, OrderRequestDTO, Orde
 
     PageResponse<OrderDTO> getCustomerOrderHistory(PaginationRequest pageRequest);
 
-    RevenueDTO getRevenueSummary(LocalDate from, LocalDate to);
+    RevenueDTO getRevenueByTime(LocalDate from, LocalDate to, TimeUnit unit);
+
+    RevenueDTO getRevenueByProductVariant(Integer productId, LocalDate from, LocalDate to, TimeUnit unit);
+
+    RevenueDTO getRevenueByDiscount(Integer discountId, LocalDate from, LocalDate to, TimeUnit unit);
 }

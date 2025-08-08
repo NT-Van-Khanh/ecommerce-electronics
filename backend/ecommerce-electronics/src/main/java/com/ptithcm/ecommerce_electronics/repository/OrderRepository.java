@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -81,6 +82,34 @@ public interface OrderRepository extends JpaRepository<Orders, Integer> {
         AND (:to IS NULL OR o.orderTime <= :to)
     """)
     Long getCancelledOrderCount(LocalDateTime fromDateTime, LocalDateTime toDateTime);
+
+    List<Orders> findAllByCreatedAtBetweenAndStatus(LocalDateTime fromDateTime, LocalDateTime toDateTime, OrderStatus orderStatus);
+
+
+    @Query("""
+            SELECT o
+            FROM Orders o
+            JOIN o.orderItems oi
+            WHERE oi.productVariant.id = :productVariantId
+            AND o.status = :status
+            AND o.createdAt >= :from
+            AND o.createdAt <= :to
+            """)
+    List<Orders> findAllByProductVariantAndTimeAndStatus(@Param("productVariantId") Integer productVariantId, @Param("from") LocalDateTime fromDateTime,
+                                                  @Param("to") LocalDateTime toDateTime, @Param("status") OrderStatus status);
+
+    @Query("""
+            SELECT o
+            FROM Orders o
+            JOIN o.orderItems oi
+            WHERE ( oi.discount.id = :discountId OR o.discount.id = :discountId)
+            AND o.status = :status
+            AND o.createdAt >= :from
+            AND o.createdAt <= :to
+            """)
+    List<Orders> findAllByDiscountAndTimeAndStatus(@Param("discountId") Integer discountId, @Param("from") LocalDateTime fromDateTime,
+                                                   @Param("to") LocalDateTime toDateTime,@Param("status")  OrderStatus status);
+
 //
 //    Object getTotalProfit(LocalDateTime fromDateTime, LocalDateTime toDateTime);
 }

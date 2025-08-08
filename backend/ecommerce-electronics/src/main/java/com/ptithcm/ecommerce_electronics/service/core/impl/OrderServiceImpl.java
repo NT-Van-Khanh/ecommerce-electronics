@@ -1,10 +1,7 @@
 package com.ptithcm.ecommerce_electronics.service.core.impl;
 
 import com.ptithcm.ecommerce_electronics.config.JwtTokenUtil;
-import com.ptithcm.ecommerce_electronics.dto.PageResponse;
-import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.dto.PaymentIntentResponse;
-import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
+import com.ptithcm.ecommerce_electronics.dto.*;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderItemRequestDTO;
@@ -35,9 +32,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.YearMonth;
+import java.time.temporal.WeekFields;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -268,22 +266,153 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public RevenueDTO getRevenueSummary(LocalDate from, LocalDate to) {
+    public RevenueDTO getRevenueByTime(LocalDate from, LocalDate to, TimeUnit unit) {
         LocalDateTime fromDateTime = from != null ? from.atStartOfDay() : null;
         LocalDateTime toDateTime = to != null ? to.atTime(LocalTime.MAX) : null;
-
-        Long totalRevenue = Optional.ofNullable(orderRepository.getTotalRevenue(fromDateTime, toDateTime)).orElse(0L);
-        Long orderCount = Optional.ofNullable(orderRepository.getOrderCount(fromDateTime, toDateTime)).orElse(0L);
-        Long cancelledCount = Optional.ofNullable(orderRepository.getCancelledOrderCount(fromDateTime, toDateTime)).orElse(0L);
-//        Long totalProfit = Optional.ofNullable(orderRepository.getTotalProfit(fromDateTime, toDateTime)).orElse(0L);
-
+        List<Orders> completedOrders = orderRepository.findAllByCreatedAtBetweenAndStatus(fromDateTime, toDateTime, OrderStatus.COMPLETED);
+        List<Orders> cancelledOrders = orderRepository.findAllByCreatedAtBetweenAndStatus(fromDateTime, toDateTime, OrderStatus.CANCELLED);
+        List<Orders> allOrders = new ArrayList<>();
+        allOrders.addAll(completedOrders);
+        allOrders.addAll(cancelledOrders);
+        long totalOrders = allOrders.size();
+        long totalSuccessOrders = completedOrders.size();
+        long totalCancelledOrders = cancelledOrders.size();
+        long totalRevenue = completedOrders.stream().mapToLong(Orders::getTotalAmount).sum();
+        int totalCustomers = (int) allOrders.stream().map(o -> o.getCustomer().getId()).distinct().count();
+        long totalDiscount = completedOrders.stream().mapToLong(Orders::getDiscountAmount).sum();
+        long totalShippingFee = completedOrders.stream().mapToLong(Orders::getShipAmount).sum();
+        long totalTax = completedOrders.stream().mapToLong(Orders::getTotalTax).sum();
+        List<RevenueUnitDTO> detailByUnit = groupOrdersByUnit(allOrders, completedOrders, cancelledOrders, unit);
         return RevenueDTO.builder()
+                .totalOrders(totalOrders)
+                .totalSuccessOrders(totalSuccessOrders)
+                .totalCancelledOrders(totalCancelledOrders)
                 .totalRevenue(totalRevenue)
-                .orderCount(orderCount)
-                .cancelledOrderCount(cancelledCount)
+                .totalCustomers(totalCustomers)
+                .totalDiscount(totalDiscount)
+                .totalShippingFee(totalShippingFee)
+                .totalTax(totalTax)
+                .detailByUnit(detailByUnit)
                 .build();
     }
 
+    @Override
+    public RevenueDTO getRevenueByProductVariant(Integer productVariantId, LocalDate from, LocalDate to, TimeUnit unit) {
+        LocalDateTime fromDateTime = from != null ? from.atStartOfDay() : null;
+        LocalDateTime toDateTime = to != null ? to.atTime(LocalTime.MAX) : null;
+        List<Orders> completedOrders = orderRepository.findAllByProductVariantAndTimeAndStatus(productVariantId, fromDateTime, toDateTime, OrderStatus.COMPLETED);
+        List<Orders> cancelledOrders = orderRepository.findAllByProductVariantAndTimeAndStatus(productVariantId, fromDateTime, toDateTime, OrderStatus.CANCELLED);
+        List<Orders> allOrders = new ArrayList<>();
+        allOrders.addAll(completedOrders);
+        allOrders.addAll(cancelledOrders);
+        long totalOrders = allOrders.size();
+        long totalSuccessOrders = completedOrders.size();
+        long totalCancelledOrders = cancelledOrders.size();
+        long totalRevenue = completedOrders.stream().mapToLong(Orders::getTotalAmount).sum();
+        int totalCustomers = (int) allOrders.stream().map(o -> o.getCustomer().getId()).distinct().count();
+        long totalDiscount = completedOrders.stream().mapToLong(Orders::getDiscountAmount).sum();
+        long totalShippingFee = completedOrders.stream().mapToLong(Orders::getShipAmount).sum();
+        long totalTax = completedOrders.stream().mapToLong(Orders::getTotalTax).sum();
+        List<RevenueUnitDTO> detailByUnit = groupOrdersByUnit(allOrders, completedOrders, cancelledOrders, unit);
+        return RevenueDTO.builder()
+                .totalOrders(totalOrders)
+                .totalSuccessOrders(totalSuccessOrders)
+                .totalCancelledOrders(totalCancelledOrders)
+                .totalRevenue(totalRevenue)
+                .totalCustomers(totalCustomers)
+                .totalDiscount(totalDiscount)
+                .totalShippingFee(totalShippingFee)
+                .totalTax(totalTax)
+                .detailByUnit(detailByUnit)
+                .build();
+    }
+
+    @Override
+    public RevenueDTO getRevenueByDiscount(Integer discountId, LocalDate from, LocalDate to, TimeUnit unit) {
+        LocalDateTime fromDateTime = from != null ? from.atStartOfDay() : null;
+        LocalDateTime toDateTime = to != null ? to.atTime(LocalTime.MAX) : null;
+        List<Orders> completedOrders = orderRepository.findAllByDiscountAndTimeAndStatus(discountId, fromDateTime, toDateTime, OrderStatus.COMPLETED);
+        List<Orders> cancelledOrders = orderRepository.findAllByDiscountAndTimeAndStatus(discountId, fromDateTime, toDateTime, OrderStatus.CANCELLED);
+        List<Orders> allOrders = new ArrayList<>();
+        allOrders.addAll(completedOrders);
+        allOrders.addAll(cancelledOrders);
+        long totalOrders = allOrders.size();
+        long totalSuccessOrders = completedOrders.size();
+        long totalCancelledOrders = cancelledOrders.size();
+        long totalRevenue = completedOrders.stream().mapToLong(Orders::getTotalAmount).sum();
+        int totalCustomers = (int) allOrders.stream().map(o -> o.getCustomer().getId()).distinct().count();
+        long totalDiscount = completedOrders.stream().mapToLong(Orders::getDiscountAmount).sum();
+        long totalShippingFee = completedOrders.stream().mapToLong(Orders::getShipAmount).sum();
+        long totalTax = completedOrders.stream().mapToLong(Orders::getTotalTax).sum();
+        List<RevenueUnitDTO> detailByUnit = groupOrdersByUnit(allOrders, completedOrders, cancelledOrders, unit);
+        return RevenueDTO.builder()
+                .totalOrders(totalOrders)
+                .totalSuccessOrders(totalSuccessOrders)
+                .totalCancelledOrders(totalCancelledOrders)
+                .totalRevenue(totalRevenue)
+                .totalCustomers(totalCustomers)
+                .totalDiscount(totalDiscount)
+                .totalShippingFee(totalShippingFee)
+                .totalTax(totalTax)
+                .detailByUnit(detailByUnit)
+                .build();
+    }
+
+    private List<RevenueUnitDTO> groupOrdersByUnit(List<Orders> allOrders, List<Orders> completedOrders,
+                                                   List<Orders> cancelledOrders, TimeUnit unit) {
+        Set<String> unitLabels = allOrders.stream().map(o -> getUnitLabel(o.getCreatedAt(), unit))
+                .collect(Collectors.toCollection(TreeSet::new));
+        List<RevenueUnitDTO> result = new ArrayList<>();
+
+        for (String unitLabel : unitLabels) {
+            // Lọc đơn hàng theo đơn vị thời gian này
+            List<Orders> unitOrders = allOrders.stream()
+                    .filter(o -> getUnitLabel(o.getCreatedAt(), unit).equals(unitLabel)) .toList();
+
+            List<Orders> unitCompleted = completedOrders.stream()
+                    .filter(o -> getUnitLabel(o.getCreatedAt(), unit).equals(unitLabel)).toList();
+
+            List<Orders> unitCancelled = cancelledOrders.stream()
+                    .filter(o -> getUnitLabel(o.getCreatedAt(), unit).equals(unitLabel)).toList();
+
+            long totalOrders = unitOrders.size();
+            long successOrders = unitCompleted.size();
+            long cancelledOrdersCount = unitCancelled.size();
+            int totalCustomers = (int) unitOrders.stream().map(o -> o.getCustomer().getId()).distinct().count();
+            long revenue = unitCompleted.stream().mapToLong(Orders::getTotalAmount).sum();
+            long discount = unitCompleted.stream().mapToLong(Orders::getDiscountAmount).sum();
+            long shippingFee = unitCompleted.stream().mapToLong(Orders::getShipAmount).sum();
+            long tax = unitCompleted.stream().mapToLong(Orders::getTotalTax).sum();
+            revenue = revenue - discount + shippingFee + tax;
+            result.add(new RevenueUnitDTO(
+                    unitLabel,
+                    totalOrders,
+                    successOrders,
+                    cancelledOrdersCount,
+                    totalCustomers,
+                    revenue,
+                    discount,
+                    shippingFee,
+                    tax
+            ));
+        }
+
+        return result;
+    }
+
+    private String getUnitLabel(LocalDateTime dateTime, TimeUnit unit) {
+        return switch (unit) {
+            case DAY -> dateTime.toLocalDate().toString(); // 2025-08-08
+            case WEEK -> {
+                LocalDate date = dateTime.toLocalDate();
+                WeekFields wf = WeekFields.of(Locale.getDefault());
+                int week = date.get(wf.weekOfWeekBasedYear());
+                int year = date.get(wf.weekBasedYear());
+                yield year + "-W" + week;
+            }
+            case MONTH -> YearMonth.from(dateTime).toString(); // 2025-08
+        };
+    }
 
     @Override
     public OrderDTO getById(Integer id) {
