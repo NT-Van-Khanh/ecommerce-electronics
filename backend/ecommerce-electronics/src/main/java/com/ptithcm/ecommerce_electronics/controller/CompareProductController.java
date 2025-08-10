@@ -20,7 +20,6 @@ import java.util.List;
 @RestController
 @RequestMapping("${api.v1.prefix}/ai/compare")
 public class CompareProductController {
-
     @Autowired
     private ChatToolService chatToolService;
 
@@ -30,10 +29,6 @@ public class CompareProductController {
     @Autowired
     private RagService ragService;
 
-    @GetMapping("/search")
-    private ResponseEntity<ApiResponse<List<Document>>> search(@RequestParam String query){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, embeddingService.searchSimilar(query)));
-    }
 
     @GetMapping("/chat-ai")
     private ResponseEntity<ApiResponse<AIResponse>> chatAi(@RequestParam String query){
@@ -51,16 +46,11 @@ public class CompareProductController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
     }
 
-//    @PostMapping("/add-product-vector/{product-id}")
-//    private ResponseEntity<ApiResponse<String>> addProductVector(@PathVariable("product-id") @PositiveOrZero Integer id){
-//        embeddingService.embeddingProduct(id);
-//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
+//    @GetMapping("/search")
+//    private ResponseEntity<ApiResponse<List<Document>>> search(@RequestParam String query){
+//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, embeddingService.searchSimilar(query)));
 //    }
-//    @PostMapping("/add-product-vector/page")
-//    private ResponseEntity<ApiResponse<String>> addPageProductVectors(@Valid PaginationRequest pageRequest){
-//        embeddingService.embeddingProducts(pageRequest);
-//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-//    }
+
 //    @PostMapping("/add-product-vector/all")
 //    private ResponseEntity<ApiResponse<String>>addProductVector(){
 //        embeddingService.embeddingProducts();

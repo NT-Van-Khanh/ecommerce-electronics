@@ -2,9 +2,7 @@ package com.ptithcm.ecommerce_electronics.service.ai.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.product.BaseProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
-import com.ptithcm.ecommerce_electronics.dto.variant.BaseProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
-import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.service.ai.VectorStoreService;
 import jakarta.transaction.Transactional;
 import org.springframework.ai.document.Document;
@@ -58,16 +56,17 @@ public class VectorStoreServiceImpl implements VectorStoreService {
         return doc;
     }
 
-    @Override
-    @Transactional
-    public void update(ProductDTO product) {
-        delete(product.getId());
-        add(product);
-    }
+//    @Override
+//    public void update(ProductDTO product) {
+//        delete(product.getId());
+//        add(product);
+//    }
 
     @Override
     public void delete(Integer id) {
-        vectorStore.delete(List.of(id.toString()));
+//        vectorStore.delete(List.of(id.toString()));
+        String uuid = UUID.nameUUIDFromBytes(String.valueOf(id).getBytes()).toString();
+        vectorStore.delete(List.of(uuid));
     }
 
     @Override
@@ -113,19 +112,13 @@ public class VectorStoreServiceImpl implements VectorStoreService {
             vectorStore.add(dos);
         }
 
-
-//        List<Document> dos = new ArrayList<>();
-//        for(ProductVariantDTO p : productVariants){
-//            dos.add(productVariantToDoc(p));
-//        }
-//        vectorStore.add(dos);
     }
 
-    @Override
-    public void update(ProductVariantDTO productVariant) {
-        delete(productVariant.getId());
-        addVariant(productVariant);
-    }
+//    @Override
+//    public void update(ProductVariantDTO productVariant) {
+//        delete(productVariant.getId());
+//        addVariant(productVariant);
+//    }
 
     private Document productVariantToDoc(ProductVariantDTO p){
         String content = createVectorContent(p);

@@ -11,6 +11,8 @@ import com.ptithcm.ecommerce_electronics.model.*;
 import com.ptithcm.ecommerce_electronics.repository.OptionValueRepository;
 import com.ptithcm.ecommerce_electronics.repository.ProductVariantRepository;
 import com.ptithcm.ecommerce_electronics.repository.VariantOptionRepository;
+import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
+import com.ptithcm.ecommerce_electronics.service.ai.VectorStoreService;
 import com.ptithcm.ecommerce_electronics.service.core.ProductService;
 import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
 import jakarta.transaction.Transactional;
@@ -23,18 +25,18 @@ import java.util.*;
 // 1 func
 @Service
 public class ProductVariantServiceImpl implements ProductVariantService {
-
     @Autowired
     private ProductVariantRepository pvRepository;
+    @Autowired
+    private VariantOptionRepository variantOptionRepository;
+    @Autowired
+    private OptionValueRepository optionValueRepository;
 
     @Autowired
     private ProductService productService;
 
     @Autowired
-    private VariantOptionRepository variantOptionRepository;
-
-    @Autowired
-    private OptionValueRepository optionValueRepository;
+    private VectorStoreService vectorStoreService;
 
     @Override
     public List<ProductVariantDTO> getAvailableByProductId(String productId) {
@@ -94,12 +96,16 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     @Transactional
     public ProductVariantDTO add(ProductVariantRequestDTO request) {
         Product p = productService.findById(request.getProductId());
+
         ProductVariant productVariant = ProductVariantMapper.toEntity(request);
         productVariant.setProduct(p);
         productVariant = pvRepository.save(productVariant);
         List<VariantOption> variantOptions =addVariantOption(p, productVariant, request.getOptionValueIds());
         productVariant.setVariantOptions(variantOptionRepository.saveAll(variantOptions));
-        return ProductVariantMapper.toDTO(productVariant);
+        //add vector
+        ProductVariantDTO pvResponse =ProductVariantMapper.toDTO(productVariant);
+        vectorStoreService.addVariant(pvResponse);
+        return pvResponse;
     }
 
     private List<VariantOption> addVariantOption(Product p, ProductVariant newPv, List<Integer> optionValueIds) {
@@ -152,7 +158,10 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         }
         ProductVariant productVariant = ProductVariantMapper.toEntity(request);
         productVariant.setId(id);
-        return ProductVariantMapper.toDTO(pvRepository.save(productVariant));
+        //replace vector
+        ProductVariantDTO pvResponse = ProductVariantMapper.toDTO(pvRepository.save(productVariant));
+        vectorStoreService.addVariant(pvResponse);
+        return pvResponse;
     }
 
     @Override
@@ -163,6 +172,16 @@ public class ProductVariantServiceImpl implements ProductVariantService {
         if(newStatus.equals(pv.getStatus())) return false;
         pv.setStatus(newStatus);
         pvRepository.save(pv);
+        switch(newStatus){
+            case ACTIVE:
+                vectorStoreService.addVariant(ProductVariantMapper.toDTO(pv));
+                break;
+            case DELETED,INACTIVE:
+                vectorStoreService.delete(pv.getId());
+                break;
+            default:
+                break;
+        }
         return true;
     }
 

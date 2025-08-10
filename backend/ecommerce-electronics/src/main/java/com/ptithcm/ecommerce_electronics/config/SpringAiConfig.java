@@ -1,7 +1,5 @@
 package com.ptithcm.ecommerce_electronics.config;
 
-import io.qdrant.client.QdrantClient;
-import io.qdrant.client.QdrantGrpcClient;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -12,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SpringAiToolConfig {
+public class SpringAiConfig {
     @Bean
     public EmbeddingModel embeddingModel(VertexAiTextEmbeddingModel vertexAiEmbeddingModel) {
         return vertexAiEmbeddingModel;
@@ -22,12 +20,18 @@ public class SpringAiToolConfig {
                                  ChatMemory chatMemory){
         return chatClientBuilder
                 .build();
+    }
+
+//    @Bean
+//    public ChatClient chatClient(ChatClient.Builder chatClientBuilder,
+//                                 ChatMemory chatMemory){
 //        return chatClientBuilder
 //                .defaultAdvisors(
 //                        PromptChatMemoryAdvisor.builder(chatMemory).build(),
 //                        new SimpleLoggerAdvisor())
 //                .build();
-    }
+//    }
+
 
 //    @Bean
 //    public QdrantClient qdrantClient() {

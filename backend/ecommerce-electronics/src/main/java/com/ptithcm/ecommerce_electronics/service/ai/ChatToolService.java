@@ -1,12 +1,9 @@
 package com.ptithcm.ecommerce_electronics.service.ai;
 
-import com.ptithcm.ecommerce_electronics.dto.ai.ComparisonResult;
-import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.data.repository.query.Param;
+import com.ptithcm.ecommerce_electronics.dto.AIResponse;
 
 public interface ChatToolService {
-
-    @Tool(name = "compareProducts", description = "So sánh hai sản phẩm")
-    ComparisonResult compareProducts(@Param("productId1") Integer productId1, @Param("productId2") Integer productId2);
-
+    AIResponse answer(String query);
+    AIResponse compareProducts(String query);
+//    ComparisonResult compareProducts(@Param("productId1") Integer productId1, @Param("productId2") Integer productId2);
 }
