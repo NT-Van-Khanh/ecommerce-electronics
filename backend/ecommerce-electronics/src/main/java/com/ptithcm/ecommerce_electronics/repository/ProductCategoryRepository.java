@@ -13,6 +13,7 @@ public interface ProductCategoryRepository extends JpaRepository<ProductCategory
             SELECT pc.product.brand
             FROM ProductCategory pc
             WHERE pc.category.id = :categoryId
+             AND (:keyword IS NULL OR LOWER(pc.product.brand.name) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')))
             """)
-    Page<Brand> findBrandByCategoryId(@Param("categoryId") Integer categoryId, Pageable pageable);
+    Page<Brand> findBrandByCategoryId(@Param("categoryId") Integer categoryId, @Param("keyword") String keyword, Pageable pageable);
 }

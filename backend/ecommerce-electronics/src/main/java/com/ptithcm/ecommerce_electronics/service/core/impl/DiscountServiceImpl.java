@@ -104,14 +104,14 @@ public class DiscountServiceImpl implements DiscountService {
     @Override
     public PageResponse<DiscountDTO> getPage(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Discount> page = discountRepository.findAll(pageable);
+        Page<Discount> page = discountRepository.findPage(pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(DiscountMapper::toDTO));
     }
 
     @Override
     public PageResponse<DiscountDTO> getPageActive(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Discount> page = discountRepository.findByStatus(BaseStatus.ACTIVE, pageable);
+        Page<Discount> page = discountRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(DiscountMapper::toDTO));
     }
 

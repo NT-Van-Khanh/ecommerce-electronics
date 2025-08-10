@@ -17,7 +17,6 @@ import com.ptithcm.ecommerce_electronics.mapper.OrderMapper;
 import com.ptithcm.ecommerce_electronics.mapper.PaymentMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
 import com.ptithcm.ecommerce_electronics.repository.*;
-import com.ptithcm.ecommerce_electronics.service.auth.AuthCustomerService;
 import com.ptithcm.ecommerce_electronics.service.core.*;
 import com.ptithcm.ecommerce_electronics.service.external.RedisHandleOrderService;
 import com.ptithcm.ecommerce_electronics.service.external.StripeService;
@@ -39,35 +38,26 @@ import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-
     private static final int CREDIT_CARD_TIME_OUT = 1;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
+    @Autowired
+    private CustomerService customerService;
 
     @Autowired
     private DiscountService discountService;
-
-    @Autowired
-    private OrderItemRepository orderItemRepository;
-
     @Autowired
     private DiscountVariantService discountVariantService;
-
     @Autowired
     private ProductVariantService productVariantService;
-
-    @Autowired
-    private PaymentRepository paymentRepository;
-
-    @Autowired
-    private AuthCustomerService customerService;
-
     @Autowired
     private StripeService stripeService;
-
     @Autowired
     private RedisHandleOrderService redisHandleOrderService;
 
@@ -93,20 +83,69 @@ public class OrderServiceImpl implements OrderService {
         return 5000;
     }
 
+    @Override
+    public OrderDTO getById(Integer id) {
+        Orders order = findById(id);
+        return OrderMapper.toDTO(order);
+    }
 
+
+    public List<OrderDTO> getAll() {
+        return orderRepository.findAll().stream()
+                .map(OrderMapper::toDTO)
+                .toList();
+    }
+
+    @Override
+    public PageResponse<OrderDTO> getPage(PaginationRequest pageRequest) {
+        Page<Orders> page = orderRepository.findAll(pageRequest.toPageable());
+        return new PageResponse<>(page.map(OrderMapper::toDTO));
+    }
+
+    @Override
+    public PageResponse<OrderDTO> getPageActive(PaginationRequest pageRequest) {
+        Page<Orders> page = orderRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
+        return new PageResponse<>(page.map(OrderMapper::toDTO));
+    }
+
+    @Override
+    @Transactional
+    public OrderDTO update(Integer id, OrderRequestDTO request) {
+        if(!orderRepository.existsById(id)){
+            throw new ResourceNotFoundException("Order not found with id =" +id);
+        }
+        Orders order = OrderMapper.toEntity(request);
+        order.setId(id);
+        return OrderMapper.toDTO(orderRepository.save(order));
+    }
+
+    @Override
+    @Transactional
+    public boolean changeStatus(Integer id, String status) {
+        Orders order = findById(id);
+        if(status.equals(order.getStatus().name())) return false;
+        order.setStatus(OrderStatus.valueOf(status));
+        orderRepository.save(order);
+        return true;
+    }
+
+    @Override
+    public Orders findById(Integer id){
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id = "+ id));
+    }
 
     @Override
     @Transactional
     public OrderDTO add(OrderRequestDTO orderRequest) {
-        checkAuthUser();
-        return  setElementForOrder(orderRequest);
+        return setElementForOrder(orderRequest);
     }
 
     private OrderDTO setElementForOrder(OrderRequestDTO orderRequest) {
         Orders order = OrderMapper.toEntity(orderRequest);
-
+        order.setCustomer(checkAuthUser());
+        checkDeliveryInformation(order);
         order.setTaxesIncluded(true);
-        order.setCustomer(Customer.builder().id(1).build());
         order.setTotalTax(getTotalTaxOfOrder(orderRequest));
         order.setShipAmount(getShippingFeeCharged(orderRequest.getDeliveryAddress()));
         order.setStatus(OrderStatus.PENDING);
@@ -134,6 +173,27 @@ public class OrderServiceImpl implements OrderService {
         return  orderResponse;
     }
 
+    private void checkDeliveryInformation(Orders order) {
+        Customer customer = order.getCustomer();
+        if (customer != null) {
+            if (order.getRecipientPhone() == null) {
+                order.setRecipientPhone(customer.getPhone());
+            }
+            if (order.getDeliveryAddress() == null) {
+                order.setDeliveryAddress(customer.getAddress());
+            }
+            if (order.getRecipientName() == null) {
+                order.setRecipientName(customer.getFullName());
+            }
+        } else {
+            if (order.getRecipientName() == null ||
+                    order.getDeliveryAddress() == null ||
+                    order.getRecipientPhone() == null) {
+                throw new BadRequestException("Recipient information is required for guest orders.");
+            }
+        }
+    }
+
     private PaymentDTO processPayment(Orders order) {
         Payment payment = order.getPayment();
         switch (payment.getMethod()){
@@ -150,17 +210,34 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    private void checkAuthUser() {
+    private Customer checkAuthUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
             throw new UnauthorizedException("User not authenticated");
         }
-        boolean isAuth = authentication.getAuthorities().stream()
-                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")||auth.getAuthority().equals("ROLE_GUEST"));
-        if (!isAuth) {
+        List<String> roles = authentication.getAuthorities().stream()
+                .map(auth -> auth.getAuthority())
+                .toList();
+        if (roles.isEmpty()) {
             throw new ForbiddenException("Please login or auth email before take order");
         }
+        if (roles.contains("ROLE_CUSTOMER")) {
+            String username = authentication.getName();
+            return customerService.findByUsername(username);
+        } else if (roles.contains("ROLE_GUEST")) {
+            return null;
+        }
+
+        throw new ForbiddenException("Please login or auth email to take order");
+
     }
+
+//        boolean isAuth = authentication.getAuthorities().stream()
+//                .anyMatch(auth -> auth.getAuthority().equals("ROLE_CUSTOMER")||auth.getAuthority().equals("ROLE_GUEST"));
+//        if (!isAuth) {
+//            throw new ForbiddenException("Please login or auth email before take order");
+//        }
+
 
     private List<OrderItem> setElementForOrderItems(Orders order, List<OrderItemRequestDTO> items) {
         List<OrderItem> orderItems = new ArrayList<>();
@@ -414,61 +491,5 @@ public class OrderServiceImpl implements OrderService {
         };
     }
 
-    @Override
-    public OrderDTO getById(Integer id) {
-        Orders order = findById(id);
-        return OrderMapper.toDTO(order);
-    }
 
-
-    public List<OrderDTO> getAll() {
-        return orderRepository.findAll().stream()
-                .map(OrderMapper::toDTO)
-                .toList();
-    }
-
-    @Override
-    public PageResponse<OrderDTO> getPage(PaginationRequest pageRequest) {
-        Page<Orders> page = orderRepository.findAll(pageRequest.toPageable());
-        return new PageResponse<>(page.map(OrderMapper::toDTO));
-    }
-
-    @Override
-    public PageResponse<OrderDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<Orders> page = orderRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
-        return new PageResponse<>(page.map(OrderMapper::toDTO));
-    }
-
-//    @Override
-//    public OrderDTO add(OrderRequestDTO request) {
-//        Orders order = OrderMapper.toEntity(request);
-//        return OrderMapper.toDTO(orderRepository.save(order));
-//    }
-
-    @Override
-    @Transactional
-    public OrderDTO update(Integer id, OrderRequestDTO request) {
-        if(!orderRepository.existsById(id)){
-            throw new ResourceNotFoundException("Order not found with id =" +id);
-        }
-        Orders order = OrderMapper.toEntity(request);
-        order.setId(id);
-        return OrderMapper.toDTO(orderRepository.save(order));
-    }
-
-    @Override
-    @Transactional
-    public boolean changeStatus(Integer id, String status) {
-        Orders order = findById(id);
-        if(status.equals(order.getStatus().name())) return false;
-        order.setStatus(OrderStatus.valueOf(status));
-        orderRepository.save(order);
-        return true;
-    }
-
-    @Override
-    public Orders findById(Integer id){
-        return orderRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id = "+ id));
-    }
 }

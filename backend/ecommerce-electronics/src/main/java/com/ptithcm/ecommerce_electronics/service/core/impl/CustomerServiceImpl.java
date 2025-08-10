@@ -40,14 +40,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public PageResponse<CustomerDTO> getPage(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Customer> page = customerRepository.findAll(pageable);
+        Page<Customer> page = customerRepository.findPage(pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(CustomerMapper::toDTO));
     }
 
     @Override
     public PageResponse<CustomerDTO> getPageActive(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Customer> page = customerRepository.findByStatus(BaseStatus.ACTIVE, pageable);
+        Page<Customer> page = customerRepository.findByStatus(BaseStatus.ACTIVE,pageRequest.getKeyword() ,pageable);
         return new PageResponse<>(page.map(CustomerMapper::toDTO));
     }
 
@@ -75,7 +75,6 @@ public class CustomerServiceImpl implements CustomerService {
         if(newStatus.equals(customer.getStatus())) return false;
         customer.setStatus(newStatus);
         customerRepository.save(customer);
-
         return true;
     }
 
@@ -83,5 +82,11 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer findById(Integer id) {
         return customerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id = " +id));
+    }
+
+    @Override
+    public Customer findByUsername(String username) {
+        return customerRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with username = " +username));
     }
 }

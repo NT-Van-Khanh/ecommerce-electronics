@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public PageResponse<CategoryDTO> getNonChildCategories(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Category> page = categoryRepository.findAllNonChildCategories(pageable);
+        Page<Category> page = categoryRepository.findAllNonChildCategories(pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(CategoryMapper::toDTO));
     }
 
@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public PageResponse<CategoryDTO> getActiveNonChildCategories(PaginationRequest pageRequest) {
-        Page<Category> page =categoryRepository.findActiveParentCategories(pageRequest.toPageable());
+        Page<Category> page =categoryRepository.findActiveParentCategories(pageRequest.getKeyword(), pageRequest.toPageable());
         return new PageResponse<>(page.map(CategoryMapper::toParentDTO));
     }
 
@@ -82,7 +82,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public PageResponse<CategoryDTO> getPageActive(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Category> page = categoryRepository.findByStatus(BaseStatus.ACTIVE, pageable);
+        Page<Category> page = categoryRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(CategoryMapper::toDTO));
     }
 

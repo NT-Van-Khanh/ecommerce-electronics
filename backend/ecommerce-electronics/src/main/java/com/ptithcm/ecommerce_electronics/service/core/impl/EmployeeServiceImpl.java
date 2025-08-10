@@ -50,13 +50,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public PageResponse<EmployeeDTO> getPage(PaginationRequest pageRequest) {
-        Page<Employee> page = employeeRepository.findAll(pageRequest.toPageable());
+        Page<Employee> page = employeeRepository.findPage(pageRequest.getKeyword(), pageRequest.toPageable());
         return new PageResponse<>(page.map(EmployeeMapper::toDTO));
     }
 
     @Override
     public PageResponse<EmployeeDTO> getPageActive(PaginationRequest pageRequest) {
-        Page<Employee> page = employeeRepository.findByStatus(BaseStatus.ACTIVE, pageRequest.toPageable());
+        Page<Employee> page = employeeRepository.findByStatus(BaseStatus.ACTIVE,pageRequest.getKeyword(), pageRequest.toPageable());
         return new PageResponse<>(page.map(EmployeeMapper::toDTO));
     }
 

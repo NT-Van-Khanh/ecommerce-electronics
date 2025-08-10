@@ -29,7 +29,7 @@ public class BrandServiceImpl implements BrandService {
     @Override
     public PageResponse<BrandDTO> getBrandsByCategoryId(Integer categoryId, PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Brand> page = productCategoryRepository.findBrandByCategoryId(categoryId, pageable);
+        Page<Brand> page = productCategoryRepository.findBrandByCategoryId(categoryId, pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(BrandMapper::toDTO));
     }
 
@@ -51,14 +51,14 @@ public class BrandServiceImpl implements BrandService {
     @Override
     public PageResponse<BrandDTO> getPage(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Brand> page = brandRepository.findAll(pageable);
+        Page<Brand> page = brandRepository.findByKeyword(pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(BrandMapper::toDTO));
     }
 
     @Override
     public PageResponse<BrandDTO> getPageActive(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Brand> page = brandRepository.findByStatus(BaseStatus.ACTIVE, pageable);
+        Page<Brand> page = brandRepository.findByStatusAndKeyword(BaseStatus.ACTIVE, pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(BrandMapper::toDTO));
     }
 

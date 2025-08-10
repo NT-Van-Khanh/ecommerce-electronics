@@ -9,4 +9,6 @@ import com.ptithcm.ecommerce_electronics.service.base.PageableService;
 public interface CustomerService extends BaseService<Integer, CustomerRequestDTO, CustomerDTO>,
         PageableService<CustomerDTO> {
     Customer findById(Integer id);
+
+    Customer findByUsername(String username);
 }

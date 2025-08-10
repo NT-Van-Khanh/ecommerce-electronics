@@ -40,7 +40,8 @@ public class ProductController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageActiveProducts(@ModelAttribute ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageActiveProducts(@ModelAttribute @Valid ProductFilterRequest filterRequest,
+                                                                                       @Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getPageActive(filterRequest, pageRequest)));
     }
 

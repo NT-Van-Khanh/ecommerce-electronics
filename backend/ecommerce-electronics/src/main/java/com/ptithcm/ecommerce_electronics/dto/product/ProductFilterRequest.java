@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductFilterRequest {
 
-    @Schema(description = "Keyword", example = "Laptop DELL")
-    private String keyword;
+//    @Schema(description = "Keyword", example = "Laptop DELL")
+//    private String keyword;
 
     @Schema(description = "Brand id", example = "1")
     @PositiveOrZero
@@ -25,7 +25,6 @@ public class ProductFilterRequest {
     @Schema(description = "Category id", example = "1")
     @PositiveOrZero
     private Integer categoryId;
-
 
     //Converter - BUG Failed to convert property value of type 'java.lang.String' to required type 'java.util.Map' for property 'specificationFilters'
 //    @Schema(description = "Specifications of product", example = "{\"color\": [\"blue\"],\n \"weight\": [\"2kg\"] }")

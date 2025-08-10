@@ -21,6 +21,9 @@ import org.springframework.data.domain.Sort;
 @NoArgsConstructor
 public class PaginationRequest {
 
+    @Schema(description = "Từ khóa tìm kiếm", example = "Laptop DELL")
+    private String keyword;
+
     @NotNull(message = "Page can not be null")
     @Min(value = 0, message = "page >= 0")
     @Schema(description = "Vị trí trang - Bắt đầu từ 0", example = "0", minimum = "0")

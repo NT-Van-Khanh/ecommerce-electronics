@@ -20,7 +20,8 @@ public class BrandController {
     private BrandService brandService;
 
     @GetMapping("/by-category/{id}")
-    public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getBrandByCategoryId(@PathVariable("id") @PositiveOrZero Integer categoryId, PaginationRequest pageRequest){
+    public ResponseEntity<ApiResponse<PageResponse<BrandDTO>>> getBrandByCategoryId(@PathVariable("id") @PositiveOrZero Integer categoryId,
+                                                                                    @ModelAttribute @Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, brandService.getBrandsByCategoryId(categoryId, pageRequest)));
     }
 

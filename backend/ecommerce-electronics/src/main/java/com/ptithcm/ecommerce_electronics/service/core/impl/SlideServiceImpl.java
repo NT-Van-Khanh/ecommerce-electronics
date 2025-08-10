@@ -35,7 +35,7 @@ public class SlideServiceImpl implements SlideService {
 
     @Override
     public PageResponse<SlideDTO> getPage(PaginationRequest pageRequest) {
-        Page<Slide> page = slideRepository.findAll(pageRequest.toPageable());
+        Page<Slide> page = slideRepository.findPage(pageRequest.getKeyword(), pageRequest.toPageable());
         return new PageResponse<>(page.map(SlideMapper::toDTO));
     }
 

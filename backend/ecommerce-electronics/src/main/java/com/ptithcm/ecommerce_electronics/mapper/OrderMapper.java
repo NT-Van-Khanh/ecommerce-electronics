@@ -36,16 +36,6 @@ public class OrderMapper {
 
     public static Orders toEntity(OrderRequestDTO request) {
         if(request == null) return  null;
-//        List<OrderItem> items = request.getItems().stream().map(OrderItemMapper::toEntity).toList();
-//        return Orders.builder()
-//                .note(request.getNote())
-//                .orderItems(items)
-//                .deliveryAddress(request.getDeliveryAddress())
-//                .recipientName(request.getRecipientName())
-//                .recipientPhone(request.getRecipientPhone())
-//                .orderTime(request.getOrderTime())
-//                .payment(PaymentMapper.toEntity(request.getPayment()))
-//                .build();
         return Orders.builder()
                 .note(request.getNote())
                 .deliveryAddress(request.getDeliveryAddress())

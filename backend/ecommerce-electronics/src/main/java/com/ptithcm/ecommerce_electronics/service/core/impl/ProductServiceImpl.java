@@ -116,7 +116,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public PageResponse<ProductDTO> getPage(ProductFilterRequest filterRequest, PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Product> page = productRepository.filterProducts(filterRequest.getKeyword(),
+        Page<Product> page = productRepository.filterProducts(pageRequest.getKeyword(),
                 filterRequest.getBrandId(), filterRequest.getCategoryId(),
                 filterRequest.getMinPrice(), filterRequest.getMaxPrice(),
                 filterRequest.getStatus() , pageable);
@@ -126,7 +126,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public PageResponse<ProductDTO> getPageActive(ProductFilterRequest filterRequest, PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Product> page = productRepository.filterProducts(filterRequest.getKeyword(),
+        Page<Product> page = productRepository.filterProducts(pageRequest.getKeyword(),
                 filterRequest.getBrandId(), filterRequest.getCategoryId(),
                 filterRequest.getMinPrice(), filterRequest.getMaxPrice(),
                 BaseStatus.ACTIVE, pageable);

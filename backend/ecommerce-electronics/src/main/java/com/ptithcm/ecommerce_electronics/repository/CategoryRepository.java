@@ -8,22 +8,33 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
-    Page<Category> findByStatus(BaseStatus status, Pageable pageable);
-    List<Category> findByStatus(BaseStatus status);
+    @Query("""
+    SELECT c
+    FROM Category c
+    WHERE c.status = :status
+      AND (:keyword IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')))
+    """)
+    Page<Category> findByStatus(@Param("status") BaseStatus status, @Param("keyword")String keyword, Pageable pageable);
 
     @Query("""
         SELECT DISTINCT c
         FROM Category c
         LEFT JOIN FETCH c.children
         WHERE c.status = 'ACTIVE' AND c.parent IS NULL
+         AND (:keyword IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')))
     """)
-    Page<Category> findActiveParentCategories(Pageable pageable);
+    Page<Category> findActiveParentCategories(@Param("keyword") String keyword, Pageable pageable);
+
+
+//
+//    List<Category> findByStatus(BaseStatus status);
 
 //    @Query("""
 //            SELECT c
@@ -39,9 +50,10 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
         SELECT DISTINCT c
         FROM Category c
         LEFT JOIN FETCH c.children
-        WHERE c.status = 'ACTIVE' AND c.parent IS NULL
+        WHERE c.parent IS NULL
+        AND (:keyword IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')))
     """)
-    Page<Category> findAllNonChildCategories(Pageable pageable);
+    Page<Category> findAllNonChildCategories(@Param("keyword") String keyword, Pageable pageable);
 
 //    @Query("""
 //            SELECT c

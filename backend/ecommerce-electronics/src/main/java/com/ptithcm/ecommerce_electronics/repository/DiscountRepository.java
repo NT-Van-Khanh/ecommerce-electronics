@@ -16,7 +16,16 @@ import java.util.Optional;
 
 @Repository
 public interface DiscountRepository extends JpaRepository<Discount, Integer> {
-    Page<Discount> findByStatus(BaseStatus baseStatus, Pageable pageable);
+    @Query("""
+    SELECT d
+    FROM Discount d
+    WHERE d.status = :status
+      AND (:keyword IS NULL OR (
+      LOWER(d.title) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')) OR
+      LOWER(d.code) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%'))
+      ))
+    """)
+    Page<Discount> findByStatus(@Param("status") BaseStatus baseStatus, @Param("keyword") String keyword, Pageable pageable);
 
     Optional<Discount> findByCode(String discountCode);
 
@@ -27,4 +36,14 @@ public interface DiscountRepository extends JpaRepository<Discount, Integer> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT d FROM Discount d WHERE d.id = :id AND d.status = 'ACTIVE'")
     Optional<Discount> lockDiscountForStockUpdate(@Param("id") Integer id);
+
+    @Query("""
+    SELECT d
+    FROM Discount d
+    WHERE (:keyword IS NULL OR (
+      LOWER(d.title) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%')) OR
+      LOWER(d.code) LIKE LOWER(CONCAT('%', CAST(:keyword AS string), '%'))
+      ))
+    """)
+    Page<Discount> findPage(@Param("keyword") String keyword, Pageable pageable);
 }
