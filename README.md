@@ -14,7 +14,6 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
   - Compare products based on technical specifications and similarity scores.
   - Provide recommendations and best-fit product suggestions.
 - Secure online payments with Stripe.
-- User account management with OTP verification via Firebase/Infobip.
 - View order history and payment status.
 
 ### Dashboard (Manager) APIs
