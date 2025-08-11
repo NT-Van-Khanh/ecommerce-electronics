@@ -4,7 +4,7 @@ Ecommerce Electronics - Backend Service is an API system developed using **Sprin
 The system includes an **AI-powered chatbot** built with **AI Agent and Retrieval-Augmented Generation (RAG)** to perform intelligent product search, comparison, and Q&A, enhancing the customer shopping experience.
 
 ## Features
-### Customer-Facing APIs
+### **Customer-Facing APIs**
 #### **Account Management**
 - **Register** – Create a new customer account.  
 - **Login / Logout** – Sign in or out of the system.  
@@ -24,53 +24,20 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 - **Search Orders** – Search by invoice number.  
 - **View Order Details** – See products, prices, and quantities.
 
-### Dashboard (Manager) APIs
-#### **Account Management**
-- **Login / Logout** – Sign in/out for managers.  
-- **Change Password** – Via OTP email verification.  
-- **Forgot Password** – Reset via OTP email verification.
+### **Dashboard (Manager) APIs**
+- **Account Management** – Login/logout, change/reset password.  
+- **Product Management** – Manage product list, details, specifications, and visibility.  
+- **Order Management** – View, update, and cancel orders.  
+- **Invoice Management** – View and search/filter invoices.  
+- **Customer Management** – Manage customer accounts and orders.  
+- **Category Management** – Manage product categories.  
+- **Brand Management** – Manage product brands.  
+- **Promotion Management** – Manage promotions.  
+- **Payment Management** – Manage payment methods, statuses, and transactions.  
+- **Supplier Management** – Manage suppliers and related data.  
+- **Revenue Reporting** – View and analyze sales revenue.  
 
-#### **Product Management**
-- **List Products**  
-- **Search / Filter Products**  
-- **Add / Update Product**  
-- **Delete Product** – If not stocked.  
-- **Hide Product from Store**  
-- **Manage Specifications & Images**  
-
-#### **Order Management**
-- **View Orders & Details**  
-- **Update Order Status** – Payment and shipping.  
-- **Cancel Orders** – Notify customers.  
-
-#### **Invoice Management**
-- **View Invoices**  
-- **Search / Filter Invoices**  
-
-#### **Customer Management**
-- **List Customers**  
-- **Search / Filter Customers**  
-- **View Customer Orders**  
-- **Block Accounts**  
-
-#### **Category Management**
-- **List Categories**  
-- **Add / Update / Delete Categories**  
-
-#### **Promotion Management**
-- **List Promotions**  
-- **Add / Update / Delete Promotions**  
-
-#### **Payment Management**
-- **List Payment Methods**  
-- **Update Payment Status**  
-- **Search Transactions**  
-
-#### **Supplier Management**
-- **List Suppliers**  
-- **Add / Update / Delete Suppliers** 
-
-#### AI Chatbot with RAG
+### **AI Agent with RAG**
 - Answer customer questions about products and store policies.
 - Provide recommendations and best-fit product suggestions.
 - Compare products based on technical specifications and similarity scores.
