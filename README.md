@@ -5,23 +5,76 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 
 ## Features
 ### Customer-Facing APIs
-- Browse products, categories, and detailed specifications.
-- **AI Chatbot with RAG**:
-  - Answer customer questions about products and policies.
-  - Search products using NLP and semantic search (embeddings).
-  - Compare products based on technical specifications and similarity scores.
-  - Provide recommendations and best-fit product suggestions.
-- Secure online payments with Stripe.
-- View order history and payment status.
+#### **Account Management**
+- **Register** – Create a new customer account.  
+- **Login / Logout** – Sign in or out of the system.  
+- **Change Password** – Update password via OTP email verification.  
+- **Forgot Password** – Reset password via OTP email verification.  
+- **Update Profile** – Edit personal information.  
+
+#### **Product Browsing & Search**
+- **View Product Details** – See product description, price, brand, and category.  
+- **Search Products** – Search by name or customer needs.  
+- **Filter Products** – Filter by category, brand, or price.  
+
+#### **Order Management**
+- **Create Order** – Place order from cart, select shipping address, choose payment method, and view order status.
+- **Cancel Order** – Cancel if pending approval.  
+- **Order History** – View past orders.  
+- **Search Orders** – Search by invoice number.  
+- **View Order Details** – See products, prices, and quantities.
 
 ### Dashboard (Manager) APIs
-- Manage products, categories, and product variants (CRUD operations).
-- Update product specifications, stock, and images.
-- Manage orders and payment records.
-- View and process refund requests.
-- Manage customers, staff accounts, and roles.
-- Inventory tracking and low-stock alerts.
-  
+#### **Account Management**
+- **Login / Logout** – Sign in/out for managers.  
+- **Change Password** – Via OTP email verification.  
+- **Forgot Password** – Reset via OTP email verification.
+
+#### **Product Management**
+- **List Products**  
+- **Search / Filter Products**  
+- **Add / Update Product**  
+- **Delete Product** – If not stocked.  
+- **Hide Product from Store**  
+- **Manage Specifications & Images**  
+
+#### **Order Management**
+- **View Orders & Details**  
+- **Update Order Status** – Payment and shipping.  
+- **Cancel Orders** – Notify customers.  
+
+#### **Invoice Management**
+- **View Invoices**  
+- **Search / Filter Invoices**  
+
+#### **Customer Management**
+- **List Customers**  
+- **Search / Filter Customers**  
+- **View Customer Orders**  
+- **Block Accounts**  
+
+#### **Category Management**
+- **List Categories**  
+- **Add / Update / Delete Categories**  
+
+#### **Promotion Management**
+- **List Promotions**  
+- **Add / Update / Delete Promotions**  
+
+#### **Payment Management**
+- **List Payment Methods**  
+- **Update Payment Status**  
+- **Search Transactions**  
+
+#### **Supplier Management**
+- **List Suppliers**  
+- **Add / Update / Delete Suppliers** 
+
+#### AI Chatbot with RAG
+- Answer customer questions about products and store policies.
+- Provide recommendations and best-fit product suggestions.
+- Compare products based on technical specifications and similarity scores.
+
 ## Technologies
 - **Backend**: Spring Boot, Java 17
 - **AI Integration**: Spring AI
