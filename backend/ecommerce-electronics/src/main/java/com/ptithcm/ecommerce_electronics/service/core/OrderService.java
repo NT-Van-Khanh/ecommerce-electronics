@@ -2,7 +2,7 @@ package com.ptithcm.ecommerce_electronics.service.core;
 
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
+import com.ptithcm.ecommerce_electronics.dto.revenue.RevenueDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderDTO;
 import com.ptithcm.ecommerce_electronics.dto.order.OrderRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.TimeUnit;

@@ -1,4 +1,4 @@
-package com.ptithcm.ecommerce_electronics.dto;
+package com.ptithcm.ecommerce_electronics.dto.revenue;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.ptithcm.ecommerce_electronics.dto;
+package com.ptithcm.ecommerce_electronics.dto.revenue;
 
 import com.ptithcm.ecommerce_electronics.enums.TimeUnit;
 import lombok.AllArgsConstructor;

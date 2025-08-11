@@ -1,15 +1,13 @@
 package com.ptithcm.ecommerce_electronics.service.external.impl;
 
-import com.ptithcm.ecommerce_electronics.dto.PaymentIntentResponse;
-import com.ptithcm.ecommerce_electronics.enums.OrderStatus;
 import com.ptithcm.ecommerce_electronics.enums.PaymentMethod;
 import com.ptithcm.ecommerce_electronics.enums.PaymentStatus;
 import com.ptithcm.ecommerce_electronics.model.Orders;
-import com.ptithcm.ecommerce_electronics.service.core.OrderService;
-import com.ptithcm.ecommerce_electronics.service.core.PaymentService;
 import com.ptithcm.ecommerce_electronics.service.external.StripeService;
 import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
 import com.stripe.model.PaymentIntent;
+import com.stripe.param.CustomerCreateParams;
 import com.stripe.param.PaymentIntentCreateParams;
 import org.springframework.stereotype.Service;
 
@@ -38,10 +36,23 @@ public class StripeServiceImpl implements StripeService {
                 ).putMetadata("order_id", order.getId().toString())
                 .build();
         try {
-            PaymentIntent paymentIntent = PaymentIntent.create(params);
-            return paymentIntent;
+            return PaymentIntent.create(params);
         } catch (StripeException e) {
             throw new RuntimeException("Error when create PaymentIntent with Stripe: " + e.getMessage(), e);
+        }
+    }
+    private String createCustomer(Orders order){
+        if(order.getCustomer()==null)
+            return null;
+        CustomerCreateParams customerParams = CustomerCreateParams.builder()
+                .setEmail(order.getCustomer().getEmail())
+                .setName(order.getCustomer().getFullName())
+                .build();
+        try {
+            Customer customer = Customer.create(customerParams);
+            return customer.getId();
+        } catch (StripeException e) {
+            throw new RuntimeException("Error when create Customer with Stripe: " + e.getMessage(), e);
         }
     }
 }

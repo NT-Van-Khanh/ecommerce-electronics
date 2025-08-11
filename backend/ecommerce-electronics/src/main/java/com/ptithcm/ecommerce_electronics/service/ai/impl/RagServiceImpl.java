@@ -1,15 +1,20 @@
 package com.ptithcm.ecommerce_electronics.service.ai.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
+import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantVectorDTO;
+import com.ptithcm.ecommerce_electronics.mapper.ProductVariantMapper;
+import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.service.ai.ChatToolService;
 import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
 import com.ptithcm.ecommerce_electronics.service.ai.ProductToolService;
 import com.ptithcm.ecommerce_electronics.service.ai.RagService;
+import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +23,8 @@ public class RagServiceImpl implements RagService {
     private ChatClient chatClient;
     @Autowired
     private EmbeddingService embeddingService;
+    @Autowired
+    private ProductVariantService productVariantService;
     @Autowired
     private ProductToolService productToolService;
     @Autowired
@@ -35,9 +42,10 @@ public class RagServiceImpl implements RagService {
                 Bạn là một trợ lý AI thông minh của cửa hàng bán thiết bị điện tử và hỗ trợ khách hàng khi mua hàng.
                 Dựa trên ngữ cảnh sau, hãy trả lời truy vấn của người dùng.
                 Lưu ý:
-                    - Trả lời lịch sự.
+                    - Trả lời lịch sự và khéo léo.
                     - Trong ngữ cảnh, mỗi sản phẩm có một mã ID duy nhất (ví dụ: 12345). Khi giới thiệu sản phẩm, LUÔN kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{id}) (thay {id} bằng đúng ID của sản phẩm).
                     - Thông tin trong ngữ cảnh hiện tại chỉ là một phần của sản phẩm, nếu thiếu ngữ cảnh của sản phẩm, hãy gọi tool tìm sản phẩm theo ID để bổ sung ngữ cảnh.
+                    - Nếu truy vấn không liên quan tới sản phẩm, hãy từ chối và đưa ra gợi ý để khách hàng mua hàng.
                 ### Ngữ cảnh:
                 %s
 
@@ -48,7 +56,17 @@ public class RagServiceImpl implements RagService {
                             .tools(productToolService)
                             .call()
                             .content();
-        return new AIResponse(response, relatedDocs);
+        List<ProductVariantVectorDTO> productVariants = getProductFromMetaData(relatedDocs);
+        return new AIResponse(response,productVariants);
+    }
+
+    private List<ProductVariantVectorDTO> getProductFromMetaData(List<Document> relatedDocs) {
+        List<ProductVariantVectorDTO> productVariants = new ArrayList<>();
+        for(Document doc : relatedDocs){
+            ProductVariant variant = productVariantService.findById(Integer.valueOf(String.valueOf(doc.getMetadata().get("productId"))));
+            productVariants.add(ProductVariantMapper.toChatBotDTO(variant));
+        }
+        return  productVariants;
     }
 
     @Override

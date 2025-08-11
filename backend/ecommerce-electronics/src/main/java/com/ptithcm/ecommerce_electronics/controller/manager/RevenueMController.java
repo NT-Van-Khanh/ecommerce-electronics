@@ -1,7 +1,7 @@
 package com.ptithcm.ecommerce_electronics.controller.manager;
 
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import com.ptithcm.ecommerce_electronics.dto.RevenueDTO;
+import com.ptithcm.ecommerce_electronics.dto.revenue.RevenueDTO;
 import com.ptithcm.ecommerce_electronics.enums.TimeUnit;
 import com.ptithcm.ecommerce_electronics.service.core.OrderService;
 import io.swagger.v3.oas.annotations.media.Schema;
