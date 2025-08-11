@@ -3,6 +3,9 @@
 Ecommerce Electronics - Backend Service is an API system developed using **Spring Boot** and **Spring AI**, providing backend functionalities for both **Customer-facing applications** and the **Admin Dashboard**.  
 The system includes an **AI-powered chatbot** built with **AI Agent and Retrieval-Augmented Generation (RAG)** to perform intelligent product search, comparison, and Q&A, enhancing the customer shopping experience.
 
+## Related Repositories
+- **Frontend (GitHub)**: [Ecommerce Electronics - Frontend](https://github.com/hldiep/EcommerceSite)
+
 ## Features
 ### **Customer-Facing APIs**
 #### **Account Management**
