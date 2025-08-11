@@ -48,7 +48,7 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 - **Database**: PostgreSQL, Redis, Qdrant
 - **Payment Integration**: Stripe
 - **Upload file**: Firebase Storange
-- **LLM, Text Ebbeding **: Vertex AI 
+- **LLM - Text Ebbeding**: Vertex AI 
   - Model: `gemini-2.5-flash` (LLM)  
   - Model: `gemini-embedding-001` (Text Embedding)
   
