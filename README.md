@@ -6,8 +6,6 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 ## Features
 ### Customer-Facing APIs
 - Browse products, categories, and detailed specifications.
-- AI-powered product search using NLP and embeddings.
-- Compare products based on technical specifications and similarity scoring.
 - **AI Chatbot with RAG**:
   - Answer customer questions about products and policies.
   - Search products using NLP and semantic search (embeddings).
