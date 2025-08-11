@@ -67,7 +67,23 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public PageResponse<ProductDTO> getRelatedProducts(Integer id, PaginationRequest pageRequest) {
-        return null;
+        Product product = productRepository.findByIdWithBrandAndCategories(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Product not found with id = " + id));
+        System.err.println("1: " + product.getName());
+        System.err.println("2: " + product.getBrand());
+        Integer categoryId = null;
+        if (product.getProductCategories() != null && !product.getProductCategories().isEmpty()) {
+            ProductCategory pc = product.getProductCategories().get(0);
+            if (pc != null && pc.getCategory() != null) {
+                categoryId = pc.getCategory().getId();
+            }
+        }
+        System.err.println("4");
+        Page<Product> page = productRepository.filterProducts(pageRequest.getKeyword(), product.getBrand().getId(),
+                                                        categoryId,null,null,
+                                                        BaseStatus.ACTIVE, pageRequest.toPageable());
+        System.err.println("5: " + page.getContent().size());
+        return new PageResponse<>(page.map(ProductMapper::toDTO));
     }
 
     @Override

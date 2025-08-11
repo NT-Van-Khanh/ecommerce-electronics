@@ -10,13 +10,7 @@ import com.ptithcm.ecommerce_electronics.service.core.PaymentService;
 import com.ptithcm.ecommerce_electronics.service.external.StripeService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
-import com.stripe.model.Event;
-import com.stripe.model.checkout.Session;
-import com.stripe.net.Webhook;
 import com.stripe.param.PaymentIntentCreateParams;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service

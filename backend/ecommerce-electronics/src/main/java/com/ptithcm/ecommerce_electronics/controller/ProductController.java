@@ -62,14 +62,16 @@ public class ProductController {
     }
 
     @GetMapping("/by-category/{categoryId}/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getProductsByCategoryId(@PathVariable("categoryId") Integer categoryId, @Valid PaginationRequest pageRequest){
+    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getProductsByCategoryId(@PathVariable("categoryId") Integer categoryId,
+                                                                                         @ModelAttribute @Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getProductsByCategoryId(categoryId, pageRequest)));
     }
 
-//    @GetMapping("/relate/{id}/page")
-//    public  ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageRelatedProducts(@PathVariable("id") Integer id, @Valid PaginationRequest pageRequest){
-//        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getRelatedProducts(id, pageRequest)));
-//    }
+    @GetMapping("/{id}/relate")
+    public  ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> getPageRelatedProducts(@PathVariable("id") Integer id,
+                                                                                         @ModelAttribute @Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productService.getRelatedProducts(id, pageRequest)));
+    }
 
 //    @GetMapping("/search")
 //    public ResponseEntity<ApiResponse<PageResponse<ProductDTO>>> searchProducts(@Valid ProductFilterRequest filterRequest, @Valid PaginationRequest pageRequest){

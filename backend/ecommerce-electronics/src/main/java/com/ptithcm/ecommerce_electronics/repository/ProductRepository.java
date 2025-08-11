@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer>, JpaSpecificationExecutor<Product> {
     Page<Product> findByStatus(BaseStatus status, Pageable pageable);
@@ -58,11 +60,15 @@ public interface ProductRepository extends JpaRepository<Product, Integer>, JpaS
                                  @Param("minPrice") Integer minPrice, @Param("maxPrice") Integer maxPrice,
                                  @Param("status") BaseStatus status, Pageable pageable);
 
-
     @Query("""
         SELECT pc.product
         FROM ProductCategory pc
         WHERE pc.category.id = :categoryId
     """)
     Page<Product> getByCategoryId(Integer categoryId, Pageable pageable);
+
+    @EntityGraph(attributePaths = {"brand", "productCategories", "productCategories.category"})
+    @Query("SELECT p FROM Product p WHERE p.id = :id")
+    Optional<Product> findByIdWithBrandAndCategories(Integer id);
+
 }
