@@ -6,6 +6,28 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 ## Related Repositories
 - **Frontend (GitHub)**: [Ecommerce Electronics - Frontend](https://github.com/hldiep/EcommerceSite)
 
+## Technologies
+- **Backend**: Spring Boot, Java 17
+- **AI Integration**: Spring AI
+- **Database**: PostgreSQL, Redis, Qdrant
+- **Authentication & Security:** JWT, Spring Security
+- **Payment Integration**: Stripe
+- **Upload file**: Firebase Storange
+- **API Documentation:** Swagger / OpenAPI
+- **LLM - Text Ebbeding**: Vertex AI 
+  - Model: `gemini-2.5-flash` (LLM)  
+  - Model: `gemini-embedding-001` (Text Embedding)
+  
+## Libraries & Tools
+- Spring Boot Web, Data JPA, JDBC, Security, Validation, Mail
+- Spring AI (Vertex AI Models, Vector Store Qdrant)
+- Hibernate
+- Lombok
+- Stripe Java SDK
+- Firebase Admin SDK
+- Swagger/OpenAPI
+- Maven
+
 ## Features
 ### **Customer-Facing APIs**
 #### **Account Management**
@@ -44,23 +66,3 @@ The system includes an **AI-powered chatbot** built with **AI Agent and Retrieva
 - Answer customer questions about products and store policies.
 - Provide recommendations and best-fit product suggestions.
 - Compare products based on technical specifications and similarity scores.
-
-## Technologies
-- **Backend**: Spring Boot, Java 17
-- **AI Integration**: Spring AI
-- **Database**: PostgreSQL, Redis, Qdrant
-- **Payment Integration**: Stripe
-- **Upload file**: Firebase Storange
-- **LLM - Text Ebbeding**: Vertex AI 
-  - Model: `gemini-2.5-flash` (LLM)  
-  - Model: `gemini-embedding-001` (Text Embedding)
-  
-## Libraries & Tools
-- Spring Boot Web, Data JPA, Security
-- Spring AI
-- Hibernate
-- Lombok
-- Stripe Java SDK
-- Firebase Admin SDK
-- Swagger/OpenAPI
-- Maven
