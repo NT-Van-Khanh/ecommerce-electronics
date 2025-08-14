@@ -9,7 +9,7 @@ CREATE TABLE role(
 );
 
 DROP TABLE IF EXISTS employee CASCADE;
-CREATE TABLE employee (
+CREATE TABLE employee(
     id SERIAL PRIMARY KEY,
 	full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,

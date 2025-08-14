@@ -9,22 +9,16 @@ import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
 import com.ptithcm.ecommerce_electronics.service.ai.RagService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.PositiveOrZero;
-import org.springframework.ai.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("${api.v1.prefix}/ai/compare")
-public class CompareProductController {
+public class AIController {
     @Autowired
     private ChatToolService chatToolService;
-
-    @Autowired
-    private EmbeddingService embeddingService;
 
     @Autowired
     private RagService ragService;
@@ -34,18 +28,6 @@ public class CompareProductController {
     private ResponseEntity<ApiResponse<AIResponse>> chatAi(@RequestParam String query){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.answer(query)));
     }
-
-    @PostMapping("/add-product-vector/{product-id}")
-    private ResponseEntity<ApiResponse<String>> addProductVariantVector(@PathVariable("product-id") @PositiveOrZero Integer id){
-        embeddingService.embeddingProductVariant(id);
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-    }
-    @PostMapping("/add-product-vector/page")
-    private ResponseEntity<ApiResponse<String>> addPageProductVariantVectors(@Valid PaginationRequest pageRequest){
-        embeddingService.embeddingProductVariants(pageRequest);
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Add vector successfully"));
-    }
-
 //    @GetMapping("/search")
 //    private ResponseEntity<ApiResponse<List<Document>>> search(@RequestParam String query){
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, embeddingService.searchSimilar(query)));

@@ -4,6 +4,7 @@ import com.ptithcm.ecommerce_electronics.dto.payment.PaymentRequestDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,9 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderRequestDTO {
 
-//    @Schema(defaultValue = "customer id", )
-//    private Integer customerId;
-
     @NotNull(message = "List item can not be null")
     @Schema(description = "List item of order")
     private List<OrderItemRequestDTO> items;
@@ -29,13 +27,16 @@ public class OrderRequestDTO {
     private String discountCode;
 
     @NotNull(message = "order item can not be null")
-    @Schema(description = "time order", example = "2025-07-18T08:20:20")
+    @Schema(description = "time order", example = "2025-0-18T08:20:20")
     private LocalDateTime orderTime;
 
     @Schema(description = "note from customer", example = "Delivery after 2pm")
     private String note;
 
-    @Schema(description = "Delivery address, default: customer address", example = "Phuoc Long, Thu Duc, Ho Chi Minh")
+    @Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters long")
+    @Pattern(regexp = "^[\\p{L}0-9\\s,./-]+$",
+            message = "Address can only contain letters, numbers, spaces and , . / -")
+    @Schema(description = "Address of user", example = "138 Đ. Lê Văn Việt, Hiệp Phú, Thủ Đức, Hồ Chí Minh")
     private String deliveryAddress;
 
     @Schema(description = "Name of receiver, default: customer name", example = "Nguyen Van A")

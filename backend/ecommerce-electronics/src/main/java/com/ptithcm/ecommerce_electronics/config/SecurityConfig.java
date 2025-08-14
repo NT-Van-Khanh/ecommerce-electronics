@@ -97,24 +97,16 @@ public class SecurityConfig {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
-//    @Bean(name = "customerAuthenticationManager")
-//    public AuthenticationManager customerAuthenticationManager() {
-//        return new ProviderManager(customerAuthenticationProvider());
-//    }
-//
-//    @Bean(name = "employeeAuthenticationManager")
-//    public AuthenticationManager employeeAuthenticationManager() {
-//        return new ProviderManager(employeeAuthenticationProvider());
-//    }
-@Bean
-@Primary
-public AuthenticationManager authenticationManager() {
-    List<AuthenticationProvider> providers = List.of(
-            customerAuthenticationProvider(),
-            employeeAuthenticationProvider()
-    );
-    return new ProviderManager(providers);
-}
+
+    @Bean
+    @Primary
+    public AuthenticationManager authenticationManager() {
+        List<AuthenticationProvider> providers = List.of(
+                customerAuthenticationProvider(),
+                employeeAuthenticationProvider()
+        );
+        return new ProviderManager(providers);
+    }
 //    @Bean
 //    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
 //        return authConfig.getAuthenticationManager();
@@ -137,6 +129,17 @@ public AuthenticationManager authenticationManager() {
         };
     }
 }
+
+
+//    @Bean(name = "customerAuthenticationManager")
+//    public AuthenticationManager customerAuthenticationManager() {
+//        return new ProviderManager(customerAuthenticationProvider());
+//    }
+//
+//    @Bean(name = "employeeAuthenticationManager")
+//    public AuthenticationManager employeeAuthenticationManager() {
+//        return new ProviderManager(employeeAuthenticationProvider());
+//    }
 //    @Autowired
 //    private CompositeDetailsService compositeDetailsService;
 //

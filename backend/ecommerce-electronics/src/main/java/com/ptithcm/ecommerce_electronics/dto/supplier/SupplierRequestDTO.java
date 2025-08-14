@@ -28,6 +28,9 @@ public class SupplierRequestDTO {
     @Schema(description = "Email of supplier", example = "advantechsupplier@advantech.com")
     private String email;
 
+    @Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters long")
+    @Pattern(regexp = "^[\\p{L}0-9\\s,./-]+$",
+            message = "Address can only contain letters, numbers, spaces and , . / -")
     @Schema(description = "Address of supplier", example = "Tầng 3, tòa nhà N07-B2, đường Thành Thái, phường Dịch Vọng, quận Cầu Giấy, Tp. Hà Nội")
     private String address;
 

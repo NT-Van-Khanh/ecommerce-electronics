@@ -5,7 +5,7 @@ public enum ActionPurpose {
     RESET_PASSWORD("đặt lại mật khẩu"),
     ORDER_CONFIRM("xác nhận đơn hàng");
 
-    private String message;
+    private final String message;
     ActionPurpose(String message) {
         this.message = message;
     }

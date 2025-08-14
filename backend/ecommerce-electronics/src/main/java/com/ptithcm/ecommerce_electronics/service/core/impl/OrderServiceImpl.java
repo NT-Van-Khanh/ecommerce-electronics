@@ -20,6 +20,7 @@ import com.ptithcm.ecommerce_electronics.mapper.PaymentMapper;
 import com.ptithcm.ecommerce_electronics.model.*;
 import com.ptithcm.ecommerce_electronics.repository.*;
 import com.ptithcm.ecommerce_electronics.service.core.*;
+import com.ptithcm.ecommerce_electronics.service.external.GoongMapService;
 import com.ptithcm.ecommerce_electronics.service.external.RedisHandleOrderService;
 import com.ptithcm.ecommerce_electronics.service.external.StripeService;
 import com.stripe.model.PaymentIntent;
@@ -49,9 +50,14 @@ public class OrderServiceImpl implements OrderService {
     private OrderItemRepository orderItemRepository;
     @Autowired
     private PaymentRepository paymentRepository;
+
+    @Autowired
+    private FeeService feeService;
+
+    @Autowired
+    private GoongMapService goongMapService;
     @Autowired
     private CustomerService customerService;
-
     @Autowired
     private DiscountService discountService;
     @Autowired
@@ -77,7 +83,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Integer getShippingFeeCharged(String address) {
-        return  160000;
+        double distanceKm = goongMapService.getDistanceKmFromDestAddress(address, Vehicle.TRUCK);
+        return  feeService.calculateShippingFee(distanceKm, Vehicle.TRUCK);
     }
 
     @Override
