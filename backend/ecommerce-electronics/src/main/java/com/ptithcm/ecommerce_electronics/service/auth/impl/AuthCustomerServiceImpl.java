@@ -14,6 +14,7 @@ import com.ptithcm.ecommerce_electronics.model.detail.CustomerDetails;
 import com.ptithcm.ecommerce_electronics.model.detail.GuestDetails;
 import com.ptithcm.ecommerce_electronics.repository.CustomerRepository;
 import com.ptithcm.ecommerce_electronics.service.auth.AuthCustomerService;
+import com.ptithcm.ecommerce_electronics.service.external.GoongMapService;
 import com.ptithcm.ecommerce_electronics.service.external.RedisOtpService;
 import com.ptithcm.ecommerce_electronics.service.external.SendMailService;
 import jakarta.transaction.Transactional;
@@ -45,6 +46,9 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private RedisOtpService redisService;
+
+    @Autowired
+    private GoongMapService goongMapService;
 
     @Override
     public String getPasswordEncode(String password) {
@@ -144,6 +148,8 @@ public class AuthCustomerServiceImpl implements AuthCustomerService {
         if(!currentOtp.equals(otp)){
             throw new IllegalArgumentException("Invalid OTP. Please try again.");
         }
+        String customerAddress = register.getAddress();
+        if(customerAddress!= null) customer.setAddress(goongMapService.confirmGeocodeAddress(customerAddress));
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer.setStatus(AccountStatus.ACTIVE);
         customerRepository.save(customer);

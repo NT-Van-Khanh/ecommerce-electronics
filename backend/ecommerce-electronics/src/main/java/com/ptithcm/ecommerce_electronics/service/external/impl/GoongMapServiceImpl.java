@@ -39,52 +39,43 @@ public class GoongMapServiceImpl implements GoongMapService {
     @Override
     public String confirmGeocodeAddress(String address) {
         Map<String, Object> response = geocodeAddress(address);
-        if (response == null || !response.containsKey("results")) return null;
+        if (response == null || !response.containsKey("results"))
+            throw new IllegalArgumentException("Geocoding returned no results for address: " + address);
 
         List<?> results = (List<?>) response.get("results");
-        if (results.isEmpty()) return null;
+        if (results.isEmpty())
+            throw new IllegalArgumentException("No geocoding results found for address: " + address);
 
         Map<?, ?> firstResult = (Map<?, ?>) results.get(0);
         Object formattedAddress = firstResult.get("formatted_address");
-        if (formattedAddress != null) {
-            return formattedAddress.toString();
-        }
-        return  null;
-//        Map<?, ?> firstResult = (Map<?, ?>) results.get(0);
-//        String formattedAddress = (String) firstResult.get("formatted_address");
-//
-//        Map<?, ?> geometry = (Map<?, ?>) firstResult.get("geometry");
-//        String locationType = geometry != null ? (String) geometry.get("location_type") : null;
-//
-//        // 1. Địa chỉ phải đủ chi tiết (ít nhất có số nhà hoặc tên đường)
-//        if (!formattedAddress.matches(".*\\d+.*")) {
-//            return null; // Không có số nhà
-//        }
-//
-//        // 2. Phải chính xác đến ROOFTOP
-//        if (locationType != null && !"ROOFTOP".equalsIgnoreCase(locationType)) {
-//            return null; // Không chính xác đến tòa nhà
-//        }
+        if (formattedAddress == null)
+            throw new IllegalArgumentException("Formatted address not found in geocoding result for address: " + address);
+
+        return formattedAddress.toString();
     }
 
     @Override
     public Map<String, Double> forwardGeocodeAddress(String address) {
         Map<String, Object> response = geocodeAddress(address);
-        if (response == null || !response.containsKey("results")) return null;
+        if (response == null || !response.containsKey("results"))
+            throw new IllegalArgumentException("Geocoding returned no results for address: " + address);
 
         List<?> results = (List<?>) response.get("results");
-        if (results.isEmpty()) return null;
+        if(results.isEmpty())
+            throw new IllegalArgumentException("No geocoding results found for address: " + address);
 
         Map<?, ?> firstResult = (Map<?, ?>) results.get(0);
         Map<?, ?> geometry = (Map<?, ?>) firstResult.get("geometry");
-        if (geometry != null && geometry.containsKey("location")) {
-            Map<?, ?> location = (Map<?, ?>) geometry.get("location");
-            Map<String, Double> coords = new HashMap<>();
-            coords.put("lat", ((Number) location.get("lat")).doubleValue());
-            coords.put("lng", ((Number) location.get("lng")).doubleValue());
-            return coords;
-        }
-        return null;
+        if (geometry == null || !geometry.containsKey("location"))
+            throw new IllegalArgumentException("Geometry/location not found in geocoding result for address: " + address);
+
+
+        Map<?, ?> location = (Map<?, ?>) geometry.get("location");
+        Map<String, Double> coords = new HashMap<>();
+        coords.put("lat", ((Number) location.get("lat")).doubleValue());
+        coords.put("lng", ((Number) location.get("lng")).doubleValue());
+
+        return coords;
     }
 
     @Override
@@ -102,22 +93,39 @@ public class GoongMapServiceImpl implements GoongMapService {
     @Override
     public double getDistanceKmFromDestAddress(String address, Vehicle vehicle) {
         Map<String, Double> destCoordinate = forwardGeocodeAddress(address);
+        if (destCoordinate == null)
+            throw new IllegalArgumentException("Cannot retrieve coordinates for address: " + address);
+
         Map<String, Object> response = getDistanceMatrixFromCoordinates(ORIGIN_LAT, ORIGIN_LNG,
                                     destCoordinate.get("lat"), destCoordinate.get("lng"), vehicle);
 
-        if (response == null || !"OK".equals(response.get("status"))) return 0;
+        if (response == null || !"OK".equals(response.get("status")))
+            throw new IllegalArgumentException("Goong Map returned an error or status is not OK");
 
-        List<Map<String, Object>> rows = (List<Map<String, Object>>) response.get("rows");
-        if (rows.isEmpty()) return 0;
+        Object rowsObj = response.get("rows");
+        Object distanceObj = getDistance(rowsObj);
 
-        List<Map<String, Object>> elements = (List<Map<String, Object>>) rows.get(0).get("elements");
-        if (elements.isEmpty()) return 0;
-
-        Map<String, Object> distance = (Map<String, Object>) elements.get(0).get("distance");
-        if (distance == null) return 0;
-
-        double distanceMeters = ((Number) distance.get("value")).doubleValue();
+        double distanceMeters = ((Number) ((Map<?, ?>) distanceObj).get("value")).doubleValue();
         return distanceMeters / 1000.0;
+    }
+
+    private static Object getDistance(Object rowsObj) {
+        if (!(rowsObj instanceof List) || ((List<?>) rowsObj).isEmpty())
+            throw new IllegalArgumentException("No rows found in Goong Map response");
+
+        Map<?, ?> firstRow = (Map<?, ?>) ((List<?>) rowsObj).get(0);
+
+        Object elementsObj = firstRow.get("elements");
+        if (!(elementsObj instanceof List) || ((List<?>) elementsObj).isEmpty()) {
+            throw new IllegalArgumentException("No elements found in the first row of Goong Map response");
+        }
+        Map<?, ?> firstElement = (Map<?, ?>) ((List<?>) elementsObj).get(0);
+
+        Object distanceObj = firstElement.get("distance");
+        if (!(distanceObj instanceof Map) || !((Map<?, ?>) distanceObj).containsKey("value")) {
+            throw new IllegalArgumentException("Distance data not found in Goong Map response");
+        }
+        return distanceObj;
     }
 
     @Override
@@ -125,7 +133,11 @@ public class GoongMapServiceImpl implements GoongMapService {
         Map<String, Double> originLatLng = forwardGeocodeAddress(originAddress);
         Map<String, Double> destLatLng = forwardGeocodeAddress(destAddress);
 
-        if (originLatLng == null || destLatLng == null) return null;
+        if (originLatLng == null)
+            throw new IllegalArgumentException("Cannot retrieve coordinates for origin address: " + originAddress);
+
+        if (destLatLng == null)
+            throw new IllegalArgumentException("Cannot retrieve coordinates for destination address: " + destAddress);
 
         return getDistanceMatrixFromCoordinates(
                 originLatLng.get("lat"), originLatLng.get("lng"),

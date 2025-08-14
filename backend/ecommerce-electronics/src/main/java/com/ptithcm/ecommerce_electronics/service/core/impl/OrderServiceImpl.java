@@ -188,7 +188,9 @@ public class OrderServiceImpl implements OrderService {
             if (order.getRecipientPhone() == null) {
                 order.setRecipientPhone(customer.getPhone());
             }
-            if (order.getDeliveryAddress() == null) {
+            if (order.getDeliveryAddress() != null) {
+                order.setDeliveryAddress(goongMapService.confirmGeocodeAddress(order.getDeliveryAddress()));
+            } else{
                 order.setDeliveryAddress(customer.getAddress());
             }
             if (order.getRecipientName() == null) {
