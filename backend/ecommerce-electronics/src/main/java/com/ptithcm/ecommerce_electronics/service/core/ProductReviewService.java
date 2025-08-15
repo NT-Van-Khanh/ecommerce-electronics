@@ -18,4 +18,6 @@ public interface ProductReviewService extends BaseService<Integer, ProductReview
     PageResponse<ProductReviewDTO> getPageByCustomerId(Integer customerId, PaginationRequest pageRequest);
 
     PageResponse<ProductReviewDTO> getPageByStatus(BaseStatus status, PaginationRequest pageRequest);
+
+    PageResponse<ProductReviewDTO> getPageByProductId(Integer productId, PaginationRequest pageRequest);
 }

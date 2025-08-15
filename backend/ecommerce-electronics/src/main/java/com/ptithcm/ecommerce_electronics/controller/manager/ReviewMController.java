@@ -25,23 +25,28 @@ public class ReviewMController {
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getById(id)));
     }
 
-    @GetMapping("/page")
+    @GetMapping
     public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReviews(@Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getPage(pageRequest)));
     }
 
-    @GetMapping("/customer/{customerId}/page")
-    public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReviewsByCustomerId(@PathVariable("customerId") Integer customerId, @Valid PaginationRequest pageRequest){
+    @GetMapping("/customer/{customerId}")
+    public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReviewsByCustomerId(@PathVariable("customerId") @PositiveOrZero Integer customerId, @Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getPageByCustomerId(customerId, pageRequest)));
     }
 
-    @GetMapping("/status/page")
+    @GetMapping("/product/{productId}")
+    public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReviewByProductId(@PathVariable("productId") @PositiveOrZero Integer productId, @Valid PaginationRequest pageRequest){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getPageByProductId(productId, pageRequest)));
+    }
+
+    @GetMapping("/status")
     public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReviewsByStatus(@RequestParam BaseStatus status, @Valid PaginationRequest pageRequest){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getPageByStatus(status, pageRequest)));
     }
 
     @PutMapping("/change-status/{id}")
-    public ResponseEntity<ApiResponse<String>> changeStatusReview(@PathVariable("id") Integer id, @RequestParam BaseStatus status){
+    public ResponseEntity<ApiResponse<String>> changeStatusReview(@PathVariable("id") @PositiveOrZero Integer id, @RequestParam BaseStatus status){
         boolean isChanged = productReviewService.changeStatus(id, status.name());
         if(isChanged){
             return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Status changed to "+ status + " successfully"));

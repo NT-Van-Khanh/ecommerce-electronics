@@ -138,6 +138,11 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         Page<ProductReview> page = pReviewRepository.findByCustomerId(customer.getId(),  pageRequest.toPageable());
         return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
     }
+    @Override
+    public PageResponse<ProductReviewDTO> getPageByProductId(Integer productId, PaginationRequest pageRequest) {
+        Page<ProductReview> page = pReviewRepository.findByProductId(productId, pageRequest.toPageable());
+        return new PageResponse<>(page.map(ProductReviewMapper::toDTO));
+    }
 
     @Override
     public PageResponse<ProductReviewDTO> getPageByStatus(BaseStatus status, PaginationRequest pageRequest) {

@@ -16,4 +16,6 @@ public interface ProductReviewRepository extends JpaRepository<ProductReview, In
    Optional<ProductReview> findByCustomerIdAndProductId(Integer customerId, Integer productId);
 
     Page<ProductReview> findByCustomerId(Integer customerId, Pageable pageable);
+
+    Page<ProductReview> findByProductId(Integer productId, Pageable pageable);
 }

@@ -13,13 +13,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("${api.v1.prefix}/c/review")
+@RequestMapping("${api.v1.prefix}/c/reviews")
 public class ReviewCController {
 
     @Autowired
     private ProductReviewService productReviewService;
 
-    @GetMapping("/page")
+    @GetMapping
     public ResponseEntity<ApiResponse<PageResponse<ProductReviewDTO>>> getPageReview(@Valid PaginationRequest pageRequest){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productReviewService.getPageByCustomer(pageRequest)));
     }

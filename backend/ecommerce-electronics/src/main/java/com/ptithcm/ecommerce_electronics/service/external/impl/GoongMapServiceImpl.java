@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriUtils;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
@@ -30,11 +32,14 @@ public class GoongMapServiceImpl implements GoongMapService {
     private double ORIGIN_LNG;
 
     private Map<String, Object> geocodeAddress(String address){
+        System.err.println(address);
         RestTemplate restTemplate = new RestTemplate();
-        String url = GEOCODE_URL + "?address=" + UriUtils.encode(address, StandardCharsets.UTF_8)
+        String url = GEOCODE_URL + "?address="
+                + address
                 + "&api_key=" + API_KEY;
         return restTemplate.getForObject(url, Map.class);
     }
+    //"house_number", "street_address", "premise"
 
     @Override
     public String confirmGeocodeAddress(String address) {
