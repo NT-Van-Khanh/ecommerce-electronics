@@ -4,6 +4,7 @@ package com.ptithcm.ecommerce_electronics.dto.brand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,9 @@ import lombok.NoArgsConstructor;
 public class BrandRequestDTO {
 
     @NotNull(message = "Brand can not be null")
+    @Size(min = 2, max = 255, message = "Brand name must be between 2 and 50 characters.")
+    @Pattern(regexp = "^[\\p{L} ']+$",
+            message = "Brand name can only contain letters, spaces, and apostrophes.")
     @Schema(description = "Name of brand", example = "Apple")
     private String name;
 

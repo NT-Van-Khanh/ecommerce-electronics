@@ -1,9 +1,7 @@
 package com.ptithcm.ecommerce_electronics.dto.payment;
 
-import com.ptithcm.ecommerce_electronics.enums.PaymentMethod;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

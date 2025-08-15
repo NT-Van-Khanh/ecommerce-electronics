@@ -1,11 +1,9 @@
 package com.ptithcm.ecommerce_electronics.dto.customer;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ptithcm.ecommerce_electronics.validator.anotation.ValidAge;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +22,9 @@ public class CustomerRequestDTO {
     private String username;
 
     @NotBlank(message = "Username can not be null")
+    @Size(min = 2, max = 100, message = "Full name must be between 2 and 100 characters.")
+    @Pattern(regexp = "^[\\p{L} ']+$",
+            message = "Full name can only contain Vietnamese letters, spaces, and apostrophes.")
     @Schema(description = "full name of user", example = "Nguyen Van A")
     private String fullName;
 
@@ -40,7 +41,9 @@ public class CustomerRequestDTO {
 
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Schema(description = "Birthday of user", example = "2025-07-18")
+    @Past(message = "Birthday must be in the past.")
+    @ValidAge(min = 10, message = "User must be > 10 years old.")
+    @Schema(description = "Birthday of user", example = "2000-07-18")
     private LocalDate birthday;
 
     @Pattern(regexp = "^(Nam|Nu)$", message = "Gender of user should be Nam, Nu")

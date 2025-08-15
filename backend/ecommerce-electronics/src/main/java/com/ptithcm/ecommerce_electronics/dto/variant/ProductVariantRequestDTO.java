@@ -31,9 +31,13 @@ public class ProductVariantRequestDTO {
     private Integer productId;
 
     @NotBlank(message = "Product variant name can not null.")
+    @Size(min = 3, max = 100, message = "Name must be between 3 and 100 characters.")
     @Schema(description = "Product variant name", example = "Tai nghe Redmi Buds 6 Pro - Trắng")
     private String name;
 
+    @Pattern(regexp = "^[a-zA-Z0-9_-]+$",
+            message = "SEO name must contain only letters, numbers, underscores, or hyphens.")
+    @Size(min = 3, max = 255, message = "SEO name must be between 3 and 255 characters.")
     @NotBlank(message = "Product variant name can not null.")
     @Schema(description = "Product variant name", example = "Tai_nghe_Redmi_Buds_6_Pro_Trang")
     private String seoName;
@@ -58,11 +62,17 @@ public class ProductVariantRequestDTO {
     private Integer quantity;
 
     @NotBlank(message = "Sku can not be blank.")
+    @Size(min = 3, max = 50, message = "Sku must be between 3 and 50 characters.")
+    @Pattern( regexp = "^[A-Z0-9_-]+$",
+            message = "Sku must contain only uppercase letters, numbers, underscores, or hyphens.")
     @Schema(description = "Sku of variant", example = "MAN-ACER-KG240Y-X1")
     @UniqueField(entity = ProductVariant.class, fieldName = "sku", message = "Sku is already exists")
     private String sku;
 
     @NotBlank(message = "model can not be blank")
+    @Size(min = 2, max = 100, message = "Model must be between 2 and 100 characters.")
+    @Pattern(regexp = "^[A-Za-z0-9 _.-]+$",
+            message = "Model must contain only letters, numbers, spaces, underscores, hyphens, or dots.")
     @Schema(description =  "Model of variant", example = "15IRH10 83K1000GVN")
     private String model;
 
@@ -76,6 +86,8 @@ public class ProductVariantRequestDTO {
     private Integer warranty;
 
     @UniqueField(entity = ProductVariant.class, fieldName = "barcode", message = "Barcode is already exists")
+    @Size(min = 8, max = 20, message = "Barcode must be between 8 and 20 digits.")
+    @Pattern(regexp = "^[0-9]+$", message = "Barcode must contain only digits.")
     @Schema(description = "Barcode of product variant", example = "MAN-ACER-KG240Y-X1")
     private String barcode;
 
@@ -85,7 +97,8 @@ public class ProductVariantRequestDTO {
     @Schema(description = "Image url of product variant", example = "https://cdn1.viettelstore.vn/Images/Product/ProductImage/541542004.jpeg")
     private String imageUrl;
 
-
+    @Schema(description = "Technical specifications of the product variant as key-value pairs",
+            example = "{ \"Màn hình\": \"6.83 inch\", \"Pin\": \"5000 mAh\", \"Chip\": \"Snapdragon 888\" }")
     private Map<String, Object> specifications;
 
     @Schema(description = "Description of product",

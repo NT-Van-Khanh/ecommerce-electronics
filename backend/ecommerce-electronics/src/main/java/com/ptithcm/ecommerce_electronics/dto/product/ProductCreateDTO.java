@@ -24,7 +24,9 @@ public class ProductCreateDTO {
     private String name;
 
     @NotNull(message = "seo name can not be null.")
-    @Size(min = 1, max = 255, message = "Min = 1, max = 255")
+    @Pattern(regexp = "^[a-zA-Z0-9_-]+$",
+            message = "SEO name must contain only letters, numbers, underscores, or hyphens.")
+    @Size(min = 3, max = 255, message = "SEO name must be between 3 and 255 characters.")
     @Schema(description = "SEO name of product", example = "Tai_nghe_Redmi_Buds_6_Pro")
     private String seoName;
 

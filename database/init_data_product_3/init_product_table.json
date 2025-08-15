@@ -5206,5 +5206,2669 @@
       }
     ],
     "materials": []
+  },
+  {
+    "sku": "250300651",
+    "sellerSku": "250300651",
+    "name": "iPad Air M3 13 inch  5G - 512GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/9jyx6dCkiJhA4Ddwe_uveW49erl66t2puFE1ehz7wEvh6QH9pokbV1XiavbkocQQOjhnzKSUusALOxzDm0NZHGMBpPEVuis",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-13-inch-wifi-cellular-512gb--p757292",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "34490000",
+    "latestPrice": "32490000",
+    "discountAmount": "2000000",
+    "discountPercent": 6,
+    "minLatestPrice": "32490000",
+    "maxLatestPrice": "32490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/oXiLmcN4oF34EfoRBDaBgHOHlwtwaD5PtHnn3Gpsn6JoXT-QaxD5BfUEooTzl1K_4pwyw0z7-jZpcjtSMEMDfv9rH7wEKi5UQg",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 5G - 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757292,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250300639",
+    "sellerSku": "250300639",
+    "name": "iPad Air M3 11 inch  5G - 1TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/kN_Y2iZU6J4kzfFRloT3Kl0Gh6PlEaQOf4WjG_gHOUHDTWKoK3-96_SkxIJC8TkNIR35ahj9UhIfipqFedyfmOaXrNiBf3Gmhw",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-11-inch-wifi-cellular-1tb--p620674",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "34490000",
+    "latestPrice": "31990000",
+    "discountAmount": "2500000",
+    "discountPercent": 7,
+    "minLatestPrice": "31990000",
+    "maxLatestPrice": "31990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/sqTxrJ1uKrSRGXT4dwKythNGHB8TMoY9-ff0QA8HkOOuJg7ZZep78Ws_5myL0mH154IewYU4EbtDWy_yHVLxHPEAY30A3Uj5",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 620674,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250300635",
+    "sellerSku": "250300635",
+    "name": "iPad Air M3 11 inch  5G - 512GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/qiESXWTuVfMR-IVuFNv4EZHxWGuFymBqVaUbJVcl9MZTCL2sjofQ_GGDTneD4gTD6gFOrK9trwLwHWDYO4zvJJFWgnvaGOT8",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-11-inch-wifi-cellular-512gb--p757304",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "28990000",
+    "latestPrice": "25990000",
+    "discountAmount": "3000000",
+    "discountPercent": 10,
+    "minLatestPrice": "25990000",
+    "maxLatestPrice": "25990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/sqTxrJ1uKrSRGXT4dwKythNGHB8TMoY9-ff0QA8HkOOuJg7ZZep78Ws_5myL0mH154IewYU4EbtDWy_yHVLxHPEAY30A3Uj5",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 5G - 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757304,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250300631",
+    "sellerSku": "250300631",
+    "name": "iPad Air M3 11 inch  5G - 256GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/bNzqISgvxC0_A0WVG6AgrrFDIzCyHcKm2bhQ9UAsq0K7GAimXOwPXMAYxtqVK3h7VEIxofeRy9yN_qMtiqvQyoXHUO1oTIMwAg",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-11-inch-wifi-cellular-256gb--p757302",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "23490000",
+    "latestPrice": "20990000",
+    "discountAmount": "2500000",
+    "discountPercent": 11,
+    "minLatestPrice": "20990000",
+    "maxLatestPrice": "20990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/sqTxrJ1uKrSRGXT4dwKythNGHB8TMoY9-ff0QA8HkOOuJg7ZZep78Ws_5myL0mH154IewYU4EbtDWy_yHVLxHPEAY30A3Uj5",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 5G - 256GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757302,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250300627",
+    "sellerSku": "250300627",
+    "name": "iPad Air M3 11 inch  5G - 128GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/xyt0zYzfprL7peiSkp89QGEzLOIPXy75zhg7mgFsYXwRZT5ecOA_yPbZkzWKt54NAdYtze9pKW1b9NICPS3vqPediaNtN5Cy",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-11-inch-wifi-cellular-128gb--p757300",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "20990000",
+    "latestPrice": "18490000",
+    "discountAmount": "2500000",
+    "discountPercent": 12,
+    "minLatestPrice": "18490000",
+    "maxLatestPrice": "18490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/sqTxrJ1uKrSRGXT4dwKythNGHB8TMoY9-ff0QA8HkOOuJg7ZZep78Ws_5myL0mH154IewYU4EbtDWy_yHVLxHPEAY30A3Uj5",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 5G - 128GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757300,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250300623",
+    "sellerSku": "250300623",
+    "name": "iPad Air M3 11 inch  1TB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/GFwy1d-sM2FLEae7MDvjUaIejgTygeV7kfSebj_kvJQFgkpCJWPRSXDybXgxt-ukBn7HETEKylyxCanOTvdijUBKjY2X0EU",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-air-m3-11-inch-wifi-1tb--p620663",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "30490000",
+    "latestPrice": "27490000",
+    "discountAmount": "3000000",
+    "discountPercent": 10,
+    "minLatestPrice": "27490000",
+    "maxLatestPrice": "27490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/sqTxrJ1uKrSRGXT4dwKythNGHB8TMoY9-ff0QA8HkOOuJg7ZZep78Ws_5myL0mH154IewYU4EbtDWy_yHVLxHPEAY30A3Uj5",
+        "name": "Kính cường lực YV iPad Air M2/M3 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M3<br/>- Bộ nhớ: 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS 18",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 620663,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M3</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Liquid Retina IPS</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241004069",
+    "sellerSku": "241004069",
+    "name": "Máy tính bảng Samsung Galaxy Tab S10+ (12GB/256GB)",
+    "imageUrl": "https://lh3.googleusercontent.com/987Jb1o6cU7d-7RAVKUBexHrTNW9uA0ti7kC0uxxFGwUZrnqJ179AItyHrRc1Vh3ggsWxSK5pHx-TlWdk0EE_M63NjVZ2Upldw",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s10--p586823",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "28990000",
+    "latestPrice": "25990000",
+    "discountAmount": "3000000",
+    "discountPercent": 10,
+    "minLatestPrice": "25990000",
+    "maxLatestPrice": "25990000",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.4\" Dynamic AMOLED 2X<br/>- Camera sau: 13MP, 8MP<br/>- Camera trước: 12MP<br/>- CPU: Mediatek Dimensity 9300+<br/>- Bộ nhớ: 256GB<br/>- RAM: 12GB<br/>- Hệ điều hành: Android 14",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 586823,
+    "bestComboDiscount": "0",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Mediatek Dimensity 9300+</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.4\" Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241004067",
+    "sellerSku": "241004067",
+    "name": "Máy tính bảng Samsung Galaxy Tab S10+ Wifi (12GB/256GB)",
+    "imageUrl": "https://lh3.googleusercontent.com/RBtII7bAczg6slYOFrBulGhJ9P_gVuPf8eps-4sk2U2-CsIg08pGcsNzZ1xQBEg8oqFLCMoRU7WtXgDjn7DIZRHjKq3dlR4Y",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s10-wifi--p586822",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "25990000",
+    "latestPrice": "22990000",
+    "discountAmount": "3000000",
+    "discountPercent": 12,
+    "minLatestPrice": "22990000",
+    "maxLatestPrice": "22990000",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.4\" Dynamic AMOLED 2X<br/>- Camera sau: 13MP, 8MP<br/>- Camera trước: 12MP<br/>- CPU: Mediatek Dimensity 9300+<br/>- Bộ nhớ: 256GB<br/>- RAM: 12GB<br/>- Hệ điều hành: Android 14",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 586822,
+    "bestComboDiscount": "0",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Mediatek Dimensity 9300+</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.4\" Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241003517",
+    "sellerSku": "241003517",
+    "name": "iPad Mini Wifi 7 512GB + Cellular",
+    "imageUrl": "https://lh3.googleusercontent.com/Dx1uK5e9mJtAF6Ll25YKTAhxYU1L55GJspwYDILK3Z4DPt_TQFmNjXmwpllct1aOmxZon8yBGWrXwiADWFGPrgJZXtJNCAA",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-mini-7-wifi-cellular-512gb--p621092",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "27990000",
+    "latestPrice": "23990000",
+    "discountAmount": "4000000",
+    "discountPercent": 14,
+    "minLatestPrice": "23990000",
+    "maxLatestPrice": "23990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/Gk8YrbFCCMZG7lBrtJf69-JJta46oUed0rrqbshRlGUF-k1vYOdagdh2UdKmBrITt5D8wEXSmnONQZmzHS2FzST0KLUPz-Fj",
+        "name": "Kính cường lực YV iPad Gen 10/11 -11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 8.3\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple A17 Pro<br/>- Bộ nhớ: 5G - 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621092,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple A17 Pro</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>8.3\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241003509",
+    "sellerSku": "241003509",
+    "name": "iPad Mini 7 (A17) 8.3 inch  5G - 128GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/c3D4u93k7sq8MZT0Oi8Khkz3bg9EYYEPqaoWMBkcJ95q76sdnVGSZhlCTUXxZ3WCqQ-mozoGN9e9nfkrZpwKNAUu0Qr0nQE",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-mini-7-wifi-cellular-128gb--p757313",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "19390000",
+    "latestPrice": "15990000",
+    "discountAmount": "3400000",
+    "discountPercent": 18,
+    "minLatestPrice": "15990000",
+    "maxLatestPrice": "15990000",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "<p>- Chính hãng, Mới 100%, Nguyên seal<br>- Màn hình: 8.3\" Liquid Retina IPS LCD, 500 nits<br>- Camera sau: 12MP<br>- Camera trước: 12MP<br>- CPU: Apple A17 Pro<br>- Bộ nhớ: 128GB<br>- RAM: 8GB<br>- Hệ điều hành: iPadOS 18</p>",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757313,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple A17 Pro</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>8.3\" Liquid Retina IPS</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241003505",
+    "sellerSku": "241003505",
+    "name": "iPad Mini 7 (A17) 8.3 inch  512GB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/6ZEbbE3vzZrM-gq2j3VqkoyPPRq67ujnqEnKntl7Zx_SU8jzXra0naU0cao9yHH8cSD_pKluO9DOuB3fu79elWHa4n8IFi3_",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-mini-7-wifi-512gb--p621090",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "23690000",
+    "latestPrice": "19990000",
+    "discountAmount": "3700000",
+    "discountPercent": 16,
+    "minLatestPrice": "19990000",
+    "maxLatestPrice": "19990000",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 8.3\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple A17 Pro<br/>- Bộ nhớ: 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621090,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple A17 Pro</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>8.3\" Liquid Retina IPS</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "241003501",
+    "sellerSku": "241003501",
+    "name": "iPad Mini 7 (A17) 8.3 inch  256GB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/0O7QyiR0zBRp_JnoPwdENSZY-LymQS4EThy-GE7CBoc2r54iAjKUVUMP6eEbf0K3kHeO6r5r3uCxkcEjQx5CnysoiPZVNqOnEQ",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-mini-7-wifi-256gb--p757311",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "17790000",
+    "latestPrice": "14490000",
+    "discountAmount": "3300000",
+    "discountPercent": 19,
+    "minLatestPrice": "14490000",
+    "maxLatestPrice": "14490000",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 8.3\" Liquid Retina IPS<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple A17 Pro<br/>- Bộ nhớ: 256GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 757311,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple A17 Pro</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>8.3\" Liquid Retina IPS</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502016",
+    "sellerSku": "240502016",
+    "name": "iPad Pro M4 13 inch  2TB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/3VkzQPd6mIUfsHuyzasSDtkyrgenxEwwLjyOulmryZIWtECkVj_Nwh2Ey2M0cEVwJSAfAgFQ58CwjkmGJDyQAVMBtNrbkGVx",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-wifi-2tb--p760868",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "66490000",
+    "latestPrice": "64490000",
+    "discountAmount": "2000000",
+    "discountPercent": 3,
+    "minLatestPrice": "64490000",
+    "maxLatestPrice": "64490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760868,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502014",
+    "sellerSku": "240502014",
+    "name": "iPad Pro M4 13 inch  2TB Wifi Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/hcQovj21VyFaVGD4aeNoT-uSxpIY_Tj61AuUa2wdR3W-yWtyBeyE6dtT-AF1FbtpQ1M1YWjiHGE021Zqr2_YDK6GbTYu4OQ",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-nano-glass-wifi-2tb--p621741",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "68990000",
+    "latestPrice": "66990000",
+    "discountAmount": "2000000",
+    "discountPercent": 3,
+    "minLatestPrice": "66990000",
+    "maxLatestPrice": "66990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621741,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR Nano Glass</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502010",
+    "sellerSku": "240502010",
+    "name": "iPad Pro M4 13 inch  1TB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/nClIuaJa6G4yq-p_uWpgCEnWv9bZq9ye8gRjub5ARRteG8VIJkuE8cKv7EXkPC0UFgXeOFG5V3xOtuPHV9cmICnblW02q2KmyA",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-wifi-1tb--p760866",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "54990000",
+    "latestPrice": "52990000",
+    "discountAmount": "2000000",
+    "discountPercent": 4,
+    "minLatestPrice": "52990000",
+    "maxLatestPrice": "52990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760866,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502008",
+    "sellerSku": "240502008",
+    "name": "iPad Pro M4 13 inch  1TB Wifi Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/Z7l80TROPbbRHUURafYraN2UOXatIIt3G196DDEzbnAfem009o-WD2hF7xuzDwh2xaMubqIvIaIbchNr5IINliotUGU6BPmL",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-nano-glass-wifi-1tb--p553801",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "57490000",
+    "latestPrice": "55990000",
+    "discountAmount": "1500000",
+    "discountPercent": 3,
+    "minLatestPrice": "55990000",
+    "maxLatestPrice": "55990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 553801,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR Nano Glass</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502006",
+    "sellerSku": "240502006",
+    "name": "iPad Pro M4 13 inch  5G - 512GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/wuoWhNZe_D1fUg-xEVZuIVh-8dRbFuMfqro0dXoe_T4x0PpVL0VQ0tam4edP04ZkxTQAoNRva1wfFug3vRTL2RPtT7nD3DkFeA",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-wifi-5g-512gb--p553799",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "48990000",
+    "latestPrice": "46490000",
+    "discountAmount": "2500000",
+    "discountPercent": 5,
+    "minLatestPrice": "46490000",
+    "maxLatestPrice": "46490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 553799,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502004",
+    "sellerSku": "240502004",
+    "name": "iPad Pro M4 13 inch  5G - 2TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/HGoxZaYhgGjYv-14jLrfcPt2PR-GuZ7vCKizNsU60qi8r1cyeFkoom7ScH6IiaTRhNmfUwuTOhvgGtVp_lx-alQxndsHgmwA",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-wifi-5g-2tb--p760874",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "71990000",
+    "latestPrice": "69990000",
+    "discountAmount": "2000000",
+    "discountPercent": 3,
+    "minLatestPrice": "69990000",
+    "maxLatestPrice": "69990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760874,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240502002",
+    "sellerSku": "240502002",
+    "name": "iPad Pro M4 13 inch  5G - 2TB Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/OosaqH3pI26wSwilUPbd9EyMblTbWsc9C4hdRkNWfMokJIXOW-Kuj1gfrJ60K8eK-8RlPO9IxtxhRcJDn9swOSBLN1i_lTnH",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-nano-glass-wifi-5g-2tb--p621507",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "74490000",
+    "latestPrice": "72990000",
+    "discountAmount": "1500000",
+    "discountPercent": 2,
+    "minLatestPrice": "72990000",
+    "maxLatestPrice": "72990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621507,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR Nano Glass</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501998",
+    "sellerSku": "240501998",
+    "name": "iPad Pro M4 13 inch  5G - 1TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/2V_RGDHLXn0E2s0jITL6IcBy2KcZ4vpF7HkzUWO2sKFTUtc0EbZ62xSkyVFvBiCT-ZH_w_MMcBXxJDxklRputFWe6pJNyLU",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-wifi-5g-1tb--p760872",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "60490000",
+    "latestPrice": "57990000",
+    "discountAmount": "2500000",
+    "discountPercent": 4,
+    "minLatestPrice": "57990000",
+    "maxLatestPrice": "57990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760872,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501996",
+    "sellerSku": "240501996",
+    "name": "iPad Pro M4 13 inch  5G - 1TB Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/CqIwBfHClbHPSvss5si2Mo1ZWYJVk5smpekpgdExHHeA_HpS73_N_yJ5MfebXAI4KlKT9O8UgffD2h9fnfRGlr6oTkwFj2I",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-13-inch-nano-glass-wifi-5g-1tb--p760876",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "62990000",
+    "latestPrice": "60990000",
+    "discountAmount": "2000000",
+    "discountPercent": 3,
+    "minLatestPrice": "60990000",
+    "maxLatestPrice": "60990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/kL_ZGWYzO4cf1fnS3Kh6PJzD-3QoUQj7l8OeHn8JCXVzo0dROaNUtf3PDk-qa_S0_3qTZ1ZVLrhesgmuL4du8S8lMI08bZxkWw",
+        "name": "Kính cường lực YV iPad Pro M4 - 13 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 13\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760876,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>13\" Ultra Retina XDR Nano Glass</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501992",
+    "sellerSku": "240501992",
+    "name": "iPad Pro M4 11 inch  2TB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/Y9HWQLMRwjSNDiKLaee5l049-IzOdbJTneWmz1Zpt2QwqNci-9C-fhcS4uEUVDQ88SRNaLEBYbANHuMdhoKiRNIjCD3x7A",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-2tb--p760860",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "57490000",
+    "latestPrice": "53990000",
+    "discountAmount": "3500000",
+    "discountPercent": 6,
+    "minLatestPrice": "53990000",
+    "maxLatestPrice": "53990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760860,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501990",
+    "sellerSku": "240501990",
+    "name": "iPad Pro M4 11 inch  2TB Wifi Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/AYOkhe0N41J0y2ni2W7eElMcMukKJpSekRgDaJtN_94JVsG3tWzaWKm0d_0o6C1LY9zk2kA-jJ2gv2u6loqeGSAWp8ZxfjQ",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-2tb-nano-glass--p621063",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "59990000",
+    "latestPrice": "56990000",
+    "discountAmount": "3000000",
+    "discountPercent": 5,
+    "minLatestPrice": "56990000",
+    "maxLatestPrice": "56990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621063,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR Nano Glass</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501986",
+    "sellerSku": "240501986",
+    "name": "iPad Pro M4 11 inch  1TB Wifi ",
+    "imageUrl": "https://lh3.googleusercontent.com/GpcPSba7tQe7nmvklwwXDwiVObyhC4TP7gvA8hVoEGWxjhvAk_fZ4tiaz7VuTXG5-4WOkAopJaQeayTkDWZDpI8TRoVcoYs",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-1tb--p760858",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "45990000",
+    "latestPrice": "42490000",
+    "discountAmount": "3500000",
+    "discountPercent": 8,
+    "minLatestPrice": "42490000",
+    "maxLatestPrice": "42490000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760858,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501984",
+    "sellerSku": "240501984",
+    "name": "iPad Pro M4 11 inch  1TB Wifi Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/7iMapLwepQP14731mHa5Kt6IYQjs-fm6v2OjiSqwxxxfWA4RSyFic5y9kSmaGnTnj8Q-Uem3_g0LfjJm8Q0Xg9ka-PvWtWEARg",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-1tb-nano-glass--p760875",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "48490000",
+    "latestPrice": "44990000",
+    "discountAmount": "3500000",
+    "discountPercent": 7,
+    "minLatestPrice": "44990000",
+    "maxLatestPrice": "44990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760875,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR Nano Glass</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501980",
+    "sellerSku": "240501980",
+    "name": "iPad Pro M4 11 inch  5G - 2TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/7d2wUcGZlpK2B9b-1UAjGihBXqsytfwNMMILawDdxYK2mYFXdjZacRGaJDphRxiAUWVDpTChgq9tKQnRzmgoWaMvq1K0u4dR",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-5g-2tb--p553773",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "62990000",
+    "latestPrice": "59990000",
+    "discountAmount": "3000000",
+    "discountPercent": 5,
+    "minLatestPrice": "59990000",
+    "maxLatestPrice": "59990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 553773,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501978",
+    "sellerSku": "240501978",
+    "name": "iPad Pro M4 11 inch  5G - 2TB Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/y5bL90UwGmlq6sfXQXPVcVni_uE3pnIFoyoIS2tVRtlxyRTbMH7xMIS5r-B3uXsUgK5gjeoXJJGl6rbcv9UrpOvv8p48aE6v1Q",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-cellular-2tb-nano-glass--p621739",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "65490000",
+    "latestPrice": "61990000",
+    "discountAmount": "3500000",
+    "discountPercent": 5,
+    "minLatestPrice": "61990000",
+    "maxLatestPrice": "61990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 2TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621739,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR Nano Glass</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501974",
+    "sellerSku": "240501974",
+    "name": "iPad Pro M4 11 inch  5G - 1TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/ToD0uRUAbKwB1c6WCpeZkEBrqmqcacRjt7hkwmzRaiaEFAdRPQkXlGMs1auEaroGMzE2mQg6kf5m-xh6fyzXjExdNvUxiePJ",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-wifi-5g-1tb--p760870",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "51490000",
+    "latestPrice": "47990000",
+    "discountAmount": "3500000",
+    "discountPercent": 7,
+    "minLatestPrice": "47990000",
+    "maxLatestPrice": "47990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760870,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "240501972",
+    "sellerSku": "240501972",
+    "name": "iPad Pro M4 11 inch  5G - 1TB Nano Glass",
+    "imageUrl": "https://lh3.googleusercontent.com/GndbfUvQgcjJiBdPnTthkBHXbJfS2N7EE7tE--HjzCyr6QDgwsgDS9LCT8wVyC8TjXmuAcn8ycxNaquaPtQGSaAky-n4xsbWWA",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-m4-11-inch-nano-glass-wifi-5g-1tb--p760877",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "53990000",
+    "latestPrice": "50990000",
+    "discountAmount": "3000000",
+    "discountPercent": 6,
+    "minLatestPrice": "50990000",
+    "maxLatestPrice": "50990000",
+    "promotionEndTime": null,
+    "gifts": [
+      {
+        "imageUrl": "https://lh3.googleusercontent.com/G3sETeXxEtEdNVY7aHxtfXpWmuAmGycyWGwaRMXb_hgCo7vbNI3UgiXZJrjSTyPlkj0AWkaVpBvZ5Q2TPLOkPKoSN0fPH8cz",
+        "name": "Kính cường lực YV iPad Pro M4 - 11 inch (Quà tặng)",
+        "quantity": 1
+      }
+    ],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" Ultra Retina XDR Nano Glass<br/>- Camera sau: 12MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M4<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": true,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 760877,
+    "bestComboDiscount": "200000",
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M4</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" Ultra Retina XDR Nano Glass</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250419072",
+    "sellerSku": "250419072",
+    "name": "Máy tính bảng Xiaomi Redmi Pad SE Wifi (6GB/128GB) - Tím (VHU4457EU)",
+    "imageUrl": "https://lh3.googleusercontent.com/5UzhKmIDYyu8b7lVOs2pNUwHj_W4TdXIvqu66zhSfWQ6_87FrdNbjK8zPrljuQFeBl4IOfOVAob5nBb1vb67gCmY_KmgcZI",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-xiaomi-redmi-pad-se-wifi-6gb-128gb-23073rpbfg--s250419072",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Xiaomi",
+    "brandLogo": "",
+    "brandCode": "xiaomi",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" IPS LCD<br/>- Camera sau: 8MP<br/>- Camera trước: 5MP<br/>- CPU: Snapdragon 680<br/>- Bộ nhớ: 128GB<br/>- RAM: 6GB<br/>- Hệ điều hành: Android 13",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 651143,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Snapdragon 680</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" IPS LCD</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "250301294",
+    "sellerSku": "250301294",
+    "name": "Máy tính bảng Honor Pad X8a WiFi 4GB/128GB - Xám",
+    "imageUrl": "https://lh3.googleusercontent.com/-owl6fp9GMjpMhC617PYL4Cnyi5a0FJNe9xkkLdpD2YX4CGUfm1jUlbmiLDSnsLzIilNsKYo6vmqgDCSBK6EzH0TnTBBTRqI",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-honor-pad-x8a-wifi-4gb-128gb--s250301294",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Honor",
+    "brandLogo": "",
+    "brandCode": "honor",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\" IPS LCD<br/>- Camera sau: 5MP<br/>- Camera trước: 5MP<br/>- CPU: Adreno 610 Snapdragon 680<br/>- Bộ nhớ: 128GB<br/>- RAM: 4GB<br/>- Hệ điều hành: Android 14",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 621357,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Adreno 610 Snapdragon 680</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\" IPS LCD</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230702657",
+    "sellerSku": "230702657",
+    "name": "Máy tính bảng Samsung Galaxy Tab S9 Ultra 5G (16GB/1TB) (Beige) (SM-X916BZEIXXV)",
+    "imageUrl": "https://lh3.googleusercontent.com/nC26zuW8s6MljU0tCWVMm733KNbGRXC8HBwRnwdeYf9NtXR0zMLy_LEoTFgh1DyLgx-4e0Cn7b7h8uo1G8kArSdiU2Aaoljl",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s9-ultra-5g-16gb-1tb-vang--s230702657",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 14.6\" Dynamic AMOLED 2X<br/>- Camera sau: 13MP, 8MP<br/>- Camera trước: 2 x 12MP<br/>- CPU: Snapdragon 8 Gen 2<br/>- Bộ nhớ: 1TB<br/>- RAM: 16GB<br/>- Hệ điều hành: Android",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 521131,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Snapdragon 8 Gen 2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>14.6\" Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230702651",
+    "sellerSku": "230702651",
+    "name": "Máy tính bảng Samsung Galaxy Tab S9+ 5G (12GB/512GB) (Beige) (SM-X816BZEEXXV)",
+    "imageUrl": "https://lh3.googleusercontent.com/j4H7uRYTL9XXK5b0bhlQ0dkcVjuWMsun4CNBoHYBICvfHF1OIWzAow5pGpim7i5tSMfzwG35SL7_BgCC7wxRPdthLb9511Y",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s9-5g-12gb-512gb-vang--s230702651",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.4\" Dynamic AMOLED 2X<br/>- Camera sau: 13MP, 8MP<br/>- Camera trước: 12MP<br/>- CPU: Snapdragon 8 Gen 2<br/>- Bộ nhớ: 512GB<br/>- RAM: 12GB<br/>- Hệ điều hành: Android",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 521122,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Snapdragon 8 Gen 2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.4\" Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230702649",
+    "sellerSku": "230702649",
+    "name": "Máy tính bảng Samsung Galaxy Tab S9+ Wifi (12GB/512GB) (Beige) (SM-X810NZEEXXV)",
+    "imageUrl": "https://lh3.googleusercontent.com/anK4Wl2ft4_UaEzPzpn1g6_lORh7cAu-IN9dZEL8oNtzbct_-eThdJhojrkMl4XtOBWePFsbv_Bx0CG1yUg00zr1Y9vABDTM",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s9-wifi-12gb-512gb-vang--s230702649",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.4\" Dynamic AMOLED 2X<br/>- Camera sau: 13MP, 8MP<br/>- Camera trước: 12MP<br/>- CPU: Snapdragon 8 Gen 2<br/>- Bộ nhớ: 512GB<br/>- RAM: 12GB<br/>- Hệ điều hành: Android",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 521119,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Snapdragon 8 Gen 2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.4\" Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230702643",
+    "sellerSku": "230702643",
+    "name": "Máy tính bảng Samsung Galaxy Tab S9 5G (12GB/256GB) (Beige) (SM-X716BZEEXXV)",
+    "imageUrl": "https://lh3.googleusercontent.com/iITsD2FI8AvpsgnQBSg5XJF-oAz45WlWR9Thm4qteeVm-W_VLycWIuzlU0tBSjl2CccF9PmoZotDT5Nd8512tVMuK661lg4",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-samsung-galaxy-tab-s9-5g-12gb-256gb-vang--s230702643",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Samsung",
+    "brandLogo": "",
+    "brandCode": "samsung",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 11\"  Dynamic AMOLED 2X<br/>- Camera sau: 13MP<br/>- Camera trước: 12MP<br/>- CPU: Snapdragon 8 Gen 2<br/>- Bộ nhớ: 256GB<br/>- RAM: 12GB<br/>- Hệ điều hành: Android",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 521113,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Snapdragon 8 Gen 2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>11\"  Dynamic AMOLED 2X</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH10",
+        "name": "Thiết bị giải trí và kỹ thuật số",
+        "id": 386104,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01",
+        "name": "Điện thoại và máy tính bảng",
+        "id": 386542,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02",
+        "name": "Máy tính bảng",
+        "id": 386547,
+        "isAdult": false
+      },
+      {
+        "code": "NH10-01-02-01",
+        "name": "Máy tính bảng",
+        "id": 386548,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230302134",
+    "sellerSku": "230302134",
+    "name": "iPad Pro M2 12.9 inch  5G - 1TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/e2gxvpwgUOG2QwrAWofspNZrTZUopEId4m56ZIzMIpsVZlcJ4xIlSkWyXFdJKtl6EJfLAY7sRr504iLtrKWfSFo14gUpg0V0",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "may-tinh-bang-apple-ipad-pro-12-9-m2-wifi-cellular-1tb-silver--p620977",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.9\" Liquid Retina XDR<br/>- Camera sau: 12MP, 10MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M2<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 16GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 620977,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.9\" Liquid Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230302135",
+    "sellerSku": "230302135",
+    "name": "iPad Pro M2 12.9 inch  5G - 2TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/G_n61ujrCufdJvQdQ3NZokXahusdLZcowIjPkOjvf1zGn3oIGQyKfc-S3gcckhtGk7TQa3B4pTD2BmTGq88wWPiHWnxN_axB",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-12-9-inch-2022-m2-wifi-5g-2tb--p538754",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.9\" Liquid Retina XDR<br/>- Camera sau: 12MP, 10MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M2<br/>- Bộ nhớ: 5G - 2TB<br/>- RAM: 16GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 538754,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.9\" Liquid Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230302131",
+    "sellerSku": "230302131",
+    "name": "iPad Pro M2 12.9 inch  5G - 512GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/zz9keuk5tm5rtKlf69JHch991vtK0agbRppMcQ_P4_3bmzzK21dX3MmWW1cI-lZiUr3n8Zz6knqDBo6BbcYfk-wN9FWZYtUB",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-12-9-inch-2022-m2-wifi-5g-512gb--p538752",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.9\" Liquid Retina XDR<br/>- Camera sau: 12MP, 10MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M2<br/>- Bộ nhớ: 5G - 512GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 538752,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.9\" Liquid Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230302133",
+    "sellerSku": "230302133",
+    "name": "iPad Pro M2 12.9 inch  5G - 1TB ",
+    "imageUrl": "https://lh3.googleusercontent.com/pE1WiuBwBVTL0i6ROtb4_TNpwhrj8NhakEYKmuL_NeTgaTwH4_aGGBXzl3QEXMFpMgdE6NvmRhAbRXHqS4dfXwsyr6wmI7hE",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-12-9-inch-2022-m2-wifi-5g-1tb--p538753",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.9\" Liquid Retina XDR<br/>- Camera sau: 12MP, 10MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M2<br/>- Bộ nhớ: 5G - 1TB<br/>- RAM: 16GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 538753,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.9\" Liquid Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
+  },
+  {
+    "sku": "230300198",
+    "sellerSku": "230300198",
+    "name": "iPad Pro M2 12.9 inch  5G - 256GB ",
+    "imageUrl": "https://lh3.googleusercontent.com/y9kBXDj1j1wV_QBRYaF7bA1vZ0nc_cL0JVxHfxy7Eeh8FGdmCvvwaqLWFO3aAlBCodhLmwHujfEEpocnKGLHVs1Z851Yro0",
+    "imageLabel": "",
+    "tags": [],
+    "canonical": "ipad-pro-12-9-inch-2022-m2-wifi-5g-256gb--p538751",
+    "uomName": "Cái",
+    "isAdult": false,
+    "brandName": "Apple",
+    "brandLogo": "",
+    "brandCode": "apple",
+    "seller": {
+      "id": 1,
+      "displayName": "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ PHONG VŨ",
+      "displayLogo": "https://lh3.googleusercontent.com/qOnchEYD7No58bjEQs5pf_05IV-0DmoaCmEFXD007VHs5cn16LZ6PC98IlY3OiBL9UXsEwNzwiVHRrvSDMQ"
+    },
+    "totalAvailable": 0,
+    "supplierRetailPrice": "0",
+    "latestPrice": "0",
+    "discountAmount": "0",
+    "discountPercent": 0,
+    "minLatestPrice": "0",
+    "maxLatestPrice": "0",
+    "promotionEndTime": null,
+    "gifts": [],
+    "shortDescription": "- Chính hãng, Mới 100%, Nguyên seal<br/>- Màn hình: 12.9\" Liquid Retina XDR<br/>- Camera sau: 12MP, 10MP<br/>- Camera trước: 12MP<br/>- CPU: Apple M2<br/>- Bộ nhớ: 5G - 256GB<br/>- RAM: 8GB<br/>- Hệ điều hành: iPadOS",
+    "sellable": false,
+    "selectedPromotionId": 0,
+    "uomCode": "81",
+    "productId": 538751,
+    "bestComboDiscount": null,
+    "highlight": "<div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/CPU.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>Apple M2</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Screen-Size.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>12.9\" Liquid Retina XDR</span></div><div style=\"display: inline-flex;align-items: center;gap: 4px;margin-right: 4px;height: 14px\"><img src=\"https://shopfront-cdn.tekoapis.com/phongvu/icon/Connection.svg\" alt=\"\" width=\"14px\" height=\"14px\"/><span>5G Cellular</span></div>",
+    "benefitLabel": null,
+    "categories": [
+      {
+        "code": "NH05",
+        "name": "Apple",
+        "id": 386099,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02",
+        "name": "Điện thoại và máy tính bảng Apple",
+        "id": 386241,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02",
+        "name": "Ipad",
+        "id": 386245,
+        "isAdult": false
+      },
+      {
+        "code": "NH05-02-02-01",
+        "name": "Ipad",
+        "id": 386246,
+        "isAdult": false
+      }
+    ],
+    "materials": []
   }
 ]

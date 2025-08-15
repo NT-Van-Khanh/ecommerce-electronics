@@ -40,6 +40,9 @@ public class OrderRequestDTO {
     private String deliveryAddress;
 
     @Schema(description = "Name of receiver, default: customer name", example = "Nguyen Van A")
+    @Size(min = 2, max = 100, message = "Full name must be between 2 and 100 characters.")
+    @Pattern(regexp = "^[\\p{L} ']+$",
+            message = "Full name can only contain Vietnamese letters, spaces, and apostrophes.")
     private String recipientName;
 
     @Pattern(regexp = "^(0|\\+84)[0-9]{9,10}$", message = "Invalid phone number format")

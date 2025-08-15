@@ -19,10 +19,14 @@ import java.time.LocalDateTime;
 public class DiscountRequestDTO {
     @UniqueField(entity = Discount.class, fieldName = "code", message = "This code already exists")
     @NotBlank(message = "Code of the discount can not be blank")
+    @Pattern(regexp = "^[A-Z0-9_-]+$",
+            message = "Code must contain only uppercase letters, numbers, _, -")
     @Schema(description = "Code of the coupon", example = "COUPON_2025")
     private String code;
 
     @NotBlank(message = "Name of the discount can not be blank")
+    @Pattern(regexp = "^[\\p{L}0-9 '\\-&,]+$",
+            message = "Title can only contain: letters, numbers, space, ', -, &, ,")
     @Schema(description = "Name of discount", example = "HAPPY NEW YEAR 2025")
     private String title;
 

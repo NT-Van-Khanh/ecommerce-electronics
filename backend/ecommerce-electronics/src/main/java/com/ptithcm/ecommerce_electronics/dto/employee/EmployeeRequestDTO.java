@@ -3,6 +3,7 @@ package com.ptithcm.ecommerce_electronics.dto.employee;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ptithcm.ecommerce_electronics.enums.AccountStatus;
 import com.ptithcm.ecommerce_electronics.model.Role;
+import com.ptithcm.ecommerce_electronics.validator.anotation.ValidAge;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,9 @@ public class EmployeeRequestDTO {
 
 
     @NotBlank(message = "Username can not be null")
+    @Size(min = 2, max = 100, message = "Full name must be between 2 and 100 characters.")
+    @Pattern(regexp = "^[\\p{L} ']+$",
+            message = "Full name can only contain Vietnamese letters, spaces, and apostrophes.")
     @Schema(description = "Full name of user", example = "Nguyen Van A")
     private String fullName;
 
@@ -54,7 +58,8 @@ public class EmployeeRequestDTO {
 
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Schema(description = "Birthday of user", example = "2025-07-18")
+    @ValidAge(min = 15, message = "User must be >= 15 years old.")
+    @Schema(description = "Birthday of user", example = "2000-07-18")
     private LocalDate birthday;
 
     @Size(min = 5, max = 255, message = "Address must be between 5 and 255 characters long")
