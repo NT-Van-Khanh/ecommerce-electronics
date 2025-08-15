@@ -22,8 +22,7 @@ public class FeeServiceImpl implements FeeService {
     public double getVehicleFactor(Vehicle vehicle) {
         return switch (vehicle) {
             case BIKE -> 1.0;
-            case CAR -> 1.5;
-            case TRUCK -> 2.0;
+            case CAR,TRUCK -> 1.5;
         };
     }
 
