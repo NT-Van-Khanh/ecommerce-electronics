@@ -26,9 +26,10 @@ public class GoongMapServiceImpl implements GoongMapService {
     private double ORIGIN_LNG;
 
     private GoongGeocodeResponse geocodeAddress(String address){
+        String url =GEOCODE_URL
+                + "?address=" + address
+                + "&api_key=" + API_KEY;
         RestTemplate restTemplate = new RestTemplate();
-        String url =    GEOCODE_URL + "?address=" + address
-                                    + "&api_key=" + API_KEY;
         GoongGeocodeResponse response = restTemplate.getForObject(url, GoongGeocodeResponse.class);
         if (response == null || !"OK".equalsIgnoreCase(response.getStatus()))
             throw new IllegalStateException("Error when using Goong Map geocoding");
@@ -44,15 +45,24 @@ public class GoongMapServiceImpl implements GoongMapService {
     }
 
     //chấp nhận: "house_number", "street_address","street", "premise", "restaurant"
-    //trừ chối: district,
+    //từ chối: district,
     @Override
     public String confirmGeocodeAddress(String address) {
         GoongAddressResult firstResult = getFirstGeocodeResult(address);
 
         String formattedAddress = firstResult.getFormattedAddress();
-        if (formattedAddress == null)
+        if (formattedAddress == null||formattedAddress.isEmpty())
             throw new IllegalArgumentException("Formatted address not found in geocoding result for address: " + address);
-
+        Compound compound =firstResult.getCompound();
+        if(!address.contains(compound.getCommune())){
+            throw new IllegalArgumentException("Address missing commune: " + address);
+        }
+        if(!address.contains(compound.getDistrict())){
+            throw new IllegalArgumentException("Address missing district: " + address);
+        }
+        if(!address.contains(compound.getProvince())){
+            throw new IllegalArgumentException("Address missing province: " + address);
+        }
         return formattedAddress;
     }
 
