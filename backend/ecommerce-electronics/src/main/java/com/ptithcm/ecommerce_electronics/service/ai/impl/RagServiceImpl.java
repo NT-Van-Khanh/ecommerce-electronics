@@ -37,6 +37,7 @@ public class RagServiceImpl implements RagService {
         StringBuilder contextBuilder = new StringBuilder();
         for (Document doc : relatedDocs) {
             contextBuilder.append(doc.getText()).append("\n");
+            contextBuilder.append(doc.getMetadata()).append("\n");
         }
 
         String prompt = """
@@ -44,7 +45,8 @@ public class RagServiceImpl implements RagService {
                 Dựa trên ngữ cảnh sau, hãy trả lời truy vấn của người dùng.
                 Lưu ý:
                     - Trả lời lịch sự và khéo léo.
-                    - Nếu trong ngữ cảnh có sản phẩm, hãy trả lời chi tiết về sản phẩm đó và dựa theo kiến thức của bạn, kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{id}).
+                    - Nếu trong ngữ cảnh có sản phẩm, hãy trả lời chi tiết về sản phẩm đó và dựa theo kiến thức của bạn.
+                    - Khi chèn link chi tiết, sử dụng `productId` từ metadata, link chi tiết định dạng: [Xem chi tiết](http://localhost:5173/detail/{productId}).
                     - Nếu muốn lấy thêm thông tin về số lượng tồn, bảo hành, chính sách tồn kho, hãy gọi tool tìm sản phẩm theo ID để bổ sung ngữ cảnh.
                     - Nếu ngữ cảnh không có sản phẩm liên quan, bạn có thể trả lời thông tin sản phẩm đó dựa trên kiến thức của bạn, nhưng hãy khéo léo nói rằng cửa hàng hiện chưa có sản phẩm đó và gợi ý khách tham khảo các sản phẩm khác trong cửa hàng.
                     - Nếu truy vấn không liên quan đến thiết bị điện tử nói chung, hãy từ chối và khuyến khích khách mua hàng.
@@ -61,7 +63,7 @@ public class RagServiceImpl implements RagService {
                             .content();
         List<ProductVariantVectorDTO> productVariants = getProductFromMetaData(relatedDocs);
         return new AIResponse(response,productVariants);
-    }
+    }//kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{productId}).
 
     private List<ProductVariantVectorDTO> getProductFromMetaData(List<Document> relatedDocs) {
         List<ProductVariantVectorDTO> productVariants = new ArrayList<>();
