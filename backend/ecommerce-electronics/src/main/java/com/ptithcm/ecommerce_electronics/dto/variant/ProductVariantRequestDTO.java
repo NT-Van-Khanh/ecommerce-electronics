@@ -26,7 +26,7 @@ public class ProductVariantRequestDTO {
 
 
     @ExistsInDatabase(entity = Product.class)
-    @NotBlank(message = "Product ID not null.")
+    @NotNull(message = "Product ID not null.")
     @Schema(description = "Product ID of image", example = "1")
     private Integer productId;
 
@@ -66,7 +66,7 @@ public class ProductVariantRequestDTO {
     @Pattern( regexp = "^[A-Z0-9_-]+$",
             message = "Sku must contain only uppercase letters, numbers, underscores, or hyphens.")
     @Schema(description = "Sku of variant", example = "MAN-ACER-KG240Y-X1")
-    @UniqueField(entity = ProductVariant.class, fieldName = "sku", message = "Sku is already exists")
+//    @UniqueField(entity = ProductVariant.class, fieldName = "sku", message = "Sku is already exists")
     private String sku;
 
     @NotBlank(message = "model can not be blank")
@@ -85,9 +85,9 @@ public class ProductVariantRequestDTO {
     @Schema(description = "Warranty of product variant (month)", example = "2")
     private Integer warranty;
 
-    @UniqueField(entity = ProductVariant.class, fieldName = "barcode", message = "Barcode is already exists")
+//    @UniqueField(entity = ProductVariant.class, fieldName = "barcode", message = "Barcode is already exists")
     @Size(min = 8, max = 20, message = "Barcode must be between 8 and 20 digits.")
-    @Pattern(regexp = "^[0-9]+$", message = "Barcode must contain only digits.")
+    @Pattern(regexp = "^[A-Za-z0-9]+$", message = "Barcode must contain only digits.")
     @Schema(description = "Barcode of product variant", example = "MAN-ACER-KG240Y-X1")
     private String barcode;
 

@@ -153,11 +153,13 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     @Override
     @Transactional
     public ProductVariantDTO update(Integer id, ProductVariantRequestDTO request) {
+        Product p = productService.findById(request.getProductId());
         if(!pvRepository.existsById(id)){
             throw new ResourceNotFoundException("Product variant not found with id =" + id);
         }
         ProductVariant productVariant = ProductVariantMapper.toEntity(request);
         productVariant.setId(id);
+        productVariant.setProduct(p);
         //replace vector
         ProductVariantDTO pvResponse = ProductVariantMapper.toDTO(pvRepository.save(productVariant));
         vectorStoreService.addVariant(pvResponse);

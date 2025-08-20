@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 public class FeeServiceImpl implements FeeService {
     private final int BASE_FEE = 10000;
     private final int SHIPPING_FEE_PER_KM_RATE = 2000;
+    private static final int MAX_SHIPPING_FEE = 500000; //500k
+    private static final double FREE_DISTANCE_KM = 1.0;
     @Override
     public int getBaseShippingFee() {
         return BASE_FEE;
@@ -28,6 +30,12 @@ public class FeeServiceImpl implements FeeService {
 
     @Override
     public int calculateShippingFee(double distanceKm, Vehicle vehicle) {
-        return (int) (BASE_FEE +  SHIPPING_FEE_PER_KM_RATE *distanceKm * getVehicleFactor(vehicle));
+        if (distanceKm <= FREE_DISTANCE_KM) {
+            return 0;
+        }
+        int fee = (int) (BASE_FEE
+                + SHIPPING_FEE_PER_KM_RATE * distanceKm * getVehicleFactor(vehicle));
+
+        return Math.min(fee, MAX_SHIPPING_FEE);
     }
 }
