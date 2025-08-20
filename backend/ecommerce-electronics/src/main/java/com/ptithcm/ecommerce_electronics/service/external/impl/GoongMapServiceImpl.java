@@ -63,7 +63,7 @@ public class GoongMapServiceImpl implements GoongMapService {
         if(!address.contains(compound.getProvince())){
             throw new IllegalArgumentException("Address missing province: " + address);
         }
-        return formattedAddress;
+        return address;
     }
 
     @Override

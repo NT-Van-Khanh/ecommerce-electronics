@@ -38,20 +38,23 @@ public class RagServiceImpl implements RagService {
         for (Document doc : relatedDocs) {
             contextBuilder.append(doc.getText()).append("\n");
         }
+
         String prompt = """
                 Bạn là một trợ lý AI thông minh của cửa hàng bán thiết bị điện tử và hỗ trợ khách hàng khi mua hàng.
                 Dựa trên ngữ cảnh sau, hãy trả lời truy vấn của người dùng.
                 Lưu ý:
                     - Trả lời lịch sự và khéo léo.
-                    - Trong ngữ cảnh, mỗi sản phẩm có một mã ID duy nhất (ví dụ: 12345). Khi giới thiệu sản phẩm, LUÔN kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{id}) (thay {id} bằng đúng ID của sản phẩm).
-                    - Thông tin trong ngữ cảnh hiện tại chỉ là một phần của sản phẩm, nếu thiếu ngữ cảnh của sản phẩm, hãy gọi tool tìm sản phẩm theo ID để bổ sung ngữ cảnh.
-                    - Nếu truy vấn không liên quan tới sản phẩm, hãy từ chối và đưa ra gợi ý để khách hàng mua hàng.
+                    - Nếu trong ngữ cảnh có sản phẩm, hãy trả lời chi tiết về sản phẩm đó và dựa theo kiến thức của bạn, kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{id}).
+                    - Nếu muốn lấy thêm thông tin về số lượng tồn, bảo hành, chính sách tồn kho, hãy gọi tool tìm sản phẩm theo ID để bổ sung ngữ cảnh.
+                    - Nếu ngữ cảnh không có sản phẩm liên quan, bạn có thể trả lời thông tin sản phẩm đó dựa trên kiến thức của bạn, nhưng hãy khéo léo nói rằng cửa hàng hiện chưa có sản phẩm đó và gợi ý khách tham khảo các sản phẩm khác trong cửa hàng.
+                    - Nếu truy vấn không liên quan đến thiết bị điện tử nói chung, hãy từ chối và khuyến khích khách mua hàng.
                 ### Ngữ cảnh:
                 %s
 
                 ### Truy vấn:
                 %s
                 """.formatted(contextBuilder.toString(), query);
+        //- Nếu truy vấn không liên quan đến sản phẩm thiết bị điện tử, hãy từ chối và khuyến khích khách mua hàng.
         String response = chatClient.prompt(prompt)
                             .tools(productToolService)
                             .call()
