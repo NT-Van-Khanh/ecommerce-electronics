@@ -109,8 +109,8 @@ public class ProductVariantServiceImpl implements ProductVariantService {
     }
 
     private List<VariantOption> addVariantOption(Product p, ProductVariant newPv, List<Integer> optionValueIds) {
-        if(p.getOptions() == null) {
-            if (optionValueIds == null) return Collections.emptyList();
+        if(p.getOptions() == null||p.getOptions().isEmpty()) {
+            if (optionValueIds == null||optionValueIds.isEmpty()) return Collections.emptyList();
             else throw new IllegalArgumentException("The number of OptionValues does not match the number of Options of this product.");
         }{
             if(optionValueIds == null) throw new IllegalArgumentException("The number of OptionValues does not match the number of Options of this product.");
