@@ -14,6 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 @EqualsAndHashCode(callSuper = true)
 //@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ProductDTO extends BaseProductDTO{

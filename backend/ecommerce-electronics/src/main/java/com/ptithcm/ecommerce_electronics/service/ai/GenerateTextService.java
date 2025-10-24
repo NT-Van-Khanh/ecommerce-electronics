@@ -2,8 +2,9 @@ package com.ptithcm.ecommerce_electronics.service.ai;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
 
-public interface RagService {
+public interface GenerateTextService {
     AIResponse answer(String query);
-    AIResponse answer2(String query);
-    String generate(String query);
 }
+
+
+//AIResponse compareProducts(String query);

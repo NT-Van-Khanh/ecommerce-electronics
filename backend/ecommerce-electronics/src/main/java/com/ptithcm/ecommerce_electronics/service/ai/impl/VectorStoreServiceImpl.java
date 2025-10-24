@@ -45,7 +45,6 @@ public class VectorStoreServiceImpl implements VectorStoreService {
         Map<String, Object> metadata = new HashMap<>();
         metadata.put("productId", p.getId().toString());
         metadata.put("name", p.getName());
-//        metadata.put("description", p.getDescription());
         UUID uuid = UUID.nameUUIDFromBytes(String.valueOf(p.getId()).getBytes());
         Document doc = new Document(uuid.toString(), content, metadata);
 
@@ -55,7 +54,6 @@ public class VectorStoreServiceImpl implements VectorStoreService {
         System.err.println(Arrays.toString(embeddingModel.embed(input.get(0))));
         return doc;
     }
-
 //    @Override
 //    public void update(ProductDTO product) {
 //        delete(product.getId());
@@ -64,14 +62,12 @@ public class VectorStoreServiceImpl implements VectorStoreService {
 
     @Override
     public void delete(Integer id) {
-//        vectorStore.delete(List.of(id.toString()));
         String uuid = UUID.nameUUIDFromBytes(String.valueOf(id).getBytes()).toString();
         vectorStore.delete(List.of(uuid));
     }
 
     @Override
     public List<Document> search(String query, int topK) {
-
         SearchRequest searchRequest = SearchRequest.builder()
                 .query(query)
                 .topK(topK)
@@ -85,6 +81,7 @@ public class VectorStoreServiceImpl implements VectorStoreService {
            System.err.println("Total documents found:" + documents.size());
         }
         return  documents;
+//        return null;
     }
     @Override
     public void addVariant(ProductVariantDTO productVariant) {

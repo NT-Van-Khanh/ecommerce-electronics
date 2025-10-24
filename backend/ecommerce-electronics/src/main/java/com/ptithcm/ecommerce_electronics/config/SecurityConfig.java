@@ -3,6 +3,7 @@ package com.ptithcm.ecommerce_electronics.config;
 import com.ptithcm.ecommerce_electronics.service.auth.impl.CustomerDetailsService;
 import com.ptithcm.ecommerce_electronics.service.auth.impl.EmployeeDetailsService;
 import com.ptithcm.ecommerce_electronics.util.CustomPasswordEncoder;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -120,7 +121,7 @@ public class SecurityConfig {
     public WebMvcConfigurer corsConfigure(){
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/api/**")
                         .allowedOrigins("*")// Chinh lai theo domain frontend
                         .allowedMethods("GET", "POST","PUT", "PATCH", "DELETE", "OPTIONS")

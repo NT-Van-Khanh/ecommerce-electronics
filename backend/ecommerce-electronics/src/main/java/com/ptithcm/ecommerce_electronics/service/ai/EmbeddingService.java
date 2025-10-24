@@ -1,9 +1,7 @@
 package com.ptithcm.ecommerce_electronics.service.ai;
 
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.embedding.EmbeddingResponse;
 
 import java.util.List;
 

@@ -4,12 +4,14 @@ import com.ptithcm.ecommerce_electronics.dto.AIResponse;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantVectorDTO;
 import com.ptithcm.ecommerce_electronics.mapper.ProductVariantMapper;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
-import com.ptithcm.ecommerce_electronics.service.ai.ChatToolService;
-import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
-import com.ptithcm.ecommerce_electronics.service.ai.ProductToolService;
-import com.ptithcm.ecommerce_electronics.service.ai.RagService;
+import com.ptithcm.ecommerce_electronics.service.ai.*;
 import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
+import com.ptithcm.ecommerce_electronics.util.ConsLog;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.messages.SystemMessage;
+import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +28,12 @@ public class RagServiceImpl implements RagService {
     @Autowired
     private ProductVariantService productVariantService;
     @Autowired
-    private ProductToolService productToolService;
+    private ToolService toolService;
     @Autowired
-    private ChatToolService chatToolService;
+    private GenerateTextService chatToolService;
+
+    @Autowired
+    private TextGenerateToolService textGenerateToolService;
 
     @Override
     public AIResponse answer(String query) {
@@ -56,14 +61,36 @@ public class RagServiceImpl implements RagService {
                 ### Truy vấn:
                 %s
                 """.formatted(contextBuilder.toString(), query);
-        //- Nếu truy vấn không liên quan đến sản phẩm thiết bị điện tử, hãy từ chối và khuyến khích khách mua hàng.
         String response = chatClient.prompt(prompt)
-                            .tools(productToolService)
-                            .call()
-                            .content();
+                .advisors(SimpleLoggerAdvisor.builder().build())
+                .tools(toolService)
+                .call()
+                .content();
         List<ProductVariantVectorDTO> productVariants = getProductFromMetaData(relatedDocs);
-        return new AIResponse(response,productVariants);
-    }//kèm link chi tiết theo định dạng: [Xem chi tiết](http://localhost:5173/detail/{productId}).
+        return new AIResponse(response, productVariants);
+    }
+
+    @Override
+    public String generate(String query) {
+        ConsLog.info(query);
+        String systemPrompt =
+                """
+                Bạn là trợ lý ảo của cửa hàng bán thiết bị điện tử và hỗ trợ khách hàng khi mua hàng.
+                Lưu ý:
+                    - Trả lời lịch sự và khéo léo.
+                    - Nếu sản phẩm người dùng cần tìm không có trong cửa hàng, hãy tìm bên ngoài.
+                """;
+        SystemMessage systemMessage = new SystemMessage(systemPrompt);
+        UserMessage userMessage = new UserMessage(query);
+        Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
+        String response = chatClient.prompt(prompt)
+                .advisors(SimpleLoggerAdvisor.builder().build())
+                .tools(textGenerateToolService)
+                .call()
+                .content();
+        ConsLog.info("LLM with Search: " + response);
+        return response;
+    }
 
     private List<ProductVariantVectorDTO> getProductFromMetaData(List<Document> relatedDocs) {
         List<ProductVariantVectorDTO> productVariants = new ArrayList<>();
@@ -74,52 +101,53 @@ public class RagServiceImpl implements RagService {
         return  productVariants;
     }
 
+
     @Override
     public AIResponse answer2(String query) {
         String prompt = """
-            Bạn là LLM điều phối cho cửa hàng bán thiết bị điện tử.
-            Nhiệm vụ:
-            1. Xác định intent của truy vấn người dùng:
-               - product_search: tìm sản phẩm
-               - product_compare: so sánh sản phẩm
-               - product_replacement: gợi ý thay thế khi thiết bị gặp vấn đề
-               - out_of_scope: câu hỏi không liên quan đến sản phẩm của cửa hàng
-            2. Nếu intent là product_search/compare/replacement:
-               - Chọn đúng targetLLM từ danh sách:
-                   + searchProductLLM
-                   + compareProductLLM
-                   + recommendReplacementLLM
-               - Quyết định có cần viết lại query không:
-                   + Nếu query đã rõ ràng → giữ nguyên
-                   + Nếu query mơ hồ hoặc mô tả vấn đề → viết lại thành yêu cầu mua hàng rõ ràng
-            3. Nếu intent là out_of_scope:
-               - Chỉ trả về message từ chối lịch sự
-            4. Trả về JSON theo mẫu phù hợp
-            
-            Ví dụ:
-            User: "Laptop của tôi bị chậm"
-            Output: {
-              "intent": "product_replacement",
-              "targetLLM": "recommendReplacementLLM",
-              "newQuery": "Tìm laptop hiệu năng cao, RAM 16GB, SSD 512GB, giá dưới 25 triệu"
-            }
-            
-            User: "Tôi muốn mua bàn phím có giá từ 2 triệu"
-            Output: {
-              "intent": "product_search",
-              "targetLLM": "searchProductLLM",
-              "newQuery": "Tôi muốn mua bàn phím có giá từ 2 triệu"
-            }
-            
-            User: "Hiện doanh thu cửa hàng của bạn được không?"
-            Output: {
-              "intent": "out_of_scope",
-              "message": "Xin lỗi, tôi chỉ hỗ trợ tìm kiếm và tư vấn sản phẩm của cửa hàng."
-            }
-            
-            Truy vấn:
-            %s
-            """.formatted(query);
+                Bạn là LLM điều phối cho cửa hàng bán thiết bị điện tử.
+                Nhiệm vụ:
+                1. Xác định intent của truy vấn người dùng:
+                   - product_search: tìm sản phẩm
+                   - product_compare: so sánh sản phẩm
+                   - product_replacement: gợi ý thay thế khi thiết bị gặp vấn đề
+                   - out_of_scope: câu hỏi không liên quan đến sản phẩm của cửa hàng
+                2. Nếu intent là product_search/compare/replacement:
+                   - Chọn đúng targetLLM từ danh sách:
+                       + searchProductLLM
+                       + compareProductLLM
+                       + recommendReplacementLLM
+                   - Quyết định có cần viết lại query không:
+                       + Nếu query đã rõ ràng → giữ nguyên
+                       + Nếu query mơ hồ hoặc mô tả vấn đề → viết lại thành yêu cầu mua hàng rõ ràng
+                3. Nếu intent là out_of_scope:
+                   - Chỉ trả về message từ chối lịch sự
+                4. Trả về JSON theo mẫu phù hợp
+                
+                Ví dụ:
+                User: "Laptop của tôi bị chậm"
+                Output: {
+                  "intent": "product_replacement",
+                  "targetLLM": "recommendReplacementLLM",
+                  "newQuery": "Tìm laptop hiệu năng cao, RAM 16GB, SSD 512GB, giá dưới 25 triệu"
+                }
+                
+                User: "Tôi muốn mua bàn phím có giá từ 2 triệu"
+                Output: {
+                  "intent": "product_search",
+                  "targetLLM": "searchProductLLM",
+                  "newQuery": "Tôi muốn mua bàn phím có giá từ 2 triệu"
+                }
+                
+                User: "Hiện doanh thu cửa hàng của bạn được không?"
+                Output: {
+                  "intent": "out_of_scope",
+                  "message": "Xin lỗi, tôi chỉ hỗ trợ tìm kiếm và tư vấn sản phẩm của cửa hàng."
+                }
+                
+                Truy vấn:
+                %s
+                """.formatted(query);
         String response = chatClient.prompt(prompt)
                 .tools(chatToolService)
                 .call()
@@ -129,7 +157,7 @@ public class RagServiceImpl implements RagService {
 
 //    So sánh các tính năng sản phẩm giữa [Sản phẩm A] và [Sản phẩm B]
 // Tìm kiếm sản phẩm
-    // http://localhost:5173/detail
+// http://localhost:5173/detail
 
 
     //        String prompt = """

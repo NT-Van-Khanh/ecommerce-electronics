@@ -20,6 +20,15 @@ public class SpringAiConfig {
                 .build();
     }
 
+//         return  chatClientBuilder
+//                .defaultAdvisors(
+//                        PromptChatMemoryAdvisor.builder(chatMemory).build(),
+//                        new SimpleLoggerAdvisor())
+//                .build();
+
+
+
+
 //    @Bean
 //    public ChatClient chatClient(ChatClient.Builder chatClientBuilder,
 //                                 ChatMemory chatMemory){

@@ -22,20 +22,16 @@ public class FirebaseConfig {
     @PostConstruct
     public void initialize(){
         try{
-            InputStream serviceAccount = getClass().getClassLoader()
-                                                    .getResourceAsStream(firebaseCredentialsPath);
-            if (serviceAccount == null) {
+            InputStream serviceAccount = getClass().getClassLoader().getResourceAsStream(firebaseCredentialsPath);
+            if (serviceAccount == null)
                 throw new RuntimeException("Firebase service account key file not found in classpath");
-            }
+
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setStorageBucket(firebaseStorageBucketName)
                     .build();
 
-
-            if(FirebaseApp.getApps().isEmpty()){
-                FirebaseApp.initializeApp(options);
-            }
+            if(FirebaseApp.getApps().isEmpty())     FirebaseApp.initializeApp(options);
 
         } catch (IOException e) {
             throw new RuntimeException("Failed to initialize Firebase", e);

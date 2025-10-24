@@ -23,7 +23,7 @@ VALUES
 INSERT INTO brand(name, description, logo_url)
 VALUES 
 ('Anker', 'Thương hiệu phụ kiện công nghệ với sạc nhanh, cáp USB, loa bluetooth và pin dự phòng.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
-('Apple', 'Apple Inc. là một tập đoàn công nghệ đa quốc gia nổi tiếng với iPhone, MacBook và các sản phẩm công nghệ cao.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
+('Apple', 'Apple Inc. là một tập đoàn công nghệ đa quốc gia nổi tiếng với iPhone, MacBook và các sản phẩm công nghệ cao.', 'https://www.apple.com/favicon.ico'),
 ('Asus', 'Asus là thương hiệu Đài Loan chuyên về laptop, linh kiện máy tính và thiết bị chơi game.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Akko', 'Akko cung cấp các mẫu bàn phím cơ với thiết kế bắt mắt và giá cả hợp lý.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
 ('Corsair', 'Corsair cung cấp bàn phím cơ gaming chất lượng cao với phần mềm tùy chỉnh mạnh mẽ.', 'https://images.samsung.com/is/image/samsung/p6pim/appDown/Samsung_Shop_App_icon_Android.png'),
@@ -82,7 +82,13 @@ VALUES
 ('Dahua', 'Dahua là thương hiệu hàng đầu Trung Quốc trong lĩnh vực camera an ninh và giám sát, nổi bật với các giải pháp AI và IoT.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/Dahua_Technology_logo.svg'),
 ('HKC', 'HKC là thương hiệu đến từ Trung Quốc chuyên cung cấp màn hình máy tính, TV và thiết bị điện tử với mức giá cạnh tranh.', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/HKC_Logo.png'),
 ('Havit', 'Havit là thương hiệu thiết bị ngoại vi và phụ kiện máy tính đến từ Trung Quốc, nổi bật với các sản phẩm như tai nghe, bàn phím, chuột và loa với mức giá hợp lý.', 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Havit_Logo.png'),
-('SoundPEATS', 'SoundPEATS là thương hiệu âm thanh đến từ Trung Quốc, chuyên sản xuất tai nghe không dây true wireless, nổi bật với thiết kế hiện đại và chất lượng âm thanh cao trong tầm giá.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/SoundPEATS_logo.svg');
+('SoundPEATS', 'SoundPEATS là thương hiệu âm thanh đến từ Trung Quốc, chuyên sản xuất tai nghe không dây true wireless, nổi bật với thiết kế hiện đại và chất lượng âm thanh cao trong tầm giá.', 'https://upload.wikimedia.org/wikipedia/commons/7/76/SoundPEATS_logo.svg'),
+
+('Honor', 'Thương hiệu smartphone cao cấp, từng thuộc Huawei, tập trung vào AI và thiết kế hiện đại.', 'https://upload.wikimedia.org/wikipedia/commons/4/49/Honor_logo.png'),
+('Oppo', 'Thương hiệu điện thoại và phụ kiện, nổi tiếng với camera sáng tạo và thiết kế thời trang.', 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Oppo_logo.png'),
+('Vivo', 'Thương hiệu smartphone chuyên về camera và âm thanh, có mặt tại hơn 60 quốc gia.', 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Vivo_logo.png'),
+('TP-Link', 'Nhà cung cấp thiết bị mạng hàng đầu thế giới, nổi tiếng với router, Wi-Fi extender và thiết bị nhà thông minh.', 'https://upload.wikimedia.org/wikipedia/commons/1/16/TP-Link_logo.png'),
+('Tecno', 'Thương hiệu smartphone tập trung vào thị trường Châu Phi và Châu Á, giá cả phải chăng và nhiều tính năng.', 'https://upload.wikimedia.org/wikipedia/commons/9/95/Tecno_Mobile_logo.png');
 
 INSERT INTO supplier(name, email, phone, address, description)
 VALUES 
@@ -103,8 +109,10 @@ VALUES
  'Chi nhánh của tập đoàn LG tại Việt Nam, chuyên cung cấp thiết bị điện tử, gia dụng và linh kiện sản xuất.'),
 ('Công ty TNHH Samsung Electronics Việt Nam', 'vn_supplier@samsung.com', '0966778899',
  'Yên Phong, Bắc Ninh',
- 'Samsung Việt Nam chuyên sản xuất và cung cấp các thiết bị điện tử và linh kiện cho thị trường nội địa và xuất khẩu.');
-
+ 'Samsung Việt Nam chuyên sản xuất và cung cấp các thiết bị điện tử và linh kiện cho thị trường nội địa và xuất khẩu.'),
+('Công ty cổ phần thương mại - dịch vụ Phong Vũ', 'baogia@pv.vn', '0100068650',
+ 'Nguyễn Du, Phường Bến Thành, Thành Phố Hồ Chí Minh',
+ 'Phong Vũ cung cấp đầy đủ các sản phẩm máy tính, thiết bị công nghệ thông tin & hi-end cho người dùng gia đình.');
 --  INSERT INTO category(name, seo_name)
 -- VALUES 
 -- ('Điện thoại - Máy tính bảng', 'dien-thoai-may-tinh-bang'),

@@ -3,31 +3,54 @@ package com.ptithcm.ecommerce_electronics.controller;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.service.ai.ChatToolService;
-import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
+import com.ptithcm.ecommerce_electronics.service.ai.GenerateTextService;
 import com.ptithcm.ecommerce_electronics.service.ai.RagService;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.PositiveOrZero;
+import com.ptithcm.ecommerce_electronics.service.ai.TextGenerateToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("${api.v1.prefix}/ai/compare")
+@RequestMapping("${api.v1.prefix}/ai")
 public class AIController {
     @Autowired
-    private ChatToolService chatToolService;
+    private TextGenerateToolService textGenerateToolService;
 
     @Autowired
     private RagService ragService;
 
-
-    @GetMapping("/chat-ai")
-    private ResponseEntity<ApiResponse<AIResponse>> chatAi(@RequestParam String query){
+    @GetMapping("/chat")
+    private ResponseEntity<ApiResponse<AIResponse>> generateText(@RequestParam String query){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.answer(query)));
     }
+
+    @GetMapping("/chat-2")
+    private ResponseEntity<ApiResponse<String>> generateWithMultiAgent(@RequestParam String query){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.generate(query)));
+    }
+
+    @GetMapping("/chat/with-knowledge")
+    private ResponseEntity<ApiResponse<String>> generateFromKnowledge(@RequestParam String query){
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromKnowledge(query)));
+    }
+
+    @GetMapping("/chat/with-search")
+    private ResponseEntity<ApiResponse<String>> generateFromSearch(@RequestParam String query){
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromSearch(query)));
+    }
+
+
+    @GetMapping("/chat/with-rag")
+    private ResponseEntity<ApiResponse<AIResponse>> generateFromRAG(@RequestParam String query){
+        return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromRAG(query)));
+    }
+
+
+
+
+
+
 //    @GetMapping("/search")
 //    private ResponseEntity<ApiResponse<List<Document>>> search(@RequestParam String query){
 //        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, embeddingService.searchSimilar(query)));

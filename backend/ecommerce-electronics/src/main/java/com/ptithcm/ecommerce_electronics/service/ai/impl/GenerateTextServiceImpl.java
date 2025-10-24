@@ -1,41 +1,26 @@
 package com.ptithcm.ecommerce_electronics.service.ai.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
-import com.ptithcm.ecommerce_electronics.dto.ai.ComparisonResult;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
-import com.ptithcm.ecommerce_electronics.service.ai.ChatToolService;
+import com.ptithcm.ecommerce_electronics.service.ai.GenerateTextService;
 import com.ptithcm.ecommerce_electronics.service.ai.EmbeddingService;
-import com.ptithcm.ecommerce_electronics.service.ai.ProductToolService;
+import com.ptithcm.ecommerce_electronics.service.ai.ToolService;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
-import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class ChatToolServiceImpl implements ChatToolService {
+public class GenerateTextServiceImpl implements GenerateTextService {
     @Autowired
-    private ProductToolService productToolService;
+    private ToolService productToolService;
+
+
     @Autowired
     private EmbeddingService embeddingService;
     @Autowired
     private ChatClient chatClient;
-
-//    public ChatToolServiceImpl(ChatClient.Builder chatClientBuilder,
-//                               ChatMemory chatMemory) {
-//        this.chatClient = chatClientBuilder
-//                .defaultAdvisors(
-//                        PromptChatMemoryAdvisor.builder(chatMemory).build(),
-//                        new SimpleLoggerAdvisor())
-//                .build();
-//    }
 
     @Override
     public AIResponse answer(String query) {
@@ -63,11 +48,14 @@ public class ChatToolServiceImpl implements ChatToolService {
                 .content();
         return new AIResponse(response, relatedDocs);
     }
+}
 
-    @Override
-    public AIResponse compareProducts(String query) {
-        return null;
-    }
+
+
+//    @Override
+//    public AIResponse compareProducts(String query) {
+//        return null;
+//    }
 
 //    @Override
 //    @Tool(name = "compareProducts", description = "So sánh hai sản phẩm")
@@ -105,4 +93,4 @@ public class ChatToolServiceImpl implements ChatToolService {
 //        System.out.println("Response từ AI: " + response);
 //        return new ComparisonResult(response, Arrays.asList(p1, p2));
 //    }
-}
+

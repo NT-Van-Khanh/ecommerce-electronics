@@ -1,0 +1,46 @@
+SETUP OLLAMA WINDOW:
+1. Dowload: https://ollama.com/download (20s)
+
+
+2. Run file cài đặt (1p)
+
+
+3. Mở terminal, run ollama:(3p)
+	ollama run hf.co/nt-van-khanh/adapter-3-to-gguf:latest
+
+
+4. Run lệnh này để check IP public:
+	netstat -ano | findstr 11434
+
+
+5. Public IP (1s)
+	setx OLLAMA_HOST "0.0.0.0:11434"
+
+ollama serve
+6. Stop Ollama:
+	Get-Process -Id 8444
+	Stop-Process -Id 8444 -Force
+
+
+
+
+
+
+
+#LINUX:
+
+Download Ollama:
+curl -fsSL https://ollama.com/install.sh | sh
+
+Run ollama:
+ollama run hf.co/nt-van-khanh/adapter-3-to-gguf:latest
+
+SSH:
+ssh -L 11434:localhost:11434 root@<IP_MAY_AO>
+
+
+export OLLAMA_HOST=0.0.0.0:11434
+ollama serve
+
+Ollama url:
+http://<IP>:11434/api
