@@ -59,21 +59,22 @@ public class TextGenerateToolServiceImpl implements TextGenerateToolService {
     }
 
     @Override
-    @Tool(description = "Get general information, specifications, or reviews from external websites about a specific product")
+    //@Tool(description = " Get general information, specifications, or reviews from external websites about a specific product\"")
+    @Tool(description = "Get product information when the store doesn't have that product. Used when customers ask about a product but it is not available in store.")
     public String generateFromSearch(@ToolParam(description = "query") String query) {
         ConsLog.info("AI called generate with Search: " + query);
         String systemPrompt =
                 """
-                Bạn là chuyên gia trong lĩnh vực thiết bị điện tử.
+                Bạn là chuyên gia trong lĩnh vực thiết bị điện tử và công nghệ.
                 
                 ### Nhiệm vụ:
                 Khi khách hàng hỏi về sản phẩm điện tử, hãy sử dụng tool và thực hiện các bước sau:
-                1. Lấy tên và link sản phẩm từ wiki.
-                2. Chọn sản phẩm đúng nhất, lấy thông tin chi tiết từ link wiki của sản phẩm đó để phản hồi. Không hỏi ngược lại khách hàng.
+                    1. Lấy danh sách sản phẩm và liên kết liên quan tới sản phẩm đó từ wiki.
+                    2. Chọn sản phẩm đúng nhất và lấy thông tin chi tiết từ link đính kèm của sản phẩm đó để phản hồi. Không hỏi ngược lại khách hàng.
                
                 ### Lưu ý:
-                    - Không cung cấp cụ thể nguồn tìm kiếm cho khách hàng.
-                    - Phản hồi với thông tin rõ ràng và minh bạch.
+                    - Không cung cấp cụ thể nguồn tin mà chỉ ẩn dụ là thông tin tìm kiếm được.
+                    - Phản hồi đúng trọng tâm với thông tin rõ ràng và minh bạch.
                     - Chỉ phản hồi các thông tin trong lĩnh vực thiết bị điện tử.
                 """;
         SystemMessage systemMessage = new SystemMessage(systemPrompt);
@@ -92,7 +93,7 @@ public class TextGenerateToolServiceImpl implements TextGenerateToolService {
     @Override
 //    @Tool(name = "getProductInfoFromKnowledge",
 //            description = "Get product reviews analysis with base internal knowledge by query. No external data is fetched.")
-    @Tool(description = "Use when customers want to know reviews, analysis, or comments from users who have purchased at the store")
+    @Tool(description = "Use when customers want to know reviews, analysis, or comments from users who have purchased")
     public String generateFromKnowledge(@ToolParam(description = "query") String query) {
         ConsLog.info("AI called generate with Knowledge: " + query);
         OllamaResponse response = ollamaService.chatWithModel(query);
@@ -102,9 +103,9 @@ public class TextGenerateToolServiceImpl implements TextGenerateToolService {
 
     @Override
 //    @Tool(name = "getProductInfoFromRag",
-//            description = "Get product analysis with retrieval-augmented generation from products in store by query.")
-    @Tool(description = "Used when customers ask about a product for sale in store", returnDirect = true)
-    public AIResponse generateFromRAG(@ToolParam(description = "query") String query) {
+//            description = "Get product analysis with retrieval-augmented generation from products in store by query.", returnDirect = true)
+    @Tool(description = "Get product information in store.")// Used when customers ask about a product for sale in store
+    public String generateFromRAG(@ToolParam(description = "query") String query) {
         ConsLog.info("AI called generate with RAG: " + query);
         List<Document> relatedDocs = embeddingService.searchSimilar(query);
 
@@ -117,6 +118,7 @@ public class TextGenerateToolServiceImpl implements TextGenerateToolService {
                 Bạn là một chuyên gia trong lĩnh vực thiết bị điện tử.
                 Dựa trên ngữ cảnh được cung cấp, hãy phân tích và trả lời truy vấn của người dùng một cách chính xác và đầy đủ nhất.
                 ### Lưu ý:
+                    - Nếu sản phẩm trong câu truy vấn không liên quan tới ngữ cảnh, vui lòng trả lời rằng không có thông tin sản phẩm cần tìm nhưng có sản phẩm liên quan.
                     - Nếu có sản phẩm hãy chèn link chi tiết cho từng sản phẩm, sử dụng `productId` từ metadata.
                     - Định dạng link sản phẩm: [Xem chi tiết](http://localhost:5173/detail/{productId}).
                 
@@ -134,8 +136,8 @@ public class TextGenerateToolServiceImpl implements TextGenerateToolService {
         List<ProductVariantVectorDTO> productVariants = getProductFromMetaData(relatedDocs);
         ConsLog.info("LLM with RAG: " + response);
         AIResponse aiResponse = new AIResponse(response, productVariants);
-        ConsLog.info(aiResponse.toString());
-        return aiResponse;
+//        ConsLog.info(aiResponse.toString());
+        return aiResponse.toString();
     }
 
     private List<ProductVariantVectorDTO> getProductFromMetaData(List<Document> relatedDocs) {

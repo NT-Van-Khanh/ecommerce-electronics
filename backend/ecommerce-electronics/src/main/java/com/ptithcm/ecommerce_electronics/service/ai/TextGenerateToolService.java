@@ -6,5 +6,5 @@ public interface TextGenerateToolService {
     String generate(String query);
     String generateFromKnowledge(String query);
     String generateFromSearch(String query);
-    AIResponse generateFromRAG(String query);
+    String generateFromRAG(String query);
 }

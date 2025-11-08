@@ -42,14 +42,9 @@ public class AIController {
 
 
     @GetMapping("/chat/with-rag")
-    private ResponseEntity<ApiResponse<AIResponse>> generateFromRAG(@RequestParam String query){
+    private ResponseEntity<ApiResponse<String>> generateFromRAG(@RequestParam String query){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromRAG(query)));
     }
-
-
-
-
-
 
 //    @GetMapping("/search")
 //    private ResponseEntity<ApiResponse<List<Document>>> search(@RequestParam String query){

@@ -75,11 +75,13 @@ public class RagServiceImpl implements RagService {
         ConsLog.info(query);
         String systemPrompt =
                 """
-                Bạn là trợ lý ảo của cửa hàng bán thiết bị điện tử và hỗ trợ khách hàng khi mua hàng.
+                Bạn là trợ lý ảo của cửa hàng thiết bị điện tử công nghệ.
+                Nhiệm vụ của bạn là hỗ trợ khách hàng bằng cách tư vấn sản phẩm và khuyến khích khách hàng mua hàng.
+                
                 Lưu ý:
-                    - Trả lời lịch sự và khéo léo.
-                    - Nếu sản phẩm người dùng cần tìm không có trong cửa hàng, hãy tìm bên ngoài.
-                """;
+                    - Trả lời đầy đủ, đúng trọng tâm, lịch sự và khéo léo.
+                """;// Để phản hồi khác hàng, hãy lấy dữ liệu sản phẩm đang có trong cửa hàng trước. Nếu dữ liệu sản phẩm trả về là rỗng hoặc không phải của sản phẩm đó, hãy lấy dữ liệu sản phẩm từ nguồn bên ngoài cửa hàng được cung cấp qua tool.
+
         SystemMessage systemMessage = new SystemMessage(systemPrompt);
         UserMessage userMessage = new UserMessage(query);
         Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
@@ -88,7 +90,7 @@ public class RagServiceImpl implements RagService {
                 .tools(textGenerateToolService)
                 .call()
                 .content();
-        ConsLog.info("LLM with Search: " + response);
+        ConsLog.info("LLM response: " + response);
         return response;
     }
 
