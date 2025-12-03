@@ -3,9 +3,10 @@ package com.ptithcm.ecommerce_electronics.controller;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
-import com.ptithcm.ecommerce_electronics.service.ai.GenerateTextService;
+import com.ptithcm.ecommerce_electronics.dto.ai.Messages;
 import com.ptithcm.ecommerce_electronics.service.ai.RagService;
 import com.ptithcm.ecommerce_electronics.service.ai.TextGenerateToolService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,9 @@ public class AIController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.answer(query)));
     }
 
-    @GetMapping("/chat-2")
-    private ResponseEntity<ApiResponse<String>> generateWithMultiAgent(@RequestParam String query){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.generate(query)));
+    @PostMapping("/chat-2")
+    private ResponseEntity<ApiResponse<String>> generateWithMultiAgent(@RequestBody @Valid Messages messages){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.generate(messages.getQuery(), messages.getHistory())));
     }
 
     @GetMapping("/chat/with-knowledge")

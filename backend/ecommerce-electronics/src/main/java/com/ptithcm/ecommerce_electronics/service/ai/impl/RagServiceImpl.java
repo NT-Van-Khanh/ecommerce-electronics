@@ -1,6 +1,7 @@
 package com.ptithcm.ecommerce_electronics.service.ai.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.AIResponse;
+import com.ptithcm.ecommerce_electronics.dto.ai.ChatHistory;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantVectorDTO;
 import com.ptithcm.ecommerce_electronics.mapper.ProductVariantMapper;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
@@ -9,6 +10,8 @@ import com.ptithcm.ecommerce_electronics.service.core.ProductVariantService;
 import com.ptithcm.ecommerce_electronics.util.ConsLog;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.messages.AssistantMessage;
+import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -71,7 +74,7 @@ public class RagServiceImpl implements RagService {
     }
 
     @Override
-    public String generate(String query) {
+    public String generate(String query, List<ChatHistory> history) {
         ConsLog.info(query);
         String systemPrompt =
                 """
@@ -82,9 +85,18 @@ public class RagServiceImpl implements RagService {
                     - Trả lời đầy đủ, đúng trọng tâm, lịch sự và khéo léo.
                 """;// Để phản hồi khác hàng, hãy lấy dữ liệu sản phẩm đang có trong cửa hàng trước. Nếu dữ liệu sản phẩm trả về là rỗng hoặc không phải của sản phẩm đó, hãy lấy dữ liệu sản phẩm từ nguồn bên ngoài cửa hàng được cung cấp qua tool.
 
-        SystemMessage systemMessage = new SystemMessage(systemPrompt);
-        UserMessage userMessage = new UserMessage(query);
-        Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
+        List<Message> messages = new ArrayList<>();
+        messages.add(new SystemMessage(systemPrompt));
+        if(history != null )
+            for (ChatHistory h : history){
+                messages.add(UserMessage.builder().text(h.getUserMessage()).build());
+                messages.add(new AssistantMessage(h.getAssistantMessage()));
+            }
+
+        messages.add(new UserMessage(query));
+
+        Prompt prompt = new Prompt(messages);
+
         String response = chatClient.prompt(prompt)
                 .advisors(SimpleLoggerAdvisor.builder().build())
                 .tools(textGenerateToolService)
