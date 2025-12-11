@@ -10,4 +10,6 @@ public interface RagService {
     AIResponse answer(String query);
     AIResponse answer2(String query);
     String generate(String query, List<ChatHistory> history);
+
+    String compare(List<Integer> productId, String query);
 }

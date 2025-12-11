@@ -5,7 +5,7 @@ VALUES ('Máy tính bảng Xiaomi Redmi Pad 2 (6GB/128GB) - Tím', 'may-tinh-ban
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/kvzJYO3RrBdcPwrWMg_632N1XZOv2zY_lnU-L-WLca70VlgaImet8A8arYGF4R8X6tG97hybldaQjuWbTWwOBjAri1ANzaBmMw');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (882, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (882, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -14,7 +14,7 @@ VALUES ('Máy tính bảng Xiaomi Pad 7 (8GB/128GB) - Xám', 'may-tinh-bang-xiao
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/ULLucwQi2cTVDDK4SCpS74Hxwl5QgWtfuoUCfUt_jJ5IVUHjPeVxjVRS0dv--hZpyFz_fOBKZvqt8WFxIHclDbpVku-2u1U');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (883, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (883, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -23,7 +23,7 @@ VALUES ('iPad Gen 11 (A16 ) 11 inch 256GB', 'ipad-gen11-11-inch-256gb-wifi--p757
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/TZ_e_UEKKG_D5UYZU1FCo_Sxg-3AUCngOJ-NM3nJbeyWwVZrjM76q_P-Vx4GqzWlU5kLp-RnPvq8KsBKIoFhIxgRSE2FZhR9');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (884, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (884, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -85,7 +85,7 @@ iPad Pro M4 11 inch vượt trội so với iPad Pro M3 về hiệu năng, công
 iPad Pro M4 11 inch 256GB Wifi là máy tính bảng dẫn đầu phân khúc cao cấp với chip Apple M4 mạnh mẽ, màn hình Tandem OLED rực rỡ và thiết kế siêu mỏng. Thời lượng pin 10 giờ và hỗ trợ phụ kiện chuyên nghiệp giúp thiết bị đáp ứng mọi nhu cầu. Đây là lựa chọn lý tưởng cho nhà thiết kế, biên tập video, lập trình viên và sinh viên kỹ thuật.',
     1, 'https://lh3.googleusercontent.com/IvxBY2gtAicss6q2JgwL_5e8t7w2ml2Uhm0w8hya39-ZXMo2deDmE1UsnAJJyzeYKSuYfbEFsyohIqk86YTSibyH6MN0LU4');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (885, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (885, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -94,7 +94,7 @@ VALUES ('Máy tính bảng Lenovo Tab M11 (4GB/64GB) (Luna Grey)', 'may-tinh-ban
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/ZwpJFTiYHPSClrvzxbzGHylhQeGBuXTrXTDmnNBSjnRAKyNCr-huIv4AoYfQoOwNfqPXyhUMvqvHpMoHeGl1k1UJ8VO0lxE');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (886, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (886, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -103,7 +103,7 @@ VALUES ('Máy tính bảng Samsung Galaxy S10 Ultra Wifi (12GB/256GB)', 'may-tin
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/jEnp_iuKEY4ms72rybwLBKFQUgDNov5swSYwqJvknhGCNGxw2nKeu9fGQjElr1TldemfBeacHt9ydhFwGskinyi7gQXnLM0');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (887, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (887, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -158,7 +158,7 @@ Với viên pin Li-Ion 5078 mAh, iPad Mini Wifi 7 256GB + Cellular cung cấp th
 Với Wi-Fi 6 mạnh mẽ và Bluetooth 5.3 ổn định, iPad Mini giúp bạn luôn kết nối. Sự kết hợp hoàn hảo với Apple Pencil thế hệ 2 và Magic Keyboard biến iPad Mini thành một công cụ làm việc và sáng tạo không thể thiếu.',
     1, 'https://lh3.googleusercontent.com/Ke5TgZYgKgpu4q1SukNsHWLpyU2mRdmwsFmmBxj-J-4UwBDuDuAcpMQaZyizazxYJECVjg9MgrvyVuI3CCQ6oYtEArJAnzA');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (888, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (888, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -215,7 +215,7 @@ Ngoài ra, iPad Mini 7 còn hỗ trợ kết nối **Wi-Fi 6E (802.11ax)** với
 Không chỉ dừng lại ở đó, iPad Mini 7 còn hỗ trợ **Bluetooth 5.3,** giúp kết nối nhanh chóng với các thiết bị như tai nghe không dây, bàn phím và chuột. Tính năng này mang lại sự tiện lợi tối đa cho người dùng, giúp họ dễ dàng kết nối và sử dụng các thiết bị ngoại vi mà không cần lo lắng về độ trễ.',
     1, 'https://lh3.googleusercontent.com/442cia0iLH9ykG2yhUiLQELYKLJU2HG_nbAWsnq9uXjzsHfZArMgJNEd1AsJA_Zz5i9lqN9NIZn0mocpD8Z8W3Y-FaOWvTE8');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (889, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (889, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -246,7 +246,7 @@ iPad Pro M4 13 inch Wifi 512GB được trang bị viên pin Li-Po dung lượng
 iPad Pro M4 13 inch Wifi 512GB được trang bị hệ thống camera kép với camera sau 12MP và camera trước 12MP, mang đến cho bạn những bức ảnh và video sắc nét, sống động. Camera sau cho phép bạn chụp ảnh và quay phim với độ phân giải cao, bắt trọn mọi khoảnh khắc đẹp trong cuộc sống. Camera trước hỗ trợ chụp ảnh selfie, gọi điện video rõ ràng, cùng nhiều tính năng hỗ trợ làm đẹp tiên tiến.',
     1, 'https://lh3.googleusercontent.com/IOSX2IeT7wQ5UxhKpM9lQxqsWZOZKknzCd4mjKDlnddAE9wvFVBGsWVhmiyA1PDjkDBnkcJp2KVlOvoDBlpaiq-dR_z-vEK1Ww');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (890, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (890, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -255,7 +255,7 @@ VALUES ('Máy tính bảng Lenovo Tab M9 3GB/32GB (Frost Blue)', 'may-tinh-bang-
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/p6Dt6ZR8HAS0SS_IROmktmWErpU7an_rH1hWU5skO3ab4iTGo2ujh0XBWGLR0ouu0rpZwqYB7x_u26UbaH9tzAN5Yd_cKlc');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (891, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (891, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -288,7 +288,7 @@ iPad Gen 10 là một máy tính bảng tuyệt vời cho những ai đang tìm 
 Máy tính bảng Apple iPad Gen 10 - 10.9 inch Wifi 64GB là một lựa chọn tuyệt vời cho những ai đang tìm kiếm một chiếc máy tính bảng mạnh mẽ, linh hoạt và giá cả phải chăng.',
     1, 'https://lh3.googleusercontent.com/hnfciYEPFHGynTtuo1IEHv6AlnhHEW6cI4CYRmsm4IAM12-vXKIVbFtNLJYOfx-BttqxfmmrrTaNfPgrUf4mzlvhGvGMA6vQ');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (892, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (892, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -297,7 +297,7 @@ VALUES ('Máy tính bảng Honor Pad X9 (4+128GB) - Xám', 'may-tinh-bang-honor-
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/eKX-FCkU5NQKjTD0HA0f0CG0WUgemCGzYhBHmmB-KcIkxF2s6Tu6Dts-65bM-iq9l6hmZxPbjQOiuyEzDhcwn9Y-Meg0FU-V');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (893, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (893, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -306,7 +306,7 @@ VALUES ('Máy tính bảng Lenovo Tab M9 (4GB/64GB) (Xám)', 'may-tinh-bang-leno
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/SZkq2B21JwhP-2x_F7tLYF_rEXtjBDVdd5he2LstwBZfR5Ba3D4bdhS1YgSWNrFVSyuT4_20gOJSDp5DwCXdb8ki9mrS9Uru9A');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (894, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (894, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -315,7 +315,7 @@ VALUES ('Máy Tính Bảng Lenovo Tab M11 (8GB/128GB) (Xám)', 'may-tinh-bang-le
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/cUXtwqvVjYQdk3UTERQ1dln9SZTt9L8Of9uWpVwiGCjOP9w4bh66qn9ayNd396fIk1rjp4hKD-8gWEvfEFEgLC_KDPixlKli');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (895, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (895, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -324,7 +324,7 @@ VALUES ('Máy tính bảng Lenovo Tab M10 Gen 3 (3GB/32GB)', 'may-tinh-bang-leno
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/H4WgtaHps47eIKr-p0x5EDnpcV2Mpr4RL_R68QLaL62t8XnvcnvKLBqzQ1xMaiG1UWJGhSVQEMkqhrF-fLLDB2QuQO31VSBM');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (896, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (896, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -333,7 +333,7 @@ VALUES ('Máy tính bảng Samsung Galaxy Tab A9+ Wifi 4GB/64GB (Graphite)', 'ma
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/SjC4A3iTgqVRw86-LlaXNSOm72g-Um_0zEK0ILafReg8HvRsMDP2tP0mPmi45PiCATF1LFMm4T8Ye0GkAJbPvb6SY3MQgBL5');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (897, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (897, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -378,7 +378,7 @@ iPad Pro 12.9 inch 2022 M2 Wifi 256GB có dung lượng pin 40.88 Wh, cho thời
 Là sự kết hợp giữa thiết kế đẳng cấp và hiệu suất mạnh mẽ, iPad Pro 12.9 inch 2022 M2 Wifi 256GB chính là một công cụ sáng tạo đa năng, đồng hành đắc lực cho mọi người trong công việc và giải trí hàng ngày.',
     1, 'https://lh3.googleusercontent.com/oHOjjQm-OjPX-gg-QvzK2GCyYk7NrkhjaNmT5sKKeobhrmir5MzYR6ginRI9r3qdTkmDvSULilJ2b4XbsApC5Kbe7l_-yptLZg');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (898, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (898, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -415,7 +415,7 @@ iPad Gen 10 hỗ trợ Wi-Fi 6 (802.11ax) với 2x2 MIMO, giúp tăng tốc đ�
 Với pin Li-Po 7587 mAh và công nghệ sạc pin nhanh, iPad Gen 10 đảm bảo sử dụng liên tục mà không cần lo lắng về việc sạc pin thường xuyên. Tiết kiệm pin cùng GPS/GNSS và Bluetooth 5.2 giúp tối ưu hóa thời lượng pin.',
     1, 'https://lh3.googleusercontent.com/tKLkl1Hh5KoGhLJD009oki6uUi-DEa0uZFDMxZh7vKyqkws1UBE4PEMst9FDUEnCBEBvCWuTM8wMj798bs_pjeEUWDNPLok');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (899, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (899, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -442,7 +442,7 @@ Camera sau 12MP và 10MP cho khả năng chụp ảnh, quay video chất lượn
 Viên pin Li-Po ~ 10.835 mAh đảm bảo thời gian sử dụng lâu dài và không gián đoạn.',
     1, 'https://lh3.googleusercontent.com/Rhs6SnU48-nilXU024rEfpoDv23SJsnnlAKJab5xTnxMZZUcSE-ebF_K_fjecmbZMIrWFXYxq4Qtbm0KrxhsNvXU6vWkr1Lh');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (900, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (900, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -451,7 +451,7 @@ VALUES ('Máy tính bảng Lenovo Tab M10 (Gen 3) (4GB/64GB)', 'may-tinh-bang-le
     '<p>Đang cập nhật</p>',
     1, 'https://lh3.googleusercontent.com/MlhJJUyS1O1SOAk4MCMhWvjPRjOhjXPMot0VRfoUddZ5f06h8bUNW8IPw5Fy8OafCYJUj_LsHCjsbgTlnKy2EydoOidxfREt');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (901, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (901, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -460,7 +460,7 @@ VALUES ('Máy tính bảng Samsung Galaxy Tab S8 Ultra (Xám)', 'may-tinh-bang-s
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/4DlqkRniA1UdvsWEKfiYGHF85wnsO5AvFvV6fd6RRXvrkEuqrPsm7zzRDLQ6ahrB6hN_ZNWo9W8dl3qn1jk9T_oShjF3fgKi');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (902, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (902, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -469,7 +469,7 @@ VALUES ('Máy tính bảng Samsung Galaxy Tab S7 FE LTE 4GB/64GB (Hồng)', 'may
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/ltDXEqOm5fnzgB9nwDSpL2hUz-wlnN0jQohDMCXkojgacb0YvR7Nqw-Z2KhDoWQNNeC9UqgM-6GE8qQGKgA87u5d9YG0YgCM');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (903, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (903, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -500,7 +500,7 @@ Bên cạnh đó, máy tính bảng Lenovo Yoga được nhà sản xuất trang
 Máy tính bảng Lenovo Yoga Tab 11 hứa hẹn sẽ đem đến trải nghiệm tuyệt vời, với thiết kế sang trọng cùng hiệu năng mạnh mẽ ổn định giúp phù hợp với dải nhu cầu rộng của khách hàng.',
     1, 'https://lh3.googleusercontent.com/pVBnZWPUcgkeGhctDgI779fJnhG54NA7bsO5LQJqgTP6qLh2nvjfEkNNN2bzUvSb-s0UBoJvmbAgMqpYS3OSeP1A-RZFJpDJjA');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (904, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (904, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -545,7 +545,7 @@ Hệ điều hành iPadOS được thiết kế thân thiện và theo tính lin
 Apple iPad Air 5 (2022) 10.9 inch Wifi + Cellular 256GB (MMED3ZA/A) (Purple) là sự kết hợp hoàn hảo giữa thiết kế sang trọng cùng hiệu năng đỉnh cao, mang đến cho bạn trải nghiệm giải trí tối ưu.',
     1, 'https://lh3.googleusercontent.com/YPDNitWqRUjefX8qnhC_-QGDx4WSVqrlbkGv0so7rQtAXUgHnXXjpX3PfaOKYqc10qvCWO9oDpeTYkKx6w6iD08y1KVKcZvr');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (905, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (905, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -576,7 +576,7 @@ Lenovo Tab P11 Plus trang bị viên pin 7500 mAh (Min) / 7700 mAh (Typ) cho th�
 Máy tính bảng Lenovo Tab P11 Plus hứa hẹn làm hài lòng với nhu cầu sử dụng giải trí, công việc hay chơi game trong mức giá.',
     1, 'https://lh3.googleusercontent.com/a_7oyLNSET5IbDHwdNLnjKyBRFNn_VdcFaCte1MOBCuuIs3H1PVpELM0SAOT8WBxS6ajrC6BTjwmWXTZqRhZBT-7I5fk-ZhX');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (906, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (906, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -601,7 +601,7 @@ Trải nghiệm âm thanh sống động cực đã trên Galaxy Tab A8 nhờ v�
 Ngoài ra, máy tính bảng Galaxy Tab A8 còn được trang bị dung lượng pin 7,040mAh, cho người dùng thời gian sử dụng lâu dài. Đồng thời, công nghệ sạc nhanh 15W sẽ hỗ trợ sạc đầy nhanh chóng để có thể tiếp tục sử dụng lại.',
     1, 'https://lh3.googleusercontent.com/mL7rqStFFUt2yZXDt1nIQIpZoHtqWQlaKBUPrNuPcRXj1-yokrJ7kdWFT2dzQQpfDgvR57bpwD3CviPFYNj3geoX_CHMZmFf2w');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (907, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (907, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -638,7 +638,7 @@ Người dùng có thể kết nối internet dễ dàng nhờ vào Wifi 802.11a
 Ngoài ra, pin Lithium‑polymer tích hợp trên iPad Mini 6 cho thời gian sử dụng khá lâu. Cổng sạc USB Type-C tiện ích sạc đầy pin nhanh chóng để người dùng có thể tiếp tục công việc.',
     1, 'https://lh3.googleusercontent.com/o7D6rGNmLFoDV7dsccuDtehcSyZoK2AEcVoumF2WYOWs4Iy_HWdEEnUHTJXvD3UpJBk5u3BHFXpQbTYodhdkSWkm_LaUaYkz');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (908, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (908, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -663,7 +663,7 @@ Ngoài hai camera 8MP và 2MP, chiếc máy tính bảng Samsung còn được h
 Samsung Galaxy Tab A7 Lite 32GB là dòng tablet ở phân khúc giá rẻ, phù hợp với nhiều người dùng.',
     1, 'https://lh3.googleusercontent.com/fmgizJSKVgtfVek0i78yDAtKxp1fgTMWXYG8aR1E--8S6-sgeNQq_qRKa3mcoOcNYGMwS2JJpk0FCM_FXWlY92rXzqORhBi7jA');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (909, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (909, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -684,7 +684,7 @@ Máy tính bảng Apple iPad Pro (2021) 12.9inch Wifi + Cellular 128GB (MHR53ZA/
 Chiếc iPad cao cấp với chip Apple M1 cùng RAM 8GB, cho phép bạn có thể thoải mái chơi game, xem phim,.. với tốc độ mượt mà, không lo giật lag nhờ vào hiệu năng mạnh mẽ.',
     1, 'https://lh3.googleusercontent.com/7qOONhdqXn6SfIz5g-PGU0A9noND2-03R7G7LdiGRrkjBnZJQl9iDecGFHxsliOYvCH0ZIt8zfsN50Huv7BJuaMtlhUiVL_X');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (910, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (910, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -693,7 +693,7 @@ VALUES ('Máy tính bảng Apple iPad Mini 8.3" Gen 6th Wifi 64GB (MK7M3ZA/A) (X
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/wsD_DmwbGo2AVbsNhWLKlfwAj93kxfVyc8iNXZVAezyYsgr0hFjYuveMnSU8J2XERHxtJP3OGFZ9zeRdxo59Tx7A-UkmKlbc');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (911, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (911, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -702,7 +702,7 @@ VALUES ('Máy tính bảng/Tablet Lenovo Tab M10 - FHD Plus 4GB/64GB TB-X606X (Z
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/Vkcbn4T8UUK2bVb7-d_OmP1McO2h6Vi1jeOKFvbJ1LDBq4hY8LQPq9wn-lqd-tZCGt1RQ4L0RrgBfArnjT6OXcdsBz0cR0Vc');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (912, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (912, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -711,7 +711,7 @@ VALUES ('Máy tính bảng Honor Pad X7 Wifi (4GB/ 64GB) - Xám', 'may-tinh-bang
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/4AIuxi5oGi3Avo44u8U_XEKZQ66VVZWzHSVQPPuACUH_S1FV6A6UlJT2uh26QU4pMZVKeRNQwaE2GhWUi1pTVx7h5AFg2jiK');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (913, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (913, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -720,7 +720,7 @@ VALUES ('Máy tính bảng Lenovo Idea Tab Wifi 11 inch 4GB/128Gb (Xám)', 'may-
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/KzPqIwtpPtQS-VTIBbqBWUt9c7pKkIDf_D8c5tCyUfU-vxFKRqILU7gsFPwksWS2i85-8ioh6591T6OTuztnZFSQv5pnPMk');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (914, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (914, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -729,7 +729,7 @@ VALUES ('Máy tính bảng Lenovo Idea Tab Pro Wifi 12.7 inch 8GB/ 256Gb (Xám)'
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/fADKeBGbyU7rcGmqzZsY7jK70dEQ-dyU90Lr8S3CUdRYuMIr_VANxMFvNnQkaEzp_OO4dA78tLjccHbjJjJB_ZVzrjR849Do');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (915, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (915, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -738,7 +738,7 @@ VALUES ('Máy tính bảng Lenovo Idea Tab 5G 11 inch 8GB/256Gb (Xám)', 'may-ti
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/I6et-rBioZVEEmW4naL5kU_-6QDEu6aBa9wLItIJdgLyztI5ZGvGNy1UOEBB3a9GoUjjlAQ_rSqSQGce7Mn-K9KfYRj86N4W');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (916, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (916, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -747,7 +747,7 @@ VALUES ('Máy tính bảng Samsung Galaxy Tab S10 FE + Wifi (12GB/256GB) (Blue)'
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/pMU1-BHmbeTYH8ePgNvcXxhjqdsCMh2QcxMWD8s4uOOuU0cCiacRTZrVt9SL16P5g8NlmkNYhm7Vg--qcHZEBxniX-5iGY8I');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (917, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (917, '2');
 
 
 INSERT INTO product (name, seo_name, brand_id, specifications, description, created_by, image_url)
@@ -756,7 +756,7 @@ VALUES ('Máy tính bảng Samsung Galaxy Tab S10 FE Wifi (8GB/128GB) (Blue)', '
     'Đang cập nhật',
     1, 'https://lh3.googleusercontent.com/tTZV2SZJmMmHAQt32eQIZb_jRFIdYfu-GUZ_2VMooBA7tB5VTcv5z4vkdwAIjkc_B_ybqrraA_Y2zpqRhOAbWsQ7zGBcRtk');
 
-INSERT INTO product_category (product_id, category_id) VALUES  (918, '1');
+INSERT INTO product_category (product_id, category_id) VALUES  (918, '2');
 
 
 INSERT INTO product_variant (product_id, name, seo_name, supplier_id, price, price_sale, quantity, sku, model, barcode, 

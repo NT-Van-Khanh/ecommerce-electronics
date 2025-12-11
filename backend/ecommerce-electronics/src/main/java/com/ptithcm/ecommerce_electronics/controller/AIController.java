@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("${api.v1.prefix}/ai")
 public class AIController {
@@ -21,23 +23,28 @@ public class AIController {
     @Autowired
     private RagService ragService;
 
+    @GetMapping("compare")
+    ResponseEntity<ApiResponse<String>> compareProduct(@RequestParam List<Integer> productId,@RequestParam String query){
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, ragService.compare(productId, query)));
+    }
+
     @GetMapping("/chat")
-    private ResponseEntity<ApiResponse<AIResponse>> generateText(@RequestParam String query){
+    ResponseEntity<ApiResponse<AIResponse>> generateText(@RequestParam String query){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.answer(query)));
     }
 
     @PostMapping("/chat-2")
-    private ResponseEntity<ApiResponse<String>> generateWithMultiAgent(@RequestBody @Valid Messages messages){
+    ResponseEntity<ApiResponse<String>> generateWithMultiAgent(@RequestBody @Valid Messages messages){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK,ragService.generate(messages.getQuery(), messages.getHistory())));
     }
 
     @GetMapping("/chat/with-knowledge")
-    private ResponseEntity<ApiResponse<String>> generateFromKnowledge(@RequestParam String query){
+    ResponseEntity<ApiResponse<String>> generateFromKnowledge(@RequestParam String query){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromKnowledge(query)));
     }
 
     @GetMapping("/chat/with-search")
-    private ResponseEntity<ApiResponse<String>> generateFromSearch(@RequestParam String query){
+    ResponseEntity<ApiResponse<String>> generateFromSearch(@RequestParam String query){
         return  ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, textGenerateToolService.generateFromSearch(query)));
     }
 

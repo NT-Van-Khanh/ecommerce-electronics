@@ -108,7 +108,7 @@ CREATE TABLE product_variant(
 	model VARCHAR(255) NOT NULL,--classify product by model and color
 	inventory_policy VARCHAR(15) NOT NULL DEFAULT 'DENY',
 	
-	specifications JSONB, -- SPECIFACTION IN JSON (becaue the specifications are different for each device)
+	specifications JSONB, -- SPECIFACTION IN JSON (specifications are different for each device)
 	description TEXT,
 	warranty INTEGER,
 	barcode VARCHAR(100)UNIQUE,
@@ -265,7 +265,7 @@ CREATE TABLE product_review(
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status VARCHAR(15) NOT NULL DEFAULT 'ACTIVE',
 
-	CHECK (status IN ('PENDING', 'ACTIVE', 'DELETED')),
+	CHECK (status IN ('INACTIVE', 'ACTIVE', 'DELETED')),
 	CONSTRAINT FK_pv_product FOREIGN KEY (product_id) REFERENCES product(id),
 	CONSTRAINT FK_pv_customer FOREIGN KEY (customer_id) REFERENCES customer(id)
 );

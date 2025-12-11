@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class RagServiceImpl implements RagService {
     @Autowired
@@ -107,6 +108,38 @@ public class RagServiceImpl implements RagService {
                 .content();
         ConsLog.info("LLM response: " + response);
         return response;
+    }
+
+    @Override
+    public String compare(List<Integer> productId, String query) {
+        ConsLog.info(query);
+        ConsLog.info(productId.toString());
+        String productInfo = String.join("\n\n",getProduct(productId));
+        String prompt = """
+            Bạn là chuyên gia tư vấn sản phẩm.
+            Vui lòng so sánh các sản phẩm dưới đây và đưa ra gợi ý phù hợp với nhu cầu khách hàng.
+            ### Nhu cầu khách hàng:
+            %s
+
+            ### Danh sách sản phẩm:
+            %s
+
+            Hãy trả lời lịch sự, rõ ràng, dễ hiểu.
+            """.formatted(query, productInfo);
+        String response = chatClient.prompt(prompt)
+                .advisors(SimpleLoggerAdvisor.builder().build())
+                .call()
+                .content();
+        ConsLog.info("LLM response: " + response);
+        return response;
+    }
+
+    private List<String> getProduct(List<Integer> productIds) {
+        List<String> products = new ArrayList<>();
+        for ( Integer id : productIds){
+            products.add(productVariantService.getAvailableByProductId(String.valueOf(id)).toString());
+        }
+        return products;
     }
 
     private List<ProductVariantVectorDTO> getProductFromMetaData(List<Document> relatedDocs) {
