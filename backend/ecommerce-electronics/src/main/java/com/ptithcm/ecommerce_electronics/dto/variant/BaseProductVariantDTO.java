@@ -1,7 +1,7 @@
 package com.ptithcm.ecommerce_electronics.dto.variant;
 
 import com.ptithcm.ecommerce_electronics.dto.option.BaseVariantOptionDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.InventoryPolicy;
 import lombok.AllArgsConstructor;

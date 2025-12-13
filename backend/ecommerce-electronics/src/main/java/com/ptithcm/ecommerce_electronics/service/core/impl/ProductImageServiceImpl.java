@@ -2,8 +2,8 @@ package com.ptithcm.ecommerce_electronics.service.core.impl;
 
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ProductImageDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ImageRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.exception.ResourceNotFoundException;
 import com.ptithcm.ecommerce_electronics.mapper.ProductImageMapper;
@@ -41,13 +41,13 @@ public class ProductImageServiceImpl implements ProductImageService {
 //    }
 
     @Override
-    public ProductImageDTO add(ProductImageRequestDTO request) {
+    public ProductImageDTO add(ImageRequestDTO request) {
         ProductImage productImage = ProductImageMapper.toEntity(request);
         return ProductImageMapper.toDTO(productImageRepository.save(productImage));
     }
 
     @Override
-    public ProductImageDTO update(Integer id, ProductImageRequestDTO request) {
+    public ProductImageDTO update(Integer id, ImageRequestDTO request) {
         if(!productImageRepository.existsById(id)){
             throw  new ResourceNotFoundException("Product image not found with id = " + id);
         }

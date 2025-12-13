@@ -1,5 +1,6 @@
 package com.ptithcm.ecommerce_electronics.mapper;
 
+import com.ptithcm.ecommerce_electronics.dto.category.CategoryDTO;
 import com.ptithcm.ecommerce_electronics.dto.option.ProductOptionDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.BaseProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.product.ProductCreateDTO;
@@ -7,7 +8,10 @@ import com.ptithcm.ecommerce_electronics.dto.product.ProductDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.BaseProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.Product;
+import com.ptithcm.ecommerce_electronics.model.ProductCategory;
+import com.ptithcm.ecommerce_electronics.util.ConsLog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductMapper {
@@ -31,19 +35,22 @@ public class ProductMapper {
                 .build();
     }
 
-
-    public static ProductDTO toDTO(Product product) {
+    public static ProductDTO toPublicDTO(Product product) {
         if(product == null ) return null;
         List<BaseProductVariantDTO> productVariants = null;
-        if(product.getProductVariants() !=null){
-            productVariants = product.getProductVariants()
-                    .stream().map(ProductVariantMapper::toBaseDTO)
-                    .toList();
-        }
+        if(product.getProductVariants() !=null)
+            productVariants = product.getProductVariants().stream().map(ProductVariantMapper::toBaseDTO).toList();
+
         List<ProductOptionDTO> options = null;
-        if(product.getOptions() != null){
+        if(product.getOptions() != null)
             options = product.getOptions().stream().map(ProductOptionMapper::toDTO).toList();
-        }
+
+        List<CategoryDTO> categories = new ArrayList<>();
+        if ( product.getProductCategories() != null)
+            for(ProductCategory productCategory : product.getProductCategories())
+                categories.add(CategoryMapper.toBaseDTO(productCategory.getCategory()));
+
+        ConsLog.info(categories.toString());
         return ProductDTO.builder()
                 .id(product.getId())
                 .name(product.getName())
@@ -55,17 +62,25 @@ public class ProductMapper {
                 .description(product.getDescription())
                 .imageUrl(product.getImageUrl())
                 .createdAt(product.getCreatedAt())
-                .createdBy(EmployeeMapper.toPublicDTO(product.getCreatedBy()))
                 .updatedAt(product.getUpdatedAt())
+                .categories(categories)
                 .build();
     }
+
+    public static ProductDTO toDTO(Product product) {
+        ProductDTO productDTO = toPublicDTO(product);
+        productDTO.setCreatedBy(EmployeeMapper.toPublicDTO(product.getCreatedBy()));
+        productDTO.setUpdatedBy(EmployeeMapper.toPublicDTO(product.getCreatedBy()));
+        return productDTO;
+    }
+
 
     public static Product toEntity(ProductCreateDTO request) {
         if(request == null ) return null;
 
 //        List<ProductOption> options = request.getOptionIds() == null? null:
 //                request.getOptionIds().stream().map(ProductOptionMapper::toEntity).toList();
-        return Product.builder()
+        return Product.builder()//brand attribute is set at the func
                 .name(request.getName())
                 .seoName(request.getSeoName())
                 .status(BaseStatus.valueOf(request.getStatus()))
@@ -76,36 +91,4 @@ public class ProductMapper {
                 .build();
     }
 
-//    public static Product toEntity(ProductCreateDTO request) {
-//        if(request == null ) return null;
-//        List<ProductOption> productVariant = request.getOptionIds()
-//                .stream().map(ProductOptionMapper::toEntity).toList();
-//        return Product.builder()
-//                .name(request.getName())
-//                .seoName(request.getSeoName())
-//                .brand(Brand.builder().id(request.getBrandId()).build())
-//                .status(BaseStatus.valueOf(request.getStatus()))
-//                .description(request.getDescription())
-//                .specifications(request.getSpecifications())
-//                .productVariants(productVariant)
-//                .imageUrl(request.getImageUrl())
-//                .status(BaseStatus.valueOf(request.getStatus()))
-//                .build();
-//    }
-//    public static Product toEntity(ProductCreateDTO request) {
-//        if(request == null ) return null;
-//        List<ProductVariant> productVariant = request.getProductVariants()
-//                .stream().map(ProductVariantMapper::toEntity).toList();
-//        return Product.builder()
-//                .name(request.getName())
-//                .seoName(request.getSeoName())
-//                .brand(Brand.builder().id(request.getBrandId()).build())
-//                .status(BaseStatus.valueOf(request.getStatus()))
-//                .description(request.getDescription())
-//                .specifications(request.getSpecifications())
-//                .productVariants(productVariant)
-//                .imageUrl(request.getImageUrl())
-//                .status(BaseStatus.valueOf(request.getStatus()))
-//                .build();
-//    }
 }

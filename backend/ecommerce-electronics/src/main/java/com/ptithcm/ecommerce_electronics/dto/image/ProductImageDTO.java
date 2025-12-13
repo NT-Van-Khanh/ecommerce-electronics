@@ -1,4 +1,4 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.image;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;

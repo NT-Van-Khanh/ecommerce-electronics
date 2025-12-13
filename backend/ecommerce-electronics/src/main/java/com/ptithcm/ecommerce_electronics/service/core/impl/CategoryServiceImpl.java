@@ -22,19 +22,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-//    @Override
-//    public List<CategoryDTO> getAllActiveCategories() {
-//        List<Category> categories =  categoryRepository.findByStatus(BaseStatus.ACTIVE);
-//        return categories.stream()
-//                .map(CategoryMapper::toDTO)
-//                .toList();
-//    }
-//
     @Override
-    public PageResponse<CategoryDTO> getNonChildCategories(PaginationRequest pageRequest) {
+    public PageResponse<CategoryDTO> getCategories(PaginationRequest pageRequest) {
         Pageable pageable = pageRequest.toPageable();
-        Page<Category> page = categoryRepository.findAllNonChildCategories(pageRequest.getKeyword(), pageable);
-        return new PageResponse<>(page.map(CategoryMapper::toDTO));
+        Page<Category> page = categoryRepository.findAllParentCategories(pageRequest.getKeyword(), pageable);
+        return new PageResponse<>(page.map(CategoryMapper::toParentDTO));
     }
 
     @Override
@@ -44,33 +36,12 @@ public class CategoryServiceImpl implements CategoryService {
         return CategoryMapper.toDTO(category);
     }
 
-//    @Override
-//    public List<CategoryDTO> getAll() {
-//        List<Category> categories = categoryRepository.findAll();
-//        return categories.stream()
-//                .map(CategoryMapper::toDTO)
-//                .toList();
-//    }
-
     @Override
-    public PageResponse<CategoryDTO> getActiveNonChildCategories(PaginationRequest pageRequest) {
-        Page<Category> page =categoryRepository.findActiveParentCategories(pageRequest.getKeyword(), pageRequest.toPageable());
+    public PageResponse<CategoryDTO> getActiveCategories(PaginationRequest pageRequest) {
+        Pageable pageable = pageRequest.toPageable();
+        Page<Category> page =categoryRepository.findActiveParentCategories(pageRequest.getKeyword(), pageable);
         return new PageResponse<>(page.map(CategoryMapper::toParentDTO));
     }
-
-//    @Override
-//    public List<CategoryDTO> getActiveNonChildCategories() {
-//        return categoryRepository.findActiveNonChildCategories()
-//                .stream().map(CategoryMapper::toDTO)
-//                .toList();
-//    }
-
-//    @Override
-//    public List<CategoryDTO> getNonChildCategories() {
-//        return categoryRepository.findAllNonChildCategories()
-//                .stream().map(CategoryMapper::toDTO)
-//                .toList();
-//    }
 
     @Override
     public PageResponse<CategoryDTO> getPage(PaginationRequest pageRequest) {

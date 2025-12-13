@@ -35,7 +35,7 @@ public class CategoryMController {
 //    }
     @GetMapping("/page")
     public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getPageNonChildCategories(@Valid PaginationRequest paginationRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getNonChildCategories(paginationRequest)));
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getCategories(paginationRequest)));
     }
 
     @PostMapping("/add")

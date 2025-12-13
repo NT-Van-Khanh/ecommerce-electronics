@@ -30,8 +30,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<ProductDTO>> getProductById(@PathVariable("id") @PositiveOrZero Integer id){
-        ProductDTO product = productService.getById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,product));
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(HttpStatus.OK,productService.getAvailableById(id)));
     }
 
     @GetMapping("/{id}/options")

@@ -1,6 +1,6 @@
 package com.ptithcm.ecommerce_electronics.dto.variant;
 
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestPDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.VariantImageRequestDTO;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.validator.anotation.UniqueField;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -82,5 +82,5 @@ public class ProductVariantUpdateDTO {
     @Pattern(regexp = "^(INACTIVE|ACTIVE|DELETED)$", message = "Status should be INACTIVE, ACTIVE or DELETED")
     private String status;
 
-    private List<ProductImageRequestPDTO> productImages;
+    private List<VariantImageRequestDTO> productImages;
 }

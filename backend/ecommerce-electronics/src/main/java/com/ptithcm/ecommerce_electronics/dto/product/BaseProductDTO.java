@@ -2,6 +2,7 @@ package com.ptithcm.ecommerce_electronics.dto.product;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ptithcm.ecommerce_electronics.dto.brand.BrandDTO;
+import com.ptithcm.ecommerce_electronics.dto.category.CategoryDTO;
 import com.ptithcm.ecommerce_electronics.dto.option.ProductOptionDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import lombok.*;
@@ -13,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+//@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BaseProductDTO {
     private Integer id;
     private String name;
@@ -24,4 +25,5 @@ public class BaseProductDTO {
     private BaseStatus status;
     private BrandDTO brand;
     private List<ProductOptionDTO> options;
+    private List<CategoryDTO> categories;
 }

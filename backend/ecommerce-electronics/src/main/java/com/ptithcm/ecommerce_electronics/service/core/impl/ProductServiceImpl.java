@@ -112,7 +112,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getById(Integer id) {
-        return ProductMapper.toDTO( findById(id));
+        return ProductMapper.toDTO(findById(id));
+    }
+
+    @Override
+    public ProductDTO getAvailableById(Integer id) {
+        Product product = findById(id);
+        if(!product.getStatus().equals(BaseStatus.ACTIVE)) throw new ResourceNotFoundException("This product not available");
+        return ProductMapper.toPublicDTO(product);
     }
 
     @Override
@@ -146,7 +153,7 @@ public class ProductServiceImpl implements ProductService {
                 filterRequest.getBrandId(), filterRequest.getCategoryId(),
                 filterRequest.getMinPrice(), filterRequest.getMaxPrice(),
                 BaseStatus.ACTIVE, pageable);
-        return new PageResponse<>(page.map(ProductMapper::toDTO));
+        return new PageResponse<>(page.map(ProductMapper::toPublicDTO));
     }
 
     @Override

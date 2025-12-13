@@ -1,18 +1,15 @@
 package com.ptithcm.ecommerce_electronics.mapper;
 
 import com.ptithcm.ecommerce_electronics.dto.option.BaseVariantOptionDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ProductImageDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.BaseProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantRequestDTO;
 import com.ptithcm.ecommerce_electronics.dto.variant.ProductVariantVectorDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.enums.InventoryPolicy;
-import com.ptithcm.ecommerce_electronics.model.Product;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
 import com.ptithcm.ecommerce_electronics.model.Supplier;
-import com.ptithcm.ecommerce_electronics.model.VariantOption;
-import org.springframework.ai.document.Document;
 
 import java.util.List;
 

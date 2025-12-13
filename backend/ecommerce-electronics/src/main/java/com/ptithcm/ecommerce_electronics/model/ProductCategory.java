@@ -38,4 +38,15 @@ public class ProductCategory {
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", product=" + product.getId() +
+                ", category=" + category.getId() +
+                ", status=" + status +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

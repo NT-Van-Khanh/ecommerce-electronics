@@ -26,7 +26,7 @@ public class CategoryController {
 
     @GetMapping("/page")
     public ResponseEntity<ApiResponse<PageResponse<CategoryDTO>>> getAllActiveCategories(@Valid @ModelAttribute PaginationRequest pageRequest){
-        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveNonChildCategories(pageRequest)));
+        return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, categoryService.getActiveCategories(pageRequest)));
     }
 
 //    @GetMapping("/page")

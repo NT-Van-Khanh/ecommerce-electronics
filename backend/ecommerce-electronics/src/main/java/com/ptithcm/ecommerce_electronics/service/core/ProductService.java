@@ -14,7 +14,9 @@ import java.util.List;
 
 public interface ProductService extends   BaseService<Integer, ProductCreateDTO, ProductDTO>,
                                           PageableFilterService<ProductFilterRequest, ProductDTO> {
-   Product findById(Integer id);
+    ProductDTO getAvailableById(Integer id);
+
+    Product findById(Integer id);
    List<OptionDTO> getOptionsByProductId(Integer id);
 
    PageResponse<ProductDTO> getDiscountedProducts(PaginationRequest pageRequest);

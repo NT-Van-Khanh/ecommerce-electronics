@@ -9,8 +9,8 @@ import com.ptithcm.ecommerce_electronics.service.base.PageableService;
 
 public interface CategoryService extends BaseService<Integer, CategoryRequestDTO, CategoryDTO>,
         PageableService<CategoryDTO> {
-    PageResponse<CategoryDTO> getNonChildCategories(PaginationRequest pageRequest);
-    PageResponse<CategoryDTO> getActiveNonChildCategories(PaginationRequest paginationRequest);
+    PageResponse<CategoryDTO> getCategories(PaginationRequest pageRequest);
+    PageResponse<CategoryDTO> getActiveCategories(PaginationRequest paginationRequest);
 //    List<CategoryDTO> getActiveNonChildCategories();
 //    List<CategoryDTO> getAllActiveCategories();
 //

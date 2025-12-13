@@ -1,12 +1,11 @@
 package com.ptithcm.ecommerce_electronics.mapper;
 
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestPDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ProductImageDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ImageRequestDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.VariantImageRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.model.ProductImage;
 import com.ptithcm.ecommerce_electronics.model.ProductVariant;
-import org.springframework.security.core.parameters.P;
 
 public class ProductImageMapper {
     public static ProductImageDTO toDTO(ProductImage productImage) {
@@ -20,7 +19,7 @@ public class ProductImageMapper {
                 .build();
     }
 
-    public static ProductImage toEntity(ProductImageRequestDTO request) {
+    public static ProductImage toEntity(ImageRequestDTO request) {
         if(request == null) return null;
         return ProductImage.builder()
                 .name(request.getName())
@@ -30,7 +29,7 @@ public class ProductImageMapper {
                 .productVariant(ProductVariant.builder().id(request.getProductVariantId()).build())
                 .build();
     }
-    public static ProductImage toEntity(ProductImageRequestPDTO request) {
+    public static ProductImage toEntity(VariantImageRequestDTO request) {
         if(request == null) return null;
         return ProductImage.builder()
                 .name(request.getName())

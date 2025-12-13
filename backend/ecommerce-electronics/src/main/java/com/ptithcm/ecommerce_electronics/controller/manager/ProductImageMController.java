@@ -4,8 +4,8 @@ package com.ptithcm.ecommerce_electronics.controller.manager;
 import com.ptithcm.ecommerce_electronics.dto.ApiResponse;
 import com.ptithcm.ecommerce_electronics.dto.PageResponse;
 import com.ptithcm.ecommerce_electronics.dto.PaginationRequest;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageDTO;
-import com.ptithcm.ecommerce_electronics.dto.product.ProductImageRequestDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ProductImageDTO;
+import com.ptithcm.ecommerce_electronics.dto.image.ImageRequestDTO;
 import com.ptithcm.ecommerce_electronics.enums.BaseStatus;
 import com.ptithcm.ecommerce_electronics.service.core.ProductImageService;
 import jakarta.validation.Valid;
@@ -34,12 +34,12 @@ public class ProductImageMController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse<ProductImageDTO>> addProductImage(@RequestBody @Valid ProductImageRequestDTO request){
+    public ResponseEntity<ApiResponse<ProductImageDTO>> addProductImage(@RequestBody @Valid ImageRequestDTO request){
         return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(HttpStatus.CREATED, productImageService.add(request)));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResponse<ProductImageDTO>> updateProductImage(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid ProductImageRequestDTO request){
+    public ResponseEntity<ApiResponse<ProductImageDTO>> updateProductImage(@PathVariable("id") @PositiveOrZero Integer id, @RequestBody @Valid ImageRequestDTO request){
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, productImageService.update(id, request)));
     }
 

@@ -1,18 +1,20 @@
-package com.ptithcm.ecommerce_electronics.dto.product;
+package com.ptithcm.ecommerce_electronics.dto.image;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductImageRequestPDTO {
+//Use VariantImageRequestDTO to add an image when adding a new product variant
+public class VariantImageRequestDTO {
         @NotBlank(message = "Name of image can not be null.")
         @Schema(description = "Name of image", example = "Ảnh sản phẩm")
         private String name;
